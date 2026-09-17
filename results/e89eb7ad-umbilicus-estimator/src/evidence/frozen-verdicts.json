@@ -1,0 +1,22 @@
+{
+ "primary": {
+  "n": 5,
+  "repaired": 4,
+  "zero_outside": true,
+  "beats": 4,
+  "loses": 1,
+  "never_double": true,
+  "repair": true,
+  "beat": "won"
+ },
+ "confirmation": {
+  "n": 10,
+  "repaired": 10,
+  "zero_outside": true,
+  "beats": 9,
+  "loses": 0,
+  "never_double": true,
+  "repair": true,
+  "beat": "won"
+ }
+}

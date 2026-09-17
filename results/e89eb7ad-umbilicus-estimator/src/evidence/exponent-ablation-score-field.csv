@@ -1,0 +1,6 @@
+panel,scroll,z,grid,score_at_control_point,fieldmax_x,fieldmax_y,fieldmax_dist_from_control_mm,fieldmax_over_control,estimate_x,estimate_y,estimate_dist_from_control_mm
+"weighted sum, p = 0.5",PHerc0826,8000,200,172.161506,3074.7,4798.8,5.241,1.0865,3094.6,4781.1,5.01
+"weighted sum, p = 1.0",PHerc0826,8000,200,5.362809,3074.7,4798.8,5.241,1.0792,3083.6,4783.1,5.072
+"weighted sum, p = 1.5",PHerc0826,8000,200,0.197155,2877.6,4355.4,4.208,1.1126,4017.6,5198.1,10.647
+"weighted sum, p = 2.0",PHerc0826,8000,200,0.009128,4010.6,5192.9,10.569,1.2628,4041.6,5202.1,10.815
+"weighted mean, p = 1.0 (as published)",PHerc0826,8000,200,0.582225,3074.7,4798.8,5.241,1.1834,3012.6,-281.9,42.969

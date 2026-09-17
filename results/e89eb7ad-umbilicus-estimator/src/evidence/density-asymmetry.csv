@@ -1,0 +1,6 @@
+scroll,slices,sector_ratio_median,dominant_half_fraction_median,centroid_minus_ref_median_mm,estimate_minus_ref_median_mm,cosine_median,same_half_plane_fraction,no_division_mm_table
+PHerc0125,24,4.16,0.558,1.92,1.85,0.825,0.792,1.68
+PHerc0211,24,3.47,0.607,2.56,1.02,0.776,0.792,1.46
+PHerc0332,24,1.71,0.552,0.81,0.37,0.766,0.833,0.36
+PHerc0826,24,6.38,0.637,2.93,4.25,0.707,0.833,4.42
+PHercParis4,24,3.05,0.605,3.63,1.24,0.75,0.833,1.17

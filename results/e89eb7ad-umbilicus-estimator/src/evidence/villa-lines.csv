@@ -1,0 +1,16 @@
+commit,file,line,expected_token,present,text
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,15,align_and_extract_umbilicus,1,cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store) {
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,22,num_ransac_iterations = 1000,1,const int num_ransac_iterations = 1000;
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,23,num_samples_per_iteration = 10000,1,const int num_samples_per_iteration = 10000;
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,45,,,// 4. Pre-sample points and calculate normals for consistent scoring
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,51,std::random_device,1,static std::mt19937 gen(std::random_device{}());
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,78,,,double current_score = 0.0;
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,88,,,}
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,98,score_candidate,1,auto score_candidate = [&](const cv::Vec2f& candidate) {
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,112,"std::max(100.0f, dist)",1,"float weight = 1.0f / std::max(100.0f, dist);"
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,116,return score/wsum,1,return score/wsum;
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,119,refined_best_score,1,double refined_best_score = score_candidate(best_umbilicus);
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,128,best_umbilicus + cv::Vec2f,1,"cv::Vec2f candidate = best_umbilicus + cv::Vec2f(dx * step_size, dy * step_size);"
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,142,,,}
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,147,},1,}
+23adee047dea06526151d3a152a7d85de8da478b,volume-cartographer/core/src/normalgridtools.cpp,446,std::find,1,"auto it = std::find(all_segments.begin(), all_segments.end(), segment_to_remove);"

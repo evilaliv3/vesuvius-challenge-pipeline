@@ -1,0 +1,21 @@
+quantity,value,note
+scrolls with a hand umbilicus,15,"inputs/fifteen-config.json, one entry per scroll"
+hand umbilici published by the challenge,5,field source = challenge
+hand umbilici clicked by the third party,10,field source = drobkov
+scrolls carrying two independent hand umbilici,0,"the two sets are disjoint, so no scroll has a second hand"
+scrolls with a derived second reference,15,hand against a per slice centroid of the papyrus mask
+smallest distance mm,0.766,PHerc0332
+largest distance mm,10.748,PHerc0268
+median distance mm,3.660,over the scrolls
+first quartile mm,2.681,over the scrolls
+third quartile mm,5.942,over the scrolls
+largest over smallest,14.03,PHerc0268 against PHerc0332
+rank of PHerc1218 ascending,2,of 15 scrolls
+scrolls above the published number,13,"published number 2.205 mm, evidence/reference-uncertainty.csv"
+published number mm,2.205,hand against the published mask centroid of PHerc1218
+derived number on PHerc1218 mm,2.104,"mean of the two directions of the published row, the guard"
+Pearson against the centroid baseline,0.9954,mean_both_directions_mm against centroid_baseline_mm
+median difference against the centroid baseline mm,0.192,over the scrolls
+largest difference against the centroid baseline mm,0.620,PHerc0358
+difference on PHerc1218 mm,0.127,the scroll the published number was measured on
+published number against the centroid column mm,0.055,both are the distance from the hand annotation of PHerc1218 to a mask centroid

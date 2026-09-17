@@ -1,0 +1,84 @@
+line,runs_suite,runs_test_normalgridtools,runs_test_normalgridtools_real,source
+15,2,2,0,cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store) {
+16,2,2,0,auto segments = grid_store.get_all();
+17,2,2,0,if (segments.empty()) {
+18,1,1,0,"return cv::Vec2f(std::numeric_limits<float>::quiet_NaN(), std::numeric_limits<float>::quiet_NaN());"
+22,1,1,0,const int num_ransac_iterations = 1000;
+23,1,1,0,const int num_samples_per_iteration = 10000;
+26,1,1,0,cv::Size grid_size = grid_store.size();
+27,1,1,0,float min_x = 0;
+28,1,1,0,float max_x = grid_size.width;
+29,1,1,0,float min_y = 0;
+30,1,1,0,float max_y = grid_size.height;
+33,1,1,0,"std::vector<std::pair<cv::Point, cv::Point>> all_line_segments;"
+34,3,3,0,for (const auto& path : segments) {
+35,1,1,0,if (path->size() < 2) continue;
+36,0,0,0,for (size_t i = 0; i < path->size() - 1; ++i) {
+37,0,0,0,"all_line_segments.push_back(std::make_pair((*path)[i], (*path)[i+1]));"
+41,1,1,0,if (all_line_segments.empty()) {
+42,1,1,0,"return cv::Vec2f(std::numeric_limits<float>::quiet_NaN(), std::numeric_limits<float>::quiet_NaN());"
+46,0,0,0,std::vector<cv::Point2f> sample_points;
+47,0,0,0,std::vector<cv::Vec2f> sample_normals;
+48,0,0,0,sample_points.reserve(num_samples_per_iteration);
+49,0,0,0,sample_normals.reserve(num_samples_per_iteration);
+51,0,0,0,static std::mt19937 gen(std::random_device{}());
+52,0,0,0,"std::uniform_int_distribution<> segment_dist(0, all_line_segments.size() - 1);"
+54,0,0,0,for (int j = 0; j < num_samples_per_iteration; ++j) {
+55,0,0,0,const auto& line_segment = all_line_segments[segment_dist(gen)];
+56,0,0,0,const auto& p1 = line_segment.first;
+57,0,0,0,const auto& p2 = line_segment.second;
+59,0,0,0,"sample_points.emplace_back((float)(p1.x + p2.x) / 2.0f, (float)(p1.y + p2.y) / 2.0f);"
+61,0,0,0,"cv::Vec2f tangent((float)(p2.x - p1.x), (float)(p2.y - p1.y));"
+62,0,0,0,"cv::normalize(tangent, tangent);"
+63,0,0,0,"sample_normals.emplace_back(-tangent[1], tangent[0]); // Perpendicular"
+67,0,0,0,"cv::Vec2f best_umbilicus(0, 0);"
+68,0,0,0,double best_score = -1.0;
+70,0,0,0,"std::uniform_real_distribution<float> x_dist(min_x, max_x);"
+71,0,0,0,"std::uniform_real_distribution<float> y_dist(min_y, max_y);"
+73,0,0,0,for (int i = 0; i < num_ransac_iterations; ++i) {
+75,0,0,0,"cv::Vec2f candidate_umbilicus(x_dist(gen), y_dist(gen));"
+78,0,0,0,double current_score = 0.0;
+79,0,0,0,for (size_t j = 0; j < sample_points.size(); ++j) {
+80,0,0,0,const auto& point = sample_points[j];
+81,0,0,0,const auto& normal = sample_normals[j];
+83,0,0,0,cv::Vec2f umbilicus_to_segment = cv::Vec2f(point) - candidate_umbilicus;
+84,0,0,0,"cv::normalize(umbilicus_to_segment, umbilicus_to_segment);"
+86,0,0,0,double cos_angle = umbilicus_to_segment.dot(normal);
+87,0,0,0,current_score += cos_angle * cos_angle;
+91,0,0,0,if (current_score > best_score) {
+92,0,0,0,best_score = current_score;
+93,0,0,0,best_umbilicus = candidate_umbilicus;
+98,0,0,0,auto score_candidate = [&](const cv::Vec2f& candidate) {
+99,0,0,0,double score = 0.0;
+100,0,0,0,double wsum = 0.0;
+101,0,0,0,for (size_t j = 0; j < sample_points.size(); ++j) {
+102,0,0,0,const auto& point = sample_points[j];
+103,0,0,0,const auto& normal = sample_normals[j];
+105,0,0,0,cv::Vec2f umbilicus_to_segment = cv::Vec2f(point) - candidate;
+106,0,0,0,float dist = cv::norm(umbilicus_to_segment);
+107,0,0,0,if (dist < 1e-6) continue;
+109,0,0,0,umbilicus_to_segment /= dist; // Manual normalization
+111,0,0,0,double cos_angle = umbilicus_to_segment.dot(normal);
+112,0,0,0,"float weight = 1.0f / std::max(100.0f, dist);"
+113,0,0,0,score += (cos_angle * cos_angle) * weight;
+114,0,0,0,wsum += weight;
+116,0,0,0,return score/wsum;
+117,0,0,0,};
+119,0,0,0,double refined_best_score = score_candidate(best_umbilicus);
+120,0,0,0,float step_size = 1024.0f;
+122,0,0,0,while (step_size >= 1.0f) {
+123,0,0,0,bool moved = false;
+124,0,0,0,for (int dx = -1; dx <= 1; ++dx) {
+125,0,0,0,for (int dy = -1; dy <= 1; ++dy) {
+126,0,0,0,if (dx == 0 && dy == 0) continue;
+128,0,0,0,"cv::Vec2f candidate = best_umbilicus + cv::Vec2f(dx * step_size, dy * step_size);"
+129,0,0,0,double candidate_score = score_candidate(candidate);
+131,0,0,0,if (candidate_score > refined_best_score) {
+132,0,0,0,refined_best_score = candidate_score;
+133,0,0,0,best_umbilicus = candidate;
+134,0,0,0,moved = true;
+139,0,0,0,if (!moved) {
+140,0,0,0,step_size /= 2.0f;
+144,0,0,0,"std::cout << ""Refined umbilicus estimate: "" << best_umbilicus << "" with score "" << refined_best_score << std::endl;"
+146,0,0,0,return best_umbilicus;
+147,2,2,0,}

@@ -1,0 +1,9 @@
+# Installed by name, not by version, so pip gives you today's releases.
+# The committed results were produced on Python 3.14.4 with numpy 2.5.2, scipy 1.18.1,
+# numcodecs 0.16.5 and matplotlib 3.11.1, and reproduce byte for byte on numpy 2.5.3,
+# scipy 1.18.1, numcodecs 0.17.0 and matplotlib 3.11.2, which is what a clean install
+# resolved to on 2026-09-18. Pin these lines if you would rather not rely on that.
+numpy
+scipy
+numcodecs
+matplotlib

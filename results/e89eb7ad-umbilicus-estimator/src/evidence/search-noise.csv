@@ -1,0 +1,9 @@
+scroll,slice_z,variant,repeats,spread_median_mm,spread_p90_mm,spread_worst_mm,mm_per_grid_unit,grid_scale,file
+PHerc0125,2140,no-division,20,0.57,4.19,4.52,0.00936,1,real/evidence/no-division-d-0125-2140.txt
+PHerc0125,6891,no-division,20,1.31,2.47,4.03,0.00936,1,real/evidence/no-division-d-0125-6891.txt
+PHerc0332,4049,no-division,20,0.05,0.08,0.1,0.0096,4,real/evidence/no-division-d-0332-4049.txt
+PHerc0826,8000,no-division,20,0.82,3.49,3.75,0.00936,1,real/evidence/no-division-d-0826-8000.txt
+PHerc0125,2140,as-is,20,0.38,0.54,7.62,0.00936,1,real/evidence/as-is-d-0125-2140.txt
+PHerc0125,6891,as-is,20,3907.97,39456.75,39474.77,0.00936,1,real/evidence/as-is-d-0125-6891.txt
+PHerc0332,4049,as-is,20,0.03,0.07,0.1,0.0096,4,real/evidence/as-is-d-0332-4049.txt
+PHerc0826,8000,as-is,20,0.74,2.35,2.66,0.00936,1,real/evidence/as-is-d-0826-8000.txt

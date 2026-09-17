@@ -1,0 +1,33 @@
+scroll,rule,input,stochastic,seeds,heights,level,control_points,median_mm,iqr_mm,p90_mm,worst_mm,estimates,outside,capped,source
+PHerc0125,argmax,mask,0,0,46,3,75,3.02,,7.33,9.75,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0125,centroid,mask,0,0,46,3,75,2.44,,6.07,7.09,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0125,plateau_centroid,mask,0,0,46,3,75,2.88,,5.98,8.75,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0125,plateau_nearest_centroid,mask,0,0,46,3,75,2.17,,5.78,6.86,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0125,argmax + hampel,mask,0,0,35,3,65,2.12,,4.4,7.74,35,0,0,umbilicus-bench run of 2026-09-18
+PHerc0125,fake axis (control),none,0,0,46,3,75,1.53,,8.66,14.17,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0125,villa as published,normal grid,1,20,46,3,75,123.34,5.51,1557.6,8006.09,920,859,141,umbilicus-bench run of 2026-09-18
+PHerc0125,villa no division,normal grid,1,20,46,3,75,1.85,0.28,3.64,5.29,920,0,0,umbilicus-bench run of 2026-09-18
+PHerc0211,argmax,mask,0,0,46,3,84,3.55,,9.52,14.09,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0211,centroid,mask,0,0,46,3,84,2.74,,9.51,11.74,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0211,plateau_centroid,mask,0,0,46,3,84,3.0,,9.17,12.12,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0211,plateau_nearest_centroid,mask,0,0,46,3,84,2.71,,9.16,11.73,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0211,argmax + hampel,mask,0,0,35,3,77,3.24,,9.84,11.8,35,0,0,umbilicus-bench run of 2026-09-18
+PHerc0211,fake axis (control),none,0,0,46,3,84,8.07,,15.69,17.15,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0211,villa as published,normal grid,1,20,46,3,84,76.41,3.03,495.55,3366.31,920,540,40,umbilicus-bench run of 2026-09-18
+PHerc0211,villa no division,normal grid,1,20,46,3,84,1.1,0.15,5.71,14.88,920,0,0,umbilicus-bench run of 2026-09-18
+PHerc0826,argmax,mask,0,0,46,3,45,3.89,,8.55,12.28,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0826,centroid,mask,0,0,46,3,45,3.12,,7.15,10.17,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0826,plateau_centroid,mask,0,0,46,3,45,4.2,,7.88,11.61,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0826,plateau_nearest_centroid,mask,0,0,46,3,45,2.47,,7.17,9.98,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0826,argmax + hampel,mask,0,0,35,3,45,3.89,,6.46,7.58,35,0,0,umbilicus-bench run of 2026-09-18
+PHerc0826,fake axis (control),none,0,0,46,3,45,7.44,,12.55,16.07,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0826,villa as published,normal grid,1,20,46,3,45,48.5,2.57,107.25,767.69,920,568,21,umbilicus-bench run of 2026-09-18
+PHerc0826,villa no division,normal grid,1,20,46,3,45,4.16,0.68,8.31,11.55,920,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,argmax,mask,0,0,46,3,154,1.11,,1.95,3.06,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,centroid,mask,0,0,46,3,154,0.7,,1.79,2.79,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,plateau_centroid,mask,0,0,46,3,154,1.0,,1.85,2.56,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,plateau_nearest_centroid,mask,0,0,46,3,154,0.71,,1.81,2.8,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,argmax + hampel,mask,0,0,40,3,151,1.05,,1.65,2.36,40,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,fake axis (control),none,0,0,46,3,154,1.63,,2.13,2.66,46,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,villa as published,normal grid,1,20,46,3,154,0.35,0.02,0.74,2.41,920,0,0,umbilicus-bench run of 2026-09-18
+PHerc0332,villa no division,normal grid,1,20,46,3,154,0.35,0.02,0.79,2.27,920,0,0,umbilicus-bench run of 2026-09-18

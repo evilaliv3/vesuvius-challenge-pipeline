@@ -1,0 +1,17 @@
+# The four packages the tools in this folder import, at the versions the article was measured
+# on. The list is the imports of tools/, inputs/, umbilicus-bench/ and
+# evidence/far-field-seedpoint-probe/ and nothing else: no development tool, and nothing that
+# only the working tree needs. Everything else those tools import is in the Python standard
+# library. The three modules bench, data and estimators belong to the umbilicus bench, which is
+# archived in this folder at umbilicus-bench/ and imported from there, not installed; numcodecs
+# is in this list because that is what its data.py needs to decode the published chunks, and
+# before the bench was archived here it was the bench's own requirement rather than ours.
+#
+#   python3.14 -m venv .venv && .venv/bin/pip install -r requirements.txt
+#
+# Python 3.14.4 is the interpreter the measurements ran on. matplotlib brings its own
+# dependencies, which are not pinned here because no number depends on them.
+numpy==2.5.2
+scipy==1.18.1
+numcodecs==0.16.5
+matplotlib==3.11.1

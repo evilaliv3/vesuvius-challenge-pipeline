@@ -1,0 +1,44 @@
+{
+ "primary": {
+  "n": 5,
+  "repaired": 4,
+  "zero_outside": true,
+  "beats": 4,
+  "beats_scrolls": [
+   "PHerc0125",
+   "PHerc0211",
+   "PHerc0332",
+   "PHercParis4"
+  ],
+  "loses": 1,
+  "never_double": true,
+  "repair": "won",
+  "beat": "won",
+  "margins_with_interval_including_zero": []
+ },
+ "confirmation": {
+  "n": 10,
+  "repaired": 10,
+  "zero_outside": true,
+  "beats": 9,
+  "beats_scrolls": [
+   "PHerc0191",
+   "PHerc0257",
+   "PHerc0268",
+   "PHerc0358",
+   "PHerc0800",
+   "PHerc0813",
+   "PHerc1203",
+   "PHerc1447",
+   "PHerc1545"
+  ],
+  "loses": 0,
+  "never_double": true,
+  "repair": "won",
+  "beat": "won",
+  "margins_with_interval_including_zero": [
+   "PHerc0813",
+   "PHerc1545"
+  ]
+ }
+}

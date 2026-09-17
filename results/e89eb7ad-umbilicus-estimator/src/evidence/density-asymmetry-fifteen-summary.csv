@@ -1,0 +1,10 @@
+subset,n,against,spearman_rho,p_value
+fifteen,15,estimator distance from reference,0.333,0.2256
+fifteen,15,margin over centroid,-0.354,0.1956
+fifteen,15,centroid distance from reference,-0.088,0.7563
+primary,5,estimator distance from reference,1.0,0.0
+primary,5,margin over centroid,-0.4,0.5046
+primary,5,centroid distance from reference,0.6,0.2848
+confirmation,10,estimator distance from reference,-0.11,0.7628
+confirmation,10,margin over centroid,-0.371,0.2915
+confirmation,10,centroid distance from reference,-0.365,0.3001

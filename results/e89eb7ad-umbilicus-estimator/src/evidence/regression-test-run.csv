@@ -1,0 +1,6 @@
+row,case,build_seconds,cases_failed,cases_passed,compiler,distance_mm,estimate_x,estimate_y,estimates_printed,flags,identical,inside,margin_mm,opencv,patch_commit,qt,result,run_seconds,same_tree,second_run_identical,segments,sources_commit,tolerance_mm,tree
+case,seed-repeatable,,,,,,,,,,yes,,,,,,PASS,,,,,,,
+case,concentric-circles,,,,,0.231,3993.47,3976.25,,,,yes,0.769,,,,PASS,,,,40726,,1.0,
+case,half-circle,,,,,2.133,3931.47,4217.25,,,,yes,2.867,,,,PASS,,,,20333,,5.0,
+case,thinned-1:10,,,,,2.018,4206.47,3938.25,,,,yes,2.482,,,,PASS,,,,22354,,4.5,
+run,all,5.90,0,15,g++ 15.2.0,,,,5,"-std=c++23 -O2, not the project's CMake flags",,,,4.10.0,7a4129a1d,not needed by this target,,5.78,yes,yes,,7a4129a1d,,96a769b3

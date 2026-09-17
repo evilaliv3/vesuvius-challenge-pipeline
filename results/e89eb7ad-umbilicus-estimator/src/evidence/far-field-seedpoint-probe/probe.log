@@ -1,0 +1,5 @@
+slices 360   elapsed 137s
+  at the seed point: fires on 101, of which 13 on a run that stayed inside; misses 47 of the 135 runs that left
+  sensitivity 0.65   specificity 0.94
+  the outcome is the single k = 0 run of each slice, so the runs that left number 135, against the 134 slices Table I counts by majority of the 20 seeds
+  POST HOC: no criterion was fixed before this ran, and no published number uses it

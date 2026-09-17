@@ -1,0 +1,65 @@
+{
+ "source": "evidence/fifteen-k20.csv, median over 20 seeds per slice",
+ "n_scrolls": 15,
+ "k_methods": 4,
+ "rules": [
+  "as-is",
+  "no-division",
+  "centroid",
+  "fake_axis"
+ ],
+ "friedman": {
+  "chi2": 23.08,
+  "p": 3.886178774890479e-05,
+  "mean_ranks": {
+   "as-is": 3.333,
+   "no-division": 1.267,
+   "centroid": 2.333,
+   "fake_axis": 3.067
+  }
+ },
+ "wilcoxon_holm": {
+  "as-is vs no-division": {
+   "p_raw": 0.0001220703125,
+   "p_holm": 0.00073
+  },
+  "as-is vs centroid": {
+   "p_raw": 0.00836181640625,
+   "p_holm": 0.01672
+  },
+  "as-is vs fake_axis": {
+   "p_raw": 0.10699462890625,
+   "p_holm": 0.10699
+  },
+  "no-division vs centroid": {
+   "p_raw": 0.0008544921875,
+   "p_holm": 0.00342
+  },
+  "no-division vs fake_axis": {
+   "p_raw": 0.0001220703125,
+   "p_holm": 0.00073
+  },
+  "centroid vs fake_axis": {
+   "p_raw": 0.00262451171875,
+   "p_holm": 0.00787
+  }
+ },
+ "nemenyi": {
+  "critical_difference": 1.211,
+  "gap_fixed_vs_centroid": 1.067,
+  "separates": false
+ },
+ "tost": {
+  "bound_mm": 0.3,
+  "p": 0.9951,
+  "equivalent": false,
+  "n": 15
+ },
+ "non_discriminating": [
+  "PHerc0125"
+ ],
+ "worst": {
+  "primary": "PHerc0826",
+  "confirmation": "PHerc1218"
+ }
+}

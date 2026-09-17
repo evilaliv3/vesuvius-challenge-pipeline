@@ -1,0 +1,42 @@
+# binary ./driver_pr, dump d-0125-6891.bin, 20 repeats, 2026-09-15T20:05:12Z
+grid 8387x8387, 5541 paths, 41905 points, 36364 segments
+Refined umbilicus estimate: [4588.91, 4056.44] with score 4.65143
+run 0: umbilicus (4588.9, 4056.4)
+Refined umbilicus estimate: [4470.93, 4357.76] with score 4.67387
+run 1: umbilicus (4470.9, 4357.8)
+Refined umbilicus estimate: [4536.51, 4200.29] with score 4.55871
+run 2: umbilicus (4536.5, 4200.3)
+Refined umbilicus estimate: [4282.51, 4162.83] with score 4.53423
+run 3: umbilicus (4282.5, 4162.8)
+Refined umbilicus estimate: [4638.8, 4115.24] with score 4.54442
+run 4: umbilicus (4638.8, 4115.2)
+Refined umbilicus estimate: [4538.23, 4229.21] with score 4.70957
+run 5: umbilicus (4538.2, 4229.2)
+Refined umbilicus estimate: [4469.18, 4183.98] with score 4.63607
+run 6: umbilicus (4469.2, 4184.0)
+Refined umbilicus estimate: [4204.34, 4188.48] with score 4.56554
+run 7: umbilicus (4204.3, 4188.5)
+Refined umbilicus estimate: [4457.24, 4003.5] with score 4.65457
+run 8: umbilicus (4457.2, 4003.5)
+Refined umbilicus estimate: [4674.81, 4278.78] with score 4.70561
+run 9: umbilicus (4674.8, 4278.8)
+Refined umbilicus estimate: [4119.86, 4119.16] with score 4.57844
+run 10: umbilicus (4119.9, 4119.2)
+Refined umbilicus estimate: [4664.03, 4021.49] with score 4.68839
+run 11: umbilicus (4664.0, 4021.5)
+Refined umbilicus estimate: [4609.91, 4093.47] with score 4.50482
+run 12: umbilicus (4609.9, 4093.5)
+Refined umbilicus estimate: [4561.01, 4066.06] with score 4.57362
+run 13: umbilicus (4561.0, 4066.1)
+Refined umbilicus estimate: [4554.21, 4262.52] with score 4.64569
+run 14: umbilicus (4554.2, 4262.5)
+Refined umbilicus estimate: [4779.23, 4123.09] with score 4.59827
+run 15: umbilicus (4779.2, 4123.1)
+Refined umbilicus estimate: [4641.71, 4213.08] with score 4.63201
+run 16: umbilicus (4641.7, 4213.1)
+Refined umbilicus estimate: [4638.58, 4221.37] with score 4.63321
+run 17: umbilicus (4638.6, 4221.4)
+Refined umbilicus estimate: [4400.03, 4222.56] with score 4.58559
+run 18: umbilicus (4400.0, 4222.6)
+Refined umbilicus estimate: [4538.61, 4006.45] with score 4.51412
+run 19: umbilicus (4538.6, 4006.5)

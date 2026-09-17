@@ -1,0 +1,5 @@
+scroll,slice_z,variant,control_x,control_y,stop_x,stop_y,stop_mm,score_at_control
+PHerc0125,6891,as-is,4320.5,4344.7,242922.7,-2765740.1,26029.56,0.5173
+PHerc0125,6891,no-division,4320.5,4344.7,4533.7,4191.9,2.46,4.5282
+PHerc0826,8000,as-is,3323.4,4297.3,3012.6,-281.9,42.97,0.5822
+PHerc0826,8000,no-division,3323.4,4297.3,3083.6,4783.1,5.07,5.3628

@@ -1,0 +1,323 @@
+From 7a4129a1dd21d867dba4f276d21c2fa27cf86287 Mon Sep 17 00:00:00 2001
+From: Giovanni Pellerano <giovanni.pellerano@evilaliv3.org>
+Date: Thu, 17 Sep 2026 14:49:37 +0000
+Subject: [PATCH] normalgridtools: score the umbilicus with a weighted sum, not
+ a mean
+
+The refinement score in align_and_extract_umbilicus divides a weighted sum of
+squared cosines by the sum of the weights. Without that division the score is
+a weighted sum: every weight tends to 1/distance as the candidate moves away,
+so the sum tends to zero and has a maximum at finite distance by
+construction. With the division it is a weighted mean, and both parts vanish
+together, so the limit is the plain mean of cos^2 between each sampled normal
+and the fixed direction from the candidate to the section. That limit is the
+quadratic form of the normals' covariance, and its largest value is the
+largest eigenvalue of that covariance. It is 1/2 on a complete circle, where
+the normals cover the plane, and rises towards 1 where the normals are
+coherent, which is what a partial prediction gives. When it exceeds the score
+at the true centre the hill climb has no interior maximum to walk towards and
+leaves the volume.
+
+On slice 8000 of PHerc0826 that eigenvalue is 0.647 against a mean of 0.582
+at the published control point, so the far field is 1.11 times the centre. On
+all 360 slices of the fifteen scrolls with a manual reference, the condition
+predicts every slice whose published estimate leaves the grid: 134 of 134
+with the condition true and 0 of 168 with it false, sensitivity 1.00,
+specificity 0.74, Fisher exact p 1.8e-52. It is necessary and not sufficient,
+since on 58 slices the climb does not reach the border from its random start.
+
+Three changes, on this evidence.
+
+The line: the refinement returns the weighted sum. Measured on the published
+normal grids, 24 slices per scroll, 20 seeds per slice, changing this and
+nothing else. Median distance from the reference in millimetres, centroid of
+the filled mask in brackets as the baseline:
+
+  PHerc0125      133.02 ->  1.59 mm   (centroid 2.48)
+  PHerc0211       63.81 ->  1.47 mm   (centroid 2.83)
+  PHerc0332        0.35 ->  0.36 mm   (centroid 0.77)
+  PHerc0826       53.21 ->  4.27 mm   (centroid 3.51)
+  PHercParis4      4.25 ->  1.13 mm   (centroid 3.39)
+
+It is closer to the reference than the centroid on 4 of these 5, which are
+the umbilici published by the challenge. Ten further scrolls carry a
+hand-made umbilicus published by a third party, a weaker reference kept in a
+separate block that is never pooled with the first; there it is closer on 9
+of 10, and that block is the out of sample test, because four of the five
+above had already been measured when the criteria were fixed in writing.
+
+The robustness is the part that does not depend on how good an annotation
+is. Across 24 scrolls at 24 slices each, the estimates that land inside the
+volume go from 351 to 576 out of 576, every slice of every scroll, and no
+scroll is left 10 mm or more from its reference against seven as published.
+That distance is descriptive and was chosen after the fact; the worst row of
+the weighted sum is 7.11 mm.
+
+The cost is measured and is not zero. On synthetic sections with a centre
+known by construction the published version is exact and the weighted sum
+leans towards the denser side of the section by 0.4 to 2.4 mm, because a sum
+also rewards a candidate with many segments near it. The two objectives fail
+on different properties: the mean fails when the normals are coherent, the
+sum when the density is asymmetric, and a real prediction is usually both.
+The one published reference where the centroid wins, PHerc0826, is the most
+one-sided of the fifteen.
+
+Rewriting the search as well (double precision, bounded walk, a step that
+halves when none of the eight probes improves, one objective instead of two)
+does not repair the mean and barely improves the sum, so the search is left
+exactly as it is.
+
+The seed: the generator argument std::optional<std::uint32_t> seed, default
+nullopt, which keeps the static random_device generator as before. Two runs
+of the same binary on one slice can differ by up to 4.52 mm, so without a
+seed a result cannot be repeated.
+
+The test: core/test/test_normalgridtools.cpp builds concentric circles, a
+half circle and circles thinned 1:10 on one side as GridStore sections and
+asserts the estimate within 1.0, 5.0 and 4.5 mm of the known centre and
+inside the grid, tolerances at 1.5 times the p90 of the bias measured on
+those sections. It cannot tell the sum from the mean, since both are accurate
+there; what it holds is the bias bounded and the walk inside the grid. Built
+and run with g++ 15.2 and OpenCV core and imgproc 4.10, which is all the
+target needs: 15 of 15 cases pass, the new ones at 0.23 mm on the concentric
+circles, 2.13 mm on the half circle, 2.02 mm on the thinned circles, and bit
+identical on the repeated seed.
+
+These are distances from hand annotations, not errors: two independent
+annotations of one scroll lie 2.2 mm apart, and 8 of the 13 margins won are
+below that.
+---
+ .../include/vc/core/util/normalgridtools.hpp  |   8 +-
+ .../core/src/normalgridtools.cpp              |  29 ++++-
+ .../core/test/test_normalgridtools.cpp        | 106 +++++++++++++++++-
+ 3 files changed, 136 insertions(+), 7 deletions(-)
+
+diff --git a/volume-cartographer/core/include/vc/core/util/normalgridtools.hpp b/volume-cartographer/core/include/vc/core/util/normalgridtools.hpp
+index 6623f1317..acbaec840 100644
+--- a/volume-cartographer/core/include/vc/core/util/normalgridtools.hpp
++++ b/volume-cartographer/core/include/vc/core/util/normalgridtools.hpp
+@@ -3,6 +3,8 @@
+ #include <vector>
+ #include <opencv2/core.hpp>
+ #include <random>
++#include <optional>
++#include <cstdint>
+ #include <memory>
+ 
+ namespace vc {
+@@ -19,9 +21,13 @@ class GridStore;
+  * to point outwards from this umbilicus.
+  *
+  * @param grid_store The GridStore containing the normal grid segments.
++ * @param seed Seed for the generator that draws the sampled segments and the candidate
++ *             points. With no seed the generator is seeded once from the hardware, as before,
++ *             so two calls give different answers; with a seed a run can be repeated exactly.
+  * @return A cv::Vec2f representing the estimated umbilicus point in the 2D grid space.
+  */
+-cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store);
++cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store,
++                                      std::optional<std::uint32_t> seed = std::nullopt);
+ 
+ void align_and_filter_segments(const GridStore& grid_store, GridStore& result, const cv::Vec2f& center_point = cv::Vec2f(std::numeric_limits<float>::quiet_NaN(), std::numeric_limits<float>::quiet_NaN()));
+ 
+diff --git a/volume-cartographer/core/src/normalgridtools.cpp b/volume-cartographer/core/src/normalgridtools.cpp
+index 77333a157..389856265 100644
+--- a/volume-cartographer/core/src/normalgridtools.cpp
++++ b/volume-cartographer/core/src/normalgridtools.cpp
+@@ -1,5 +1,7 @@
+ #include "vc/core/util/GridStore.hpp"
+ #include <random>
++#include <optional>
++#include <cstdint>
+ #include <iostream>
+ #include <opencv2/imgproc.hpp>
+ #include <opencv2/imgcodecs.hpp>
+@@ -12,7 +14,7 @@ long total_candidates_before_dedup = 0;
+ long total_candidates_after_dedup = 0;
+ long nearest_neighbors_calls = 0;
+ 
+-cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store) {
++cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store, std::optional<std::uint32_t> seed) {
+     auto segments = grid_store.get_all();
+     if (segments.empty()) {
+         return cv::Vec2f(std::numeric_limits<float>::quiet_NaN(), std::numeric_limits<float>::quiet_NaN());
+@@ -48,7 +50,13 @@ cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store) {
+     sample_points.reserve(num_samples_per_iteration);
+     sample_normals.reserve(num_samples_per_iteration);
+ 
+-    static std::mt19937 gen(std::random_device{}());
++    // The generator. With no seed it is the one static generator seeded once from the hardware,
++    // as published, so two calls in one process draw different samples. With a seed it is a
++    // fresh generator seeded with that value, so that a run can be repeated exactly.
++    static std::mt19937 shared_gen(std::random_device{}());
++    std::mt19937 seeded_gen;
++    if (seed) seeded_gen.seed(*seed);
++    std::mt19937& gen = seed ? seeded_gen : shared_gen;
+     std::uniform_int_distribution<> segment_dist(0, all_line_segments.size() - 1);
+ 
+     for (int j = 0; j < num_samples_per_iteration; ++j) {
+@@ -97,7 +105,6 @@ cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store) {
+     // 5. Refine the best estimate using a hill-climbing direct search.
+     auto score_candidate = [&](const cv::Vec2f& candidate) {
+         double score = 0.0;
+-        double wsum = 0.0;
+         for (size_t j = 0; j < sample_points.size(); ++j) {
+             const auto& point = sample_points[j];
+             const auto& normal = sample_normals[j];
+@@ -111,9 +118,21 @@ cv::Vec2f align_and_extract_umbilicus(const GridStore& grid_store) {
+             double cos_angle = umbilicus_to_segment.dot(normal);
+             float weight = 1.0f / std::max(100.0f, dist);
+             score += (cos_angle * cos_angle) * weight;
+-            wsum += weight;
+         }
+-        return score/wsum;
++        // Weighted sum, not weighted mean. The sum weights the alignment of each normal by the
++        // proximity of its segment, so it favours candidates near many segments as well as
++        // candidates the normals point at; it vanishes far from the section and so has a maximum
++        // at finite distance, which the mean does not on partial predictions. That maximum is a
++        // property of the score and not a guarantee about the search below it: nothing bounds the
++        // number of steps the climb takes or keeps it in the grid, and that it settled inside the
++        // grid on 576 of 576 measured slices is observed and not enforced. On synthetic
++        // sections with a known centre the mean is exact and the sum is biased towards the denser
++        // side by 0.4 to 2.4 mm (evidence/synthetic-density.csv of the validation paper). On
++        // fifteen real scrolls with a manual reference the sum's median error is 0.4 to 7.1 mm
++        // against 0.4 to 133 mm for the mean, with no failure above 10 mm against seven scrolls,
++        // and the failure persists with the walk clipped to the grid: it is the objective and
++        // not the search.
++        return score;
+     };
+ 
+     double refined_best_score = score_candidate(best_umbilicus);
+diff --git a/volume-cartographer/core/test/test_normalgridtools.cpp b/volume-cartographer/core/test/test_normalgridtools.cpp
+index 0306b3d5f..03f2c2db0 100644
+--- a/volume-cartographer/core/test/test_normalgridtools.cpp
++++ b/volume-cartographer/core/test/test_normalgridtools.cpp
+@@ -3,7 +3,8 @@
+ // Focuses on cheap paths: SegmentInfo construction, SegmentGrid CRUD,
+ // nearest_neighbors, get_random_segment, and the empty-input early returns
+ // of align_and_extract_umbilicus / visualize_segment_directions. The full
+-// RANSAC happy path is too slow / non-deterministic to assert in a unit test.
++// estimate is exercised at the end on synthetic sections whose centre is
++// known by construction, with the generator seed fixed so that it repeats.
+ 
+ #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+ #include <doctest/doctest.h>
+@@ -13,8 +14,12 @@
+ 
+ #include <opencv2/core.hpp>
+ 
++#include <algorithm>
+ #include <cmath>
++#include <cstdint>
+ #include <memory>
++#include <random>
++#include <vector>
+ 
+ using namespace vc::core::util;
+ 
+@@ -125,3 +130,102 @@ TEST_CASE("visualize_segment_directions: empty GridStore yields image")
+     }
+     CHECK(true);
+ }
++
++// ---------------------------------------------------------------------------------------------
++// The estimate on synthetic sections with a centre known by construction.
++//
++// The sections are the ones the density table of the validation paper is built on: a square of
++// 8000 by 8000 grid units, concentric circles of radius 300 to 3500 in steps of 80, consecutive
++// points about 12 units apart, centre (4000, 4000). One grid unit is one voxel at 9.362 um. A
++// fraction below 1 keeps that fraction of every circle (0.5 is a half circle, open on one side);
++// a thinning ratio above 1 keeps one segment in that many of those with x below the centre and
++// every segment above it, so the dense side is +x.
++//
++// What these tests guard, and what they do not. On these sections the published objective, the
++// weighted mean, is exact (0.4 units), and the weighted sum used since the correction is biased
++// towards the side that holds more segments: 46 units (0.43 mm) on the uniform circle, 259 units
++// (2.42 mm) on the half circle and 244 units (2.29 mm) at a 1:10 thinning, medians over 20 seeds
++// with p90 of 65, 341 and 289 units. So a synthetic section cannot tell the sum from the mean;
++// what it can do is bound the sum's known bias so that it cannot grow unnoticed, and check that
++// the walk settles inside the grid. The tolerances are 1.5 times those p90 values, rounded up,
++// so that no seed fails them by statistics alone. The defect the correction repairs shows only on
++// real predictions, where the mean has no interior maximum and the walk leaves the volume.
++
++namespace {
++
++constexpr double kPi = 3.14159265358979323846;
++constexpr double kUnitMm = 0.009362;   // one grid unit, in millimetres
++constexpr int kSide = 8000;
++constexpr double kCentreX = 4000.0, kCentreY = 4000.0;
++
++void addSyntheticSection(GridStore& gs, double frac, int thin_ratio, std::uint32_t thin_seed)
++{
++    std::mt19937 rng(thin_seed);
++    std::uniform_int_distribution<int> keep(1, std::max(1, thin_ratio));
++    for (double r = 300.0; r <= 3500.0; r += 80.0) {
++        const int n = std::max(8, (int)(2.0 * kPi * r / 12.0));
++        const int m = std::max(3, (int)(n * frac));
++        std::vector<cv::Point> pts;
++        pts.reserve(m);
++        for (int i = 0; i < m; ++i) {
++            // a full circle stops one step short of 2 pi, a partial one reaches its end point
++            const double th = frac >= 1.0 ? 2.0 * kPi * i / m : 2.0 * kPi * frac * i / (m - 1);
++            pts.emplace_back(cvRound(kCentreX + r * std::cos(th)), cvRound(kCentreY + r * std::sin(th)));
++        }
++        for (int i = 0; i + 1 < m; ++i) {
++            const double mid_x = 0.5 * (pts[i].x + pts[i + 1].x);
++            if (thin_ratio > 1 && mid_x < kCentreX && keep(rng) != 1) continue;
++            gs.add({pts[i], pts[i + 1]});
++        }
++    }
++}
++
++double errorMm(const cv::Vec2f& u)
++{
++    return std::hypot(u[0] - kCentreX, u[1] - kCentreY) * kUnitMm;
++}
++
++bool insideGrid(const cv::Vec2f& u)
++{
++    return u[0] >= 0.0f && u[0] <= kSide && u[1] >= 0.0f && u[1] <= kSide;
++}
++
++} // namespace
++
++TEST_CASE("align_and_extract_umbilicus: a seed makes the estimate repeatable")
++{
++    GridStore gs(cv::Rect(0, 0, kSide, kSide), 64);
++    addSyntheticSection(gs, 1.0, 1, 0);
++    auto a = align_and_extract_umbilicus(gs, 7u);
++    auto b = align_and_extract_umbilicus(gs, 7u);
++    CHECK(a[0] == b[0]);
++    CHECK(a[1] == b[1]);
++}
++
++TEST_CASE("align_and_extract_umbilicus: concentric circles, within 1.0 mm of the known centre")
++{
++    GridStore gs(cv::Rect(0, 0, kSide, kSide), 64);
++    addSyntheticSection(gs, 1.0, 1, 0);
++    auto u = align_and_extract_umbilicus(gs, 1u);
++    REQUIRE(insideGrid(u));
++    CHECK(errorMm(u) < 1.0);   // 20 seed median 0.43 mm, p90 0.61 mm
++}
++
++TEST_CASE("align_and_extract_umbilicus: half circle, the bias towards the open side stays under 5 mm")
++{
++    GridStore gs(cv::Rect(0, 0, kSide, kSide), 64);
++    addSyntheticSection(gs, 0.5, 1, 0);
++    auto u = align_and_extract_umbilicus(gs, 1u);
++    REQUIRE(insideGrid(u));
++    CHECK(errorMm(u) < 5.0);   // 20 seed median 2.42 mm, p90 3.20 mm
++}
++
++TEST_CASE("align_and_extract_umbilicus: circles thinned 1:10 on one side, the bias stays under 4.5 mm")
++{
++    GridStore gs(cv::Rect(0, 0, kSide, kSide), 64);
++    addSyntheticSection(gs, 1.0, 10, 3u);
++    auto u = align_and_extract_umbilicus(gs, 1u);
++    REQUIRE(insideGrid(u));
++    CHECK(errorMm(u) < 4.5);   // 20 seed median 2.29 mm, p90 2.71 mm
++    CHECK(u[0] > kCentreX);    // and it leans towards the dense side, +x
++}
+-- 
+2.53.0
+

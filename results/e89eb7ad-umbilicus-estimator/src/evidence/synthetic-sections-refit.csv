@@ -1,0 +1,46 @@
+family,parameter,value,n_seeds,segments,median_units_as_is,median_mm_as_is,p90_units_as_is,broken_as_is,median_units_no_division,median_mm_no_division,p90_units_no_division,broken_no_division
+A concentric circles,none,0.0,20,40726,0.4,0.004,0.6,0,45.9,0.43,65.1,0
+B ellipses,axis ratio,1.0,20,40726,0.4,0.004,0.6,0,45.9,0.43,65.1,0
+B ellipses,axis ratio,1.1,20,40726,2.0,0.018,2.8,0,42.0,0.393,81.2,0
+B ellipses,axis ratio,1.2,20,40726,3.4,0.032,6.1,0,47.1,0.441,129.4,0
+B ellipses,axis ratio,1.4,20,40726,6.0,0.056,15.7,0,125.7,1.177,199.7,0
+B ellipses,axis ratio,1.6,20,40726,13.7,0.128,32.0,0,198.7,1.86,201.6,0
+B ellipses,axis ratio,1.8,20,40726,35.0,0.328,96.7,0,200.6,1.878,208.8,1
+B ellipses,axis ratio,2.0,20,40726,88.7,0.831,160.7,0,201.0,1.881,258.8,1
+B ellipses,axis ratio,2.5,20,40726,32270.8,302.119,169716.5,1,259.8,2.432,345.6,1
+B ellipses,axis ratio,3.0,20,40726,163106.8,1527.006,894446.3,1,262.2,2.454,417.2,1
+C spiral,pitch,40.0,20,146606,0.8,0.007,1.2,0,34.1,0.32,54.8,0
+C spiral,pitch,80.0,20,73302,2.4,0.022,3.0,0,55.8,0.523,81.0,0
+C spiral,pitch,160.0,20,36650,8.7,0.081,9.3,0,119.5,1.119,142.5,0
+C spiral,pitch,320.0,20,18324,26.2,0.246,27.8,0,219.9,2.059,227.5,1
+D partial arcs,angular fraction,1.0,20,40726,0.4,0.004,0.6,0,45.9,0.43,65.1,0
+D partial arcs,angular fraction,0.8,20,32556,0.4,0.004,0.6,0,200.9,1.881,202.6,1
+D partial arcs,angular fraction,0.6,20,24403,0.4,0.004,0.6,0,226.7,2.122,245.6,1
+D partial arcs,angular fraction,0.5,20,20333,0.4,0.003,0.6,0,258.7,2.422,341.3,1
+D partial arcs,angular fraction,0.4,20,16249,0.4,0.004,0.6,0,465.6,4.359,557.8,1
+D partial arcs,angular fraction,0.3,20,12171,0.4,0.003,0.6,0,726.7,6.804,803.8,1
+D partial arcs,angular fraction,0.25,20,10136,0.4,0.003,0.6,0,841.9,7.882,977.5,1
+D partial arcs,angular fraction,0.2,20,8096,0.4,0.004,0.8,0,1120.8,10.493,1230.7,1
+D partial arcs,angular fraction,0.15,20,6054,0.5,0.005,1.0,0,1414.8,13.245,1538.8,1
+D partial arcs,angular fraction,0.1,20,4017,1.0,0.009,2.7,0,1770.8,16.578,1861.8,1
+E position noise,sigma units,0.0,20,40726,0.4,0.004,0.6,0,45.9,0.43,65.1,0
+E position noise,sigma units,1.0,20,40726,2.8,0.026,5.3,0,42.5,0.397,81.9,0
+E position noise,sigma units,2.0,20,40726,5.0,0.046,11.2,0,41.1,0.385,93.9,0
+E position noise,sigma units,4.0,20,40726,12.0,0.112,22.6,0,168.4,1.577,204.8,0
+E position noise,sigma units,8.0,20,40726,58.8,0.55,144.7,0,341.6,3.198,513.7,1
+E position noise,sigma units,16.0,20,40726,274.0,2.565,588.4,1,702.1,6.573,1036.8,1
+E position noise,sigma units,32.0,20,40726,1662.3,15.562,3235.6,1,732.7,6.86,1045.2,1
+E position noise,sigma units,64.0,20,40726,3229.3,30.232,3540.4,1,873.4,8.177,1212.9,1
+F missing segments,fraction removed,0.0,20,40726,0.4,0.004,0.6,0,45.9,0.43,65.1,0
+F missing segments,fraction removed,0.25,20,30463,0.4,0.004,0.6,0,37.5,0.351,63.4,0
+F missing segments,fraction removed,0.5,20,20196,0.4,0.004,0.6,0,41.1,0.385,79.3,0
+F missing segments,fraction removed,0.75,20,9984,0.4,0.004,0.6,0,58.9,0.551,102.2,0
+F missing segments,fraction removed,0.9,20,4060,0.4,0.004,0.6,0,71.0,0.665,200.6,0
+F missing segments,fraction removed,0.95,20,2004,0.4,0.004,0.6,0,144.1,1.349,202.1,0
+F missing segments,fraction removed,0.99,20,397,0.4,0.004,0.6,0,280.1,2.622,296.7,1
+G centre away from the middle,distance from the middle of the frame,0.0,20,40726,0.4,0.004,0.6,0,45.9,0.43,65.1,0
+G centre away from the middle,distance from the middle of the frame,500.0,20,40726,0.4,0.003,0.5,0,46.0,0.43,65.6,0
+G centre away from the middle,distance from the middle of the frame,1000.0,20,40726,0.4,0.004,0.5,0,45.8,0.429,65.0,0
+G centre away from the middle,distance from the middle of the frame,2000.0,20,40726,0.4,0.004,0.5,0,45.9,0.43,65.6,0
+G centre away from the middle,distance from the middle of the frame,3000.0,20,40726,0.4,0.004,0.6,0,46.0,0.431,65.7,0
+G centre away from the middle,distance from the middle of the frame,3800.0,20,40726,0.4,0.004,0.6,0,45.8,0.429,65.5,0

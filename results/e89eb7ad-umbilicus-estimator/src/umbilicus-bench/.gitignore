@@ -1,0 +1,12 @@
+# Anchored to the repository root, so that a directory of the same name deeper in the tree is not
+# swallowed silently: cache/ is the slice cache this repository deliberately does not ship, and
+# report.pdf is a build artefact of report/make_report.py --pdf.
+/cache/
+/report/report.pdf
+
+# Deliberately not anchored: these are excluded wherever they appear.
+__pycache__/
+*.pyc
+
+# Run logs, which carry local paths.
+*.log

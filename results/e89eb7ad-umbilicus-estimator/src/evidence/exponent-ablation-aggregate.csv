@@ -1,0 +1,6 @@
+row,scrolls,median_mm,ci_lo_mm,ci_hi_mm,better_than_p1,worse_than_p1,bootstrap_unit,bootstrap_resamples,bootstrap_seed
+0.5,15,3.32,2.14,5.03,0,12,scroll,1000,20260916
+1,15,1.87,1.59,2.89,0,0,scroll,1000,20260916
+1.5,15,2.48,2.23,3.29,1,7,scroll,1000,20260916
+2,15,4.95,3.47,6.42,0,13,scroll,1000,20260916
+mean,15,8.46,5.29,49.55,0,14,scroll,1000,20260916

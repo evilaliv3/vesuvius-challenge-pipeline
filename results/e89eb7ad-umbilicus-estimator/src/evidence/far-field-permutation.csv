@@ -1,0 +1,2 @@
+test,unit,scrolls,slices,scrolls_zero_misses,scrolls_with_a_leaving_run,scrolls_all_leaving_runs_flagged,observed_flagged_and_left,max_reachable_by_shuffling,exact_p,sim_rounds,sim_hits,sim_p_upper_bound,sim_seed,note
+within-scroll permutation of the predictor,scroll,15,360,14,14,13,134,135,5.29e-29,200000,0,5.0e-06,20260918,"each scroll's own counts are held fixed; the pooled Fisher test of far-field-prediction.csv is not used, the slices being nested in scrolls"

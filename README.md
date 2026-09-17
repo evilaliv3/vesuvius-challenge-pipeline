@@ -1,15 +1,14 @@
-# Vesuvius Challenge
+# vesuvius-challenge-pipeline
 
 Work on the Vesuvius Challenge by Giovanni Pellerano ([`evilaliv3`](https://github.com/evilaliv3)),
-started on 5 September 2026 on a machine with sixteen cores, no GPU and the published data.
+on a machine with sixteen cores, no GPU and the published data.
 
-One folder per piece of work, numbered in the order it was finished:
+Published work only, one piece per folder under [`results/`](results), frozen. A folder is named
+`<uuid4 prefix>-<slug>`: the prefix is assigned once and never reused, so a piece of work can be
+named without depending on its title. Inside it, `article.pdf` and the `src/` every
+number and figure is rebuilt from. What is still being made is not here, and arrives when it is out.
 
-```
-research/00001/    the umbilicus estimator of volume-cartographer
-    paper.pdf      the article
-    src/           everything needed to rebuild the article's numbers and figures
-```
+The data stays out: CT volumes, surface predictions, published segments and model checkpoints
+belong to the Vesuvius Challenge and are fetched from its open bucket.
 
-Code is MIT (`LICENSE`). Data and figures are CC BY-NC 4.0 unless a folder says otherwise; each
-folder states the licence of what it carries.
+Code MIT, data and figures and written analysis CC BY-NC 4.0: [`LICENSE`](LICENSE).

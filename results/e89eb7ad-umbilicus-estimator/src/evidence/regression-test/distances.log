@@ -1,0 +1,4 @@
+seed-repeatable        a=(3972.2534, 4013.7800) b=(3972.2534, 4013.7800) identical=yes PASS
+concentric-circles     segments=40726 estimate=(3993.47, 3976.25) inside=yes distance=0.231 mm tolerance=1.0 mm margin=0.769 mm PASS
+half-circle            segments=20333 estimate=(3931.47, 4217.25) inside=yes distance=2.133 mm tolerance=5.0 mm margin=2.867 mm PASS
+thinned-1:10           segments=22354 estimate=(4206.47, 3938.25) inside=yes distance=2.018 mm tolerance=4.5 mm margin=2.482 mm PASS

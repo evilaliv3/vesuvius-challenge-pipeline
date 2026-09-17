@@ -1,0 +1,4 @@
+rule,predictor,n,predicted_yes_observed_yes,predicted_yes_observed_no,predicted_no_observed_yes,predicted_no_observed_no,sensitivity,specificity,precision,accuracy,odds_ratio,fisher_p
+majority of 20 seeds,predicts_runaway,360,134,58,1,167,0.993,0.742,0.698,0.836,385.83,1.20e-50
+seed of the frozen table,predicts_runaway,360,133,59,3,165,0.978,0.737,0.693,0.828,123.98,1.28e-46
+"refined score, the code's own comparison, seed of the frozen table",predicts_runaway_refined,360,17,4,119,220,0.125,0.982,0.81,0.658,7.86,7.34e-05

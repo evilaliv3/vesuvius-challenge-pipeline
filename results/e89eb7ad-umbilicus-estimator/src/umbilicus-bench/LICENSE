@@ -1,13 +1,5 @@
-vesuvius-challenge-pipeline
-Dual licence: the code is under MIT, the data, the figures and the written analysis are under
-CC BY-NC 4.0. The two texts below are in their original language, because they are legal texts
-and translating them would change what they are worth.
+MIT License
 
-----------------------------------------------------------------------
-
-ScrollAgent is dual-licensed.
-
-CODE: MIT License
 Copyright (c) 2026 Giovanni Pellerano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,13 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-DATA, FIGURES AND WRITTEN ANALYSIS: CC BY-NC 4.0
-Copyright (c) 2026 Giovanni Pellerano
-Licensed under the Creative Commons Attribution-NonCommercial 4.0 International
-License: https://creativecommons.org/licenses/by-nc/4.0/
-
-CT volumes, surface predictions, published segments and model checkpoints are
-NOT covered by this license: they belong to the Vesuvius Challenge and are
-distributed from https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/
-under their own terms. This repository contains none of them.

@@ -1,0 +1,180 @@
+{
+ "scroll": "PHerc0257",
+ "volume": "PHerc0257/volumes/20250821151750-9.362um-1.2m-113keV-masked.zarr",
+ "level": 3,
+ "scale": 8.0,
+ "shape_level": [
+  2359,
+  1049,
+  1049
+ ],
+ "shape_L0": [
+  18872,
+  8388,
+  8388
+ ],
+ "img_w": 1049,
+ "img_h": 1049,
+ "z_range_L0": [
+  2432,
+  17632
+ ],
+ "slices": [
+  {
+   "file": "z2888.png",
+   "z": 2888,
+   "z_level": 361
+  },
+  {
+   "file": "z3360.png",
+   "z": 3360,
+   "z_level": 420
+  },
+  {
+   "file": "z3840.png",
+   "z": 3840,
+   "z_level": 480
+  },
+  {
+   "file": "z4312.png",
+   "z": 4312,
+   "z_level": 539
+  },
+  {
+   "file": "z4792.png",
+   "z": 4792,
+   "z_level": 599
+  },
+  {
+   "file": "z5264.png",
+   "z": 5264,
+   "z_level": 658
+  },
+  {
+   "file": "z5744.png",
+   "z": 5744,
+   "z_level": 718
+  },
+  {
+   "file": "z6216.png",
+   "z": 6216,
+   "z_level": 777
+  },
+  {
+   "file": "z6696.png",
+   "z": 6696,
+   "z_level": 837
+  },
+  {
+   "file": "z7168.png",
+   "z": 7168,
+   "z_level": 896
+  },
+  {
+   "file": "z7648.png",
+   "z": 7648,
+   "z_level": 956
+  },
+  {
+   "file": "z8120.png",
+   "z": 8120,
+   "z_level": 1015
+  },
+  {
+   "file": "z8600.png",
+   "z": 8600,
+   "z_level": 1075
+  },
+  {
+   "file": "z9072.png",
+   "z": 9072,
+   "z_level": 1134
+  },
+  {
+   "file": "z9552.png",
+   "z": 9552,
+   "z_level": 1194
+  },
+  {
+   "file": "z10032.png",
+   "z": 10032,
+   "z_level": 1254
+  },
+  {
+   "file": "z10512.png",
+   "z": 10512,
+   "z_level": 1314
+  },
+  {
+   "file": "z10984.png",
+   "z": 10984,
+   "z_level": 1373
+  },
+  {
+   "file": "z11464.png",
+   "z": 11464,
+   "z_level": 1433
+  },
+  {
+   "file": "z11936.png",
+   "z": 11936,
+   "z_level": 1492
+  },
+  {
+   "file": "z12416.png",
+   "z": 12416,
+   "z_level": 1552
+  },
+  {
+   "file": "z12888.png",
+   "z": 12888,
+   "z_level": 1611
+  },
+  {
+   "file": "z13368.png",
+   "z": 13368,
+   "z_level": 1671
+  },
+  {
+   "file": "z13840.png",
+   "z": 13840,
+   "z_level": 1730
+  },
+  {
+   "file": "z14320.png",
+   "z": 14320,
+   "z_level": 1790
+  },
+  {
+   "file": "z14792.png",
+   "z": 14792,
+   "z_level": 1849
+  },
+  {
+   "file": "z15272.png",
+   "z": 15272,
+   "z_level": 1909
+  },
+  {
+   "file": "z15744.png",
+   "z": 15744,
+   "z_level": 1968
+  },
+  {
+   "file": "z16224.png",
+   "z": 16224,
+   "z_level": 2028
+  },
+  {
+   "file": "z16696.png",
+   "z": 16696,
+   "z_level": 2087
+  },
+  {
+   "file": "z17176.png",
+   "z": 17176,
+   "z_level": 2147
+  }
+ ],
+ "note": "L0 = координата уровня * scale. Клик по png: x_L0 = px * scale."
+}

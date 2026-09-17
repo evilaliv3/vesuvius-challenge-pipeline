@@ -1,0 +1,9 @@
+scroll,slice_z,variant,seeds,spread_median_mm,spread_p90_mm,spread_worst_mm,cpp_spread_median_mm,cpp_spread_worst_mm
+PHerc0125,2140,as-is,20,0.33,0.58,7.88,0.38,7.62
+PHerc0125,2140,no-division,20,0.8,3.98,6.15,0.57,4.52
+PHerc0125,6891,as-is,20,546.85,1829.44,25587.03,3907.97,39474.77
+PHerc0125,6891,no-division,20,0.8,2.8,4.2,1.31,4.03
+PHerc0332,4049,as-is,20,0.04,0.07,0.1,0.03,0.1
+PHerc0332,4049,no-division,20,0.06,0.14,0.2,0.05,0.1
+PHerc0826,8000,as-is,20,1.02,1.83,2.7,0.74,2.66
+PHerc0826,8000,no-division,20,0.86,3.26,3.41,0.82,3.75

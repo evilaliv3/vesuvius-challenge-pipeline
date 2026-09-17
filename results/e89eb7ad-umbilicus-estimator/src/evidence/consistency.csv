@@ -1,0 +1,26 @@
+item,value,source
+fifteen: slices per scroll (min),24,fifteen.csv heights_used
+fifteen: slices per scroll (max),24,fifteen.csv heights_used
+fifteen: scrolls,15,fifteen.csv
+"fifteen: control points, min",32,fifteen.csv scored_on
+"fifteen: control points, max",154,fifteen.csv scored_on
+"fifteen: control points, total",894,fifteen.csv scored_on
+generalisation run: scrolls in positions-24.csv,24,positions-24.csv
+generalisation run: scrolls in twentythree.csv,24,twentythree.csv
+generalisation run: of which in the competition,23,scroll-census.csv
+generalisation run: of which not in the competition,PHerc0332,scroll-census.csv
+generalisation run: slices per scroll (min),24,positions-24.csv
+generalisation run: slices per scroll (max),24,positions-24.csv
+generalisation run: slices total,576,twentythree.csv
+search noise: saved slices with the division removed,4,search-noise.csv
+search noise: scrolls those slices belong to,3,search-noise.csv
+"k20: margins won, primary block",4,fifteen-k20.csv
+"k20: margins won, confirmation block",9,fifteen-k20.csv
+"k20: margins won, both blocks",13,fifteen-k20.csv
+"k20: of those, below the reference spread",8,fifteen-k20.csv
+k20: rows marked with a circle (interval includes zero),4,fifteen-k20.csv
+k20: which rows carry the circle,"PHerc0826, PHerc0813, PHerc1218, PHerc1545",fifteen-k20.csv
+k20: rows marked with a dagger (margin below the spread),10,fifteen-k20.csv
+k20: which rows carry the dagger,"PHerc0125, PHerc0211, PHerc0332, PHerc0826, PHerc0257, PHerc0358, PHerc0813, PHerc1218, PHerc1447, PHerc1545",fifteen-k20.csv
+"spiral table: sheet spacing implied by the conversion, um",149.8 to 149.9,spiral-downstream.csv
+spiral table: rows converted,4,spiral-downstream.csv

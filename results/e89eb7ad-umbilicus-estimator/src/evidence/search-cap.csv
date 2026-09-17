@@ -1,0 +1,26 @@
+quantity,run,variant,scroll,value,unit,note
+cap,every run of the revision,,,2000,sweeps,"villa_estimator.MAX_SWEEPS; not in the C++, whose loop at normalgridtools.cpp:119-142 at commit 23adee047 has no iteration limit"
+capped_estimates,k20-estimates,as-is,,303,estimates,"of 7200 (15 scrolls, 24 slices, 20 seeds)"
+capped_scrolls,k20-estimates,as-is,,9,scrolls,"PHerc0125, PHerc0211, PHerc0332, PHerc0358, PHerc0800, PHerc1203, PHerc1218, PHerc1545, PHercParis4"
+capped_outside,k20-estimates,as-is,,303,estimates,capped estimates already outside the grid when the walk was stopped
+capped_estimates,k20-estimates,no-division,,0,estimates,"of 7200 (15 scrolls, 24 slices, 20 seeds)"
+capped_scrolls,k20-estimates,no-division,,0,scrolls,none
+capped_outside,k20-estimates,no-division,,0,estimates,capped estimates already outside the grid when the walk was stopped
+capped_estimates,positions-24-refit,as-is,,25,estimates,"of 576 (24 scrolls, 24 slices, 1 seed)"
+capped_scrolls,positions-24-refit,as-is,,10,scrolls,"PHerc0125, PHerc0211, PHerc0343, PHerc0490B, PHerc0800, PHerc0846A, PHerc0846B, PHerc1203, PHerc1218, PHerc1545"
+capped_outside,positions-24-refit,as-is,,25,estimates,capped estimates already outside the grid when the walk was stopped
+capped_estimates,positions-24-refit,no-division,,0,estimates,"of 576 (24 scrolls, 24 slices, 1 seed)"
+capped_scrolls,positions-24-refit,no-division,,0,scrolls,none
+capped_outside,positions-24-refit,no-division,,0,estimates,capped estimates already outside the grid when the walk was stopped
+walk_distance,cap 2000,as-is,PHerc0125 z6891,2780202.1,grid units,stopped by the cap: True
+walk_distance,cap 8000,as-is,PHerc0125 z6891,11096071.4,grid units,stopped by the cap: True
+walk_distance,cap 32000,as-is,PHerc0125 z6891,44368994.1,grid units,stopped by the cap: True
+walk_distance,compiled binary,as-is,PHerc0125 z6891,4201515.4,grid units,"median of 20 repeats, evidence/cpp-runs.csv; the C++ walk is not capped and stops on its own"
+cap_shortfall,cap 2000,as-is,PHerc0125 z6891,1.51,times,"the compiled binary travels this many times further than the capped transcription, so the cap flatters the published version"
+growth_ratio,,as-is,PHerc0125 z6891,3.99,times,"distance multiplied when the cap is multiplied by 4: 3.99, 4.00"
+row_moved,cap 16x,as-is,PHerc0125,0.68,mm,"median 133.02 to 133.7 mm; fields moved: median_mm, iqr_mm, ci_hi_mm, margin_vs_centroid_mm, margin_ci_lo_mm"
+row_moved,cap 16x,as-is,PHerc0211,0.24,mm,"median 63.81 to 64.05 mm; fields moved: median_mm, iqr_mm, ci_hi_mm, margin_vs_centroid_mm, margin_ci_lo_mm"
+row_moved,cap 16x,as-is,PHerc1545,0.87,mm,"median 49.55 to 50.42 mm; fields moved: median_k0_mm, median_mm, iqr_mm, min_mm, ci_hi_mm, margin_vs_centroid_mm, margin_ci_lo_mm"
+rows_moved,cap 16x,,,3,rows,of 30 rows of Tables II and III
+worst_row_move,cap 16x,as-is,PHerc1545,0.87,mm,largest change of any median in either table
+verdicts_changed,cap 16x,,,0,verdicts,none

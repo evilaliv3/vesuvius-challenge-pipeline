@@ -1,0 +1,14 @@
+# Written by a run, not part of the source.
+__pycache__/
+.venv/
+# build/ is scratch: the driver binaries driver/build.sh compiles, the SVG and PNG the figure
+# tools write on their way to a PDF, and the figures themselves, which the repository does not
+# keep because the rendered ones are delivered inside ../article.pdf.
+build/
+# A run of the figure tools writes a PNG beside the PDF, and a gallery run without the grid
+# slices writes a -partial gallery so that it never lands on the real one.
+inputs/figures/
+# The cut grid slices, 297 MB, which README.md says how to cut
+inputs/grid15/
+inputs/grid23/
+inputs/cache/

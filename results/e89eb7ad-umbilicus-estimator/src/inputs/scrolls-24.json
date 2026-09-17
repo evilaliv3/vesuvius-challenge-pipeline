@@ -1,0 +1,181 @@
+{
+ "PHerc0125": {
+  "surfaces": [
+   "PHerc0125/representations/predictions/surfaces/20250821151825-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [
+   "PHerc0125/representations/umbilicus/20250821151825-umbilicus-20260808111524.json"
+  ],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0125/representations/predictions/surfaces/20250821151825-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0175A": {
+  "surfaces": [
+   "PHerc0175A/representations/predictions/surfaces/20250521115057-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0175A/representations/predictions/surfaces/20250521115057-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0175B": {
+  "surfaces": [
+   "PHerc0175B/representations/predictions/surfaces/20250521125822-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0175B/representations/predictions/surfaces/20250521125822-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0191": {
+  "surfaces": [
+   "PHerc0191/representations/predictions/surfaces/20250821151635-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0191/representations/predictions/surfaces/20250821151635-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0211": {
+  "surfaces": [
+   "PHerc0211/representations/predictions/surfaces/20250821151803-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [
+   "PHerc0211/representations/umbilicus/20250821151803-umbilicus-20260808112626.json"
+  ],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0211/representations/predictions/surfaces/20250821151803-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0257": {
+  "surfaces": [
+   "PHerc0257/representations/predictions/surfaces/20250821151750-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0257/representations/predictions/surfaces/20250821151750-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0268": {
+  "surfaces": [
+   "PHerc0268/representations/predictions/surfaces/20251110183117-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0268/representations/predictions/surfaces/20251110183117-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0306B": {
+  "surfaces": [
+   "PHerc0306B/representations/predictions/surfaces/20250521133212-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0306B/representations/predictions/surfaces/20250521133212-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0332": {
+  "surfaces": [
+   "PHerc0332/representations/predictions/surfaces/20251211183505-surface-20260413222639-surface-m7-L2-th0.2.zarr/"
+  ],
+  "umbilicus": [
+   "PHerc0332/representations/umbilicus/20251211183505-umbilicus-20260828110920.json"
+  ],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0332/representations/predictions/surfaces/20251211183505-surface-20260413222639-surface-m7-L2-th0.2.normal-grids/",
+  "note": "not one of the twenty-three in the competition: it is the fourth annotated scroll, and the pre-registration of the run declares the measured set as the twenty-three in the competition plus PHerc0332. Added on 2026-09-15 so that the run follows the pre-registration instead of measuring twenty-three"
+ },
+ "PHerc0343": {
+  "surfaces": [
+   "PHerc0343/representations/predictions/surfaces/20250521140437-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0343/representations/predictions/surfaces/20250521140437-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0358": {
+  "surfaces": [
+   "PHerc0358/representations/predictions/surfaces/20250821151737-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0358/representations/predictions/surfaces/20250821151737-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0483A": {
+  "surfaces": [
+   "PHerc0483A/representations/predictions/surfaces/20250521140913-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0483A/representations/predictions/surfaces/20250521140913-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0483B": {
+  "surfaces": [
+   "PHerc0483B/representations/predictions/surfaces/20251124083638-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0483B/representations/predictions/surfaces/20251124083638-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0490A": {
+  "surfaces": [
+   "PHerc0490A/representations/predictions/surfaces/20250521151210-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0490A/representations/predictions/surfaces/20250521151210-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0490B": {
+  "surfaces": [
+   "PHerc0490B/representations/predictions/surfaces/20250521151215-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0490B/representations/predictions/surfaces/20250521151215-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0800": {
+  "surfaces": [
+   "PHerc0800/representations/predictions/surfaces/20250521135224-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0800/representations/predictions/surfaces/20250521135224-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0813": {
+  "surfaces": [
+   "PHerc0813/representations/predictions/surfaces/20250821151723-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0813/representations/predictions/surfaces/20250821151723-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0826": {
+  "surfaces": [
+   "PHerc0826/representations/predictions/surfaces/20250821151701-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [
+   "PHerc0826/representations/umbilicus/20250821151701-umbilicus-20260808113303.json"
+  ],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/representations/predictions/surfaces/20250821151701-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0846A": {
+  "surfaces": [
+   "PHerc0846A/representations/predictions/surfaces/20250728152254-surface-20260413222639-surface-m7-L0-th0.2.zarr/",
+   "PHerc0846A/representations/predictions/surfaces/20260319102732-surface-20260413222639-surface-m7-L2-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0846A/representations/predictions/surfaces/20250728152254-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc0846B": {
+  "surfaces": [
+   "PHerc0846B/representations/predictions/surfaces/20250804142305-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0846B/representations/predictions/surfaces/20250804142305-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc1203": {
+  "surfaces": [
+   "PHerc1203/representations/predictions/surfaces/20250820131727-surface-20260413222639-surface-m7-L0-th0.2.zarr/",
+   "PHerc1203/representations/predictions/surfaces/20260319130212-surface-20260413222639-surface-m7-L2-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc1203/representations/predictions/surfaces/20250820131727-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc1218": {
+  "surfaces": [
+   "PHerc1218/representations/predictions/surfaces/20250521120456-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc1218/representations/predictions/surfaces/20250521120456-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc1447": {
+  "surfaces": [
+   "PHerc1447/representations/predictions/surfaces/20250521151220-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc1447/representations/predictions/surfaces/20250521151220-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ },
+ "PHerc1545": {
+  "surfaces": [
+   "PHerc1545/representations/predictions/surfaces/20250821151648-surface-20260413222639-surface-m7-L0-th0.2.zarr/"
+  ],
+  "umbilicus": [],
+  "grids": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc1545/representations/predictions/surfaces/20250821151648-surface-20260413222639-surface-m7-L0-th0.2.normal-grids/"
+ }
+}

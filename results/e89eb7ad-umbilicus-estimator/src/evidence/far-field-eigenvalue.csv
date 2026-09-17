@@ -1,0 +1,4 @@
+section,source,n_segments,n_samples,seed,lambda_max,lambda_min,eigenvector_max_x,eigenvector_max_y,mean_at_centre,mean_far_along_max,mean_far_along_min,far_over_centre,far_distance_units
+PHerc0826 xy 8000,inputs/cache/pherc0826/ngrid/xy/008000.grid,21622,10000,20268915,0.6466,0.3534,0.107,0.9943,0.5822,0.6469,0.3534,1.111,1000000.0
+circle 1:1,synthetic_sections.py,40726,10000,60000,0.5026,0.4974,-0.8174,-0.5761,1.0,0.5026,0.4974,0.5026,1000000.0
+half circle,synthetic_sections.py,20333,10000,60000,0.502,0.498,-0.6623,0.7492,1.0,0.5021,0.4979,0.5021,1000000.0

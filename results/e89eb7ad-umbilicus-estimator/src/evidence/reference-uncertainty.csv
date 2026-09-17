@@ -1,0 +1,7 @@
+window,direction,n,median_mm,median_offset_removed_mm,p90_mm,worst_mm,median_offset_mm
+common coverage,A against B,36,2.205,2.062,5.335,7.248,"[1.231, -0.18]"
+common coverage,B against A,276,2.003,1.762,4.374,7.2,"[-1.296, 0.327]"
+without the 7500 to 9500 band,A against B,30,2.074,1.811,4.2,4.854,"[1.018, 0.061]"
+without the 7500 to 9500 band,B against A,245,1.836,1.619,3.775,4.8,"[-1.122, 0.159]"
+only the 7500 to 9500 band,A against B,6,6.237,1.813,7.209,7.248,"[5.255, -2.259]"
+only the 7500 to 9500 band,B against A,31,6.091,1.92,7.129,7.2,"[-5.173, 2.063]"

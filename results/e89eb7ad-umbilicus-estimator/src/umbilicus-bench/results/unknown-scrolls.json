@@ -1,0 +1,26 @@
+{
+ "PHerc1203": {
+  "heights": 46,
+  "shift_median_mm": 1.87,
+  "shift_p90_mm": 3.44,
+  "argmax_to_fake_axis_mm": 2.59,
+  "plateau_to_fake_axis_mm": 2.26,
+  "voxel_um": 9.362
+ },
+ "PHerc1545": {
+  "heights": 46,
+  "shift_median_mm": 2.37,
+  "shift_p90_mm": 6.76,
+  "argmax_to_fake_axis_mm": 6.07,
+  "plateau_to_fake_axis_mm": 4.85,
+  "voxel_um": 9.362
+ },
+ "PHerc0268": {
+  "heights": 46,
+  "shift_median_mm": 3.55,
+  "shift_p90_mm": 8.32,
+  "argmax_to_fake_axis_mm": 6.23,
+  "plateau_to_fake_axis_mm": 3.24,
+  "voxel_um": 8.64
+ }
+}

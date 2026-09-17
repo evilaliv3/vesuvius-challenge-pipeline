@@ -1,0 +1,9 @@
+variant,dump,repeats,median_x,median_y,outside,file
+as-is,d-0125-2140,20,5079.8,2961.1,0,real/evidence/as-is-d-0125-2140.txt
+as-is,d-0125-6891,20,362101.1,-4182049.9,20,real/evidence/as-is-d-0125-6891.txt
+as-is,d-0332-4049,20,2089.8,2109.4,0,real/evidence/as-is-d-0332-4049.txt
+as-is,d-0826-8000,20,3061.3,-457.5,20,real/evidence/as-is-d-0826-8000.txt
+no-division,d-0125-2140,20,5126.8,3074.4,0,real/evidence/no-division-d-0125-2140.txt
+no-division,d-0125-6891,20,4546.4,4173.4,0,real/evidence/no-division-d-0125-6891.txt
+no-division,d-0332-4049,20,2091.6,2115.1,0,real/evidence/no-division-d-0332-4049.txt
+no-division,d-0826-8000,20,3061.4,4730.4,0,real/evidence/no-division-d-0826-8000.txt

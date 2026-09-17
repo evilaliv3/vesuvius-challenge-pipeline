@@ -1,0 +1,10 @@
+quantity,value,unit,note
+estimates,14400,estimates,"15 scrolls, 24 slices, 20 seeds, 2 variants, every one a call to align_and_extract_umbilicus"
+wall_minutes,50.0,minutes,"6 concurrent processes, one thread each"
+workers,6,processes,the log of the run, which is not in this folder
+core_hours,5.01,core hours,sum of the per estimate wall times
+mean_seconds,1.25,seconds,per estimate
+worst_seconds,3.02,seconds,the longest single walk of the whole run
+guard_seconds,600,seconds,"the declared wall clock guard, inputs/declaration-cpp-comparison.md section 5"
+guard_hits,0,estimates,"estimates that met the guard, both variants"
+capped,0,estimates,the C++ has no iteration limit and none was imposed: every walk stopped by itself
