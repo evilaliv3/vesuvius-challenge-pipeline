@@ -1,0 +1,5 @@
+"# written by chain-0826/tools/wave_sizing.py: yield of the v2 waves and the draws a target needs; batch 1 was judged by rule v1 (its rule_passers are v1 passers)"
+utc,group,draws,rule_passers,classified,survivors,passers_per_draw,survivors_per_classified,survivors_per_draw,target,draws_needed,draw_range
+2026-09-26T22:19:00Z,batch-1-400-0826,400,127,127,8,0.3175,0.0630,0.0200,,,
+2026-09-26T22:19:00Z,batch-401-2400-0826,2000,381,305,24,0.1905,0.0787,0.0150,,,
+2026-09-26T22:19:00Z,wave sizing on batch-401-2400-0826,,,,,0.1905,0.0787,0.0150,60,4000,2401..6400

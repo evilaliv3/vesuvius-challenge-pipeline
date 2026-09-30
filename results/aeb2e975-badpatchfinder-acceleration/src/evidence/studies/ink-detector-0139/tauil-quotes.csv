@@ -1,0 +1,11 @@
+# by src/tools/studies/ink-detector-0139/tauil_quotes.py; quotations of TAUIL-Abd-Elilah/pherc1447-ink-survey README.md (src/inputs/github-api/tauil-pherc1447-ink-survey/), each checked verbatim
+quantity,quoted,value,verbatim_in_readme,readme_sha256,fetched_utc
+headline,no legible ink in those four segments,no legible ink in those four segments,yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+segments_word,no legible ink in those four segments,four,yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+area_cm2_approx,~42 cm² of real surface,42,yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+best_window_score,| PHerc1447 seg4 | **0.1407** |,0.1407,yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+control_median,median 0.2382,0.2382,yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+correction_dates,"Correction (2026-09-13, updated 2026-09-16)","Correction (2026-09-13, updated 2026-09-16)",yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+oblique_median,Median 61.2°,Median 61.2°,yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+half_off,half off the scanned papyrus,half off the scanned papyrus,yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z
+correction,"it shows no ink was recovered from these surfaces, not that PHerc1447 lacks ink in those regions","it shows no ink was recovered from these surfaces, not that PHerc1447 lacks ink in those regions",yes,035ea4d1f41780099201e8284a298fd1da847cc114b734a45f17f2dcecf3de1f,2026-09-24T18:24:14Z

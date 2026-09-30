@@ -1,0 +1,4 @@
+"# written by nongrowth-profile-1447/tools/objects_only.py: per seed build with only the objects that differ across seeds recompiled"
+tool,series,objects,objects_equal_across_seeds,objects_recompiled,partial_build_cpu_s,full_rebuild_cpu_s,binary_sha256,delivered_binary_sha256,binary_identical
+nongrowth-profile-1447/tools/objects_only.py,corrected,19,18,simpaper10.o,3.11,19.73,05c48476d56468586ca2f12d1595ebab3218168e8226f4c623586484e496ee8d,05c48476d56468586ca2f12d1595ebab3218168e8226f4c623586484e496ee8d,yes
+nongrowth-profile-1447/tools/objects_only.py,delivered,19,18,simpaper10.o,3.09,19.39,3fb3e87e3fcd62624a851ca8b786f33a0975c46c0679add247db193139a87e3a,3fb3e87e3fcd62624a851ca8b786f33a0975c46c0679add247db193139a87e3a,yes

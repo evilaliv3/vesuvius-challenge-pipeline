@@ -1,0 +1,57 @@
+# The frequency table of the greedy cover is a vector, not a map rebuilt on every pass.
+#
+# The loop at the end of FindBadPatchesGeneral condemns one patch per pass: it counts how often
+# each patch appears among the chains that failed the distance test, takes the patch that first
+# reaches the highest count, removes the chains that contain it, and starts again. The count is
+# kept in a std::map<int,int> that is constructed from nothing at the top of every pass, so the
+# loop allocates and frees one red black node per distinct patch, and looks each patch up through
+# a tree descent three times per occurrence, once for count() and twice for operator[].
+#
+# The cost of that is the cost of the stage once the chain enumeration is no longer the cost.
+# MEASURED, on PHerc. 1447, seed 5589,2669,15682, the tree seed40 of runs/rev1/seed-search-1447,
+# 14,959 patches and 230,513 relations, with the previous patch of this series applied: the round
+# at length two spends 252.96 s of the stage's 277 s in this loop and 0.19 s in the enumeration
+# (runs/rev1/c-stage-cost/evidence/phases.csv, a build that times the three phases). The round
+# condemns 12,628 patches, so the map is built and destroyed 12,628 times.
+#
+# Patch numbers are small non negative integers, so one vector indexed by patch number, cleared
+# at the top of each pass, holds the same counts with no allocation and no descent. The scan
+# order, the comparison and therefore the patch chosen on each pass are untouched, and so is the
+# list of tuples and the pass that removes them.
+#
+# Evidence: runs/rev1/c-stage-cost/OUTCOME.md.
+--- a/pipeline9/badpatchfinder.cpp
++++ b/pipeline9/badpatchfinder.cpp
+@@ -543,9 +543,22 @@
+ 	// cover as in FindBadPatches and goes through the same function. Longer chains are a
+ 	// hypergraph and the loop below is left as it was.
+ 
++	// The frequency table below was a std::map<int,int> built from nothing on every
++	// pass of the loop, which allocates and frees one red black node per distinct
++	// patch per pass, and this loop runs once per patch it condemns. Patch numbers
++	// are small non negative integers, so one vector indexed by patch number holds
++	// the same counts for every pass with no allocation at all. It is cleared at the
++	// top of each pass, which is what building a new map did. The scan order and the
++	// comparison are untouched, so the patch chosen on each pass is the same patch.
++	int highestPatchNumber = -1;
++	for(auto &bpt : badPatchTuples)
++		for(auto i : bpt)
++			if (i>highestPatchNumber) highestPatchNumber = i;
++	std::vector<int> freqCount(highestPatchNumber+1,0);
++
+ 	while(badPatchTuples.size()>0)
+ 	{
+-		std::map<int,int> freqCount;
++		std::fill(freqCount.begin(),freqCount.end(),0);
+ 
+ 		int highestFreq = -1;
+ 		int highestPatch = -1;
+@@ -553,8 +566,6 @@
+ 		{
+ 			for(auto i : bpt)
+ 			{
+-				if (freqCount.count(i) == 0)
+-					freqCount[i] = 0;
+ 				freqCount[i]++;
+ 			
+ 				if (highestFreq==-1 || freqCount[i]>highestFreq)

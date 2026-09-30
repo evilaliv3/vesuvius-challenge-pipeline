@@ -58,19 +58,25 @@ SUMMARY = _CPP24_SUMMARY if os.path.exists(_CPP24_SUMMARY) else os.path.join(
 OUT_DIR = L.FIGURES
 STEM = "umbilicus-gallery-24"
 import palette as P  # noqa: E402
+import figstyle as F  # noqa: E402
 # The meanings of tools/palette.py: the estimator as it is published, which is a neutral because
 # the published code is the subject of the measurement and not a verdict on it; ours; the structure
 # grey of the normal grid under both; and the reference, which since 2026-09-18 carries the
 # reference yellow rather than black. The reference cross lies over the grey segments, so it is
 # drawn on the dark casing of palette.stroke: yellow to a reader in colour, a dark cross in a
 # printed grey copy, which is the same remedy rule 3 of the palette gives any coloured mark.
+# 2026-09-30, the owner's order: the figure is drawn at the width it is printed at, the page width
+# of figstyle.py, in the series type of figstyle.use(), so that a size in points here is the size
+# on the page: 8 pt for the titles, the arrow labels and the legend.
+F.use()
+PT = 8
 plt.rcParams.update(P.RC)   # rule 4: a word is black or white and never a hue, and black is
                             # what every label, tick and legend entry on the page takes
 AS_IS, FIXED, BASE = P.UPSTREAM, P.OURS, P.STRUCTURE
 REF = P.REFERENCE
-REF_MARK = dict(ms=8, mew=1.6, path_effects=P.stroke(3.4))
+REF_MARK = dict(ms=5.5, mew=1.1, path_effects=P.stroke(2.4))
 PAD = 0.08            # the window is the grid plus this fraction of its width on every side
-COLS = 6
+COLS = 8               # eight across at the page width, so the figure and its caption fit a page
 SLICE_INDEX = L.N_HEIGHTS // 2 - 1     # the twelfth of 24, in order of z
 
 
@@ -163,7 +169,7 @@ def border_hit(a, b, lo_x, hi_x, lo_y, hi_y, inset=0.03):
 def draw_grid(ax, paths):
     """The segments of the slice, as thin grey polylines."""
     segs = [np.asarray(p, float) for p in paths if len(p) >= 2]
-    ax.add_collection(LineCollection(segs, colors=BASE, linewidths=0.25, alpha=0.55,
+    ax.add_collection(LineCollection(segs, colors=BASE, linewidths=0.2, alpha=0.55,
                                      rasterized=True))
 
 
@@ -175,7 +181,7 @@ def panel(ax, scroll, d, notes):
     path = os.path.join(GRID23, scroll, f"{z:06d}.grid")
     if not os.path.exists(path) or not os.path.getsize(path):
         ax.text(.5, .5, "grid not on disk", transform=ax.transAxes, ha="center", va="center",
-                fontsize=8, color=P.TEXT)
+                fontsize=PT, color=P.TEXT)
         notes.append((scroll, z, "grid not on disk"))
     else:
         h, paths, _ = read_grid(path)
@@ -198,8 +204,8 @@ def panel(ax, scroll, d, notes):
     # is drawn a size larger so that its rim still shows around it.
     inside_win = lo_x <= asis[0] <= hi_x and lo_y <= asis[1] <= hi_y
     if inside_win:
-        ax.plot(*asis, "o", color=AS_IS, ms=8.5, mec=P.OVER_FIELD, mew=.7, zorder=5)
-    ax.plot(*fixed, "o", color=FIXED, ms=5.5, mec=P.OVER_FIELD, mew=.7, zorder=6)
+        ax.plot(*asis, "o", color=AS_IS, ms=5.6, mec=P.OVER_FIELD, mew=.5, zorder=5)
+    ax.plot(*fixed, "o", color=FIXED, ms=3.6, mec=P.OVER_FIELD, mew=.5, zorder=6)
     if not inside_win:
         # The published estimate lies beyond the window, and a window wide enough to hold it would
         # shrink the grid to nothing. The arrow leaves the weighted-sum estimate along the true
@@ -207,15 +213,25 @@ def panel(ax, scroll, d, notes):
         # between the two estimates, in millimetres where the voxel size is on record.
         hit = border_hit(fixed, asis, lo_x, hi_x, lo_y, hi_y)
         ax.annotate("", xy=tuple(hit), xytext=tuple(fixed),
-                    arrowprops=dict(arrowstyle="-|>", color=AS_IS, lw=1.3, shrinkA=4, shrinkB=0))
+                    arrowprops=dict(arrowstyle="-|>", color=AS_IS, lw=.9, shrinkA=3, shrinkB=0))
         dist = float(np.hypot(*(asis - fixed)))
-        label = f"{dist * mm:,.0f} mm" if mm else f"{dist / W:.3g} grid widths"
+        gw = f"{dist / W:.3g}"
+        label = f"{dist * mm:,.0f} mm" if mm else f"{gw} grid width{'' if gw == '1' else 's'}"
         capped = ("as-is", z) in d.get("capped", set())
         # the label sits on the arrow, past its middle, in a white box over the shaft, so it
         # never lands on the border of the grid or on the title
-        pos = fixed + 0.62 * (hit - fixed)
+        pos = fixed + 0.5 * (hit - fixed)   # mid shaft: at 8 pt a label further out met the border
         # the arrow this label sits on is the swatch, so the word is black and bare
-        ax.text(pos[0], pos[1], label, fontsize=6.2, color=P.TEXT, ha="center", va="center",
+        # at 8 pt a label in grid widths is wider than a panel's grid, so it takes two lines
+        shown = label.replace(" grid width", "\ngrid width")
+        # keep the label inside the grid's frame: its half width in grid units, from the width of
+        # the panel on the page (the window spans (1 + 2 PAD) W over PAGE_IN / COLS inches) and
+        # about 0.25 em a character at PT points, plus a margin
+        per_pt = (1 + 2 * PAD) * W / (F.PAGE_IN / COLS * 72)
+        half = max(len(t) for t in shown.split("\n")) * 0.25 * PT * per_pt + 3 * per_pt
+        pos = pos.copy()
+        pos[0] = min(max(pos[0], half), W - half)
+        ax.text(pos[0], pos[1], shown, fontsize=PT, color=P.TEXT, linespacing=1.0, ha="center", va="center",
                 zorder=7, bbox=dict(boxstyle="round,pad=0.15", fc=P.OVER_FIELD, ec="none", alpha=.9))
         notes.append((scroll, z, f"published estimate off panel, {label} from the weighted sum"
                       + (", walk stopped by the cap of the search" if capped else "")))
@@ -226,8 +242,10 @@ def panel(ax, scroll, d, notes):
     ax.set_aspect("equal", adjustable="box")
     ax.set_xticks([]), ax.set_yticks([])
     for s in ax.spines.values():
-        s.set_color(P.STRUCTURE_LIGHT), s.set_linewidth(.6)
-    ax.set_title(f"{scroll.replace('PHerc', 'PHerc. ')}, slice {z}", fontsize=7.6, pad=3)
+        s.set_color(P.STRUCTURE_LIGHT), s.set_linewidth(.5)
+        s.set_visible(True)
+    ax.set_title(f"{scroll.replace('PHerc', 'PHerc. ')}\nslice {z}", fontsize=PT, pad=2,
+                 linespacing=1.05)
     return z, ref is not None, why, not inside_win, ("as-is", z) in d.get("capped", set())
 
 
@@ -319,7 +337,7 @@ def main():
                          "two runs under one name")
 
     rows = (len(names) + COLS - 1) // COLS
-    fig, axes = plt.subplots(rows, COLS, figsize=(12.0, 2.15 * rows + 0.5))
+    fig, axes = plt.subplots(rows, COLS, figsize=(F.PAGE_IN, 1.3 * rows + 0.5))
     notes, drawn = [], {}
     for ax, scroll in zip(axes.ravel(), names):
         drawn[scroll] = panel(ax, scroll, pos[scroll], notes)
@@ -329,14 +347,14 @@ def main():
         ax.set_visible(False)
 
     a0 = axes.ravel()[0]
-    a0.plot([], [], "o", color=AS_IS, ms=5.5, mec=P.OVER_FIELD, mew=.7, label="as published (weighted mean)")
-    a0.plot([], [], "o", color=FIXED, ms=5.5, mec=P.OVER_FIELD, mew=.7, label="division removed (weighted sum)")
+    a0.plot([], [], "o", color=AS_IS, ms=4.5, mec=P.OVER_FIELD, mew=.5, label="as published (weighted mean)")
+    a0.plot([], [], "o", color=FIXED, ms=4.5, mec=P.OVER_FIELD, mew=.5, label="division removed (weighted sum)")
     a0.plot([], [], "x", color=REF, label="reference, where one exists (measurement only)",
             **REF_MARK)
     a0.plot([], [], "-", color=BASE, lw=1, alpha=.7, label="segments of the normal grid")
-    fig.legend(*a0.get_legend_handles_labels(), frameon=False, fontsize=8.5, loc="lower center",
-               ncol=4, bbox_to_anchor=(.5, .005))
-    fig.subplots_adjust(left=.01, right=.99, top=.965, bottom=.05, hspace=.28, wspace=.06)
+    fig.legend(*a0.get_legend_handles_labels(), frameon=False, fontsize=PT, loc="lower center",
+               ncol=2, bbox_to_anchor=(.5, .0), columnspacing=1.5, handletextpad=.4)
+    fig.subplots_adjust(left=.004, right=.996, top=.935, bottom=.115, hspace=.36, wspace=.04)
 
     # A reader who does not hold the cut grid slices used to get a gallery with empty panels
     # written straight over the good figure, silently, and the caption with it. The figure is

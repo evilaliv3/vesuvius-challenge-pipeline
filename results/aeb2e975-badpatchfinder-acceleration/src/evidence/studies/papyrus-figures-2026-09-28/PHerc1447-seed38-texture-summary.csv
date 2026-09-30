@@ -1,0 +1,3 @@
+# written by papyrus-figures-2026-09-28/tools/sheet_texture_s.py (squares-ink-1447/tools/sheet_texture_v2_squares.py with only this string changed). valid_cells = cells_with_raw_grey + cells_masked_value_0 + cells_not_measurable, checked in adds_up.
+label,sheet,valid_cells,cells_with_raw_grey,cells_masked_value_0,cells_not_measurable,grey_p1,grey_p99,step_mm,square_cells,square_corner_i,square_corner_j,png,csv,adds_up
+PHerc1447-seed38,1,205424,0,0,205424,not measurable,not measurable,0.034553,269,339,155,scratch/S/texture-sheet.png,scratch/S/texture-sheet.csv,yes

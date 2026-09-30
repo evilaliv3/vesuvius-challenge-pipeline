@@ -1,0 +1,84 @@
+% The article of results/f49f6c7d-pherc0826-chain, typeset in the house template of paper/00001,
+% copied on 2026-09-28 from results/f211b3cf-villa-tracer-corrections. The prose is src/paper/body.tex,
+% written as LaTeX from the start. Every number expands a macro written by src/tools/paper_numbers.py from
+% src/evidence; none is typed here.
+\documentclass[10pt,journal]{IEEEtran}
+
+% pdfTeX records the absolute path of every included PDF in a /PTEX.FileName entry, which
+% publishes the directory layout of the machine that built the file. -1 suppresses all three.
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=-1\fi
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{xspace}
+\usepackage[hidelinks]{hyperref}
+
+% The numbers, written from the evidence. Do not edit numbers.tex.
+\input{numbers}
+% The captions of the raster figures, written by src/tools/captions.py from each figure's table.
+\input{captions}
+% The date of the build, from SOURCE_DATE_EPOCH, so the title page and /CreationDate agree.
+\input{build-date}
+% The day this folder entered the public repository, by hand, never from the clock.
+\input{published-date}
+% The margin stripe of the series.
+\input{sidestripe}
+
+% Float placement. With six full width figures and the class's defaults, every one of them
+% was deferred to the end of the article and printed among the references, twelve pages after
+% the text that discusses it. These let a page carry two floats and most of its height in them,
+% so a figure lands near what it illustrates.
+\setcounter{topnumber}{2}
+\setcounter{totalnumber}{3}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.70}
+% The same for the floats that span both columns (2026-09-30, the v6 pass: with a few lines less of text the
+% page wide figures of the ink reads queued up behind each other and ran past the references).
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.70}
+
+% The marker that stands for a file and a column. The prose used to carry the path itself,
+% seventy odd times per article; the note of 2026-09-22T14:48:45Z asks for them out of the text
+% and in a table, and this is what is left behind where one was.
+\newcommand{\prov}[1]{\textsuperscript{[#1]}}
+
+\addtolength{\textheight}{\baselineskip}
+
+\begin{document}
+
+\sidestripe{f49f6c7d-pherc0826-chain}
+
+\title{An Automatic Patch Based Unwrapping Pipeline Applied to PHerc.~0826}
+
+\author{Giovanni~Pellerano\\
+\normalsize Milano, Italy\\
+\normalsize \texttt{giovanni.pellerano@evilaliv3.org}}
+
+% \maketitle is called by body.tex, after it sets the page 1 image with \IEEEaftertitletext
+% (style and figure pass of 2026-09-28, director 18:29:38Z).
+\input{body}
+
+
+% The bio is the frozen one byte for byte; the declaration is this work's own. See REVISION.md.
+\input{author-works}
+
+% references.tex is written by results/references.py: the entries this work's prose cites and
+% nothing else, pulled from the shared library in citation order. Inputting the whole library
+% put 78 entries in an article that cited none of them. It has no thebibliography of its own,
+% so it is wrapped here, as the published paper of the series wraps its own list.
+\begin{thebibliography}{99}\small
+\input{references}
+\end{thebibliography}
+
+\input{appendix}
+
+\end{document}

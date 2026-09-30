@@ -1,0 +1,5 @@
+# the files figure C25 is made of, copied on 2026-09-30 from outputs/artifacts/full-square-2026-09-30 of the laboratory (drawn there by c-f25-square-full.py prep and plot from the raw scan, approved by the director); the PNG is pinned, never redrawn by the build; src/tools/pin_check.py stops the build when a file differs
+file,sha256
+paper/figures/c-f25-square-full.png,5c35a1b6f5c91b5b2a8022947818948ef5714b08ab12e3bca4c355ff040c3207
+evidence/figures/c-f25-square-full.csv,54e358488a3d57eb75b23c61c0a73b27b4ea5e9173017dca86d945a6fbacd696
+tools/c-f25-square-full.py,32349ad5dc4b434e87e95740db9fafefc969c0a4a7eda5159efaf8798fe7bfba

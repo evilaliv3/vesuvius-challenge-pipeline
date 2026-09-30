@@ -1,0 +1,7 @@
+"# the untouched binary's whole downstream on PHerc1447-seed11, the one tree where BOTH binaries finished, read from log/uncapped-seed11.txt which tools/finish_seed.sh wrote. It is here because the number was in a log and in three different roundings in three places and in no column: this home's rule is that a number in a deliverable comes from a CSV written by a tool, and a duration quoted from prose is exactly what that rule is for. The run started from the line that says the C40 tree is being copied and was launched with SA_NO_CAP=1, so no cap bit. Its c stage is the reference the 128.0 s of the c2 arm is set against, and the two deliveries were compared file by file in runs/rev1/c-stage-cost/evidence/identity-seed11-untouched.csv: 40 files of 40 identical. Written 2026-09-22T02:18:34Z."
+attempt,binary,stage,return_code,seconds,sheets_after_the_stage
+PHerc1447-seed11,"the untouched one, the corrected series as the seed runs used it",c,0,22699,0
+PHerc1447-seed11,"the untouched one, the corrected series as the seed runs used it",l,0,56,0
+PHerc1447-seed11,"the untouched one, the corrected series as the seed runs used it",vm 10,0,10,0
+PHerc1447-seed11,"the untouched one, the corrected series as the seed runs used it",hm 10,0,0,0
+PHerc1447-seed11,"the untouched one, the corrected series as the seed runs used it",fm 30 10,0,10,10

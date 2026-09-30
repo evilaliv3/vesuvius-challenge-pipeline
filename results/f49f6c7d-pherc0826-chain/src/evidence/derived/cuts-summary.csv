@@ -1,0 +1,22 @@
+"# written by src/tools/cuts_summary.py at 2026-09-30T19:17:08Z: the axial cuts of study cuts-2715, from this work's copies"
+quantity,value,source,how
+rd_cuts,9,cuts-2715/verdict.csv,rows other than overall
+rd_crack_cuts,4,cuts-2715/verdict.csv,rows with cut crack
+rd_air_cuts,4,cuts-2715/verdict.csv,rows with rule_c_void_runs_25plus_post_hoc above 0
+rd_air_cuts_not_crack,0,cuts-2715/verdict.csv,"of those, rows whose cut is not crack"
+rd_controls,3,cuts-2715/verdict.csv,rows with cut control
+rd_streaks,2,cuts-2715/verdict.csv,rows with cut streak*
+void_run_nodes,25,cuts-2715/verdict.csv,the bar in the column name rule_c_void_runs_<n>plus_post_hoc
+dark_threshold,52.5,../inputs/render-routes-0826/candidate-2715.csv,column dark_threshold
+head_cuts,9,cuts-2715/headline-cuts.csv,rows
+head_void_runs_bar,0,cuts-2715/headline-cuts.csv,sum of void_runs_25plus
+head_longest_nodes,19,cuts-2715/headline-cuts.csv,max of longest_void_run_nodes
+head_longest_mm,0.714,cuts-2715/headline-cuts.csv,longest_void_run_mm of that row
+head_longest_columns,0..18,cuts-2715/headline-cuts.csv,longest_void_run_columns of that row
+head_longest_at_edge,yes,cuts-2715/headline-cuts.csv,"the run starts at column 0, the first column of the square"
+head_longest_eye,"columns 0..18 (19 nodes, 0.71 mm) in air at the tip of the fold seen in even2; from column about 20 on the surface is on a lamella beside our sheet",cuts-2715/headline-eye.csv,note of the same cut (a reading by eye)
+air_bar,57,cuts-2715/headline-air.csv,the bar in the column name cells_le_<n>
+air_head,0.1127,cuts-2715/headline-air.csv,share_le_57_of_measurable
+air_head_square_mm,28.1285,cuts-2715/headline-air.csv,square_mm
+air_rd,0.2087,cuts-2715/air-reference.csv,share_le_57_of_measurable
+air_rd_corner,0.6213,cuts-2715/air-reference.csv,share_le_57_dark_corner_rows850_cols930

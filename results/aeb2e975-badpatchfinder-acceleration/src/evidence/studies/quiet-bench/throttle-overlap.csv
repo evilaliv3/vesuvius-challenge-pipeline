@@ -1,0 +1,18 @@
+"# one row per row of evidence/c-stage-runs.csv, written by tools/throttle_overlap.py, joined on tag, attempt, repeat_index and started_utc. throttle_relaunch_in_window answers the only question asked of it: did a relaunch of the leftover tools/mesh_throttle12.sh fall between the start of this run and its end. burst_share_of_the_run is the burst seconds inside the window over the run seconds, and it is a share of WALL CLOCK on a run that had four threads, so the share of the machine the burst took is smaller than this number by about four. This file is beside c-stage-runs.csv and not inside it because bench2.sh was appending to that file when this was written."
+tag,attempt,repeat_index,started_utc,seconds,throttle_relaunch_in_window,bursts_in_window,burst_seconds_inside_the_window,burst_share_of_the_run,what_the_burst_was_doing,which_source_declared_it,how_much_of_the_machine
+plain,PHerc1447-seed26,1,2026-09-21T23:34:47Z,51.8,no,,0,0.00000,,,
+plain,PHerc1447-seed26,1,2026-09-21T23:36:51Z,49.4,yes,2026-09-21T23:37:12Z,24,0.48583,a relaunch of tools/mesh_throttle12.sh running grid_pipeline on a grid whose cubes were all already done,evidence/throttle-bursts.csv,"one core, grid_weld"
+c2,PHerc1447-seed26,1,2026-09-21T23:38:05Z,47.4,no,,0,0.00000,,,
+c2,PHerc1447-seed26,2,2026-09-21T23:39:17Z,48.6,no,,0,0.00000,,,
+c2,PHerc1447-seed26,3,2026-09-21T23:40:30Z,48.3,no,,0,0.00000,,,
+noA8,PHerc1447-seed26,1,2026-09-21T23:41:43Z,1548.2,no,,0,0.00000,,,
+noA8,PHerc1447-seed26,2,2026-09-22T00:07:56Z,1574.0,no,,0,0.00000,,,
+noA8,PHerc1447-seed26,3,2026-09-22T00:36:44Z,1675.7,yes,2026-09-22T00:40:24Z,25,0.01492,a relaunch of tools/mesh_throttle12.sh running grid_pipeline on a grid whose cubes were all already done,evidence/throttle-bursts.csv,"one core, grid_weld"
+plain,PHerc1447-seed40,1,2026-09-22T01:46:43Z,7094.8,yes,2026-09-22T01:47:36Z,24,0.00338,a relaunch of tools/mesh_throttle12.sh running grid_pipeline on a grid whose cubes were all already done,evidence/throttle-bursts.csv,"one core, grid_weld"
+c2,PHerc1447-seed40,1,2026-09-22T03:47:08Z,35.6,no,,0,0.00000,,,
+c2,PHerc1447-seed40,2,2026-09-22T03:48:08Z,35.5,no,,0,0.00000,,,
+c2,PHerc1447-seed40,3,2026-09-22T03:49:08Z,34.5,no,,0,0.00000,,,
+plain,PHerc1447-seed38,1,2026-09-22T03:50:48Z,7930.6,yes,2026-09-22T04:55:57Z,1572,0.19822,"the coordinator's read back sweep, tools/read_back_draft.py: it walked the study tree again for every citation it could not resolve",declared in tools/disturbances.py,"up to one core, and NOT constant across the window: most runs of that tool took under a second and two walked the tree for minutes"
+c2,PHerc1447-seed38,1,2026-09-22T06:03:25Z,62.2,no,,0,0.00000,,,
+c2,PHerc1447-seed38,2,2026-09-22T06:04:52Z,56.6,no,,0,0.00000,,,
+c2,PHerc1447-seed38,3,2026-09-22T06:06:14Z,61.2,no,,0,0.00000,,,

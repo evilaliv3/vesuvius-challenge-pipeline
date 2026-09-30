@@ -1,0 +1,3 @@
+2026-09-21T14:51:19Z watching pgid 2963145, floor 40 GB
+2026-09-21T15:31:43Z watching pgid 2963145, floor 25 GB
+2026-09-21T18:38:26Z pgid 2963145 ended on its own, MemAvailable 101 GB

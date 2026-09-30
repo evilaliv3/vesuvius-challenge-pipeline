@@ -1,0 +1,33 @@
+# Exemptions for tools/english_only.py: one <glob><TAB><reason> per line, # for a comment.
+#
+# An exemption with no reason is refused, and an exemption that matches nothing is reported as
+# possibly stale, because a sweep that quietly stops covering something is worse than no sweep.
+# Run `english_only.py --no-exempt` to see exactly what these three hide.
+#
+# There are two grounds for an exemption here and no others.
+#
+#   1. a file somebody else wrote and published, which is quoted and not rewritten;
+#   2. a preregistration that quotes the owner's own instruction word for word, as he gave it.
+#
+# The second was added 2026-09-22T17:27Z on the director's word. A prereg exists to record what
+# was decided BEFORE a number existed, and the deciding was done in his words; rewriting them
+# would make the record of the decision a paraphrase of the decision. The instruction is quoted
+# and never used as prose: the surrounding argument is English.
+#
+# Note what this hides, because it is wider than it needs to be. The exemption is per FILE, so
+# it covers anything else that appears in these three files afterwards, not only the quotations
+# that earned it. There is no per line mechanism here. Whoever next edits a prereg should read
+# `english_only.py --no-exempt` rather than trust a green sweep.
+#
+# The globs are written so that they match under either root this file is used with: the public
+# folder of research/00001, where the sweep normally runs, and this folder, which holds the
+# sources of the article. An exemption whose file is not under the root of the run matches
+# nothing and is reported as possibly stale, which is the warning to expect and not a finding.
+
+*inputs/external-references/drobkov-README.md	third party, kept as published: the README that came with AlexeyDrobkovStrikesBack/herculaneum-umbilici, MIT, quoted and not edited.
+*cls/IEEEtran.cls	third party, kept as published: the IEEE LaTeX class, under the LaTeX Project Public Licence. Not ours to edit.
+*cls/IEEEtran.bst	third party, kept as published: the IEEE BibTeX style, under the LaTeX Project Public Licence. Not ours to edit.
+*prereg/badpatch-crash.md	a preregistration quoting the owner's instruction word for word, as he gave it; the argument around it is English.
+*prereg/c-stage-on-0139.md	a preregistration quoting the owner's instruction and this home's own written rule word for word; the argument around them is English.
+*prereg/seed-search-1447.md	a preregistration quoting the owner's instruction to stop the study, word for word, with its timestamp.
+*inputs/github-api/tauil-pherc1447-ink-survey/*	third party, kept as published: the README and the GitHub API answers of TAUIL-Abd-Elilah/pherc1447-ink-survey, read 2026-09-24T18:24:14Z, quoted and not edited.

@@ -1,0 +1,4 @@
+# sha256 of each file at its copy from the study folder render-routes-0826/evidence (square-three-definitions.csv at 2026-09-30T05:35:29Z; square-checks-adjudicated.csv at 2026-09-30T06:03:32Z, Figure 1 drawn on the adjudicated square); the tool that wrote each is named in its first line and shipped under src/tools/studies/render-routes-0826/; an internal marking was removed from the first line of each copy on 2026-09-30 (the referee), sha256 below of the copies as shipped
+2ba00fabbd08cf96d1e3b11f1ab03cb7bf65a857eb5d6595e05cde15c718eb3e  square-three-definitions.csv
+84f1f6c844ebdb807e26579df4209ff142a823a271a698a6d5af12eaffbfee6b  square-checks-adjudicated.csv
+ee40120131cf827d225ba968fbb469d141e45757de885fa155d331447052edfc  candidate-2715.csv

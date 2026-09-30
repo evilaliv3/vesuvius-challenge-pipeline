@@ -1,0 +1,34 @@
+# figure S7; what the raster drew. One row per quantity; with the file and the column it was read from. Two z planes of the raw masked scan of PHerc. 1447 at level 3; one pixel = 8 voxels; dark blue = outside the scan's mask. Kept in the article by the owner's decision of 2026-09-30; which suspends the rule against surface texture of this scroll. Written 2026-09-30T08:11:12Z. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+panel,what,source_file,source_column,value
+a,trees whose untouched c stage the runner's cap stopped,seed-search-1447/evidence/runs/*.csv,quantity downstream_return_code_v2 = 124; the stage 'c' returned it,PHerc1447-seed38; PHerc1447-seed40; PHerc1447-seed48
+a,where those trees grew,seed-search-1447/evidence/per-seed.csv,on_papyrus_or_in_air,PHerc1447-seed38 in air; PHerc1447-seed40 in air; PHerc1447-seed48 in air
+a,crop of the level 3 plane; rows r0;r1 and columns c0;c1,the plane itself,pixels inside the mask or on the sheet; plus 24,225;912;86;1002
+a,which set the superlative covers,seed-search-1447/evidence/squares-<attempt>.csv,square_mm_min_step; status measured,abandoned: PHerc1447-seed38; PHerc1447-seed40; PHerc1447-seed48; 30 sheets
+a,sheet drawn,seed-search-1447/evidence/squares-PHerc1447-seed38.csv,point; sheet,PHerc1447-seed38; 1
+a,its largest fully covered square; mm,seed-search-1447/evidence/squares-PHerc1447-seed38.csv,square_mm_min_step,9.2948
+a,sheet file,seed-search-1447/out/PHerc1447-seed38/C40/patch_1.bin,sha256,c4737c1f1971cf40de8e7f2856e472d13cd94383ed3460e139709b381950eb26
+a,z plane; level 0 voxels and level 3 plane,seed-search-1447/out/PHerc1447-seed38/C40/patch_1.bin,median pz of the sheet's cells,21240; 2655
+a,sheet cells drawn on the plane,seed-search-1447/out/PHerc1447-seed38/C40/patch_1.bin,cells with pz // 8 = plane,1056
+a,share of the plane inside the scan's mask,the plane itself,pixels with a stored nonzero value over all pixels,0.3280
+a,display window; low and high grey,the plane itself,1st and 99th percentile of its nonzero values,47;149
+a,mm per pixel,pipeline/datasets/manifests/PHerc1447.json,voxel_um through pipeline/datasets/voxel.py; times 8,0.06912
+b,crop of the level 3 plane; rows r0;r1 and columns c0;c1,the plane itself,pixels inside the mask or on the sheet; plus 24,183;673;141;899
+b,which set the superlative covers,seed-search-1447/evidence/squares-<attempt>.csv,square_mm_min_step; status measured,on papyrus: PHerc1447-seed01; PHerc1447-seed15; PHerc1447-seed26; 30 sheets
+b,sheet drawn,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,point; sheet,PHerc1447-seed26; 2
+b,its largest fully covered square; mm,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,square_mm_min_step,12.7244
+b,sheet file,seed-search-1447/out/PHerc1447-seed26/C40/patch_2.bin,sha256,b6066c8bbad8576054482c1e34c710e44809d3ee6a987e929337d566c9d2f1f9
+b,z plane; level 0 voxels and level 3 plane,seed-search-1447/out/PHerc1447-seed26/C40/patch_2.bin,median pz of the sheet's cells,13234; 1654
+b,sheet cells drawn on the plane,seed-search-1447/out/PHerc1447-seed26/C40/patch_2.bin,cells with pz // 8 = plane,1833
+b,share of the plane inside the scan's mask,the plane itself,pixels with a stored nonzero value over all pixels,0.1956
+b,display window; low and high grey,the plane itself,1st and 99th percentile of its nonzero values,43;137
+b,mm per pixel,pipeline/datasets/manifests/PHerc1447.json,voxel_um through pipeline/datasets/voxel.py; times 8,0.06912
+all,where the voxel comes from,pipeline/datasets/manifests/PHerc1447.json,voxel_um_source,samplePixelSize 0.00864 mm in /source/metadata/scan/tomo/acquisition/detector of metadata.json; published beside this scroll's own prediction zarr and fetched 2026-09-20. Read this field; never a constant; and never another scroll's value: the scans differ.
+all,level shape z;y;x,the zarr's level 3 .zarray,shape,3038;1043;1043
+a,scale bar; pixels for its millimetres,paper/figures/s-f7-a-sheet-the-old-stage-abandoned.png,10 mm over the mm per pixel of the png,289 px for 10 mm
+b,scale bar; pixels for its millimetres,paper/figures/s-f7-a-sheet-the-old-stage-abandoned.png,10 mm over the mm per pixel of the png,289 px for 10 mm
+all,png pixels per level 3 pixel; each axis,,smallest integer giving 300 dpi at 6.450 in,2
+all,title and scale bar label size; pixels,,8 pt at the printed width of 6.450 in,58
+a,caption drawn inside the figure,paper/figures/s-f7-a-sheet-the-old-stage-abandoned.png,titles,a  seed38; sheet 1: its c stage was abandoned
+a,panel box in the png; x;y;w;h,paper/figures/s-f7-a-sheet-the-old-stage-abandoned.png,layout,0;0;1832;1374
+b,caption drawn inside the figure,paper/figures/s-f7-a-sheet-the-old-stage-abandoned.png,titles,b  seed26; sheet 2: grown on papyrus
+b,panel box in the png; x;y;w;h,paper/figures/s-f7-a-sheet-the-old-stage-abandoned.png,layout,1856;197;1516;980

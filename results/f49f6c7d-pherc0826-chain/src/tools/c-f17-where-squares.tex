@@ -1,0 +1,33 @@
+%% Figure C17. Where the best squares of PHerc. 0826 sit relative to each other: the part of one axial slice
+%% of the raw scan around the squares (since 2026-09-30 without the whole slice, the scroll's outline or any
+%% height), with the published umbilicus, the crossings of the delivered sheets of the marked seeds, and the
+%% centre of each best square. The rasters and every coordinate, label
+%% and number of the overlay are written by tools/c-f17-where-squares.py from the rows of
+%% ../evidence/figures/c-f17-where-squares.csv; the body is c-f17-where-squares-body.tex. Nothing but the
+%% styles is typed here. NO INK.
+\documentclass[border=1pt]{standalone}
+\input{figpreamble.tex}
+\usetikzlibrary{shapes.geometric}
+\begin{document}
+\newcommand{\ctkey}{\tikz[baseline=-0.6ex]\node[ct]{};\,}
+\newcommand{\hfkey}{\tikz[baseline=-0.6ex]\node[hf]{};\,}
+\newcommand{\lgkey}{\tikz[baseline=-0.6ex]\node[lg]{};\,}
+\newcommand{\umbkey}{\tikz[baseline=-0.6ex]\node[umb]{};\,}
+\newcommand{\sheetkey}{\tikz[baseline=-0.6ex]\draw[sagreen, line width=0.8pt] (0,0) -- (0.3,0);\,}
+\begin{tikzpicture}[
+  ct/.style={draw=black, fill=sasky, rectangle, minimum size=3.6pt, inner sep=0pt, line width=0.3pt},
+  hf/.style={draw=saorange, fill=none, rectangle, minimum size=5pt, inner sep=0pt, line width=0.8pt},
+  lg/.style={draw=black, fill=saorange, diamond, minimum size=5.4pt, inner sep=0pt, line width=0.3pt},
+  umb/.style={draw=black, fill=sayellow, circle, minimum size=4.4pt, inner sep=0pt, line width=0.4pt},
+  lab/.style={font=\scriptsize, align=left, fill=white, fill opacity=0.88, text opacity=1, inner sep=1.2pt,
+              rounded corners=0.8pt},
+  key/.style={font=\scriptsize, align=left, fill=white, fill opacity=0.88, text opacity=1, inner sep=1.5pt},
+  note/.style={font=\scriptsize\itshape, fill=white, fill opacity=0.88, text opacity=1, inner sep=1.2pt},
+  lead/.style={draw=white, line width=0.35pt},
+  zoombox/.style={draw=white, line width=0.5pt},
+  panlab/.style={font=\footnotesize, text=white, fill=black, fill opacity=0.6, text opacity=1, inner sep=1.2pt},
+  bar/.style={draw=white, line width=1.4pt},
+  barlab/.style={font=\scriptsize, text=white, fill=black, fill opacity=0.55, text opacity=1, inner sep=1pt}]
+\input{c-f17-where-squares-body.tex}
+\end{tikzpicture}
+\end{document}

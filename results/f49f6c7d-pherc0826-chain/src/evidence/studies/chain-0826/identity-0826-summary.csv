@@ -1,0 +1,5 @@
+# written by chain-0826/tools/identity_summary.py at 2026-09-26T19:59:50Z: read by tools/deliver.sh (G6): first column the build, last column identity_holds; yes only with at least 3 measurable seeds holding and none failing
+build,against,seeds_holding,seeds_failing_or_not_measurable,seeds_replaced,evidence,identity_holds
+flathash+avx512,unchanged,PHerc0826-seed109;PHerc0826-seed300;PHerc0826-seed237,none,PHerc0826-seed43,evidence/identity-0826-all.csv,yes
+flathash+avx512+lto+pgo+native,unchanged,PHerc0826-seed109;PHerc0826-seed300;PHerc0826-seed237,none,none,runs/rev1/growth-lto-pgo-1447/evidence/identity-0826-mlp.csv (MLP row of runs/rev1/growth-lto-pgo-1447/evidence/identity-0826-summary.csv; staged by scratch/next-mlp-z),yes
+flathash+avx512+lto+pgo+native+runtime-seed,flathash+avx512+lto+pgo+native (per seed MLP binaries),PHerc0826-seed109;PHerc0826-seed300;PHerc0826-seed237,none,none,runs/rev1/runtime-params-96/evidence/identity-0826-runtime.csv (row of runs/rev1/runtime-params-96/evidence/identity-summary.csv; staged by scratch/next-runtime),yes

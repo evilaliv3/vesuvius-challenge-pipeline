@@ -1,0 +1,42 @@
+# figure C19; what the bar chart drew; written by src/tools/c-f19-yield-waves.py: per wave of the chain as run; draws from derived/chain-summary.csv and finds (hole free and certified squares of 10 mm or more; one per seed) from search-yield-0826/yield.csv rows «ours (item 91 arm C)»; scope «wave N alone»; per100 = finds over draws times 100 Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+draws_w1,a,wave 1 seeds drawn,derived/chain-summary.csv,wave1 draws,400
+delivered_w1,a,wave 1 seeds delivered,derived/chain-summary.csv,wave1 delivered,6
+grown_w1,a,wave 1 seeds grown to the end,search-yield-0826/yield.csv,seeds_grown_to_end,8
+finds_hf_w1,a,wave 1 hole free finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 1 alone,1
+per100_hf_w1,a,wave 1 hole free finds per 100 seeds drawn,this tool,finds over draws times 100,0.25
+finds_cert_w1,a,wave 1 certified finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 1 alone,0
+per100_cert_w1,a,wave 1 certified finds per 100 seeds drawn,this tool,finds over draws times 100,0.00
+random_w1,a,wave 1 drawn uniformly,body.tex The seeds; chain-0826 DECLARATION.md,,yes
+draws_w2,a,wave 2 seeds drawn,derived/chain-summary.csv,wave2 draws,2000
+delivered_w2,a,wave 2 seeds delivered,derived/chain-summary.csv,wave2 delivered,25
+grown_w2,a,wave 2 seeds grown to the end,search-yield-0826/yield.csv,seeds_grown_to_end,29
+finds_hf_w2,a,wave 2 hole free finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 2 alone,9
+per100_hf_w2,a,wave 2 hole free finds per 100 seeds drawn,this tool,finds over draws times 100,0.45
+finds_cert_w2,a,wave 2 certified finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 2 alone,4
+per100_cert_w2,a,wave 2 certified finds per 100 seeds drawn,this tool,finds over draws times 100,0.20
+random_w2,a,wave 2 drawn uniformly,body.tex The seeds; chain-0826 DECLARATION.md,,yes
+draws_w3,a,wave 3 seeds drawn,derived/chain-summary.csv,wave3 draws,4000
+delivered_w3,a,wave 3 seeds delivered,derived/chain-summary.csv,wave3 delivered,71
+grown_w3,a,wave 3 seeds grown to the end,search-yield-0826/yield.csv,seeds_grown_to_end,77
+finds_hf_w3,a,wave 3 hole free finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 3 alone,29
+per100_hf_w3,a,wave 3 hole free finds per 100 seeds drawn,this tool,finds over draws times 100,0.72
+finds_cert_w3,a,wave 3 certified finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 3 alone,6
+per100_cert_w3,a,wave 3 certified finds per 100 seeds drawn,this tool,finds over draws times 100,0.15
+random_w3,a,wave 3 drawn uniformly,body.tex The seeds; chain-0826 DECLARATION.md,,yes
+draws_w4,a,wave 4 seeds drawn,derived/chain-summary.csv,wave4 draws,312
+delivered_w4,a,wave 4 seeds delivered,derived/chain-summary.csv,wave4 delivered,56
+grown_w4,a,wave 4 seeds grown to the end,search-yield-0826/yield.csv,seeds_grown_to_end,59
+finds_hf_w4,a,wave 4 hole free finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 4 alone,23
+per100_hf_w4,a,wave 4 hole free finds per 100 seeds drawn,this tool,finds over draws times 100,7.37
+finds_cert_w4,a,wave 4 certified finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 4 alone,3
+per100_cert_w4,a,wave 4 certified finds per 100 seeds drawn,this tool,finds over draws times 100,0.96
+random_w4,a,wave 4 drawn uniformly,body.tex The seeds; chain-0826 DECLARATION.md,,no
+draws_w5,a,wave 5 seeds drawn,derived/chain-summary.csv,wave5 draws,40
+delivered_w5,a,wave 5 seeds delivered,derived/chain-summary.csv,wave5 delivered,0
+grown_w5,a,wave 5 seeds grown to the end,search-yield-0826/yield.csv,seeds_grown_to_end,0
+finds_hf_w5,a,wave 5 hole free finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 5 alone,0
+per100_hf_w5,a,wave 5 hole free finds per 100 seeds drawn,this tool,finds over draws times 100,not measurable
+finds_cert_w5,a,wave 5 certified finds (seeds),search-yield-0826/yield.csv,finds_per_seed; arm ours (item 91 arm C); scope wave 5 alone,0
+per100_cert_w5,a,wave 5 certified finds per 100 seeds drawn,this tool,finds over draws times 100,not measurable
+random_w5,a,wave 5 drawn uniformly,body.tex The seeds; chain-0826 DECLARATION.md,,no

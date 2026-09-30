@@ -1,0 +1,158 @@
+"# written by src/tools/chain_summary.py at 2026-09-30T19:17:08Z from the snapshot of chain-0826 in src/evidence/studies (copy time in src/evidence/MANIFEST.csv); waves 1 to 4 are the groups batch-1-400-0826 batch-401-2400-0826 batch-2401-6400-0826 batch-6401-6712-0826 batch-6713-6752-0826"
+scope,quantity,value,source_file,source_column,check,check_value
+wave1,draws,400,chain-0826/seed-rule.csv,rows of the wave (column group),,
+wave1,rule_passers,127,chain-0826/seed-rule.csv,passes_rule = yes,,
+wave1,ladder_grown,127,chain-0826/ladder.csv,rows of the wave,ladder rows equal rule passers,yes
+wave1,ladder_survivors,8,chain-0826/ladder.csv,outcome = still growing at the cap,,
+wave1,queued,8,chain-0826/per-seed-queue.csv,rows of the wave (column seed_rule_group),queued equal ladder survivors,yes
+wave1,survivors_per_rule_passer,0.0630,chain-0826/ladder.csv; seed-rule.csv,ladder survivors over rule passers of the wave,,
+wave1,delivered,6,chain-0826/per-seed-queue.csv,delivering_binary begins with delivered,,
+wave1,growth_crashed,2,chain-0826/per-seed-queue.csv,"growth_return_code = 139, not delivered",,
+wave1,waiting,0,chain-0826/per-seed-queue.csv; chain-0826/ladder.csv,"growth_return_code not measurable, not delivered (0); ladder survivors with no queue row (0)",delivered + crashed + waiting + other equal ladder survivors,yes
+wave1,not_delivered_other,0,chain-0826/per-seed-queue.csv,"not delivered, growth_return_code neither 139 nor not measurable",,
+wave1,best_square_seeds,6,chain-0826/per-seed-queue.csv,largest_square_mm_min_step of delivered seeds,best recomputed from squares-<seed>.csv equals the queue's,6 of 6
+wave1,best_square_median_mm,7.8167,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, median over delivered seeds",,
+wave1,best_square_max_mm,12.0416,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, max over delivered seeds",,
+wave1,seeds_square_at_least_source_mm,1,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= the fourth wave's source threshold,,
+wave1,seeds_square_at_least_20mm,0,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= 20,,
+wave1,a2_seeds_missing,0,chain-0826/a2-cluster/<seed>.csv,delivered seeds with no a2 file,,
+wave1,a2_sheets,60,chain-0826/a2-cluster/<seed>.csv,rows,,
+wave1,a2_flagged_share,0.006836,chain-0826/a2-cluster/<seed>.csv,sum a2_flagged over sum a2_measurable,,
+wave1,cluster_rule_best_median_mm,7.8167,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, median over seeds",seeds with a cluster rule square,6 of 6
+wave1,cluster_rule_best_max_mm,12.0416,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, max over seeds",,
+wave1,seeds_cluster_rule_at_least_source_mm,1,chain-0826/a2-cluster/<seed>.csv,largest a2_cluster_rule_square_mm >= the source threshold,,
+wave1,sheets_delivered_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm >= 20,,
+wave1,sheets_both_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm and a2_cluster_rule_square_mm both >= 20,,
+wave2,draws,2000,chain-0826/seed-rule.csv,rows of the wave (column group),,
+wave2,rule_passers,381,chain-0826/seed-rule.csv,passes_rule = yes,,
+wave2,ladder_grown,381,chain-0826/ladder.csv,rows of the wave,ladder rows equal rule passers,yes
+wave2,ladder_survivors,29,chain-0826/ladder.csv,outcome = still growing at the cap,,
+wave2,queued,29,chain-0826/per-seed-queue.csv,rows of the wave (column seed_rule_group),queued equal ladder survivors,yes
+wave2,survivors_per_rule_passer,0.0761,chain-0826/ladder.csv; seed-rule.csv,ladder survivors over rule passers of the wave,,
+wave2,delivered,25,chain-0826/per-seed-queue.csv,delivering_binary begins with delivered,,
+wave2,growth_crashed,4,chain-0826/per-seed-queue.csv,"growth_return_code = 139, not delivered",,
+wave2,waiting,0,chain-0826/per-seed-queue.csv; chain-0826/ladder.csv,"growth_return_code not measurable, not delivered (0); ladder survivors with no queue row (0)",delivered + crashed + waiting + other equal ladder survivors,yes
+wave2,not_delivered_other,0,chain-0826/per-seed-queue.csv,"not delivered, growth_return_code neither 139 nor not measurable",,
+wave2,best_square_seeds,25,chain-0826/per-seed-queue.csv,largest_square_mm_min_step of delivered seeds,best recomputed from squares-<seed>.csv equals the queue's,25 of 25
+wave2,best_square_median_mm,9.3532,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, median over delivered seeds",,
+wave2,best_square_max_mm,17.0473,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, max over delivered seeds",,
+wave2,seeds_square_at_least_source_mm,9,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= the fourth wave's source threshold,,
+wave2,seeds_square_at_least_20mm,0,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= 20,,
+wave2,a2_seeds_missing,0,chain-0826/a2-cluster/<seed>.csv,delivered seeds with no a2 file,,
+wave2,a2_sheets,250,chain-0826/a2-cluster/<seed>.csv,rows,,
+wave2,a2_flagged_share,0.009613,chain-0826/a2-cluster/<seed>.csv,sum a2_flagged over sum a2_measurable,,
+wave2,cluster_rule_best_median_mm,9.3532,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, median over seeds",seeds with a cluster rule square,25 of 25
+wave2,cluster_rule_best_max_mm,17.0473,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, max over seeds",,
+wave2,seeds_cluster_rule_at_least_source_mm,9,chain-0826/a2-cluster/<seed>.csv,largest a2_cluster_rule_square_mm >= the source threshold,,
+wave2,sheets_delivered_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm >= 20,,
+wave2,sheets_both_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm and a2_cluster_rule_square_mm both >= 20,,
+wave3,draws,4000,chain-0826/seed-rule.csv,rows of the wave (column group),,
+wave3,rule_passers,808,chain-0826/seed-rule.csv,passes_rule = yes,,
+wave3,ladder_grown,808,chain-0826/ladder.csv,rows of the wave,ladder rows equal rule passers,yes
+wave3,ladder_survivors,77,chain-0826/ladder.csv,outcome = still growing at the cap,,
+wave3,queued,77,chain-0826/per-seed-queue.csv,rows of the wave (column seed_rule_group),queued equal ladder survivors,yes
+wave3,survivors_per_rule_passer,0.0953,chain-0826/ladder.csv; seed-rule.csv,ladder survivors over rule passers of the wave,,
+wave3,delivered,71,chain-0826/per-seed-queue.csv,delivering_binary begins with delivered,,
+wave3,growth_crashed,6,chain-0826/per-seed-queue.csv,"growth_return_code = 139, not delivered",,
+wave3,waiting,0,chain-0826/per-seed-queue.csv; chain-0826/ladder.csv,"growth_return_code not measurable, not delivered (0); ladder survivors with no queue row (0)",delivered + crashed + waiting + other equal ladder survivors,yes
+wave3,not_delivered_other,0,chain-0826/per-seed-queue.csv,"not delivered, growth_return_code neither 139 nor not measurable",,
+wave3,best_square_seeds,71,chain-0826/per-seed-queue.csv,largest_square_mm_min_step of delivered seeds,best recomputed from squares-<seed>.csv equals the queue's,71 of 71
+wave3,best_square_median_mm,9.3895,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, median over delivered seeds",,
+wave3,best_square_max_mm,17.7995,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, max over delivered seeds",,
+wave3,seeds_square_at_least_source_mm,29,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= the fourth wave's source threshold,,
+wave3,seeds_square_at_least_20mm,0,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= 20,,
+wave3,a2_seeds_missing,0,chain-0826/a2-cluster/<seed>.csv,delivered seeds with no a2 file,,
+wave3,a2_sheets,710,chain-0826/a2-cluster/<seed>.csv,rows,,
+wave3,a2_flagged_share,0.010083,chain-0826/a2-cluster/<seed>.csv,sum a2_flagged over sum a2_measurable,,
+wave3,cluster_rule_best_median_mm,9.3490,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, median over seeds",seeds with a cluster rule square,71 of 71
+wave3,cluster_rule_best_max_mm,17.7995,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, max over seeds",,
+wave3,seeds_cluster_rule_at_least_source_mm,28,chain-0826/a2-cluster/<seed>.csv,largest a2_cluster_rule_square_mm >= the source threshold,,
+wave3,sheets_delivered_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm >= 20,,
+wave3,sheets_both_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm and a2_cluster_rule_square_mm both >= 20,,
+wave4,draws,312,chain-0826/seed-rule.csv,rows of the wave (column group),,
+wave4,rule_passers,312,chain-0826/seed-rule.csv,passes_rule = yes,,
+wave4,ladder_grown,312,chain-0826/ladder.csv,rows of the wave,ladder rows equal rule passers,yes
+wave4,ladder_survivors,93,chain-0826/ladder.csv,outcome = still growing at the cap,,
+wave4,queued,93,chain-0826/per-seed-queue.csv,rows of the wave (column seed_rule_group),queued equal ladder survivors,yes
+wave4,survivors_per_rule_passer,0.2981,chain-0826/ladder.csv; seed-rule.csv,ladder survivors over rule passers of the wave,,
+wave4,delivered,56,chain-0826/per-seed-queue.csv,delivering_binary begins with delivered,,
+wave4,growth_crashed,2,chain-0826/per-seed-queue.csv,"growth_return_code = 139, not delivered",,
+wave4,waiting,34,chain-0826/per-seed-queue.csv; chain-0826/ladder.csv,"growth_return_code not measurable, not delivered (34); ladder survivors with no queue row (0)",delivered + crashed + waiting + other equal ladder survivors,yes
+wave4,not_delivered_other,1,chain-0826/per-seed-queue.csv,"not delivered, growth_return_code neither 139 nor not measurable",,
+wave4,best_square_seeds,56,chain-0826/per-seed-queue.csv,largest_square_mm_min_step of delivered seeds,best recomputed from squares-<seed>.csv equals the queue's,56 of 56
+wave4,best_square_median_mm,9.5349,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, median over delivered seeds",,
+wave4,best_square_max_mm,14.0972,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, max over delivered seeds",,
+wave4,seeds_square_at_least_source_mm,23,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= the fourth wave's source threshold,,
+wave4,seeds_square_at_least_20mm,0,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= 20,,
+wave4,a2_seeds_missing,0,chain-0826/a2-cluster/<seed>.csv,delivered seeds with no a2 file,,
+wave4,a2_sheets,560,chain-0826/a2-cluster/<seed>.csv,rows,,
+wave4,a2_flagged_share,0.009874,chain-0826/a2-cluster/<seed>.csv,sum a2_flagged over sum a2_measurable,,
+wave4,cluster_rule_best_median_mm,9.3327,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, median over seeds",seeds with a cluster rule square,56 of 56
+wave4,cluster_rule_best_max_mm,14.0972,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, max over seeds",,
+wave4,seeds_cluster_rule_at_least_source_mm,22,chain-0826/a2-cluster/<seed>.csv,largest a2_cluster_rule_square_mm >= the source threshold,,
+wave4,sheets_delivered_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm >= 20,,
+wave4,sheets_both_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm and a2_cluster_rule_square_mm both >= 20,,
+wave5,draws,40,chain-0826/seed-rule.csv,rows of the wave (column group),,
+wave5,rule_passers,40,chain-0826/seed-rule.csv,passes_rule = yes,,
+wave5,ladder_grown,40,chain-0826/ladder.csv,rows of the wave,ladder rows equal rule passers,yes
+wave5,ladder_survivors,20,chain-0826/ladder.csv,outcome = still growing at the cap,,
+wave5,queued,0,chain-0826/per-seed-queue.csv,rows of the wave (column seed_rule_group),queued equal ladder survivors,"no, 0 against 20"
+wave5,survivors_per_rule_passer,0.5000,chain-0826/ladder.csv; seed-rule.csv,ladder survivors over rule passers of the wave,,
+wave5,delivered,0,chain-0826/per-seed-queue.csv,delivering_binary begins with delivered,,
+wave5,growth_crashed,0,chain-0826/per-seed-queue.csv,"growth_return_code = 139, not delivered",,
+wave5,waiting,20,chain-0826/per-seed-queue.csv; chain-0826/ladder.csv,"growth_return_code not measurable, not delivered (0); ladder survivors with no queue row (20)",delivered + crashed + waiting + other equal ladder survivors,yes
+wave5,not_delivered_other,0,chain-0826/per-seed-queue.csv,"not delivered, growth_return_code neither 139 nor not measurable",,
+wave5,best_square_seeds,0,chain-0826/per-seed-queue.csv,largest_square_mm_min_step of delivered seeds,best recomputed from squares-<seed>.csv equals the queue's,0 of 0
+wave5,best_square_median_mm,not measurable,chain-0826/per-seed-queue.csv,no delivered seed,,
+wave5,best_square_max_mm,not measurable,chain-0826/per-seed-queue.csv,no delivered seed,,
+wave5,seeds_square_at_least_source_mm,0,chain-0826/per-seed-queue.csv,"no delivered seed, so none",,
+wave5,seeds_square_at_least_20mm,0,chain-0826/per-seed-queue.csv,"no delivered seed, so none",,
+wave5,a2_seeds_missing,0,chain-0826/a2-cluster/<seed>.csv,delivered seeds with no a2 file,,
+wave5,a2_sheets,0,chain-0826/a2-cluster/<seed>.csv,rows,,
+wave5,a2_flagged_share,not measurable,chain-0826/a2-cluster/<seed>.csv,sum a2_flagged over sum a2_measurable,,
+wave5,cluster_rule_best_median_mm,not measurable,chain-0826/a2-cluster/<seed>.csv,no delivered seed,,
+wave5,cluster_rule_best_max_mm,not measurable,chain-0826/a2-cluster/<seed>.csv,no delivered seed,,
+wave5,seeds_cluster_rule_at_least_source_mm,0,chain-0826/a2-cluster/<seed>.csv,"no delivered seed, so none",,
+wave5,sheets_delivered_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm >= 20,,
+wave5,sheets_both_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm and a2_cluster_rule_square_mm both >= 20,,
+all,draws,6752,chain-0826/seed-rule.csv,rows of the wave (column group),,
+all,rule_passers,1668,chain-0826/seed-rule.csv,passes_rule = yes,,
+all,ladder_grown,1668,chain-0826/ladder.csv,rows of the wave,ladder rows equal rule passers,yes
+all,waves_with_finished_ladder,5,chain-0826/ladder.csv; seed-rule.csv,waves whose ladder rows reach their rule passers,,
+all,ladder_survivors,227,chain-0826/ladder.csv,outcome = still growing at the cap,,
+all,queued,207,chain-0826/per-seed-queue.csv,rows of the wave (column seed_rule_group),queued equal ladder survivors,"no, 207 against 227"
+all,survivors_per_rule_passer,0.1361,chain-0826/ladder.csv; seed-rule.csv,ladder survivors over rule passers of the wave,,
+all,delivered,158,chain-0826/per-seed-queue.csv,delivering_binary begins with delivered,,
+all,growth_crashed,14,chain-0826/per-seed-queue.csv,"growth_return_code = 139, not delivered",,
+all,waiting,54,chain-0826/per-seed-queue.csv; chain-0826/ladder.csv,"growth_return_code not measurable, not delivered (34); ladder survivors with no queue row (20)",delivered + crashed + waiting + other equal ladder survivors,yes
+all,not_delivered_other,1,chain-0826/per-seed-queue.csv,"not delivered, growth_return_code neither 139 nor not measurable",,
+all,best_square_seeds,158,chain-0826/per-seed-queue.csv,largest_square_mm_min_step of delivered seeds,best recomputed from squares-<seed>.csv equals the queue's,158 of 158
+all,best_square_median_mm,9.3529,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, median over delivered seeds",,
+all,best_square_max_mm,17.7995,chain-0826/per-seed-queue.csv,"largest_square_mm_min_step, max over delivered seeds",,
+all,seeds_square_at_least_source_mm,62,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= the fourth wave's source threshold,,
+all,seeds_square_at_least_20mm,0,chain-0826/per-seed-queue.csv,largest_square_mm_min_step >= 20,,
+all,a2_seeds_missing,0,chain-0826/a2-cluster/<seed>.csv,delivered seeds with no a2 file,,
+all,a2_sheets,1580,chain-0826/a2-cluster/<seed>.csv,rows,,
+all,a2_flagged_share,0.009835,chain-0826/a2-cluster/<seed>.csv,sum a2_flagged over sum a2_measurable,,
+all,cluster_rule_best_median_mm,9.3122,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, median over seeds",seeds with a cluster rule square,158 of 158
+all,cluster_rule_best_max_mm,17.7995,chain-0826/a2-cluster/<seed>.csv,"a2_cluster_rule_square_mm, largest per seed, max over seeds",,
+all,seeds_cluster_rule_at_least_source_mm,60,chain-0826/a2-cluster/<seed>.csv,largest a2_cluster_rule_square_mm >= the source threshold,,
+all,sheets_delivered_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm >= 20,,
+all,sheets_both_at_least_20mm,0,chain-0826/a2-cluster/<seed>.csv,delivered_square_mm and a2_cluster_rule_square_mm both >= 20,,
+wave5,near_sources,5,chain-0826/wave5-near-draw.csv,rows,,
+wave5,near_draws_made,40,chain-0826/wave5-near-draw.csv,sum of draws_made,,
+wave5,near_draws_per_source_max,8,chain-0826/wave5-near-draw.csv,max of drawn,,
+wave5,near_shell_min_vox,48,chain-0826/wave5-near-draw.csv,header,,
+wave5,near_shell_max_vox,128,chain-0826/wave5-near-draw.csv,header,,
+wave5,source_threshold_mm,15.0000,chain-0826/wave5-sources.csv,header,,
+wave4,near_sources,39,chain-0826/wave4-near-draw.csv,rows,sources equal wave4-sources.csv rows with is_source yes,yes
+wave4,near_draws_made,312,chain-0826/wave4-near-draw.csv,sum of draws_made,,
+wave4,near_draws_per_source_max,8,chain-0826/wave4-near-draw.csv,max of drawn,,
+wave4,near_shell_min_vox,48,chain-0826/wave4-near-draw.csv,header: at X to Y voxels,,
+wave4,near_shell_max_vox,256,chain-0826/wave4-near-draw.csv,header: at X to Y voxels,,
+build,objects_check_builds,12,chain-0826/build-objects-check.csv,rows,,
+build,objects_only_builds,9,chain-0826/build-objects-check.csv,build_mode = objects_only,objects only builds whose sha256 equals a full make of the same seed,9 of 9
+build,objects_check_variants,3,chain-0826/build-objects-check.csv,distinct variant,,
+rule,a2_T_star_deg,25.0,chain-0826/a2-cluster/<seed>.csv,a2_T_star,,
+rule,a2_S,101,chain-0826/a2-cluster/<seed>.csv,a2_S,,
+rule,source_threshold_mm,10.0,chain-0826/wave4-sources.csv,header: best >= X mm,,

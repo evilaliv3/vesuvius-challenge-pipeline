@@ -91,6 +91,10 @@ def load():
     # WHICH arm leaves the volume, so the arm has to stay identifiable, and the triangle already
     # says "outside" without spending a hue on it.
     changes = [
+        # 2026-09-30, the referee's figure note: the axis is in grid units, as the caption and the
+        # text say, and not in pixels
+        ('ax.set_xlabel("distance of the candidate from the centre of the section, pixels")',
+         'ax.set_xlabel("distance of the candidate from the centre of the section, grid units")'),
         ('ax.plot(A[:, 2], A[:, i], "-o", ms=3, lw=1, color=AS_IS,',
          'ax.plot(A[:, 2], A[:, i], "-o", ms=3, lw=1, color=_P.REFERENCE,\n'
          '                path_effects=_P.stroke(2.6),'),

@@ -1,0 +1,80 @@
+# figure C20; what the raster drew; written by src/tools/c-f20-best-windows.py at 2026-09-30T06:21:49Z (cores busy not checked): the best three clean windows of best-windows-0826; the lattice render and the axis aligned render of that study's align.py; and the straightened section of each window that separates from random placement; RAW SCAN; NO INK DETECTOR. Not for a public repository without the owner's word. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+,g,voxel of the raw scan; mm,rasterlib.py ZARR,the volume's name,0.009362
+side_mm,a;b;c,declared window side; mm,evidence/derived/checks-summary.csv,windows_side_mm,20
+angle_min,g,windows_best3_angle_min_deg,evidence/derived/checks-summary.csv,windows_best3_angle_min_deg,14.4
+angle_max,g,windows_best3_angle_max_deg,evidence/derived/checks-summary.csv,windows_best3_angle_max_deg,30.8
+peak_window,g,straight_peak_window_vox,evidence/derived/checks-summary.csv,straight_peak_window_vox,15
+random_median,g,straight_random_median_vox,evidence/derived/checks-summary.csv,straight_random_median_vox,8
+random_share,g,straight_random_share,evidence/derived/checks-summary.csv,straight_random_share,0.2258
+near_vox,g,the near band of the section statistic; voxels,evidence/studies/best-windows-0826/straight.csv,the column name share_within_N_vox,3
+,a;d,bw1 panel data sha256 (pinned),best-windows-0826/scratch/panel-data/bw1.npz,,f0d0615bae2381a258ef9a9e346d5b44fd2a5f30d7a700d393acba62290bf481
+seed_1,a,bw1 seed,evidence/studies/best-windows-0826/windows.csv,seed,5364
+sheet_1,a,bw1 sheet,evidence/studies/best-windows-0826/windows.csv,sheet,1
+,a,bw1 source,evidence/studies/best-windows-0826/windows.csv,source,C40
+,a,bw1 window corner i0;j0 and cells,evidence/studies/best-windows-0826/windows.csv,i0; j0; cells_i; cells_j,115;710;535;535
+covered_1,a,bw1 covered share,evidence/studies/best-windows-0826/windows.csv,covered_share,0.956311
+flagged_1,a,bw1 flagged share,evidence/studies/best-windows-0826/windows.csv,flagged_share,0
+fibre_1,a,bw1 window fibre score,evidence/studies/best-windows-0826/windows.csv,window_fibre,0.0843
+,a,bw1 cell step; mm,evidence/studies/best-windows-0826/windows.csv,min(step_i_mm; step_j_mm),0.037410
+,d,bw1 aligned covered share,evidence/studies/best-windows-0826/renders.csv,aligned_covered_share,0.925800
+,d,bw1 aligned median spacing; voxels,evidence/studies/best-windows-0826/renders.csv,aligned_median_spacing_vox,4.0058
+,a,bw1 lattice grey p1;p99,panel data,current,35.0;190.0
+,d,bw1 aligned grey p1;p99,panel data,aligned,36.0;190.0
+,a,bw1 lattice asset pixels sha256,c-f20-best-windows-lattice-1.png,,476184289ba12629ff0992adf71c98ca30abb44b508fd4950c1bf7b0cfab8af4
+,d,bw1 aligned asset pixels sha256,c-f20-best-windows-aligned-1.png,,52aabd89399cced12e7208ab510a680caaeb0471ee6bfde6c724d0a7b8fb35dd
+,g,bw1 straightened section data sha256 (pinned),best-windows-0826/scratch/panel-data/straight-bw1.npz,,723df500b823c9ecbb2dc4adb7469fd45bdb6ebfb73f3b496787b57be0e7854f
+median_i_1,g,bw1 line i median offset;share within 3; recomputed; equal to straight.csv,evidence/studies/best-windows-0826/straight.csv,peak_offset_median_vox; share_within_3_vox,5;0.3851;yes
+median_j_1,g,bw1 line j median offset;share within 3; recomputed; equal to straight.csv,evidence/studies/best-windows-0826/straight.csv,peak_offset_median_vox; share_within_3_vox,6;0.3701;yes
+,g,bw1 straightened sections separate from random placement (checks_summary.py),evidence/derived/checks-summary.csv,straight_bw1_separates,yes
+,a;d,bw3 panel data sha256 (pinned),best-windows-0826/scratch/panel-data/bw3.npz,,b2c8839d4d356bb9c8c8faf7e70f73c46989e8ab9cf7b8a625b66a0daa18b270
+seed_2,a,bw3 seed,evidence/studies/best-windows-0826/windows.csv,seed,6473
+sheet_2,a,bw3 sheet,evidence/studies/best-windows-0826/windows.csv,sheet,0
+,a,bw3 source,evidence/studies/best-windows-0826/windows.csv,source,C40
+,a,bw3 window corner i0;j0 and cells,evidence/studies/best-windows-0826/windows.csv,i0; j0; cells_i; cells_j,591;1069;535;535
+covered_2,a,bw3 covered share,evidence/studies/best-windows-0826/windows.csv,covered_share,0.977619
+flagged_2,a,bw3 flagged share,evidence/studies/best-windows-0826/windows.csv,flagged_share,0.000576
+fibre_2,a,bw3 window fibre score,evidence/studies/best-windows-0826/windows.csv,window_fibre,0.0799
+,a,bw3 cell step; mm,evidence/studies/best-windows-0826/windows.csv,min(step_i_mm; step_j_mm),0.037390
+,d,bw3 aligned covered share,evidence/studies/best-windows-0826/renders.csv,aligned_covered_share,0.949921
+,d,bw3 aligned median spacing; voxels,evidence/studies/best-windows-0826/renders.csv,aligned_median_spacing_vox,3.9850
+,a,bw3 lattice grey p1;p99,panel data,current,30.0;178.0
+,d,bw3 aligned grey p1;p99,panel data,aligned,30.0;178.0
+,a,bw3 lattice asset pixels sha256,c-f20-best-windows-lattice-2.png,,769ccd18f59de6b091b3edd9e761bc45cde07aa58721e68d09a3f40dae977f32
+,d,bw3 aligned asset pixels sha256,c-f20-best-windows-aligned-2.png,,e5b7aa37c311f7550abddc2e3eadea8dfe61f913a35b0847560d5b8418ea8e66
+,g,bw3 straightened section data sha256 (pinned),best-windows-0826/scratch/panel-data/straight-bw3.npz,,fd73fdb7d5c36ece917c12f719970e8deaed75221cd79a6f6572d902ccab8d92
+median_i_2,g,bw3 line i median offset;share within 3; recomputed; equal to straight.csv,evidence/studies/best-windows-0826/straight.csv,peak_offset_median_vox; share_within_3_vox,8;0.2355;yes
+median_j_2,g,bw3 line j median offset;share within 3; recomputed; equal to straight.csv,evidence/studies/best-windows-0826/straight.csv,peak_offset_median_vox; share_within_3_vox,10;0.1570;yes
+,g,bw3 straightened sections separate from random placement (checks_summary.py),evidence/derived/checks-summary.csv,straight_bw3_separates,no
+,a;d,bw4 panel data sha256 (pinned),best-windows-0826/scratch/panel-data/bw4.npz,,08d316a9fa6cb3b2e2fc6dfae927749cfa68bb6b6f41dd8cf55ba531e42dd0ae
+seed_3,a,bw4 seed,evidence/studies/best-windows-0826/windows.csv,seed,6731
+sheet_3,a,bw4 sheet,evidence/studies/best-windows-0826/windows.csv,sheet,0
+,a,bw4 source,evidence/studies/best-windows-0826/windows.csv,source,C40
+,a,bw4 window corner i0;j0 and cells,evidence/studies/best-windows-0826/windows.csv,i0; j0; cells_i; cells_j,1275;724;535;535
+covered_3,a,bw4 covered share,evidence/studies/best-windows-0826/windows.csv,covered_share,0.987150
+flagged_3,a,bw4 flagged share,evidence/studies/best-windows-0826/windows.csv,flagged_share,0.001712
+fibre_3,a,bw4 window fibre score,evidence/studies/best-windows-0826/windows.csv,window_fibre,0.0999
+,a,bw4 cell step; mm,evidence/studies/best-windows-0826/windows.csv,min(step_i_mm; step_j_mm),0.037405
+,d,bw4 aligned covered share,evidence/studies/best-windows-0826/renders.csv,aligned_covered_share,0.959759
+,d,bw4 aligned median spacing; voxels,evidence/studies/best-windows-0826/renders.csv,aligned_median_spacing_vox,3.9971
+,a,bw4 lattice grey p1;p99,panel data,current,31.0;180.0
+,d,bw4 aligned grey p1;p99,panel data,aligned,31.0;180.0
+,a,bw4 lattice asset pixels sha256,c-f20-best-windows-lattice-3.png,,2a0c68d6cc0a1b5fab0fd10a57402c6a505c57ce7b7606e89b68346a3f7e28a2
+,d,bw4 aligned asset pixels sha256,c-f20-best-windows-aligned-3.png,,77b9ac0c8213b5416eacad4c6f6401879337e463074de688ccfeb2a5779148eb
+,g,bw4 straightened section data sha256 (pinned),best-windows-0826/scratch/panel-data/straight-bw4.npz,,245fd939c79e29357172e5da11ef8916e2fe9b44598bff4dcf81fe8a89d59406
+median_i_3,g,bw4 line i median offset;share within 3; recomputed; equal to straight.csv,evidence/studies/best-windows-0826/straight.csv,peak_offset_median_vox; share_within_3_vox,10;0.1757;yes
+median_j_3,g,bw4 line j median offset;share within 3; recomputed; equal to straight.csv,evidence/studies/best-windows-0826/straight.csv,peak_offset_median_vox; share_within_3_vox,9;0.1103;yes
+,g,bw4 straightened sections separate from random placement (checks_summary.py),evidence/derived/checks-summary.csv,straight_bw4_separates,no
+sections_drawn,g,best windows whose straightened section is drawn,evidence/derived/checks-summary.csv,straight_<tag>_separates = yes,bw1
+other_min,g,median offset of the sections not drawn; min,this tool,recomputed above,8
+other_max,g,median offset of the sections not drawn; max,this tool,recomputed above,10
+sec_median,g,drawn section along j: median offset; voxels,this tool,recomputed above,6
+sec_share,g,drawn section along j: share within the near band,this tool,recomputed above,0.3701
+,g,section along j of bw1; grey p1;p99.5 as straight.py,panel data,j_lo; j_hi,32.0;191.0
+,g,section columns;rows,panel data,j_img,535;121
+half_rows,g,section half height; voxels,panel data,j_img rows,60
+,g,section column spacing; mm,panel data,j_colmm,0.03809
+stretch,g,section rows against true scale; square pixels (display choice),this tool,column spacing over voxel,4
+,g,asset pixels sha256,c-f20-best-windows-section-1.png,,1590dcb80683be4966920769723afe74200fc1e563f6414afdbb0bdcfc6dc553
+bar_mm,a;b;c;d;e;f;g,scale bar; mm (display choice),argument --bar-mm,,5
+vbar_mm,g,vertical scale bar; mm (display choice),argument --vbar-mm,,0.5

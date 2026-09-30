@@ -1,0 +1,6 @@
+quantity,from_the_guard,from_the_diagnosis,agree,guard_file,diagnosis_file
+chains refused at length 2,202,202,yes,/data/scrollagent/runs/rev1/orphan-guard/log/chain-guard-PHerc1447-seed34-c.txt,/data/scrollagent/runs/rev1/badpatch-crash/evidence/key-containers.csv
+distinct patches with no geometry,73,73,yes,/data/scrollagent/runs/rev1/orphan-guard/log/chain-guard-PHerc1447-seed34-c.txt,/data/scrollagent/runs/rev1/badpatch-crash/evidence/key-containers.csv
+the set of those patches,73 ids,73 ids,yes,/data/scrollagent/runs/rev1/orphan-guard/log/chain-guard-PHerc1447-seed34-c.txt,/data/scrollagent/runs/rev1/badpatch-crash/evidence/key-containers.csv
+ids the guard names and the diagnosis does not,none,,,/data/scrollagent/runs/rev1/orphan-guard/log/chain-guard-PHerc1447-seed34-c.txt,/data/scrollagent/runs/rev1/badpatch-crash/evidence/key-containers.csv
+ids the diagnosis names and the guard does not,,none,,/data/scrollagent/runs/rev1/orphan-guard/log/chain-guard-PHerc1447-seed34-c.txt,/data/scrollagent/runs/rev1/badpatch-crash/evidence/key-containers.csv

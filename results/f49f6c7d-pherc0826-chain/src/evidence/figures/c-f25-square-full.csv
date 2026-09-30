@@ -1,0 +1,18 @@
+# figure C25, written by src/tools/c-f25-square-full.py at 2026-09-30T18:47:06Z: the certified square (adjudicated) of R2cnative PHerc0826-seed6273-squarecentre at one sample per voxel; RAW SCAN; NO INK DETECTOR; no coordinate; height; chunk index; seed point or centre is written
+key,what,value
+grid,samples per side of the square (rows = columns),3005
+step_vox,median 3D distance between neighbouring samples; voxels (mean of rows and columns),0.9965
+voxel_um,the scan's voxel; micrometres (the volume 20250821151701-9.362um; routes.py VOX),9.362
+mm_per_px,step_vox x the voxel; mm,0.009329
+side_mm,square side; square-checks-adjudicated.csv certified_adjudicated_mm,28.1285
+samples,samples drawn,9030025
+missing,samples with a voxel in an absent chunk; drawn white,0
+sampling,raw scan level 0; trilinear between the 8 neighbouring voxels; surface bilinear between the tracer grid's nodes,trilinear
+turn_to_z_up,quarter turns and flips of the tracer grid (c-f21-fig-r2c.py rule),none
+stretch_lo_pct,contrast stretch lower percentile of the non missing samples (black),1
+stretch_hi_pct,contrast stretch upper percentile of the non missing samples (white),99
+bar_mm,scale bar; mm,5
+print_in,printed width; inches (IEEE two column text width),7.16
+dpi,pixels per inch at that width,419.7
+png_mb,PNG size; MB,6.19
+png_sha256,sha256 of the PNG,5c35a1b6f5c91b5b2a8022947818948ef5714b08ab12e3bca4c355ff040c3207

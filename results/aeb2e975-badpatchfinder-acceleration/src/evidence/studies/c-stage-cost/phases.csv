@@ -1,0 +1,22 @@
+# the three phases of FindBadPatchesGeneral, timed inside the stage itself by a diagnostic build (tools/apply_timers.py, omp_get_wtime), one row per chain length. setup is PrecomputeNormals and the indexing of the patches; odometer is the while loop that enumerates the chains; sequences is the parallel placement pass and the serial pass that prints and scores them; cover is the greedy loop that condemns one patch per pass. The timer build is an instrument and is not in the delivered series.
+tag,attempt,length,setup_seconds,odometer_seconds,sequences_seconds,cover_seconds,log
+c1,PHerc1447-seed40,2,1.46,0.19,13.87,252.96,log/chain-timers-c1-PHerc1447-seed40-c.txt
+c1,PHerc1447-seed40,3,0.01,0.04,0.19,0.00,log/chain-timers-c1-PHerc1447-seed40-c.txt
+c1,PHerc1447-seed40,4,0.01,0.07,0.39,0.00,log/chain-timers-c1-PHerc1447-seed40-c.txt
+c1,PHerc1447-seed40,5,0.01,0.16,0.96,0.00,log/chain-timers-c1-PHerc1447-seed40-c.txt
+c2,PHerc1447-seed40,2,1.66,0.20,13.84,15.58,log/chain-timers-c2-PHerc1447-seed40-c.txt
+c2,PHerc1447-seed40,3,0.01,0.04,0.19,0.00,log/chain-timers-c2-PHerc1447-seed40-c.txt
+c2,PHerc1447-seed40,4,0.01,0.08,0.39,0.00,log/chain-timers-c2-PHerc1447-seed40-c.txt
+c2,PHerc1447-seed40,5,0.01,0.17,1.00,0.00,log/chain-timers-c2-PHerc1447-seed40-c.txt
+guarded,PHerc1447-seed26,2,0.70,0.02,0.71,0.48,log/chain-timers-guarded-26-PHerc1447-seed26-c.txt
+guarded,PHerc1447-seed26,3,0.01,0.08,1.70,0.00,log/chain-timers-guarded-26-PHerc1447-seed26-c.txt
+guarded,PHerc1447-seed26,4,0.00,0.45,6.28,0.00,log/chain-timers-guarded-26-PHerc1447-seed26-c.txt
+guarded,PHerc1447-seed26,5,0.00,2.67,23.28,0.00,log/chain-timers-guarded-26-PHerc1447-seed26-c.txt
+c1,PHerc1447-seed26,2,0.72,0.02,0.98,0.49,log/chain-timers-c1-26-PHerc1447-seed26-c.txt
+c1,PHerc1447-seed26,3,0.01,0.07,2.28,0.00,log/chain-timers-c1-26-PHerc1447-seed26-c.txt
+c1,PHerc1447-seed26,4,0.01,0.29,8.39,0.00,log/chain-timers-c1-26-PHerc1447-seed26-c.txt
+c1,PHerc1447-seed26,5,0.01,1.21,30.04,0.00,log/chain-timers-c1-26-PHerc1447-seed26-c.txt
+c2,PHerc1447-seed26,2,0.72,0.01,0.89,0.02,log/chain-timers-c2-26-PHerc1447-seed26-c.txt
+c2,PHerc1447-seed26,3,0.01,0.06,2.13,0.00,log/chain-timers-c2-26-PHerc1447-seed26-c.txt
+c2,PHerc1447-seed26,4,0.01,0.28,7.83,0.00,log/chain-timers-c2-26-PHerc1447-seed26-c.txt
+c2,PHerc1447-seed26,5,0.01,1.14,29.04,0.00,log/chain-timers-c2-26-PHerc1447-seed26-c.txt

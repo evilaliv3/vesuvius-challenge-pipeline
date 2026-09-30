@@ -1,0 +1,11 @@
+"# written by positive-control-0139/tools/null_best.py; best k 4 balanced accuracy over the rows of each null copy (run_one_v2 gap minima copies, the sheet centring) against the sheet lattice best of 32, same labels and pixel rule; sheet_beyond_null = sheet best above the null best"
+tool,time,surface,null,null_rows,null_best_ba,null_best_row,sheet_rows,sheet_best_ba,sheet_best_row,sheet_beyond_null
+positive-control-0139/tools/null_best.py,2026-09-29T09:46:44Z,ours-A-S0,nullplus,32,0.6680,nullplus k1 m1 reverse seed42,32,0.6960,lattice k2 m1 reverse seed42,yes
+positive-control-0139/tools/null_best.py,2026-09-29T09:46:44Z,ours-A-S0,nullminus,0,not measurable,,32,0.6960,lattice k2 m1 reverse seed42,no
+positive-control-0139/tools/null_best.py,2026-09-29T09:46:44Z,ours-A-S0,both copies,32,0.6680,nullplus k1 m1 reverse seed42,32,0.6960,lattice k2 m1 reverse seed42,yes
+positive-control-0139/tools/null_best.py,2026-09-29T10:13:37Z,ours-A-S0,nullplus,32,0.6680,nullplus k1 m1 reverse seed42,32,0.6960,lattice k2 m1 reverse seed42,yes
+positive-control-0139/tools/null_best.py,2026-09-29T10:13:37Z,ours-A-S0,nullminus,32,0.5560,nullminus k2 m0 reverse seed42,32,0.6960,lattice k2 m1 reverse seed42,yes
+positive-control-0139/tools/null_best.py,2026-09-29T10:13:37Z,ours-A-S0,both copies,64,0.6680,nullplus k1 m1 reverse seed42,32,0.6960,lattice k2 m1 reverse seed42,yes
+positive-control-0139/tools/null_best.py,2026-09-29T11:04:30Z,ours-Bx-S0,nullplus,32,0.6948,nullplus k2 m1 reverse seed42,32,0.7436,lattice k0 m0 reverse seed43,yes
+positive-control-0139/tools/null_best.py,2026-09-29T11:04:30Z,ours-Bx-S0,nullminus,32,0.5376,nullminus k3 m1 reverse seed43,32,0.7436,lattice k0 m0 reverse seed43,yes
+positive-control-0139/tools/null_best.py,2026-09-29T11:04:30Z,ours-Bx-S0,both copies,64,0.6948,nullplus k2 m1 reverse seed42,32,0.7436,lattice k0 m0 reverse seed43,yes

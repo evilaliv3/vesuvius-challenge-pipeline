@@ -1,0 +1,14 @@
+# the c stage of each seed, in each arm of this study, against the run that wrote the sheets on disk. arm_seconds is read back from evidence/runs.csv, column seconds, on the rows whose stage is c; reference_seconds is read from the log or the CSV named in reference_source and is not typed here. speedup is reference_seconds over arm_seconds. cores_busy_at_start says how loaded the shared machine was when the arm started, which matters: this workload lives in the last level cache and the reference runs had the machine to themselves for part of their time. under_ten_minutes is the director's bar, 600 s, applied to the arm's time.
+arm,attempt,arm_seconds,return_code,cores_busy_at_start,reference_seconds,reference_source,speedup,under_ten_minutes
+c1,PHerc1447-seed01,57.9,0,7.8,30,"seed runner row, /data/scrollagent/runs/rev1/seed-search-1447/evidence/runs/PHerc1447-seed01.csv",0.5,yes
+c1,PHerc1447-seed15,85.7,0,8.6,32,"seed runner row, /data/scrollagent/runs/rev1/seed-search-1447/evidence/runs/PHerc1447-seed15.csv",0.4,yes
+c1,PHerc1447-seed26,52.5,0,8.6,22,"seed runner row, /data/scrollagent/runs/rev1/seed-search-1447/evidence/runs/PHerc1447-seed26.csv",0.4,yes
+c1,PHerc1447-seed38,605.5,0,7.6,7808,"uncapped run, /data/scrollagent/runs/rev1/seed-search-1447/log/uncapped-seed38.txt",12.9,no
+c1,PHerc1447-seed40,289.1,0,15.0,7251,"uncapped run, /data/scrollagent/runs/rev1/seed-search-1447/log/uncapped-seed40.txt",25.1,yes
+c1,PHerc1447-seed48,472.7,0,10.6,8300,"uncapped run, /data/scrollagent/runs/rev1/seed-search-1447/log/uncapped-seed48.txt",17.6,yes
+c2,PHerc1447-seed01,55.1,0,7.1,30,"seed runner row, /data/scrollagent/runs/rev1/seed-search-1447/evidence/runs/PHerc1447-seed01.csv",0.5,yes
+c2,PHerc1447-seed15,78.3,0,7.1,32,"seed runner row, /data/scrollagent/runs/rev1/seed-search-1447/evidence/runs/PHerc1447-seed15.csv",0.4,yes
+c2,PHerc1447-seed26,51.8,0,8.4,22,"seed runner row, /data/scrollagent/runs/rev1/seed-search-1447/evidence/runs/PHerc1447-seed26.csv",0.4,yes
+c2,PHerc1447-seed38,63.0,0,6.9,7808,"uncapped run, /data/scrollagent/runs/rev1/seed-search-1447/log/uncapped-seed38.txt",123.9,yes
+c2,PHerc1447-seed40,34.9,0,7.2,7251,"uncapped run, /data/scrollagent/runs/rev1/seed-search-1447/log/uncapped-seed40.txt",207.8,yes
+c2,PHerc1447-seed48,54.4,0,5.4,8300,"uncapped run, /data/scrollagent/runs/rev1/seed-search-1447/log/uncapped-seed48.txt",152.6,yes

@@ -1,0 +1,12 @@
+# figure S3; the numbers plotted and nothing else. One row per seed of seed-search-1447/evidence/per-seed.csv. square_mm is its column largest_square_mm_min_step; fan_out is column fan_out of seed-search-1447/evidence/alignment-fanout.csv on the same seed; kind is column kind of seed-search-1447/evidence/cost-per-ribbon.csv; traced_area_mm2 and in_the_distribution are per-seed.csv's own columns. A seed is drawn only when both coordinates are numbers; and the plotted column says which; the specification's nine is not reachable; because the nine seeds with a square and the nine with a fan out are not the same nine. seed-search-1447/tools/check_fanout_agrees.py was run before this table was written and agreed. Files read: seed-search-1447/evidence/alignment-fanout.csv (read from the live study tree under /data/scrollagent/runs/rev1); seed-search-1447/evidence/cost-per-ribbon.csv (read from the live study tree under /data/scrollagent/runs/rev1); seed-search-1447/evidence/per-seed.csv (read from the live study tree under /data/scrollagent/runs/rev1) The number of seeds on the axes is a result of this run and not a constant: it was eight until seed44's fan out was measured at 02:23Z on 2026-09-22. Seeds on the axes: 9. Of those; seeds whose kind a CSV states: 6; the rest are drawn as not classified and no threshold was applied to guess them. Seeds left off and why: PHerc1447-seed11 is not on the axes: per-seed.csv column largest_square_mm_min_step is not measurable. Written 2026-09-22T06:47:36Z. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+i,attempt,kind,fan_out,square_mm,square_mm_ribbon,square_mm_tangle,square_mm_not_classified,traced_area_mm2,in_the_distribution,plotted,why_not_plotted
+0,PHerc1447-seed01,ribbon,4.61,10.3909,10.3909,nan,nan,6704.0,yes,yes,
+1,PHerc1447-seed11,not classified,33.97,nan,nan,nan,nan,not measurable,no,no,per-seed.csv column largest_square_mm_min_step is not measurable
+2,PHerc1447-seed15,ribbon,4.64,11.3635,11.3635,nan,nan,7835.1,yes,yes,
+3,PHerc1447-seed26,ribbon,4.51,12.7244,12.7244,nan,nan,6367.1,yes,yes,
+4,PHerc1447-seed34,not classified,35.88,5.2008,nan,nan,5.2008,676.8,yes,yes,
+5,PHerc1447-seed35,not classified,37.67,7.6721,nan,nan,7.6721,689.1,yes,yes,
+6,PHerc1447-seed38,tangle,27.40,9.2948,nan,9.2948,nan,1898.5,yes,yes,
+7,PHerc1447-seed40,tangle,30.82,6.8420,nan,6.8420,nan,912.5,yes,yes,
+8,PHerc1447-seed44,not classified,32.97,11.1968,nan,nan,11.1968,4292.4,yes,yes,
+9,PHerc1447-seed48,tangle,30.86,5.6329,nan,5.6329,nan,679.6,yes,yes,

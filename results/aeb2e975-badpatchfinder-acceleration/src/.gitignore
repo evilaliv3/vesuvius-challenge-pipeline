@@ -1,0 +1,14 @@
+# Written by a run, not part of the source.
+__pycache__/
+
+# The build litter of the figures, and only that. tools/render_all.sh writes each figure's PDF
+# and PNG into paper/figures/ from the CSV of plotted numbers in evidence/figures/, and pdflatex
+# leaves its own droppings beside them.
+paper/figures/*.aux
+paper/figures/*.pdflatex.log
+paper/figures/*.log
+
+# NOT paper/ itself. The first version of this file ignored the whole folder, copying the
+# convention of results/1f330280-delivered-surface, where paper/ holds only a macro file a tool
+# regenerates. Here it holds the work's draft and its list of open placeholders, which are the
+# work. Ignoring them would have kept them out of every commit without anybody being told.

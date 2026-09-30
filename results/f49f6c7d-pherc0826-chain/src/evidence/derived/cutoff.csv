@@ -1,0 +1,8 @@
+"# written by src/tools/cutoff.py: the decisions of the declared cut off 2026-09-29T03:30:00Z; a decision once taken is kept; open means before the cut off"
+item,decision,decided_utc,cutoff,state_now,completed,of,note
+road1b,"four seed collection, eight seed run not finished in time",2026-09-29T03:31:21Z,2026-09-29T03:30:00Z,"four seed collection, eight seed run not finished in time",,,collection-eight-6365.csv is not in the snapshot
+armA,"row as written, completed seeds beside it",2026-09-29T03:31:21Z,2026-09-29T03:30:00Z,"row as written, completed seeds beside it",8,8,"arms.csv row A: completed 8, deaths 0, not run 0, pending 0 of 8 seeds; of = rows of seeds.csv"
+armB,"row as written, completed seeds beside it",2026-09-29T03:31:21Z,2026-09-29T03:30:00Z,"row as written, completed seeds beside it",8,8,"arms.csv row B: completed 8, deaths 0, not run 0, pending 0 of 8 seeds; of = rows of seeds.csv"
+armC,"row as written, completed seeds beside it",2026-09-29T03:31:21Z,2026-09-29T03:30:00Z,"row as written, completed seeds beside it",8,8,"arms.csv row C: completed 8, deaths 0, not run 0, pending 0 of 8 seeds; of = rows of seeds.csv"
+armD,"row as written, completed seeds beside it",2026-09-29T03:31:21Z,2026-09-29T03:30:00Z,"row as written, completed seeds beside it",8,8,"arms.csv row D: completed 8, deaths 0, not run 0, pending 0 of 8 seeds; of = rows of seeds.csv"
+square95,crossing found,2026-09-29T03:31:21Z,2026-09-29T03:30:00Z,crossing found,,,"checks file present; verdicts {'v2_crossing': 'crossing found', 'one_lamina': 'crossing found'}"

@@ -1,0 +1,40 @@
+# every total the outcome of this study quotes, added up here from the CSVs the tools wrote and not by hand. quantity says what it is, attempt which tree, value the number, and source which file and column it was summed from.
+quantity,attempt,value,source
+"odometer steps, all four rounds, model",PHerc1447-seed01,13997293,sum of evidence/step-counts-model.csv column odometer_steps
+"share of the steps that are the round at length 5, per cent",PHerc1447-seed01,84.48,"step-counts-model.csv, length 5 over the sum"
+"odometer steps, all four rounds, model",PHerc1447-seed15,14512861,sum of evidence/step-counts-model.csv column odometer_steps
+"share of the steps that are the round at length 5, per cent",PHerc1447-seed15,84.45,"step-counts-model.csv, length 5 over the sum"
+"odometer steps, all four rounds, model",PHerc1447-seed26,10761063,sum of evidence/step-counts-model.csv column odometer_steps
+"share of the steps that are the round at length 5, per cent",PHerc1447-seed26,83.92,"step-counts-model.csv, length 5 over the sum"
+"odometer steps, all four rounds, model",PHerc1447-seed40,51500264151,sum of evidence/step-counts-model.csv column odometer_steps
+"share of the steps that are the round at length 5, per cent",PHerc1447-seed40,98.05,"step-counts-model.csv, length 5 over the sum"
+"odometer steps, all four rounds, measured, pruned",PHerc1447-seed26,3353164,sum of evidence/step-counts-measured.csv column odometer_steps
+"odometer steps, all four rounds, measured, pruned",PHerc1447-seed40,946327,sum of evidence/step-counts-measured.csv column odometer_steps
+"odometer steps, all four rounds, measured, unpruned",PHerc1447-seed26,10761063,sum of evidence/step-counts-measured.csv column odometer_steps
+factor between the unpruned model and the pruned counter,PHerc1447-seed40,54421,"the two sums above, divided"
+"pruned steps, all four rounds, the model written before the change",PHerc1447-seed40,581101,sum of evidence/step-counts-pruned-model.csv column pruned_steps
+"setup_seconds summed over the four rounds, arm c1",PHerc1447-seed26,0.75,sum of evidence/phases.csv column setup_seconds
+"odometer_seconds summed over the four rounds, arm c1",PHerc1447-seed26,1.59,sum of evidence/phases.csv column odometer_seconds
+"sequences_seconds summed over the four rounds, arm c1",PHerc1447-seed26,41.69,sum of evidence/phases.csv column sequences_seconds
+"cover_seconds summed over the four rounds, arm c1",PHerc1447-seed26,0.49,sum of evidence/phases.csv column cover_seconds
+"the four phases together, arm c1",PHerc1447-seed26,44.52,sum of the four columns of phases.csv
+"setup_seconds summed over the four rounds, arm c1",PHerc1447-seed40,1.49,sum of evidence/phases.csv column setup_seconds
+"odometer_seconds summed over the four rounds, arm c1",PHerc1447-seed40,0.46,sum of evidence/phases.csv column odometer_seconds
+"sequences_seconds summed over the four rounds, arm c1",PHerc1447-seed40,15.41,sum of evidence/phases.csv column sequences_seconds
+"cover_seconds summed over the four rounds, arm c1",PHerc1447-seed40,252.96,sum of evidence/phases.csv column cover_seconds
+"the four phases together, arm c1",PHerc1447-seed40,270.32,sum of the four columns of phases.csv
+"setup_seconds summed over the four rounds, arm c2",PHerc1447-seed26,0.75,sum of evidence/phases.csv column setup_seconds
+"odometer_seconds summed over the four rounds, arm c2",PHerc1447-seed26,1.49,sum of evidence/phases.csv column odometer_seconds
+"sequences_seconds summed over the four rounds, arm c2",PHerc1447-seed26,39.89,sum of evidence/phases.csv column sequences_seconds
+"cover_seconds summed over the four rounds, arm c2",PHerc1447-seed26,0.02,sum of evidence/phases.csv column cover_seconds
+"the four phases together, arm c2",PHerc1447-seed26,42.15,sum of the four columns of phases.csv
+"setup_seconds summed over the four rounds, arm c2",PHerc1447-seed40,1.69,sum of evidence/phases.csv column setup_seconds
+"odometer_seconds summed over the four rounds, arm c2",PHerc1447-seed40,0.49,sum of evidence/phases.csv column odometer_seconds
+"sequences_seconds summed over the four rounds, arm c2",PHerc1447-seed40,15.42,sum of evidence/phases.csv column sequences_seconds
+"cover_seconds summed over the four rounds, arm c2",PHerc1447-seed40,15.58,sum of evidence/phases.csv column cover_seconds
+"the four phases together, arm c2",PHerc1447-seed40,33.18,sum of the four columns of phases.csv
+"setup_seconds summed over the four rounds, arm guarded",PHerc1447-seed26,0.71,sum of evidence/phases.csv column setup_seconds
+"odometer_seconds summed over the four rounds, arm guarded",PHerc1447-seed26,3.22,sum of evidence/phases.csv column odometer_seconds
+"sequences_seconds summed over the four rounds, arm guarded",PHerc1447-seed26,31.97,sum of evidence/phases.csv column sequences_seconds
+"cover_seconds summed over the four rounds, arm guarded",PHerc1447-seed26,0.48,sum of evidence/phases.csv column cover_seconds
+"the four phases together, arm guarded",PHerc1447-seed26,36.38,sum of the four columns of phases.csv

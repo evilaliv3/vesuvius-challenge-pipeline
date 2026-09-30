@@ -1,0 +1,4 @@
+"# written by selftrain-v8in-0826/tools/w016.py order; base v8-in on w016 clean held out pixels matched at k 4 and under a stride 64 tile; the chosen order has the higher ba and is carried to the label free windows by the side sign (orient-rule.csv, published umbilicus rows)"
+tool,time,render,order,head,tiles,pixels,pixels_ink,pixels_noink,ba,auc,chosen,side_sign_theirs,side_sign_A,side_sign_Bx,order_A,order_Bx
+selftrain-v8in-0826/tools/w016.py,2026-09-29T21:31:06Z,positive-control-0139/scratch/theirs/lattice/r/base.zarr,normal,base,70,171693,40331,131362,0.6798,0.7385,yes,1,-1,-1,reverse,reverse
+selftrain-v8in-0826/tools/w016.py,2026-09-29T21:31:06Z,positive-control-0139/scratch/theirs/lattice/r/base.zarr,reverse,base,70,171693,40331,131362,0.4411,0.4556,no,1,-1,-1,reverse,reverse

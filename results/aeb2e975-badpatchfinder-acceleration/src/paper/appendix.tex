@@ -1,0 +1,143 @@
+%% Moved here unchanged from the end of body.tex on 2026-09-30, so that the author section and
+%% the references are set in two columns before the switch (owner's decision: references in two
+%% columns, as IEEE sets them).
+%% The appendices run in ONE column from here. The provenance table below has more rows
+%% than a page holds: as a table* float LaTeX said "Float too large for page" at every build,
+%% which the build gate counts as a failure. A float cannot break across pages; a longtable can,
+%% and longtable cannot run in two column mode. Both appendices are the last thing in the
+%% article, so switching here costs nothing and no text after it is reflowed.
+\clearpage
+\onecolumn
+\section*{Appendix: where each number comes from}
+
+Each \prov{} marker in the text stands for the file and column the number beside it was read back from.
+
+%% xltabular is longtable plus the X column this table already used.
+\begin{xltabular}{\textwidth}{rX}
+\toprule
+marker & file and column \\
+\midrule
+\endfirsthead
+\toprule
+marker & file and column \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{\footnotesize\itshape continued on the next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+1 & \protect\path{growth-bookkeeping/evidence/upstream-vs-ours.csv} \\
+2 & \protect\path{a8-identity/evidence/identity-totals.csv}, columns \texttt{files\_\allowbreak{}\allowbreak{}compared} and \texttt{files\_\allowbreak{}\allowbreak{}differing}, row
+\texttt{both trees}; the per file detail in \protect\path{identity.csv} and the printed output in \protect\path{stdout-identity.csv} of the same study \\
+3 & \protect\path{quiet-bench/evidence/c-stage-runs.csv}, column \texttt{seconds}, tag \texttt{c2} \\
+5 & \protect\path{seed-search-1447/evidence/per-seed.csv}, column \texttt{growth\_\allowbreak{}\allowbreak{}wall\_\allowbreak{}\allowbreak{}clock\_\allowbreak{}\allowbreak{}seconds} \\
+6 & \protect\path{seed-search-1447/evidence/per-seed.csv}, one row per seed; seed11 apart by columns \texttt{growth\_\allowbreak{}return\_\allowbreak{}code} and \texttt{in\_\allowbreak{}the\_\allowbreak{}distribution} \\
+7 & \protect\path{seed-search-1447/evidence/alignment-fanout.csv}, column \texttt{fan\_\allowbreak{}\allowbreak{}out}, computed from each growth's
+own \protect\path{rel.csv} \\
+8 & \protect\path{early-tangle/evidence/prediction-seed44.csv}, columns \texttt{predicted}, \texttt{elapsed\_\allowbreak{}\allowbreak{}seconds\_\allowbreak{}\allowbreak{}when\_\allowbreak{}\allowbreak{}read}
+and \texttt{share\_\allowbreak{}\allowbreak{}of\_\allowbreak{}\allowbreak{}first\_\allowbreak{}\allowbreak{}100000} \\
+9 & \protect\path{early-tangle/evidence/repeat-control-seed44.csv} \\
+10 & \protect\path{seed-search-1447/evidence/per-seed.csv}, column \texttt{largest\_\allowbreak{}\allowbreak{}square\_\allowbreak{}\allowbreak{}mm\_\allowbreak{}\allowbreak{}min\_\allowbreak{}\allowbreak{}step}, with the kind
+from \protect\path{alignment-fanout.csv}, column \texttt{fan\_\allowbreak{}\allowbreak{}out} \\
+11 & \protect\path{seed-search-1447/evidence/prediction-seed44-square.csv}, columns \texttt{claim} and \texttt{confidence} \\
+12 & \protect\path{c-stage-cost/evidence/runs.csv}, tag \texttt{baseline-\allowbreak{}profile}, columns \texttt{seconds} and
+\texttt{return\_\allowbreak{}\allowbreak{}code}; the profile itself, with the shares and not the duration, is \protect\path{c-stage-cost/evidence/profile-baseline.csv} \\
+13 & \protect\path{c-stage-cost/evidence/text-section-identity.csv} \\
+14 & \protect\path{c-stage-cost/evidence/step-counts-model.csv} \\
+15 & \protect\path{c-stage-cost/evidence/totals.csv}, the two rows
+\texttt{odometer steps,\allowbreak{} all four rounds,\allowbreak{} model} and \texttt{.\allowbreak{}.\allowbreak{}.\allowbreak{} measured,\allowbreak{} unpruned} \\
+16 & \protect\path{c-stage-cost/evidence/runs.csv}, tag \texttt{plain-\allowbreak{}rounds123}, \texttt{return\_\allowbreak{}\allowbreak{}code}
+124 \\
+17 & \protect\path{totals.csv} \\
+18 & \protect\path{c-stage-cost/evidence/patch-verification.csv}, column \texttt{B\_\allowbreak{}\allowbreak{}equals\_\allowbreak{}\allowbreak{}C}, \texttt{yes}, both
+sides \texttt{db825fd1.\allowbreak{}.\allowbreak{}.\allowbreak{}} \\
+19 & \protect\path{c-stage-cost/evidence/step-counts-measured.csv}, variants \texttt{pruned} and \texttt{unpruned},
+\protect\path{totals.csv}; the kept chains per length on seed26 from column \texttt{sequences} \\
+20 & \protect\path{c-stage-cost/evidence/phases.csv}, summed by tool into
+\protect\path{totals.csv} \\
+21 & \protect\path{quiet-bench/evidence/c-stage-summary.csv}, columns \texttt{every\_\allowbreak{}\allowbreak{}second\_\allowbreak{}\allowbreak{}that\_\allowbreak{}\allowbreak{}finished},
+\texttt{spread\_\allowbreak{}\allowbreak{}seconds}, \texttt{spread\_\allowbreak{}\allowbreak{}pct} and \texttt{cores\_\allowbreak{}\allowbreak{}busy\_\allowbreak{}\allowbreak{}min} \\
+22 & \protect\path{quiet-bench/evidence/c2-factor.csv}, column \texttt{factor} \\
+23 & \protect\path{seed-search-1447/evidence/alignment-fanout.csv}, columns \texttt{patch\_\allowbreak{}\allowbreak{}files} and \texttt{edges} \\
+24 & \protect\path{seed-search-1447/evidence/untouched-seed11-downstream.csv}, columns \texttt{seconds} and
+\texttt{return\_\allowbreak{}\allowbreak{}code}, row \texttt{c} \\
+25 & \protect\path{c-stage-cost/evidence/runs.csv}, tag \texttt{c2-\allowbreak{}11-\allowbreak{}35}, stage \texttt{c} \\
+26 & \protect\path{c-stage-on-0139/evidence/trees.csv}, column \texttt{fan\_\allowbreak{}\allowbreak{}out} \\
+27 & \protect\path{c-stage-on-0139/evidence/c-stage-times.csv}, columns \texttt{median\_\allowbreak{}\allowbreak{}seconds}, \texttt{min\_\allowbreak{}\allowbreak{}seconds},
+\texttt{max\_\allowbreak{}\allowbreak{}seconds} and \texttt{cores\_\allowbreak{}\allowbreak{}busy\_\allowbreak{}\allowbreak{}min}/\texttt{cores\_\allowbreak{}\allowbreak{}busy\_\allowbreak{}\allowbreak{}max}, 0.0 to 12.1 of 24 \\
+28 & \protect\path{c-stage-on-0139/evidence/binaries.csv}, column \texttt{corrections\_\allowbreak{}\allowbreak{}present} \\
+29 & \protect\path{c-stage-on-0139/evidence/c-stage-ratios.csv}, columns \texttt{ratio\_\allowbreak{}\allowbreak{}median\_\allowbreak{}\allowbreak{}over\_\allowbreak{}\allowbreak{}median} and
+\texttt{ranges\_\allowbreak{}\allowbreak{}overlap} \\
+30 & \protect\path{c-stage-on-0139/evidence/pristine-check.csv}, column \texttt{unchanged}, eight rows, all \texttt{yes} \\
+31 & \protect\path{c-stage-cost/evidence/stdout-identity.csv}, column \texttt{identical},
+twelve rows, all \texttt{yes}; the longest output is the maximum of column \texttt{reference\_\allowbreak{}lines} over those twelve rows \\
+32 & \protect\path{c-stage-on-0139/evidence/stdout-identity.csv}, sixteen rows, all \texttt{yes} \\
+33 & \protect\path{quiet-bench/evidence/a8-factor-medians.csv}, column \texttt{factor} \\
+35 & \protect\path{orphan-guard/evidence/runs.csv}, \protect\path{log/chain-plain-PHerc1447-seed34-c.txt} \\
+36 & \protect\path{badpatch-crash/evidence/binary-gate.csv} \\
+37 & \protect\path{badpatch-crash/evidence/crash-diagnosis.csv}, columns \texttt{value}, \texttt{out\_\allowbreak{}\allowbreak{}of} and \texttt{the\_\allowbreak{}\allowbreak{}check},
+written by that study's \protect\path{tools/crash_diagnosis.py} from the instrumented run's log; the distinct patches against \protect\path{key-containers.csv}, whose column \texttt{times\_\allowbreak{}reported\_\allowbreak{}missing} sums to the failing chains \\
+38 & \protect\path{badpatch-crash/evidence/orphans-per-tree.csv}, columns \texttt{ids\_\allowbreak{}\allowbreak{}in\_\allowbreak{}\allowbreak{}rel\_\allowbreak{}\allowbreak{}with\_\allowbreak{}\allowbreak{}no\_\allowbreak{}\allowbreak{}patch\_\allowbreak{}\allowbreak{}file} and
+\texttt{of\_\allowbreak{}\allowbreak{}those\_\allowbreak{}\allowbreak{}reachable\_\allowbreak{}\allowbreak{}as\_\allowbreak{}\allowbreak{}second\_\allowbreak{}\allowbreak{}of\_\allowbreak{}\allowbreak{}a\_\allowbreak{}\allowbreak{}kept\_\allowbreak{}\allowbreak{}length\_\allowbreak{}\allowbreak{}2\_\allowbreak{}\allowbreak{}chain} \\
+39 & \protect\path{orphan-guard/evidence/refused-chains.csv}, columns
+\texttt{chains\_\allowbreak{}\allowbreak{}refused}, \texttt{patches\_\allowbreak{}\allowbreak{}involved}, \texttt{predicted\_\allowbreak{}\allowbreak{}patches}, \texttt{matches\_\allowbreak{}\allowbreak{}prediction} \\
+40 & \protect\path{orphan-guard/evidence/cross-check.csv} \\
+41 & \protect\path{orphan-guard/evidence/runs.csv}, \protect\path{log/memory-watchdog.txt} \\
+42 & \protect\path{orphan-guard/evidence/skipped-chains.csv} \\
+43 & \protect\path{orphan-guard/evidence/sheets-identity.csv},
+\protect\path{orphan-guard/evidence/all-outputs-identity.csv} \\
+49 & \protect\path{growth-bookkeeping/evidence/id-inventory-seed34.csv} \\
+54 & \protect\path{seed-search-1447/evidence/per-seed.csv}, column
+  \texttt{largest\_\allowbreak{}\allowbreak{}square\_\allowbreak{}\allowbreak{}mm\_\allowbreak{}\allowbreak{}min\_\allowbreak{}\allowbreak{}step}, maximum over the nine rows with \texttt{in\_\allowbreak{}\allowbreak{}the\_\allowbreak{}\allowbreak{}distribution} yes \\
+55 & \protect\path{published-segments-eligible/evidence/segments-eligible.csv}, column \texttt{square\_\allowbreak{}\allowbreak{}mm\_\allowbreak{}\allowbreak{}min\_\allowbreak{}\allowbreak{}step},
+  maximum over the fifteen PHerc. 1447 rows, segment \texttt{20251105093211-\allowbreak{}z\_\allowbreak{}\allowbreak{}dbg\_\allowbreak{}\allowbreak{}gen\_\allowbreak{}\allowbreak{}00320}, at that
+  scroll's own 8.640 um voxel \\
+56 & \protect\path{per-seed.csv}, column \texttt{sheets\_\allowbreak{}\allowbreak{}reaching\_\allowbreak{}\allowbreak{}20mm} \\
+57 & \protect\path{segments-eligible.csv}, column \texttt{reaches\_\allowbreak{}\allowbreak{}20mm}, \texttt{no} on every row \\
+63 & \protect\path{stevens-remedy-half-on/evidence/remedy-parts.csv}, columns \texttt{file}, \texttt{line\_\allowbreak{}62cbc21}, \texttt{quote}, \texttt{default\_\allowbreak{}in\_\allowbreak{}chain} and \texttt{house\_\allowbreak{}delivered\_\allowbreak{}source}, rows \texttt{M1a} to \texttt{M3c}; every quotation checked verbatim at its line of \texttt{git show 62cbc21} by \protect\path{tools/studies/stevens-remedy-half-on/remedy_parts.py} \\
+64 & \protect\path{stevens-remedy-half-on/evidence/per-seed.csv}, columns \texttt{status} and \texttt{delivered\_\allowbreak{}sheets\_\allowbreak{}changed}, ten rows, written by \protect\path{summarise.py}; the seeds from \protect\path{ten-seeds.csv} (\protect\path{draw_seeds.py}); the identity with the annealing left out from \protect\path{identity-off-PHerc1447-seed262.csv}, row \texttt{verdict} (\protect\path{tools/studies/patch-filter-harness-1447/identity_compare.py}); the runner \protect\path{tools/studies/stevens-remedy-half-on/rerun_remedy.sh} \\
+65 & \protect\path{stevens-remedy-half-on/evidence/draws-per-seed.csv}, columns \texttt{best\_\allowbreak{}square\_\allowbreak{}mm\_\allowbreak{}before}, \texttt{best\_\allowbreak{}square\_\allowbreak{}mm\_\allowbreak{}d0} to \texttt{d3}, \texttt{best\_\allowbreak{}square\_\allowbreak{}mm\_\allowbreak{}spread\_\allowbreak{}d0\_\allowbreak{}d3} and \texttt{excluded\_\allowbreak{}jaccard\_\allowbreak{}mean\_\allowbreak{}d1\_\allowbreak{}d3}; \protect\path{overlap-per-seed.csv}, columns \texttt{klass} and \texttt{E} per seed and draw, the rows \texttt{SEED} and the rule in its header; both written by \protect\path{tools/studies/stevens-remedy-half-on/summarise_draws.py} \\
+68 & \protect\path{src/evidence/manifests/PHerc1447.json}, column \texttt{voxel\_\allowbreak{}um}, a copy of \protect\path{pipeline/datasets/manifests/PHerc1447.json} of the laboratory \\
+69 & \protect\path{c-stage-cost/evidence/runs.csv}, column \texttt{seconds}; the load of the shared machine from column \texttt{cores\_\allowbreak{}busy\_\allowbreak{}at\_\allowbreak{}start} \\
+71 & \protect\path{seed-search-1447/evidence/per-seed.csv}, column \texttt{largest\_\allowbreak{}square\_\allowbreak{}mm\_\allowbreak{}min\_\allowbreak{}step}; the maximum, median and minimum are the rows of \protect\path{seed-search-1447/evidence/summary.csv}, column \texttt{value} \\
+72 & \protect\path{seed-search-1447/evidence/per-seed.csv}, column \texttt{sheets\_\allowbreak{}reaching\_\allowbreak{}20mm}, 0 on all three rows \\
+73 & \protect\path{seeds-at-scale-1447/evidence/seed-rule.csv}, column \texttt{passes\_\allowbreak{}rule} \\
+74 & \protect\path{seed-search-1447/evidence/alignment-fanout.csv}, model column \texttt{chain\_\allowbreak{}cost\_\allowbreak{}at\_\allowbreak{}length\_\allowbreak{}5} \\
+75 & \protect\path{c-stage-cost/evidence/c-stage-times.csv}, columns \texttt{reference\_\allowbreak{}seconds}, \texttt{arm\_\allowbreak{}seconds} and \texttt{speedup}; the ratios of the shared machine are its column \texttt{speedup} \\
+76 & \protect\path{quiet-bench/evidence/throttle-overlap.csv} \\
+77 & \protect\path{c-stage-on-0139/evidence/c-stage-diff.csv}, column \texttt{verdict} \\
+78 & \protect\path{c-stage-on-0139/evidence/identity-by-tree.csv}, columns \texttt{carried\_\allowbreak{}input} and \texttt{written\_\allowbreak{}by\_\allowbreak{}downstream} \\
+79 & \protect\path{quiet-bench/evidence/a8-factor-medians.csv}, a median against a median, and \protect\path{a8-factor.csv} beside it, written by \protect\path{tools/summarise_c.py}, the smallest run of each arm \\
+80 & the study \protect\path{growth-bookkeeping/}, read from the source and the filesystem with no run \\
+83 & \protect\path{seed-search-1447/evidence/summary.csv}, the gap and the repeat spread; neither is in the files of markers 54 and 55, which carry the squares they are computed from \\
+\end{xltabular}
+
+\section*{Appendix: what each figure is drawn from}
+
+Each figure is drawn by the script named in it, from the CSV of plotted numbers beside it. No number in a figure is typed by hand.
+
+%% Not a float, so that the heading above sits directly over the table (as in A).
+\begingroup\small
+\begin{xltabular}{\textwidth}{llX}
+\toprule
+figure & what it shows & drawn from \\
+\midrule
+\endfirsthead
+\toprule
+figure & what it shows & drawn from \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\footnotesize\itshape continued on the next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Fig.~\ref{fig:s7} & A sheet the old stage abandoned, on the scroll it was grown in. & Two slices of the raw masked scan at its level 3, one pixel eight voxels, with the sheets' cells on them (\protect\path{evidence/figures/s-f7-a-sheet-the-old-stage-abandoned.csv}), whose rows name the trees, the sheets, their sha256 and the display window. \\
+Fig.~\ref{fig:s2} & The odometer's steps, modelled against counted. & Bars on a logarithmic axis, one seed each (\protect\path{evidence/figures/s-f2-odometer-steps.csv}, columns \texttt{modelled\_\allowbreak{}\allowbreak{}steps} and \texttt{counted\_\allowbreak{}\allowbreak{}pruned\_\allowbreak{}\allowbreak{}steps}). \\
+Fig.~\ref{fig:s1} & The \texttt{c} stage, untouched against changed, on the quiet bench. & One pair of bars per seed on a logarithmic axis, the factor written over each pair (\protect\path{evidence/figures/s-f1-c-stage-before-after.csv}, columns \texttt{quiet\_\allowbreak{}\allowbreak{}plain\_\allowbreak{}\allowbreak{}seconds}, \texttt{quiet\_\allowbreak{}\allowbreak{}c2\_\allowbreak{}\allowbreak{}seconds} and \texttt{quiet\_\allowbreak{}\allowbreak{}factor\_\allowbreak{}\allowbreak{}label}); the identity marks from its \texttt{identity\_\allowbreak{}} columns, read from \protect\path{c-stage-cost/evidence/identity.csv}, \protect\path{stdout-identity.csv} and \protect\path{c-stage-on-0139/evidence/identity-by-tree.csv}. The right panel is the reference scroll, drawn as medians with the observed range from \protect\path{c-stage-on-0139/evidence/c-stage-times.csv}. \\
+Fig.~\ref{fig:s4} & Two runs mixed in one folder. & Patch ids on the x axis, the stale ones marked (\protect\path{evidence/figures/s-f4-seed34-two-runs-mixed.csv}, columns \texttt{stale\_\allowbreak{}\allowbreak{}patch\_\allowbreak{}\allowbreak{}id}, \texttt{comp\_\allowbreak{}\allowbreak{}label} and \texttt{comp\_\allowbreak{}\allowbreak{}count}). \\
+Fig.~\ref{fig:s5} & Papyrus, with the delivered sheet on it. & Three panels of equal height, each captioned inside the figure (\protect\path{evidence/figures/s-f5-papyrus-with-the-sheet.csv}), whose rows also carry the display window of each grayscale panel. \\
+Fig.~\ref{fig:s6} & Our coverage mask beside a published segment's, at the same scale. & Two panels (\protect\path{evidence/figures/s-f6-coverage-beside-a-published-segment.csv}). \\
+\end{xltabular}
+\endgroup

@@ -1,7 +1,8 @@
 # This file is a copy of tools/upstream_check.py of the working tree and differs from it in one
 # way only: the absolute paths of the machine the measurements ran on are replaced by paths
-# inside this folder, with VILLA_UPSTREAM for the clone of ScrollPrize/villa it reads. Nothing
-# else is changed.
+# inside this folder, with VILLA_UPSTREAM for the clone of ScrollPrize/villa it reads, and, since
+# 2026-09-23, the tip is the commit the article names instead of a branch (see TIP). Nothing else
+# is changed.
 #!/usr/bin/env python3
 """Is the defect still in the published code? Asked of the repository, not of memory.
 
@@ -30,7 +31,13 @@ import subprocess
 SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLONE = os.environ.get("VILLA_UPSTREAM") or os.path.join(SRC, "villa")
 PIN = "23adee047dea06526151d3a152a7d85de8da478b"
-TIP = "origin/main"
+# The tip the published text names (\RevUpstreamTip 2dcfaf6a0, \RevUpstreamDate 2026-09-17): the
+# head of the main branch of ScrollPrize/villa when the article was built, commit time
+# 2026-09-17T12:45:19+02:00, subject ending "(#1815)". It was "origin/main" until 2026-09-23, and
+# a branch moves (upstream/main of the clone was 33b0b91b7 that day), so a rerun printed a newer
+# tip under a text dated 17 September. --tip still asks another ref, for a fresher answer that
+# is written somewhere else.
+TIP = "2dcfaf6a08c3bc796fde726c4fa32050c8fc90e7"
 FILES = ["volume-cartographer/core/src/normalgridtools.cpp",
          "volume-cartographer/core/include/vc/core/util/normalgridtools.hpp"]
 SOURCE = FILES[0]

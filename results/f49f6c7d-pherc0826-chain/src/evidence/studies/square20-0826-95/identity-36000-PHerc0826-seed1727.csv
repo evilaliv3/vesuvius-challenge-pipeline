@@ -1,0 +1,5 @@
+"# written by square20-0826-95/tools/regrow72.sh at 2026-09-28T13:44:39Z: the g 72000 regrowth of PHerc0826-seed1727 against the chain-0826 g 36000 growth, patch numbers at most 36000; reported, not a gate"
+attempt,quantity,g72000,g36000,equal
+PHerc0826-seed1727,rel_rows_both_at_most_36000_in_order,19697,19697,yes
+PHerc0826-seed1727,rel_rows_both_at_most_36000_as_sets,19697,19697,yes
+PHerc0826-seed1727,patch_files_at_most_36000_sha256_equal,8982,8982,8982 of 8982

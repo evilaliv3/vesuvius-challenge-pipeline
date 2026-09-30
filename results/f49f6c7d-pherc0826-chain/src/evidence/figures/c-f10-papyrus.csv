@@ -1,0 +1,46 @@
+# figure C10; what the raster drew; written by src/tools/c-f10-papyrus.py at 2026-09-30T12:16:35Z (cores busy not checked): one row per quantity with the file and column it was read from. Panel a is one axial slice of the raw scan of PHerc0826 with the delivered sheets of the seed with the chain's largest square crossing it; panel b is the same crop with the m7 surface prediction over it. Chunks this run: shared cache 36; chain-0826 flat cache 0; fetched 0; absent 0. NO INK: a plane of the scan and sheet geometry only. Not for a public repository without the owner's word. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+,a,seed drawn,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,point,PHerc0826-seed2604
+seed,a,seed number,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,point,2604
+sheet,a,sheet with the largest square,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,sheet,0
+,a,sheet file,chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,sha256,481223615203520c637923182ffebd8321751e3dffa0d5fb88c07bfcfd968356
+largest_square_mm,a,largest square over every delivered sheet of the chain; mm,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,square_mm_min_step,17.7995
+,a,seeds tied at that value,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,point,PHerc0826-seed2604
+runner_up_mm,a,next distinct value below it; mm,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,square_mm_min_step,17.1642
+seeds_compared,a,seeds the superlative was recomputed over,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,point,158
+squares_files,a,squares files read,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,files,158
+sheets_compared,a,measured sheets the superlative was recomputed over,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,square_mm_min_step,1580
+,a,z slice (level 0 voxels),chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,pz of the square's cells; median rounded,withheld
+,a,square side; cells,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,square_cells,476
+,a,square top left corner i;j,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,square_corner_i; square_corner_j,639;560
+,a,crop y0;y1;x0;x1 (level 0 voxels),chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,median py and px of the square's crossings of the slice; plus and minus half the width,withheld
+crop_mm,a,crop width; mm (display choice),argument --width-mm,,6
+,a,crop width; voxels,width in mm over the voxel; rounded to a multiple of the display bin,,641
+,a,voxel; um,pipeline/datasets/manifests/PHerc0826.json,voxel_um through pipeline/datasets/voxel.py,9.362
+,a,where that voxel comes from,pipeline/datasets/manifests/PHerc0826.json,voxel_um_source,samplePixelSize 0.009362 mm in /source/metadata/scan/tomo/acquisition/detector of metadata.json; published beside this scroll's own prediction zarr and fetched 2026-09-20. Read this field; never a constant; and never another scroll's value: the scans differ; 8.640 on PHerc1447 and PHerc0800 against 9.362 on PHerc0139.
+,a,display bin; voxels per pixel side (block mean),argument --bin,,1
+,a,mm per pixel,display bin times the voxel,,0.009362
+,a,grey source,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0,raw masked scan level 0; uint8; compressor null,open data bucket
+,a,raw level 0 shape z;y;x,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0/.zarray,shape,16920;8169;8169
+,a,chunks covering the crop,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0,one z layer of chunks,36
+,a,sha256 of the crop's grey bytes before the stretch,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0,plane z; rows y0:y1; columns x0:x1,9c5ba9f0c0ebe780c524ae79de9e6b21ece84cbd966247413eac3cdfd840fdc9
+,a,share of crop voxels that are zero (masked or absent),https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0,,0.0001
+,a,display window; low and high grey,the binned slice itself,1st and 99.5th percentile of its non zero pixels (figlib.stretch),30;203
+sheets_of_seed,a,sheet files of the seed,chain-0826/out/PHerc0826-seed2604/C40,patch_<n>.bin,10
+sheets_crossing,a,sheets of the seed that cross the crop (the best sheet included),chain-0826/out/PHerc0826-seed2604/C40,rasterlib.plane_crossings; files with at least one crossing drawn,8
+,a,crossings of the best sheet drawn inside the crop; outside its square,chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,rasterlib.plane_crossings,0
+,a,crossings of the best sheet drawn inside the crop; from cells of its square,chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,rasterlib.plane_crossings,228
+,a,crossings of the other sheets drawn inside the crop; per file,chain-0826/out/PHerc0826-seed2604/C40,rasterlib.plane_crossings,patch_1.bin:103; patch_2.bin:208; patch_3.bin:56; patch_4.bin:108; patch_5.bin:0; patch_6.bin:7; patch_7.bin:0; patch_8.bin:37; patch_9.bin:139
+,a,crossings of the other sheets drawn inside the crop; total,chain-0826/out/PHerc0826-seed2604/C40,rasterlib.plane_crossings,658
+,a,cells of the best sheet within half a voxel of the slice (the cells themselves),chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,abs(pz - z) <= 0.5,300
+,b,prediction,local copy of the published prediction (datasets/PHerc0826/0),model (manifest),20260413222639-surface-m7-L0-th0.2
+,b,prediction published at,pipeline/datasets/manifests/PHerc0826.json,source,s3://vesuvius-challenge-open-data/PHerc0826/representations/predictions/surfaces/20250821151701-surface-20260413222639-surface-m7-L0-th0.2.zarr/0/
+,b,sha256 of the crop's prediction bytes,local copy of the published prediction (datasets/PHerc0826/0),plane z; rows y0:y1; columns x0:x1,7a4d43e6021fb7f86d8f4ca3112750b90c4fffe743757b5c8840e9c7c5cfba61
+,b,prediction values present,local copy of the published prediction (datasets/PHerc0826/0),unique values of the crop,0;255
+,b,share of crop voxels predicted surface (value 255),local copy of the published prediction (datasets/PHerc0826/0),,0.2357
+,b,overlay rule,local copy of the published prediction (datasets/PHerc0826/0),binned share of 255 at least one half,green at alpha 0.55
+,a;b,text size; pixels (8 pt at the column width),rasterlib.print_size,,41
+scale_bar_mm,a;b,scale bar; mm (display choice),argument --bar-mm,,1
+,a;b,scale bar; pixels,bar mm over mm per pixel; rounded,,107
+,a,panel box in the png; x;y;w;h,paper/figures/c-f10-papyrus.png,rasterlib.side_by_side,0;0;641;641
+,b,panel box in the png; x;y;w;h,paper/figures/c-f10-papyrus.png,rasterlib.side_by_side,657;0;641;641

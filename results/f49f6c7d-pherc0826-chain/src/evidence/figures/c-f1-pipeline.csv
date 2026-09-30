@@ -1,0 +1,38 @@
+# figure C1 (the pipeline); every box and arrow drawn and nothing else; written by src/tools/c-f1-pipeline.py; growth and stages parsed from chain-0826/run_seed.sh; ladder cap from ladder.csv; source lines from derived/simpaper10-lines.csv at scrollreading 62cbc21; factor is old over new median CPU from derived/arms-paired.csv or derived/speed-factors.csv; or not measured; column crossings: how many other arrows each arrow crosses; and in the last row the arrow crossings of the whole figure; 0 Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+kind,id,col,row,style,line1,line2,from,to,label_source,factor,factor_source,crossings
+box,ct,1,0,data,CT scan; masked,PHerc0826 20250821151701,,,src/inputs/prize-eligibility,not measured,none: no factor measured for this box,
+box,m7,0,0,data,m7 surface prediction,organisers' nnU-Net,,,chain-0826/DECLARATION.md part 1,not measured,none: no factor measured for this box,
+box,lz,3,0,data,LZ4HC copy of m7,read by the growth only,,,hot-lines-88/identity-l-summary.csv,CPU x1.08; zstd to LZ4HC; same tree,derived/speed-factors.csv zstd copy to LZ4HC copy; MLP cpu factor (old median over new median (590.50 over 545.90)),
+box,umb,2,0,external,umbilicus,published; not ours,,,chain-0826/DECLARATION.md I6,not measured,none: no factor measured for this box,
+box,draw,0,1,select,seed draw,draw_seeds.py,,,chain-0826/tools/draw_seeds.py,not measured,none: no factor measured for this box,
+box,rule,1,1,select,seed rule v2,seed_rule_check_v2.py,,,chain-0826/tools/seed_rule_check_v2.py,not measured,none: no factor measured for this box,
+box,near,2,1,select,proximity draw,draw_near.py,,,chain-0826/tools/draw_near.py,not measured,none: no factor measured for this box,
+box,ladder,2,2,select,ladder,simpaper10 g; 120 s cap,,,chain-0826/ladder.csv header,not measured,none: no factor measured for this box,
+box,g,3,1,growth,simpaper10 g 36000,MLP build; source line 704,,,run_seed.sh; simpaper10-lines.csv mode_g,CPU x8.21; B to C; outputs equal in arms.csv,derived/arms-paired.csv BC cpu_seconds old_median over new_median (4213.6000 over 513.5000); arms.csv sheets stevens_formula_cm2 largest_square_mm a2_share v2_cells deaths all equal,
+box,s0,3,2,stage,simpaper10 c,source line 805,,,run_seed.sh; simpaper10-lines.csv mode_c,CPU x1.05; A to B; outputs equal in arms.csv,derived/arms-paired.csv AB cpu_seconds old_median over new_median (4430.1500 over 4213.6000); arms.csv sheets stevens_formula_cm2 largest_square_mm a2_share v2_cells deaths all equal,
+box,s1,3,3,stage,simpaper10 l,source line 739,,,run_seed.sh; simpaper10-lines.csv mode_l,as published; not measured,none: run as published; no factor measured,
+box,s2,2,3,stage,simpaper10 vm 10,source line 996,,,run_seed.sh; simpaper10-lines.csv mode_vm,as published; not measured,none: run as published; no factor measured,
+box,s3,1,2,stage,simpaper10 hm 10,source line 1626,,,run_seed.sh; simpaper10-lines.csv mode_hm,as published; not measured,none: run as published; no factor measured,
+box,s4,1,3,stage,simpaper10 fm 30 10,source line 1223,,,run_seed.sh; simpaper10-lines.csv mode_fm,as published; not measured,none: run as published; no factor measured,
+box,sq,0,4,measure,largest square,square.py,,,seed-search-1447/tools/square.py,not measured,none: no factor measured for this box,
+box,a2,1,4,measure,a2 cluster rule,a2_cluster_seed.py,,,chain-0826/tools/a2_cluster_seed.py,not measured,none: no factor measured for this box,
+box,area,2,4,measure,clean area; formula,stevens_method.py,,,area-0826-90/tools/stevens_method.py,not measured,none: no factor measured for this box,
+box,ink,0,3,experimental,ink reading,experimental; not here,,,none,,none: not part of this article,
+arrow,m7-draw,,,,,,m7,draw,,,,0
+arrow,draw-rule,,,,,,draw,rule,,,,0
+arrow,ct-rule,,,,,,ct,rule,,,,0
+arrow,umb-rule,,,,,,umb,rule,,,,0
+arrow,rule-near,,,,,,rule,near,,,,0
+arrow,near-ladder,,,,,,near,ladder,,,,0
+arrow,lz-g,,,,,,lz,g,,,,0
+arrow,ladder-g,,,,,,ladder,g,,,,0
+arrow,g-s0,,,,,,g,s0,,,,0
+arrow,s0-s1,,,,,,s0,s1,,,,0
+arrow,s1-s2,,,,,,s1,s2,,,,0
+arrow,s2-s3,,,,,,s2,s3,,,,0
+arrow,s3-s4,,,,,,s3,s4,,,,0
+arrow,s4-sq,,,,,,s4,sq,,,,0
+arrow,s4-a2,,,,,,s4,a2,,,,0
+arrow,s4-area,,,,,,s4,area,,,,0
+arrow,s4-ink,,,,,,s4,ink,,,,0
+count,arrow crossings,,,,,,,,segment intersections between the arrows drawn,,,0

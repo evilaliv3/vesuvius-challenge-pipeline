@@ -1,0 +1,14 @@
+"# one quantity per row about the patch ids of seed34's growth tree. value is the number, source says which file or listing it was counted from."
+quantity,value,source
+patch files on disk,28054,os.listdir of the growth tree's patches folder
+lowest id with a file,0,the same listing
+highest id with a file,36000,the same listing
+ids between 0 and the highest with no file,7947,"the numbers from 0 to 36,000 are 36,001 and 28,054 of them have a file; the growth erases an id whose patch did not grow enough or did not align"
+"of those, at or below the highest id the log says cannot be this run's",122,"the ceiling is 603, the largest id the aligner named before this run could have created it"
+orphan ids of badpatch-crash,104,ids rel.csv names and the patches folder does not have
+highest orphan id,592,the same file
+ids the log says cannot be this run's,413,evidence/impossible-ids-seed34.csv
+"of those, with no patch file",86,they are orphans
+"of those, with a patch file",327,"the new run created the same number again, so the rel.csv rows that name them point at geometry that is not the geometry the alignment was computed against"
+orphans that the log also says cannot be this run's,86,the intersection
+orphans the log cannot classify,18,"their number is at or below the highest id the run had created when they were named, so the test cannot tell them from a legitimate target; every one of them is below the ceiling of 603"

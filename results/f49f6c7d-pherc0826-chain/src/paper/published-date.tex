@@ -1,0 +1,16 @@
+% The day this folder entered the PUBLIC repository, written here by hand once and never taken
+% from the clock: a build that read the date from the machine would move it every time and a
+% front page would claim a day it was not published on. The last updated date beside it in the
+% stripe is a different quantity and comes from SOURCE_DATE_EPOCH.
+%
+% This folder is NOT in the public repository yet: on 2026-09-22 the only folder under
+% results/ of evilaliv3/vesuvius-challenge-pipeline is e89eb7ad-umbilicus-estimator. So the
+% stripe carries «not yet published» rather than a date, and when the folder is published the
+% two lines below are replaced with the day it was, in this shape:
+%
+%   \newcommand{\PublishedDateIso}{2026-09-22}
+%   \newcommand{\PublishedStripe}{published 22 September 2026}
+%
+% build.sh reads \PublishedDateIso and refuses a date in the future.
+\newcommand{\PublishedDateIso}{}
+\newcommand{\PublishedStripe}{not yet published}

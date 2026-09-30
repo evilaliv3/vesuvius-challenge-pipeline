@@ -1,0 +1,15 @@
+# Exemptions for tools/english_only.py: one <glob><TAB><reason> per line, # for a comment.
+#
+# Copied on 2026-09-23 from results/aeb2e975-badpatchfinder-acceleration and cut to the files this
+# folder has. An exemption with no reason is refused, and one that matches nothing is reported as
+# possibly stale. Run `english_only.py --no-exempt` to see exactly what these hide.
+#
+# One ground only here: a file somebody else wrote and published, which is kept and not rewritten.
+
+*cls/IEEEtran.cls	third party, kept as published: the IEEE LaTeX class, under the LaTeX Project Public Licence. Not ours to edit.
+*cls/IEEEtran.bst	third party, kept as published: the IEEE BibTeX style, under the LaTeX Project Public Licence. Not ours to edit.
+
+# Added 2026-09-28: a second ground, a shipped copy of a study tool whose only finding is a name of the
+# Python standard library that happens to be an Italian word. It is kept byte equal to the tool that wrote
+# the evidence, so it is not edited here.
+*studies/nongrowth-profile-1447/objects_only.py	shipped copy of the tool that wrote build-objects-only.csv; its one finding is the name of the system CPU time field of resource.getrusage in the Python standard library, not a word of prose

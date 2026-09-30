@@ -1,0 +1,8 @@
+# the panel data of best-windows-0826 that figure C20 was written against, 2026-09-29; sha256 of each file; a different file stops src/tools/c-f20-best-windows.py
+file,sha256
+bw1.npz,f0d0615bae2381a258ef9a9e346d5b44fd2a5f30d7a700d393acba62290bf481
+bw3.npz,b2c8839d4d356bb9c8c8faf7e70f73c46989e8ab9cf7b8a625b66a0daa18b270
+bw4.npz,08d316a9fa6cb3b2e2fc6dfae927749cfa68bb6b6f41dd8cf55ba531e42dd0ae
+straight-bw1.npz,723df500b823c9ecbb2dc4adb7469fd45bdb6ebfb73f3b496787b57be0e7854f
+straight-bw3.npz,fd73fdb7d5c36ece917c12f719970e8deaed75221cd79a6f6572d902ccab8d92
+straight-bw4.npz,245fd939c79e29357172e5da11ef8916e2fe9b44598bff4dcf81fe8a89d59406

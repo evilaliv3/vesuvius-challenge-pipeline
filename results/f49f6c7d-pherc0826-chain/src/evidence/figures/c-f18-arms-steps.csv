@@ -1,0 +1,87 @@
+# figure C18; what the step chart drew; written by src/tools/c-f18-arms-steps.py: per seed CPU seconds and Stevens' formula of item 91's arms A to D from stevens-changes-0826-91/per-run.csv (outcome completed) and the arm medians of stevens-changes-0826-91/arms.csv; factors are old median over new median; «same» means every output column equal as written Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+seeds,a;b,seeds completed in all of A B C D,stevens-changes-0826-91/per-run.csv,attempt; outcome completed,8
+cpu_median_a,a,arm A median CPU s; equal to arms.csv,stevens-changes-0826-91/arms.csv,cpu_seconds,4430.1500
+formula_median_a,b,arm A median formula cm2,stevens-changes-0826-91/arms.csv,stevens_formula_cm2,21.3432
+square_median_a,b,arm A median best square mm,stevens-changes-0826-91/arms.csv,largest_square_mm,5.6804
+cpu_median_b,a,arm B median CPU s; equal to arms.csv,stevens-changes-0826-91/arms.csv,cpu_seconds,4213.6000
+formula_median_b,b,arm B median formula cm2,stevens-changes-0826-91/arms.csv,stevens_formula_cm2,21.3432
+square_median_b,b,arm B median best square mm,stevens-changes-0826-91/arms.csv,largest_square_mm,5.6804
+cpu_median_c,a,arm C median CPU s; equal to arms.csv,stevens-changes-0826-91/arms.csv,cpu_seconds,513.5000
+formula_median_c,b,arm C median formula cm2,stevens-changes-0826-91/arms.csv,stevens_formula_cm2,21.3432
+square_median_c,b,arm C median best square mm,stevens-changes-0826-91/arms.csv,largest_square_mm,5.6804
+cpu_median_d,a,arm D median CPU s; equal to arms.csv,stevens-changes-0826-91/arms.csv,cpu_seconds,101.9500
+formula_median_d,b,arm D median formula cm2,stevens-changes-0826-91/arms.csv,stevens_formula_cm2,10.5930
+square_median_d,b,arm D median best square mm,stevens-changes-0826-91/arms.csv,largest_square_mm,5.7772
+same_ab,a;b,seeds whose every output column is equal in A and B,stevens-changes-0826-91/per-run.csv,growth_patches sheets stevens_formula_cm2 best_square_mm a2_share v2_cells clean_cm2,8
+factor_ab,a,CPU factor A to B; old median over new median,stevens-changes-0826-91/arms.csv,cpu_seconds,1.05
+same_bc,a;b,seeds whose every output column is equal in B and C,stevens-changes-0826-91/per-run.csv,growth_patches sheets stevens_formula_cm2 best_square_mm a2_share v2_cells clean_cm2,8
+factor_bc,a,CPU factor B to C; old median over new median,stevens-changes-0826-91/arms.csv,cpu_seconds,8.21
+same_cd,a;b,seeds whose every output column is equal in C and D,stevens-changes-0826-91/per-run.csv,growth_patches sheets stevens_formula_cm2 best_square_mm a2_share v2_cells clean_cm2,0
+factor_cd,a,CPU factor C to D; old median over new median,stevens-changes-0826-91/arms.csv,cpu_seconds,5.04
+factor_ac,a,CPU factor A to C; old median over new median,stevens-changes-0826-91/arms.csv,cpu_seconds,8.63
+same_a_to_c,a;b,every seed equal on every output column of per-run.csv in A B and C,stevens-changes-0826-91/per-run.csv,growth_patches sheets stevens_formula_cm2 best_square_mm a2_share v2_cells clean_cm2,yes
+,a,PHerc0826-seed1595 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,12703.1
+,b,PHerc0826-seed1595 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,23.2786
+,a,PHerc0826-seed1595 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,12579.0
+,b,PHerc0826-seed1595 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,23.2786
+,a,PHerc0826-seed1595 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,1603.5
+,b,PHerc0826-seed1595 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,23.2786
+,a,PHerc0826-seed1595 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,9.2
+,b,PHerc0826-seed1595 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,1.2719
+,a,PHerc0826-seed1700 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,235.7
+,b,PHerc0826-seed1700 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,4.4684
+,a,PHerc0826-seed1700 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,199.4
+,b,PHerc0826-seed1700 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,4.4684
+,a,PHerc0826-seed1700 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,30.3
+,b,PHerc0826-seed1700 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,4.4684
+,a,PHerc0826-seed1700 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,126.1
+,b,PHerc0826-seed1700 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,13.3438
+,a,PHerc0826-seed3648 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,8607.0
+,b,PHerc0826-seed3648 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,48.5468
+,a,PHerc0826-seed3648 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,7202.4
+,b,PHerc0826-seed3648 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,48.5468
+,a,PHerc0826-seed3648 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,1069.0
+,b,PHerc0826-seed3648 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,48.5468
+,a,PHerc0826-seed3648 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,1622.6
+,b,PHerc0826-seed3648 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,50.2271
+,a,PHerc0826-seed4202 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,26.3
+,b,PHerc0826-seed4202 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,2.5134
+,a,PHerc0826-seed4202 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,23.3
+,b,PHerc0826-seed4202 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,2.5134
+,a,PHerc0826-seed4202 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,2.9
+,b,PHerc0826-seed4202 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,2.5134
+,a,PHerc0826-seed4202 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,53.6
+,b,PHerc0826-seed4202 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,4.3766
+,a,PHerc0826-seed4690 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,6866.6
+,b,PHerc0826-seed4690 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,40.0645
+,a,PHerc0826-seed4690 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,6529.6
+,b,PHerc0826-seed4690 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,40.0645
+,a,PHerc0826-seed4690 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,920.3
+,b,PHerc0826-seed4690 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,40.0645
+,a,PHerc0826-seed4690 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,215.2
+,b,PHerc0826-seed4690 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,19.7385
+,a,PHerc0826-seed5702 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,30.6
+,b,PHerc0826-seed5702 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,0.8597
+,a,PHerc0826-seed5702 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,32.7
+,b,PHerc0826-seed5702 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,0.8597
+,a,PHerc0826-seed5702 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,4.7
+,b,PHerc0826-seed5702 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,0.8597
+,a,PHerc0826-seed5702 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,35.7
+,b,PHerc0826-seed5702 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,4.1631
+,a,PHerc0826-seed5989 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,2762.0
+,b,PHerc0826-seed5989 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,19.4078
+,a,PHerc0826-seed5989 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,2748.2
+,b,PHerc0826-seed5989 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,19.4078
+,a,PHerc0826-seed5989 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,350.1
+,b,PHerc0826-seed5989 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,19.4078
+,a,PHerc0826-seed5989 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,77.8
+,b,PHerc0826-seed5989 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,7.8421
+,a,PHerc0826-seed6689 arm A CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,6098.3
+,b,PHerc0826-seed6689 arm A formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,32.8282
+,a,PHerc0826-seed6689 arm B CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,5679.0
+,b,PHerc0826-seed6689 arm B formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,32.8282
+,a,PHerc0826-seed6689 arm C CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,676.9
+,b,PHerc0826-seed6689 arm C formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,32.8282
+,a,PHerc0826-seed6689 arm D CPU s,stevens-changes-0826-91/per-run.csv,cpu_seconds,483.0
+,b,PHerc0826-seed6689 arm D formula cm2,stevens-changes-0826-91/per-run.csv,stevens_formula_cm2,38.9099

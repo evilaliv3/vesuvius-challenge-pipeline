@@ -1,0 +1,17 @@
+# written by best-windows-0826/tools/align.py angles at 2026-09-29T06:25:24Z: per window, the acute angle between the line of each lattice step (i: p(i+1,j)-p(i,j), j: p(i,j+1)-p(i,j), both cells covered) and the scan's z axis, degrees; median and IQR (q75 - q25) over the window's cells; step_*_vox = median 3D length of the step; DECLARATION.md addition 2026-09-29T06:23:23Z
+tag,label,what,i0,j0,cells_i,cells_j,angle_i_to_z_median,angle_i_to_z_iqr,steps_i,angle_j_to_z_median,angle_j_to_z_iqr,steps_j,step_i_vox,step_j_vox
+bw1,C40-PHerc0826-seed5364-S1,"clean window rank 1, best 1",115,710,535,535,65.14,3.99,272519,30.80,11.87,272360,4.0009,4.0099
+bw2,C80-PHerc0826-seed5364-S1,clean window rank 2,115,710,535,535,65.14,4.00,272517,30.79,11.87,272360,4.0008,4.0111
+bw3,C40-PHerc0826-seed6473-S0,"clean window rank 3, best 2",591,1069,535,535,14.42,12.71,278810,85.82,6.10,278811,3.9826,3.9830
+bw4,C40-PHerc0826-seed6731-S0,"clean window rank 4, best 3",1275,724,535,535,80.87,6.32,281735,18.47,11.47,281749,3.9869,4.0016
+bw5,C40-PHerc0826-seed5364-S0,clean window rank 5,334,679,535,535,12.62,12.42,276849,85.78,4.94,276908,4.0018,3.9803
+bw6,C80-PHerc0826-seed5364-S0,clean window rank 6,334,679,535,535,12.62,12.42,276849,85.78,4.94,276908,4.0018,3.9803
+bw7,C40-PHerc0826-seed1788-S0,clean window rank 7,626,213,535,535,21.64,10.24,270754,75.73,6.79,270772,3.9911,3.9952
+bw8,C40-PHerc0826-seed2604-S0,clean window rank 8,719,492,535,535,27.17,9.93,283783,68.67,9.57,283799,3.9975,3.9920
+bw9,C40-PHerc0826-seed4480-S0,clean window rank 9,787,455,535,535,78.64,4.93,273012,20.08,9.59,273018,3.9956,4.0066
+bw10,C40-PHerc0826-seed1727-S0,clean window rank 10,580,609,535,535,17.23,19.59,270694,83.70,13.13,270685,3.9917,4.0004
+bw11,C80-PHerc0826-seed1727-S0,clean window rank 11,579,609,536,535,17.23,19.61,271165,83.69,13.16,271152,3.9914,4.0004
+bw12,C40-PHerc0826-seed2259-S0,clean window rank 12,1087,930,535,535,70.91,8.79,271217,26.12,12.13,271181,4.0051,4.0101
+bw13,C80-PHerc0826-seed2259-S0,clean window rank 13,1087,930,535,535,70.91,8.79,271217,26.12,12.13,271181,4.0051,4.0101
+bw14,C80-PHerc0826-seed2604-S0,clean window rank 14,658,651,535,535,26.45,14.16,285690,69.13,14.25,285690,4.0281,4.0336
+cert5364,C40-PHerc0826-seed5364-S0,certified square 15.3693 mm (certified-squares.csv),376,679,411,411,13.67,12.92,168510,86.04,5.19,168510,4.0037,3.9730

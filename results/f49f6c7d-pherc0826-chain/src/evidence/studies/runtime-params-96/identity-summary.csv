@@ -1,0 +1,3 @@
+# written by runtime-params-96/tools/identity_compare_runtime.py at 2026-09-28T13:31:26Z: chain-0826/evidence/identity-0826-summary.csv's columns (read by tools/deliver.sh G6: first column the build, last column identity_holds); yes only with all 3 seeds holding
+build,against,seeds_holding,seeds_failing_or_not_measurable,seeds_replaced,evidence,identity_holds
+flathash+avx512+lto+pgo+native+runtime-seed,flathash+avx512+lto+pgo+native (per seed MLP binaries),PHerc0826-seed109;PHerc0826-seed300;PHerc0826-seed237,none,none,runs/rev1/runtime-params-96/evidence/identity-0826-runtime.csv,yes

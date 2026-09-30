@@ -1,0 +1,10 @@
+# written by best-windows-0826/tools/straight.py (via panels.row_csv): one row per straightened section (DECLARATION.md addition 2026-09-29T06:46:40Z): raw scan along each grown point's smoothed lattice normal, -60..+60 voxels; peak_offset = |offset| of the brightest voxel within +-15 of the middle row
+tag,label,line,centre_i,centre_j,points,columns,columns_scored,column_spacing_mm,peak_window_vox,peak_offset_median_vox,peak_offset_q25_vox,peak_offset_q75_vox,share_within_3_vox,grey_p1,grey_p995,not_measurable_share,png
+bw1,C40-PHerc0826-seed5364-S1,i,382,977,509,535,509,0.03739,15,5.0,2.0,11.0,0.3851,30,190,0.048598,straight-C40-PHerc0826-seed5364-S1-i.png
+bw1,C40-PHerc0826-seed5364-S1,j,382,977,535,535,535,0.03809,15,6.0,2.0,11.0,0.3701,32,191,0.000000,straight-C40-PHerc0826-seed5364-S1-j.png
+bw3,C40-PHerc0826-seed6473-S0,i,858,1336,535,535,535,0.03704,15,8.0,4.0,12.0,0.2355,28,187,0.000000,straight-C40-PHerc0826-seed6473-S0-i.png
+bw3,C40-PHerc0826-seed6473-S0,j,858,1336,535,535,535,0.03727,15,10.0,5.0,13.0,0.1570,33,185,0.000000,straight-C40-PHerc0826-seed6473-S0-j.png
+bw4,C40-PHerc0826-seed6731-S0,i,1542,991,535,535,535,0.03713,15,10.0,5.0,13.0,0.1757,31,191,0.000000,straight-C40-PHerc0826-seed6731-S0-i.png
+bw4,C40-PHerc0826-seed6731-S0,j,1542,991,535,535,535,0.03751,15,9.0,6.0,13.0,0.1103,31,188,0.000000,straight-C40-PHerc0826-seed6731-S0-j.png
+cert5364,C40-PHerc0826-seed5364-S0,i,581,884,411,411,411,0.03782,15,8.0,5.0,12.0,0.1873,30,189,0.000000,straight-C40-PHerc0826-seed5364-S0-cert-i.png
+cert5364,C40-PHerc0826-seed5364-S0,j,581,884,411,411,411,0.03689,15,9.0,5.0,12.0,0.1290,27,188,0.000000,straight-C40-PHerc0826-seed5364-S0-cert-j.png

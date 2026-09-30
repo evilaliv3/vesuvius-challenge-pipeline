@@ -401,6 +401,8 @@ overwriting the file that is there.
 | `tools/cpp_k20.py estimates --workers N` | `inputs/grid15/`, the two binaries of `driver/build.sh` | `cpp-k20-estimates.csv`, 14,400 calls, resumable | about 50 minutes on six cores | `inputs/grid15/` and the driver, section 5 |
 | `tools/cpp_k20.py scores` | `cpp-k20-estimates.csv`, `inputs/grid15/` for the grid width, the bench for the centroid | `cpp-k20.csv`, `cpp-k20-verdicts.json`: Tables III and IV | a minute | `inputs/grid15/` and the bench |
 | `tools/cpp_k20.py compare` | `cpp-k20.csv`, `fifteen-k20.csv` and the two verdict files | `cpp-vs-transcription.csv` | a second | no |
+| `tools/cpp_k20_margins.py --workers N` | `cpp-k20-estimates.csv`, `cpp-k20.csv`, a slice header of each scroll's published normal grid (from `inputs/grid23/`, else the open data bucket), the bench for the centroid | `cpp-k20-margins.csv`, the margins before rounding with a check column per value against `cpp-k20.csv`, and `cpp-k20-verdicts.json` taken on them (2026-09-30) | about 20 minutes on five processes, mostly the download of the masks | the bench's masks, fetched |
+| `tools/merged_patch.py --clone DIR` | a clone of `ScrollPrize/villa`, `upstream-status.csv` | `merged-patch.csv`: the files and test cases of the merged squash of pull request 1823 (2026-09-30) | a second | the clone |
 | `tools/cpp_gen24.py gen24 --workers N` | `inputs/grid23/`, the two binaries | `cpp-positions-24.csv`, 2,304 calls, resumable | about 8 minutes on six cores | `inputs/grid23/` and the driver |
 | `tools/cpp_gen24_score.py` | `cpp-positions-24.csv`, `twentythree-refit.csv` for the two probe columns it carries over | `cpp-twentyfour.csv`: the run of Section V | a second | no |
 | `tools/cpp_gen24.py exponent --workers N` | `inputs/grid15/`, the three exponent binaries | `cpp-exponent-estimates.csv`, 21,600 calls, resumable | about 75 minutes on six cores | `inputs/grid15/` and the driver |
@@ -445,9 +447,10 @@ scrolls. That folder is inside this one now, and the bench's own `.gitignore` ke
 repository with a rule anchored to the bench's root, so a run of those two tools leaves 384 MB on
 disk and nothing untracked. They need no other data beyond `inputs/grid15/`.
 
-`upstream_check.py` answers a question about a moving target, so it answers about the clone it is
-given and about when that clone was last fetched: the count of commits and the tip it names change
-as upstream moves. The file here was written against a clone fetched on 2026-09-17.
+`upstream_check.py` answers a question about a moving target, so by default it answers it at the
+tip the article names, `2dcfaf6a0` of 2026-09-17, and a rerun on any clone that holds that commit
+writes `upstream-check.csv` byte for byte. `--tip upstream/main` asks the same question of a fresher
+tip, and its answer belongs in another file, given with `--out`.
 
 `fifteen_k20.py`, `ablation_search.py` and the two drivers' estimate phases resume. Each writes
 every estimate to its raw file as it goes and reads that file back at the next start, so run on this

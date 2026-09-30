@@ -1,0 +1,13 @@
+"# THE SELF TEST OF THE COVERAGE RULE of the director's ruling of 2026-09-23T00:52:02Z, gathered from the covered-RULED-CHAIN-*.csv files of tools/covered_by_prediction.py at tolerance 1 voxel. The chain grew its patches on this very prediction volume, so the share of its DELIVERED cells that still sit on surface is the test of the rule itself. square_mm_before is the largest hole free square on accepted cells without the coverage rule, square_mm_after is the same with it. seed34 has no delivered sheet and seed44 has an empty one, which is why the chain's distribution is over nine seeds and not ten."
+seed,cells,cells_covered,covered_share,square_mm_before,square_mm_after,note
+01,6335760,6019132,0.950025,10.3909,10.3909,
+11,717914,717912,0.999997,7.5686,7.5686,
+15,7710236,6595055,0.855364,11.3635,8.0071,
+26,6080195,4843459,0.796596,12.7244,6.2101,
+34,,,,,,no delivered sheet from the chain
+35,616193,616191,0.999997,,,
+38,1940820,1940792,0.999986,,,
+40,855148,855146,0.999998,6.842,6.842,
+44,0,,,,,the chain wrote an empty file
+48,610338,610336,0.999997,5.633,5.633,
+ALL,24866604,22198023,0.892684,,,every delivered sheet of every seed

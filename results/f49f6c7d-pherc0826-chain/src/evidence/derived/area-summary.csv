@@ -1,0 +1,76 @@
+"# written by src/tools/area_summary.py at 2026-09-30T19:17:08Z from the copies of area-0826-90 in src/evidence/studies (copy time in src/evidence/MANIFEST.csv); rows_covered says which rows a value is over"
+quantity,value,source_file,source_column,rows_covered,check,check_value
+area_seeds,80,area-0826-90/traced-reference.csv,rows whose seed is a seed,every seed row,traced area equal in the three sources on every row,80 of 80
+union_one_step_cm2,1386.3267,area-0826-90/union.csv,unique_clean_cm2,rule = one-step,,
+union_half_step_cm2,1762.7213,area-0826-90/union.csv,unique_clean_cm2,rule = half-step,,
+union_bin_max_cm2,1992.9717,area-0826-90/union.csv,unique_clean_cm2,rule = bin-max,,
+union_headline_rule,one-step,area-0826-90/union.csv,headline,every rule row,the headline is the smallest of the rules,yes
+union_sheets,800,area-0826-90/union.csv,sheets,rule = one-step,sheets equal ten per seed of the traced reference,yes
+union_clean_summed_cm2,4357.6941,area-0826-90/union.csv,clean_summed_cm2,rule = one-step,,
+union_all_cells_summed_cm2,4445.6529,area-0826-90/union.csv,all_cells_summed_cm2,rule = one-step,,
+union_largest_piece_cm2,34.8441,area-0826-90/union.csv,largest_piece_cm2,rule = one-step,,
+union_largest_piece_sheet,PHerc0826-seed4391-S0,area-0826-90/union.csv,largest_piece_sheet,rule = one-step,,
+stevens_quoted_cm2,365,area-0826-90/union.csv,stevens_cm2,rule = one-step,,
+lamina_group_cm2,31.5230,area-0826-90/one-lamina.csv,"clean_unique_cm2, max over group rows",every group row (5),,
+lamina_group_rank_by_joining,5,area-0826-90/one-lamina.csv,rank of that row,every group row (5),,
+lamina_group_sheets,9,area-0826-90/one-lamina.csv,sheets of that row,every group row (5),,
+lamina_group_seeds,2,area-0826-90/one-lamina.csv,seeds of that row,every group row (5),,
+lamina_group_square_mm,5.3821,area-0826-90/one-lamina.csv,square_mm of that row,every group row (5),,
+lamina_group_conflicts_inside,0,area-0826-90/one-lamina.csv,conflicts_inside of that row,every group row (5),conflicts_inside is 0 on every group row,yes
+lamina_groups_listed,5,area-0826-90/one-lamina.csv,group rows,every group row (5),,
+lamina_piece_cm2,33.1795,area-0826-90/one-lamina.csv,"clean_unique_cm2, max over piece rows",every piece row (1),,
+lamina_piece_sheet,PHerc0826-seed2427-S0,area-0826-90/one-lamina.csv,square_or_piece_sheet of that row,every piece row (1),,
+lamina_pitch_vox,15.125,area-0826-90/one-lamina.csv,header line,header,,
+lamina_refusals,869,area-0826-90/one-lamina.csv,header line,header,,
+lamina_wrapping_sheets,242,area-0826-90/one-lamina.csv,header line,header,,
+lamina_conflict_area_sq_vox,16384,area-0826-90/one-lamina.csv,header line,header,,
+lamina_conflict_pitches,1.5,area-0826-90/one-lamina.csv,header line,header,,
+stevens_reproduced_cm2,363.8629,area-0826-90/stevens-method-0826.csv,sum_components_cm2,"row Stevens PHerc1667, one run, ten components (reference)",,
+stevens_components,10,area-0826-90/stevens-method-0826.csv,components,row Stevens PHerc1667,,
+stevens_formula_best_run_cm2,101.3992,area-0826-90/stevens-method-0826.csv,"sum_components_cm2, max over run rows",every run row (80),equals the tool's own «largest single growth run» row,yes
+stevens_formula_best_run,PHerc0826-seed6365,area-0826-90/stevens-method-0826.csv,run of that row,every run row (80),,
+stevens_formula_runs,80,area-0826-90/stevens-method-0826.csv,run rows,every run row,run rows equal the traced reference seeds,yes
+stevens_formula_sum_runs_cm2,4178.1052,area-0826-90/stevens-method-0826.csv,sum_components_cm2,row sum over the runs,,
+coll_four_formula_cm2,182.2174,area-0826-90/collection-four-6365.csv,stevens_formula_cm2,row all 10 sheets,"sum of the sheet rows, to 4 decimals",yes
+coll_four_a2_share,0.023835,area-0826-90/collection-four-6365.csv,a2_share,row all 10 sheets,,
+coll_four_v2_cells,2282,area-0826-90/collection-four-6365.csv,v2_cells,row all 10 sheets,,
+coll_four_clean_cm2,205.0860,area-0826-90/collection-four-6365.csv,clean_cm2,row all 10 sheets,,
+coll_four_square_mm,13.7601,area-0826-90/collection-four-6365.csv,square_mm_delivered,row all 10 sheets,,
+coll_four_union_cm2,172.3465,area-0826-90/collection-four-6365.csv,"square_mm_clean of the all row, the text «union of clean cells X cm2»",row all 10 sheets,,
+coll_four_sheets,10,area-0826-90/collection-four-6365.csv,sheet rows,every sheet row,,
+coll_control_formula_cm2,112.5819,area-0826-90/collection-control-6365.csv,stevens_formula_cm2,row all 10 sheets,"sum of the sheet rows, to 4 decimals",yes
+coll_control_a2_share,0.011854,area-0826-90/collection-control-6365.csv,a2_share,row all 10 sheets,,
+coll_control_v2_cells,0,area-0826-90/collection-control-6365.csv,v2_cells,row all 10 sheets,,
+coll_control_clean_cm2,120.9083,area-0826-90/collection-control-6365.csv,clean_cm2,row all 10 sheets,,
+coll_control_square_mm,11.743,area-0826-90/collection-control-6365.csv,square_mm_delivered,row all 10 sheets,,
+coll_control_union_cm2,119.5656,area-0826-90/collection-control-6365.csv,"square_mm_clean of the all row, the text «union of clean cells X cm2»",row all 10 sheets,,
+coll_control_sheets,10,area-0826-90/collection-control-6365.csv,sheet rows,every sheet row,,
+coll_setseed6365_formula_cm2,46.2763,area-0826-90/collection-setseed-seed6365.csv,stevens_formula_cm2,row all 10 sheets,"sum of the sheet rows, to 4 decimals",yes
+coll_setseed6365_a2_share,0.001777,area-0826-90/collection-setseed-seed6365.csv,a2_share,row all 10 sheets,,
+coll_setseed6365_v2_cells,0,area-0826-90/collection-setseed-seed6365.csv,v2_cells,row all 10 sheets,,
+coll_setseed6365_clean_cm2,46.2875,area-0826-90/collection-setseed-seed6365.csv,clean_cm2,row all 10 sheets,,
+coll_setseed6365_square_mm,8.0756,area-0826-90/collection-setseed-seed6365.csv,square_mm_delivered,row all 10 sheets,,
+coll_setseed6365_union_cm2,45.5496,area-0826-90/collection-setseed-seed6365.csv,"square_mm_clean of the all row, the text «union of clean cells X cm2»",row all 10 sheets,,
+coll_setseed6365_sheets,10,area-0826-90/collection-setseed-seed6365.csv,sheet rows,every sheet row,,
+coll_setseed2019_formula_cm2,73.9634,area-0826-90/collection-setseed-seed2019.csv,stevens_formula_cm2,row all 10 sheets,"sum of the sheet rows, to 4 decimals",yes
+coll_setseed2019_a2_share,0.005144,area-0826-90/collection-setseed-seed2019.csv,a2_share,row all 10 sheets,,
+coll_setseed2019_v2_cells,188,area-0826-90/collection-setseed-seed2019.csv,v2_cells,row all 10 sheets,,
+coll_setseed2019_clean_cm2,76.5230,area-0826-90/collection-setseed-seed2019.csv,clean_cm2,row all 10 sheets,,
+coll_setseed2019_square_mm,8.8699,area-0826-90/collection-setseed-seed2019.csv,square_mm_delivered,row all 10 sheets,,
+coll_setseed2019_union_cm2,76.1763,area-0826-90/collection-setseed-seed2019.csv,"square_mm_clean of the all row, the text «union of clean cells X cm2»",row all 10 sheets,,
+coll_setseed2019_sheets,10,area-0826-90/collection-setseed-seed2019.csv,sheet rows,every sheet row,,
+coll_setseed5630_formula_cm2,20.4305,area-0826-90/collection-setseed-seed5630.csv,stevens_formula_cm2,row all 10 sheets,"sum of the sheet rows, to 4 decimals",yes
+coll_setseed5630_a2_share,0.000984,area-0826-90/collection-setseed-seed5630.csv,a2_share,row all 10 sheets,,
+coll_setseed5630_v2_cells,0,area-0826-90/collection-setseed-seed5630.csv,v2_cells,row all 10 sheets,,
+coll_setseed5630_clean_cm2,20.5436,area-0826-90/collection-setseed-seed5630.csv,clean_cm2,row all 10 sheets,,
+coll_setseed5630_square_mm,7.7025,area-0826-90/collection-setseed-seed5630.csv,square_mm_delivered,row all 10 sheets,,
+coll_setseed5630_union_cm2,19.4897,area-0826-90/collection-setseed-seed5630.csv,"square_mm_clean of the all row, the text «union of clean cells X cm2»",row all 10 sheets,,
+coll_setseed5630_sheets,10,area-0826-90/collection-setseed-seed5630.csv,sheet rows,every sheet row,,
+road1b_seeds,12,area-0826-90/road1b-seeds.csv,rows,every row,rows equal the header's count,yes
+road1b_qualified,62,area-0826-90/road1b-seeds.csv,header: N qualified,header,,
+road1b_min_square_mm,10.0210,area-0826-90/road1b-seeds.csv,"largest_square_mm, min over rows",every row,,
+road1b_seeds_used,8,area-0826-90/road1b-seeds.csv,rows with rank at most the director's cut,rows with rank 1 to 8,rows found equal the cut,yes
+road1b_patches_used,52906,area-0826-90/road1b-seeds.csv,"patches, sum",rows with rank 1 to 8,,
+road1b_used_min_square_mm,10.0210,area-0826-90/road1b-seeds.csv,"largest_square_mm, min",rows with rank 1 to 8,,
+road1b_used_max_distance_vox,1174.6,area-0826-90/road1b-seeds.csv,"distance_vox, max",rows with rank 1 to 8,,
+road1b_max_distance_vox,1296.6,area-0826-90/road1b-seeds.csv,"distance_vox, max over rows",every row,,

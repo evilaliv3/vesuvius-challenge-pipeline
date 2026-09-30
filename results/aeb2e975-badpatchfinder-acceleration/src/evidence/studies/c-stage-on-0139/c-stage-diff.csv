@@ -1,0 +1,23 @@
+# one row per tree and per pair of arms. delta_seconds is the median of arm_b minus the median of arm_a, delta_percent the same as a percentage of arm_a's median. ranges_overlap is yes when the two arms' observed [min, max] intervals intersect; when they do, verdict reads 'not separable from the spread' and the delta is information only.
+tree,arm_a,arm_b,runs_a,runs_b,median_a,median_b,delta_seconds,delta_percent,ranges_overlap,verdict,summarised_utc
+A,plain,c2,4,4,3.0,2.9,-0.1,-1.7,yes,not separable from the spread,2026-09-21T23:31:15Z
+A,plain,guarded,4,4,3.0,4.0,+1.0,+35.6,no,guarded is slower,2026-09-21T23:31:15Z
+A,guarded,c2,4,4,4.0,2.9,-1.1,-27.5,no,c2 is faster,2026-09-21T23:31:15Z
+repeat,plain,c2,4,4,51.8,52.3,+0.6,+1.2,yes,not separable from the spread,2026-09-21T23:31:15Z
+repeat,plain,guarded,4,4,51.8,50.1,-1.7,-3.2,yes,not separable from the spread,2026-09-21T23:31:15Z
+repeat,guarded,c2,4,4,50.1,52.3,+2.2,+4.5,yes,not separable from the spread,2026-09-21T23:31:15Z
+S,plain,c2,4,4,90.3,90.5,+0.2,+0.3,yes,not separable from the spread,2026-09-21T23:31:15Z
+S,plain,guarded,4,4,90.3,100.9,+10.6,+11.8,yes,not separable from the spread,2026-09-21T23:31:15Z
+S,guarded,c2,4,4,100.9,90.5,-10.4,-10.3,yes,not separable from the spread,2026-09-21T23:31:15Z
+D450,plain,c2,4,4,110.5,109.4,-1.1,-1.0,yes,not separable from the spread,2026-09-21T23:31:15Z
+D450,plain,guarded,4,4,110.5,113.0,+2.5,+2.3,yes,not separable from the spread,2026-09-21T23:31:15Z
+D450,guarded,c2,4,4,113.0,109.4,-3.6,-3.2,yes,not separable from the spread,2026-09-21T23:31:15Z
+C,plain,c2,4,4,72.2,68.7,-3.5,-4.8,no,c2 is faster,2026-09-21T23:31:15Z
+C,plain,guarded,4,4,72.2,92.8,+20.6,+28.5,no,guarded is slower,2026-09-21T23:31:15Z
+C,guarded,c2,4,4,92.8,68.7,-24.1,-25.9,no,c2 is faster,2026-09-21T23:31:15Z
+D150,plain,c2,4,4,108.1,83.8,-24.2,-22.4,no,c2 is faster,2026-09-21T23:31:15Z
+D150,plain,guarded,4,4,108.1,115.6,+7.5,+6.9,no,guarded is slower,2026-09-21T23:31:15Z
+D150,guarded,c2,4,4,115.6,83.8,-31.7,-27.4,no,c2 is faster,2026-09-21T23:31:15Z
+P2,plain,c2,4,4,115.2,102.4,-12.8,-11.1,no,c2 is faster,2026-09-21T23:31:15Z
+P2,plain,guarded,4,4,115.2,114.9,-0.3,-0.3,yes,not separable from the spread,2026-09-21T23:31:15Z
+P2,guarded,c2,4,4,114.9,102.4,-12.5,-10.9,no,c2 is faster,2026-09-21T23:31:15Z

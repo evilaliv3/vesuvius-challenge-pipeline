@@ -1,0 +1,78 @@
+{
+  "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1915",
+  "repository_url": "https://api.github.com/repos/ScrollPrize/villa",
+  "labels_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1915/labels{/name}",
+  "comments_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1915/comments",
+  "events_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1915/events",
+  "html_url": "https://github.com/ScrollPrize/villa/pull/1915",
+  "id": 5613301458,
+  "node_id": "PR_kwDONRspoc8AAAABFembDw",
+  "number": 1915,
+  "title": "vc_grow_seg_from_seed: keep an explicit seed with a zero coordinate",
+  "user": {
+    "login": "evilaliv3",
+    "id": 217034,
+    "node_id": "MDQ6VXNlcjIxNzAzNA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/217034?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/evilaliv3",
+    "html_url": "https://github.com/evilaliv3",
+    "followers_url": "https://api.github.com/users/evilaliv3/followers",
+    "following_url": "https://api.github.com/users/evilaliv3/following{/other_user}",
+    "gists_url": "https://api.github.com/users/evilaliv3/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/evilaliv3/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/evilaliv3/subscriptions",
+    "organizations_url": "https://api.github.com/users/evilaliv3/orgs",
+    "repos_url": "https://api.github.com/users/evilaliv3/repos",
+    "events_url": "https://api.github.com/users/evilaliv3/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/evilaliv3/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 1,
+  "created_at": "2026-09-28T10:47:46Z",
+  "updated_at": "2026-09-28T12:02:09Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "CONTRIBUTOR",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "draft": false,
+  "pull_request": {
+    "url": "https://api.github.com/repos/ScrollPrize/villa/pulls/1915",
+    "html_url": "https://github.com/ScrollPrize/villa/pull/1915",
+    "diff_url": "https://github.com/ScrollPrize/villa/pull/1915.diff",
+    "patch_url": "https://github.com/ScrollPrize/villa/pull/1915.patch",
+    "merged_at": null
+  },
+  "body": "`vc_grow_seg_from_seed` decides whether `--seed` gave a seed with\r\n\r\n```cpp\r\n} else if (!use_old_args && origin[0] != 0 && origin[1] != 0 && origin[2] != 0) {\r\n```\r\n\r\n(`volume-cartographer/apps/src/vc_grow_seg_from_seed.cpp` line 550 on main at f4570bfa). A seed with any coordinate at 0, for example `-s 0 3936 830`, fails that test and the run falls through to `random_seed`: it grows from a point elsewhere in the volume, prints nothing about the seed it was given, and exits 0, so a script sees a normal run.\r\n\r\nThe test now asks for any nonzero coordinate. It moves to `apps/src/GrowSeedMode.hpp`, header only like `RenderPrefetch.hpp`, so that the new doctest `test_grow_seed_mode` checks the code the tool runs. A seed of `0 0 0` is still read as no seed, since `origin` starts at zero; when one was given on the command line the run now says so in one log line before it picks a random seed.\r\n\r\n### Test\r\n\r\n`test_grow_seed_mode` passes on this branch. With main's `&&` put back in `GrowSeedMode.hpp`, 4 of its checks fail, the four seeds with one or two coordinates at zero.\r\n\r\n```\r\ncmake --build build --target test_grow_seed_mode && (cd build && ctest -R test_grow_seed_mode --output-on-failure)\r\n```\r\n\r\nBuilt and run from the commit itself in a detached worktree, not from a working tree; only the two targets this PR touches were built (`test_grow_seed_mode`, `vc_grow_seg_from_seed`), not the whole suite.\r\n\r\n### Before and after\r\n\r\nBoth binaries built in the same build directory over the same libraries; before is main's `vc_grow_seg_from_seed.cpp`, after is this branch. PHerc1447 surface prediction, 20 generations, `VC_GROWPATCH_RNG_SEED=20260923`, one thread. Mode and seed are read from the output's `meta.json`.\r\n\r\n| seed given | build | exit code | mode in meta.json | seed in meta.json |\r\n|---|---|---|---|---|\r\n| 0 3936 830 | main | 0 | `random_seed` | 5005, 1870, 16068 |\r\n| 0 3936 830 | this branch | 0 | `explicit_seed` | 0, 3936, 830 |\r\n| 2464 2411 12410 | main | 0 | `explicit_seed` | 2464, 2411, 12410 |\r\n| 2464 2411 12410 | this branch | 0 | `explicit_seed` | 2464, 2411, 12410 |\r\n| 0 0 0 | main | 0 | `random_seed` | 4903, 6670, 19595 |\r\n| 0 0 0 | this branch | 0 | `random_seed` | 4319, 3186, 5132 |\r\n\r\nOn the last row the branch also logs `seed [0, 0, 0] discarded: 0 0 0 reads as no seed, picking a random seed`; the random seed differs between the two runs because the pick uses `rand()` after `srand(clock())` (line 369), not `VC_GROWPATCH_RNG_SEED`.\r\n\r\nThis fix was the first commit of #1885, which is closed; the rest of that PR is withdrawn and the reference ray occlusion cost it touched is described in #1914.",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1915/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1915/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null
+}

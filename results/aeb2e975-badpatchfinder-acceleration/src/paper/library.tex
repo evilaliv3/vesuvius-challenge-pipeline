@@ -1,0 +1,335 @@
+% ---------------------------------------------------------------------------
+% Reference library: verified bibliography entries for the community and prize
+% work of the Vesuvius Challenge.
+%
+% This file is NEVER \input{} into a paper. It is a catalogue to copy from, so
+% that the same work is always cited with the same verified metadata. Copying
+% only what a paper actually cites keeps unused entries out of its reference
+% list, which \input would not.
+%
+% Our own work lives in series.tex, which IS \input{} into every paper.
+%
+% Every entry below was checked against scrollprize.org/winners
+% (external/villa/scrollprize.org/docs/15_winners.md) on 2026-09-07, and where
+% a repository is named it was cloned or fetched. Prize amounts and dates are
+% from that page. See WINNERS.md for the full analysis.
+% ---------------------------------------------------------------------------
+
+% ===== Foundational =========================================================
+
+\bibitem{seales2016} W.~B. Seales, C.~S. Parker, M. Segal, E. Tov, P. Shor, Y. Porath,
+  ``From damage to discovery via virtual unwrapping: reading the scroll from En-Gedi,''
+  \emph{Science Advances}, vol.~2, no.~9, e1601247, 2016.
+
+\bibitem{educelab2023} S. Parsons, C.~S. Parker, C. Chapman, M. Hayashida, W.~B. Seales,
+  ``EduceLab-Scrolls: verifiable recovery of text from Herculaneum papyri using X-ray CT,''
+  arXiv:2304.02084, 2023.
+
+\bibitem{angelotti2026} G. Angelotti \emph{et al.}, ``Complete virtual unwrapping and reading
+  of a rolled Herculaneum papyrus,'' arXiv:2606.29085, 2026.
+
+\bibitem{dambrogio2021} J. Dambrogio \emph{et al.}, ``Unlocking history through automated
+  virtual unfolding of sealed documents imaged by X-ray microtomography,''
+  \emph{Nature Communications}, vol.~12, 1184, 2021.
+
+% ===== Prize-winning pipeline components ====================================
+
+\bibitem{gp2023} Y. Nader, L. Farritor, J. Schilliger, \emph{Vesuvius Challenge Grand Prize
+  2023 submission}, \$700{,}000 Grand Prize, 2023.
+  \url{https://github.com/younader/Vesuvius-Grandprize-Winner}
+
+\bibitem{firstletters} L. Farritor, Y. Nader, \emph{First Letters}, \$60{,}000 First Letters
+  and Ink Prize, 2023. \url{https://github.com/lukeboi/scroll-first-letters}
+
+\bibitem{firsttitle} M. Roth, M. Nowak, \emph{First Title Prize submission}, \$60{,}000 First
+  Title Prize, 2025. \url{https://github.com/mvrcii/vesuvius_first_title_prize}
+
+\bibitem{fasp} H. Schilling, S. Johnson, \emph{FASP}: fully automated segmentation pipeline,
+  \$30{,}000 First Automated Segmentation Prize, 2024.
+  \url{https://github.com/hendrikschilling/FASP}
+
+\bibitem{henderson} P. Henderson, ``Reconstructing the geometry of a rolled papyrus scroll by
+  diffeomorphic spiral fitting,'' arXiv:2512.04927, 2025. \$30{,}000 First Automated
+  Segmentation Prize, 2024.
+
+\bibitem{scrollfiesta} B. Kyles, \emph{ScrollFiesta}: automatic mesher of surface predictions,
+  \$10{,}000 (May 2026) and \$20{,}000 (July 2026) Progress Prizes.
+  \url{https://github.com/Hob3rMallow/scrollfiesta_public}
+
+\bibitem{kaggle2026} Vesuvius Challenge, \emph{Surface Detection}, Kaggle competition,
+  \$200{,}000, March 2026.
+  \url{https://www.kaggle.com/competitions/vesuvius-challenge-surface-detection}
+
+\bibitem{stevens} W. Stevens, \emph{scrollreading}: flood-fill autosegmentation and surface
+  growing, several Progress Prizes 2024--2026.
+  \url{https://github.com/WillStevens/scrollreading}
+
+\bibitem{thaumato} J. Schilliger, \emph{ThaumatoAnakalyptor}, 2024.
+  \url{https://github.com/schillij95/ThaumatoAnakalyptor}
+
+% ===== Quality control and tooling ==========================================
+
+\bibitem{villa1320} Aleredfer, ``\texttt{vc\_obj2tifxyz}: `Successfully converted' and exit 0
+  after rasterizing 0 points,'' \emph{ScrollPrize/villa} issue 1320, 4 August 2026.
+  \url{https://github.com/ScrollPrize/villa/issues/1320}
+
+\bibitem{villa1343} Bullo27, ``\texttt{vc\_render\_tifxyz}: rendering at an absent pyramid level
+  produces an all-black image with exit 0,'' \emph{ScrollPrize/villa} issue 1343, 6 August 2026.
+  \url{https://github.com/ScrollPrize/villa/issues/1343}
+
+\bibitem{villa1660} jonmarrs, ``\texttt{render\_ink.py}: a mesh/volume frame mismatch renders a
+  black strip and exits 0,'' \emph{ScrollPrize/villa} issue 1660, 31 August 2026.
+  \url{https://github.com/ScrollPrize/villa/issues/1660}
+
+\bibitem{villa1717} kadenpool, ``\texttt{vc\_render\_tifxyz} now says how much of the surface fell
+  outside the volume,'' \emph{ScrollPrize/villa} pull request 1717, 7 September 2026.
+  \url{https://github.com/ScrollPrize/villa/pull/1717}
+
+\bibitem{windcheck} J. Carreras, \emph{windcheck}: self-intersection census for Herculaneum
+  scroll segment meshes, \$1{,}000 Progress Prize, July 2026.
+  \url{https://github.com/joe-carr-data/windcheck}
+
+\bibitem{tifxyzdoctor} A. Cohen, \emph{tifxyz-doctor}: deterministic preflight and geometry
+  audit for \texttt{tifxyz} surface grids, \$1{,}000 Progress Prize, July 2026.
+  \url{https://github.com/aviad12g/tifxyz-doctor}
+
+\bibitem{dataaudit} M. Bulloni, \emph{scroll-data-audit}: integrity auditor for the Vesuvius
+  Challenge open data, \$1{,}000 Progress Prize, July 2026.
+  \url{https://github.com/Bullo27/scroll-data-audit}
+
+\bibitem{umbmaker} J. Darby, \emph{Umbilicus\_Maker}: manual annotation of scroll umbilici,
+  \$1{,}000 Progress Prize, October 2024.
+  \url{https://github.com/JamesDarby345/Umbilicus_Maker}
+
+\bibitem{spiralconsumer} S. Yang, \emph{Spiral fitting on a 12\,GB consumer GPU}, \$1{,}000
+  Progress Prize, July 2026. \url{https://github.com/7jycwjmbfn-eng/spiral-fit-consumer-gpu}
+
+% Two reference sets of umbilici made by third parties, neither of them a prize entry. Author,
+% method and licence are taken from each repository's own README and metadata, fetched
+% 2026-09-15, and they are cited with those three facts beside them because a comparison is
+% worth exactly what its reference is worth.
+\bibitem{drobkov} A. Drobkov, \emph{herculaneum-umbilici}: manual umbilicus polylines for ten
+  First Letters scrolls, MIT licence, August 2026.
+  \url{https://github.com/AlexeyDrobkovStrikesBack/herculaneum-umbilici}
+
+\bibitem{dopico} I. Dopico, \emph{vesuvius-sheet-tools}: sheet instance tools, with an umbilicus
+  for PHerc.\ 1218 derived from instance labels, MIT licence, July 2026.
+  \url{https://github.com/IyanDopico/vesuvius-sheet-tools}
+
+\bibitem{fitspiralfixes} N. Dolegieviez, \emph{fit\_spiral fixes}: Windows support and loud
+  failure on silently zeroed losses, \$1{,}000 Progress Prize, July 2026.
+
+\bibitem{syntheticpages} L. Parker, \emph{synthetic-pages}: synthetic data generation for
+  scroll segmentation, \$2{,}500 Progress Prize, April 2025.
+  \url{https://github.com/lcparker/synthetic-pages}
+
+\bibitem{villa} Vesuvius Challenge, \emph{villa}: \texttt{volume-cartographer} and the scroll
+  processing toolchain. \url{https://github.com/ScrollPrize/villa}
+
+% ===== Pith detection and the fields we borrow from =========================
+
+\bibitem{openproblems2026} Vesuvius Challenge, \emph{Open Problems: Why Reading Every Herculaneum Scroll Is Still a
+  Challenge}, 2026. \url{https://scrollprize.org/2026_open_problems}
+
+\bibitem{apd} H. Marichal, D. Passarella, G. Randall, ``Automatic wood pith detector: local
+  orientation estimation and robust accumulation,'' arXiv:2404.01952, 2024.
+
+\bibitem{norell2008} K. Norell, G. Borgefors, ``Estimation of pith position in untreated log
+  ends in sawmill environments,'' \emph{Computers and Electronics in Agriculture}, vol.~63,
+  no.~2, pp.~155--167, 2008.
+
+\bibitem{pithextract} H. Boukadida, F. Longuetaud, F. Colin, C. Freyburger, T. Constant,
+  J.-M. Leban, B. Mothe, ``PithExtract: a robust algorithm for pith detection in computer
+  tomography images of wood,'' \emph{Computers and Electronics in Agriculture}, vol.~85,
+  pp.~90--98, 2012.
+
+\bibitem{cerda2007} M. Cerda, N. Hitschfeld-Kahler, D. Mery, ``Robust tree-ring detection,''
+  in \emph{Advances in Image and Video Technology}, Springer, 2007.
+
+\bibitem{blondel2024} F. Blondel, G. B\'elot, C. Corona, S.~R. Huebner, M. Stoffel, ``The
+  potential of X-ray computed tomography for xylological and dendrochronological analyses of
+  Egyptian mummy labels,'' \emph{PLOS ONE}, vol.~19, no.~6, e0303695, 2024.
+
+\bibitem{saintandre2000} L. Saint-Andr\'e, J.-M. Leban, ``An elliptical model for tree ring
+  shape in transverse section: methodology and case study on Norway spruce,'' \emph{Holz als
+  Roh- und Werkstoff}, vol.~58, no.~5, pp.~368--374, 2000.
+
+\bibitem{tras2026} \emph{TRAS: an interactive software for tracing tree ring cross sections},
+  arXiv:2605.08025, 2026.
+
+\bibitem{shi2024superellipse} P. Shi \emph{et al.}, ``Superellipse equation describing the
+  geometries of \emph{Abies alba} tree rings,'' \emph{Plants}, vol.~13, no.~24, 3487, 2024.
+
+\bibitem{mtreering} J. Shi, W. Xiang, Q. Liu, S. Xie, ``MtreeRing: an R package with graphical
+  user interface for automatic measurement of tree ring widths using image processing
+  techniques,'' \emph{Dendrochronologia}, vol.~58, 125644, 2019.
+  \url{https://github.com/ropensci/MtreeRing}
+
+\bibitem{jnawali2023} A. Jnawali, M.~D.~R. Kok, M. Krishna, M. Abedi Varnosfaderani,
+  D.~J.~L. Brett, P.~R. Shearing, ``Evaluating long-term cycling degradation in cylindrical
+  Li-ion batteries using X-ray tomography and virtual unrolling,'' \emph{Journal of The
+  Electrochemical Society}, vol.~170, no.~9, 090540, 2023.
+
+\bibitem{kok2019} M.~D.~R. Kok, J.~B. Robinson, J.~S. Weaving, A. Jnawali, M. Pham,
+  F. Iacoviello, D.~J.~L. Brett, P.~R. Shearing, ``Virtual unrolling of spirally-wound
+  lithium-ion cells for correlative degradation studies and predictive fault detection,''
+  \emph{Sustainable Energy \& Fuels}, vol.~3, no.~11, pp.~2972--2976, 2019.
+
+\bibitem{carter2020jellyroll} R. Carter, B. Huhman, C.~T. Love, I.~V. Zenyuk, ``The
+  development of jelly roll deformation in 18650 lithium-ion batteries at low state of
+  charge,'' \emph{Journal of The Electrochemical Society}, vol.~167, no.~11, 110537, 2020.
+
+\bibitem{batteryxct2026} \emph{battery\_xct\_workflows: extracting quality metrics from X-ray
+  computed tomography of Li-ion cells}, \emph{MethodsX}, 2026. Open Python notebooks,
+  including one for winding unrolling.
+
+
+% ===== Parametrizzazione e appiattimento =====================================
+
+\bibitem{li2006} K. Li, X. Wu, D.~Z. Chen, M. Sonka, ``Optimal surface segmentation in
+  volumetric images: a graph-theoretic approach,'' \emph{IEEE Trans. Pattern Anal. Mach.
+  Intell.}, vol.~28, no.~1, pp.~119--134, 2006. \url{https://doi.org/10.1109/TPAMI.2006.19}
+
+\bibitem{logismos2010} Y. Yin, X. Zhang, R. Williams, X. Wu, D.~D. Anderson, M. Sonka,
+  ``LOGISMOS: layered optimal graph image segmentation of multiple objects and surfaces,
+  cartilage segmentation in the knee joint,'' \emph{IEEE Trans. Med. Imag.}, vol.~29, no.~12,
+  pp.~2023--2037, 2010. \url{https://doi.org/10.1109/TMI.2010.2058861}
+
+\bibitem{xie2023} H. Xie, W. Xu, X. Wu, ``A deep learning network with differentiable dynamic
+  programming for retina OCT surface segmentation,'' \emph{Biomed. Opt. Express}, vol.~14,
+  no.~7, pp.~3190--3202, 2023. \url{https://arxiv.org/abs/2210.06335}
+
+\bibitem{slim2017} M. Rabinovich, R. Poranne, D. Panozzo, O. Sorkine-Hornung, ``Scalable
+  locally injective mappings,'' \emph{ACM Transactions on Graphics}, vol.~36, no.~2, 16, 2017.
+
+\bibitem{smith2015} J. Smith, S. Schaefer, ``Bijective parameterization with free
+  boundaries,'' \emph{ACM Transactions on Graphics}, vol.~34, no.~4, 70, 2015.
+
+\bibitem{arap2008} L. Liu, L. Zhang, Y. Xu, C. Gotsman, S.~J. Gortler, ``A local/global
+  approach to mesh parameterization,'' \emph{Computer Graphics Forum}, vol.~27, no.~5,
+  pp.~1495--1504, 2008.
+
+\bibitem{abf2005} A. Sheffer, B. L\'evy, M. Mogilnitsky, A. Bogomyakov, ``ABF++: fast and
+  robust angle based flattening,'' \emph{ACM Transactions on Graphics}, vol.~24, no.~2,
+  pp.~311--330, 2005.
+
+\bibitem{lscm2002} B. L\'evy, S. Petitjean, N. Ray, J. Maillot, ``Least squares conformal maps
+  for automatic texture atlas generation,'' \emph{ACM Transactions on Graphics}, vol.~21,
+  no.~3, pp.~362--371, 2002.
+
+\bibitem{prizes2026} Vesuvius Challenge, \emph{Prizes: First Letters submission criteria and
+  requirements}, 2026. \url{https://scrollprize.org/prizes\#first-letters-prizes}
+
+% ===== Machine learning and formats =========================================
+
+\bibitem{nnunet} F. Isensee, P.~F. Jaeger, S.~A.~A. Kohl, J. Petersen, K.~H. Maier-Hein,
+  ``nnU-Net: a self-configuring method for deep learning-based biomedical image
+  segmentation,'' \emph{Nature Methods}, vol.~18, pp.~203--211, 2021.
+
+\bibitem{omengff} J. Moore \emph{et al.}, ``OME-NGFF: a next-generation file format for
+  expanding bioimaging data-access strategies,'' \emph{Nature Methods}, vol.~18,
+  pp.~1496--1498, 2021.
+
+\bibitem{sam2} N. Ravi \emph{et al.}, ``SAM 2: segment anything in images and videos,''
+  arXiv:2408.00714, 2024.
+
+\bibitem{firstlight2026} L. Miller, C. M\"uller, \emph{First Light: PHerc.\ 0826}, the First
+  Letters workflow run end to end with pre-registered criteria, \$1{,}000 Progress Prize,
+  August 2026. \url{https://github.com/millerandmuller/first-light-pherc0826}
+
+\bibitem{nieuwlaar2026} E. Nieuwlaar, \emph{ink9um-dense-native}: native ink detection,
+  measured and hardened, \$500 Progress Prize, August 2026.
+  \url{https://github.com/Nieuwlaar/ink9um-dense-native}
+
+\bibitem{camillo2026} P.~S. Camillo, \emph{ink9-depth-window}: five slices are enough at
+  9~\textmu m if the jitter shrinks with the window, \$1{,}000 Progress Prize, August 2026.
+  \url{https://github.com/pscamillo/ink9-depth-window}
+
+\bibitem{eligible} T. Tuszynski, \emph{make\_eligible\_spiral\_dataset}: what is published for
+  the 13 Grand-Prize-eligible scrolls, and a \texttt{fit\_spiral} dataset assembled from it,
+  September 2026. \url{https://github.com/ttendoscopie-creator/eligible-spiral-dataset}
+
+% ===== Systems, arithmetic and measurement =================================
+% Added 2026-09-14 for the two pipeline9 papers. Every entry below was resolved through the
+% Crossref API on that date and the metadata printed here is what the API returned.
+
+\bibitem{goldberg1991} D. Goldberg, ``What every computer scientist should know about
+  floating-point arithmetic,'' \emph{ACM Computing Surveys}, vol.~23, no.~1, pp.~5--48, 1991.
+  doi:10.1145/103162.103163
+
+\bibitem{demmel2013} J. Demmel, H.~D. Nguyen, ``Fast reproducible floating-point summation,''
+  in \emph{2013 IEEE 21st Symposium on Computer Arithmetic}, pp.~163--172, 2013.
+  doi:10.1109/ARITH.2013.9
+
+\bibitem{williams2009} S. Williams, A. Waterman, D. Patterson, ``Roofline: an insightful visual
+  performance model for multicore architectures,'' \emph{Communications of the ACM}, vol.~52,
+  no.~4, pp.~65--76, 2009. doi:10.2172/1407078
+
+\bibitem{datta2008} K. Datta, M. Murphy, V. Volkov, S. Williams, J. Carter, L. Oliker,
+  D. Patterson, J. Shalf, K. Yelick, ``Stencil computation optimization and auto-tuning on
+  state-of-the-art multicore architectures,'' in \emph{Proc. 2008 ACM/IEEE Conference on
+  Supercomputing (SC'08)}, pp.~1--12, 2008. doi:10.1109/SC.2008.5222004
+
+\bibitem{amdahl1967} G.~M. Amdahl, ``Validity of the single processor approach to achieving
+  large scale computing capabilities,'' in \emph{Proc. AFIPS Spring Joint Computer Conference},
+  p.~483, 1967. doi:10.1145/1465482.1465560
+
+\bibitem{wang2013} X. Wang, N. Zeldovich, M.~F. Kaashoek, A. Solar-Lezama, ``Towards
+  optimization-safe systems: analyzing the impact of undefined behavior,'' in \emph{Proc. 24th
+  ACM Symposium on Operating Systems Principles (SOSP'13)}, pp.~260--275, 2013.
+  doi:10.1145/2517349.2522728
+
+\bibitem{stepanov2015} E. Stepanov, K. Serebryany, ``MemorySanitizer: fast detector of
+  uninitialized memory use in C++,'' in \emph{2015 IEEE/ACM International Symposium on Code
+  Generation and Optimization (CGO)}, pp.~46--55, 2015. doi:10.1109/CGO.2015.7054186
+
+\bibitem{nethercote2007} N. Nethercote, J. Seward, ``Valgrind: a framework for heavyweight
+  dynamic binary instrumentation,'' \emph{ACM SIGPLAN Notices}, vol.~42, no.~6, pp.~89--100,
+  2007. doi:10.1145/1273442.1250746
+
+\bibitem{fawcett2006} T. Fawcett, ``An introduction to ROC analysis,'' \emph{Pattern Recognition
+  Letters}, vol.~27, no.~8, pp.~861--874, 2006. doi:10.1016/j.patrec.2005.10.010
+
+\bibitem{dice1945} L.~R. Dice, ``Measures of the amount of ecologic association between
+  species,'' \emph{Ecology}, vol.~26, no.~3, pp.~297--302, 1945. doi:10.2307/1932409
+
+\bibitem{nosek2018} B.~A. Nosek, C.~R. Ebersole, A.~C. DeHaven, D.~T. Mellor, ``The
+  preregistration revolution,'' \emph{Proceedings of the National Academy of Sciences},
+  vol.~115, no.~11, pp.~2600--2606, 2018. doi:10.1073/pnas.1708274114
+
+\bibitem{blosc2} F. Alted \emph{et al.}, \emph{C-Blosc2}: a fast, compressed and persistent
+  binary data store library for C. \url{https://github.com/Blosc/c-blosc2}
+
+\bibitem{gustafson1988} J.~L. Gustafson, ``Reevaluating Amdahl's law,''
+  \emph{Communications of the ACM}, vol.~31, no.~5, pp.~532--533, 1988.
+  doi:10.1145/42411.42415
+
+\bibitem{frigo1999} M. Frigo, C.~E. Leiserson, H. Prokop, S. Ramachandran, ``Cache-oblivious
+  algorithms,'' in \emph{40th Annual Symposium on Foundations of Computer Science},
+  pp.~285--297, 1999. doi:10.1109/SFFCS.1999.814600
+
+\bibitem{usl} N.~J. Gunther, S. Moeding, \emph{usl}: analyze system scalability with the universal
+  scalability law, R package, 2013. doi:10.32614/CRAN.package.usl
+
+\bibitem{knuth1998} D.~E. Knuth, \emph{The Art of Computer Programming, Volume 3: Sorting and
+  Searching}, 2nd ed. Reading, MA: Addison-Wesley, 1998. Sections 6.4 on hashing, multiplicative
+  hashing and the analysis of linear probing.
+
+\bibitem{steele2014} G.~L. Steele, D. Lea, C.~H. Flood, ``Fast splittable pseudorandom number
+  generators,'' in \emph{Proc. 2014 ACM International Conference on Object Oriented Programming
+  Systems Languages and Applications (OOPSLA)}, pp.~453--472, 2014. doi:10.1145/2660193.2660195
+
+\bibitem{barr2010} T.~W. Barr, A.~L. Cox, S. Rixner, ``Translation caching: skip, don't walk (the
+  page table),'' in \emph{Proc. 37th Annual International Symposium on Computer Architecture
+  (ISCA)}, pp.~48--59, 2010. doi:10.1145/1816038.1815970
+
+\bibitem{basu2013} A. Basu, J. Gandhi, J. Chang, M.~D. Hill, M.~M. Swift, ``Efficient virtual
+  memory for big memory servers,'' in \emph{Proc. 40th Annual International Symposium on Computer
+  Architecture (ISCA)}, pp.~237--248, 2013. doi:10.1145/2508148.2485943
+
+\bibitem{michie1968} D. Michie, ``\emph{Memo} functions and machine learning,'' \emph{Nature},
+  vol.~218, pp.~19--22, 1968. doi:10.1038/218019a0
+
+\bibitem{mcs1991} J.~M. Mellor-Crummey, M.~L. Scott, ``Algorithms for scalable synchronization on
+  shared-memory multiprocessors,'' \emph{ACM Transactions on Computer Systems}, vol.~9, no.~1,
+  pp.~21--65, 1991. doi:10.1145/103727.103729

@@ -1,0 +1,5 @@
+tree,patch_files,rel_rows,ids_in_rel_with_no_patch_file,of_those_reachable_as_second_of_a_kept_length_2_chain,lowest_orphan_id,highest_orphan_id,highest_patch_file_id
+/data/scrollagent/runs/rev1/badpatch-crash/scratch/C40,28054,505213,104,73,4,592,36000
+/data/scrollagent/runs/rev1/seed-search-1447/out/PHerc1447-seed01/growth,11060,25505,0,0,,,36000
+/data/scrollagent/runs/rev1/seed-search-1447/out/PHerc1447-seed15/growth,11404,26476,0,0,,,36002
+/data/scrollagent/runs/rev1/seed-search-1447/out/PHerc1447-seed26/growth,9512,21436,0,0,,,36001

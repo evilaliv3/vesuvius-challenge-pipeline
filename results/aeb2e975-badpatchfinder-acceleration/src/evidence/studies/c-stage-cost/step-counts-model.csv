@@ -1,0 +1,18 @@
+# the exact number of odometer steps FindBadPatchesGeneral takes at each chain length, counted from the tree's own rel.csv and patches/ by tools/walk_counts.py, with no run. odometer_steps is the number of index tuples the while loop visits: sum over the indexed starts from the last down to index 1 of the number of walks of length-1 edges in the augmented alignment multigraph. map_lookups_lower_bound is 2*(length-1) per step, the two am[currentPatch] on the same key in the build loop alone, and it is a lower bound because the increment loop walks the chain again. patch_files, am_keys and indexed_starts say what the graph was.
+attempt,patch_files,am_keys,directed_edges,indexed_starts,length,odometer_steps,map_lookups_lower_bound
+PHerc1447-seed01,11060,11060,51010,11060,2,51002,102004
+PHerc1447-seed01,11060,11060,51010,11060,3,297409,1189636
+PHerc1447-seed01,11060,11060,51010,11060,4,1824058,10944348
+PHerc1447-seed01,11060,11060,51010,11060,5,11824824,94598592
+PHerc1447-seed15,11404,11404,52952,11404,2,52944,105888
+PHerc1447-seed15,11404,11404,52952,11404,3,309327,1237308
+PHerc1447-seed15,11404,11404,52952,11404,4,1894379,11366274
+PHerc1447-seed15,11404,11404,52952,11404,5,12256211,98049688
+PHerc1447-seed26,9512,9512,42872,9512,2,42868,85736
+PHerc1447-seed26,9512,9512,42872,9512,3,243529,974116
+PHerc1447-seed26,9512,9512,42872,9512,4,1443677,8662062
+PHerc1447-seed26,9512,9512,42872,9512,5,9030989,72247912
+PHerc1447-seed40,14959,14959,461026,14959,2,460985,921970
+PHerc1447-seed40,14959,14959,461026,14959,3,20319828,81279312
+PHerc1447-seed40,14959,14959,461026,14959,4,983163150,5898978900
+PHerc1447-seed40,14959,14959,461026,14959,5,50496320188,403970561504

@@ -1,0 +1,26 @@
+# one row per pair of arms and tree, from evidence/identity.csv. written_by_downstream counts the files at the top of the working copy, which is what the five stages write; carried_input counts the growth tree carried along, hard linked between the arms and therefore identical by construction, whose real check is evidence/pristine-check.csv. differing_files names every file that is not byte identical, and is empty when there is none.
+arm_a,arm_b,tree,written_by_downstream,written_differing,carried_input,carried_differing,differing_files,summarised_utc
+plain,c2,A,39,0,3881,0,,2026-09-21T21:20:49Z
+plain,c2,C,39,0,81445,0,,2026-09-21T21:20:49Z
+plain,c2,D150,39,0,80646,0,,2026-09-21T21:20:49Z
+plain,c2,D450,39,0,81894,0,,2026-09-21T21:20:49Z
+plain,c2,P2,39,0,83246,0,,2026-09-21T21:20:49Z
+plain,c2,S,39,0,68043,0,,2026-09-21T21:20:49Z
+plain,c2,b40,39,0,46035,0,,2026-09-21T21:20:49Z
+plain,c2,repeat,39,0,46035,0,,2026-09-21T21:20:49Z
+guarded,c2,A,39,0,3881,0,,2026-09-21T21:20:49Z
+guarded,c2,C,39,0,81445,0,,2026-09-21T21:20:49Z
+guarded,c2,D150,39,0,80646,0,,2026-09-21T21:20:49Z
+guarded,c2,D450,39,0,81894,0,,2026-09-21T21:20:49Z
+guarded,c2,P2,39,0,83246,0,,2026-09-21T21:20:49Z
+guarded,c2,S,39,0,68043,0,,2026-09-21T21:20:49Z
+guarded,c2,b40,39,0,46035,0,,2026-09-21T21:20:49Z
+guarded,c2,repeat,39,0,46035,0,,2026-09-21T21:20:49Z
+plain,guarded,A,39,0,3881,0,,2026-09-21T21:20:49Z
+plain,guarded,C,39,0,81445,0,,2026-09-21T21:20:49Z
+plain,guarded,D150,39,0,80646,0,,2026-09-21T21:20:49Z
+plain,guarded,D450,39,0,81894,0,,2026-09-21T21:20:49Z
+plain,guarded,P2,39,0,83246,0,,2026-09-21T21:20:49Z
+plain,guarded,S,39,0,68043,0,,2026-09-21T21:20:49Z
+plain,guarded,b40,39,0,46035,0,,2026-09-21T21:20:49Z
+plain,guarded,repeat,39,0,46035,0,,2026-09-21T21:20:49Z

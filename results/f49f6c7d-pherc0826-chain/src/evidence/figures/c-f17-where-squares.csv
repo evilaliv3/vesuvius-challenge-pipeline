@@ -1,0 +1,99 @@
+# figure C17; what the raster and its overlay drew; written by src/tools/c-f17-where-squares.py at 2026-09-30T07:03:52Z (cores busy not checked): the part of one axial slice of the raw scan of PHerc0826 around the squares at level 1; with the crossings of the delivered sheets of the marked seeds and the centres of the best squares; every scan position withheld; no umbilicus and no scale bar (2026-09-30); ranking of certified squares from yield-seeds.csv. Chunks this run: shared cache 80; chain-0826 flat cache 0; fetched 0; absent 8. NO INK. Not for a public repository without the owner's word. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+,a,rule for the hole free squares,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,square_mm_min_step; status measured,the 5 seeds with the largest best square; one per seed
+n_hole_free,a,hole free squares marked,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,square_mm_min_step,5
+seeds_ranked,a,seeds ranked,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,point,158
+,a,seeds tied with the last one marked,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,square_mm_min_step,none
+,a,next value below the last one marked; mm,evidence/studies/chain-0826/squares-PHerc0826-seed*.csv,square_mm_min_step,14.5818
+,a,rule for the certified squares,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,the 3 seeds with the largest best certified square; one per seed
+n_certified,a,certified squares marked,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,3
+,a,seeds with a best certified square,evidence/studies/search-yield-0826/yield-seeds.csv,seed,158
+,a,seeds tied with the last certified one marked,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,none
+,a,next certified value below the last one marked; mm,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,11.4830
+,a,PHerc0826-seed5364; C40 sheets carrying the frozen certified value,square20-0826-95/evidence/certified-squares.csv,certified_square_mm,0 (the lowest sheet is used)
+,a,PHerc0826-seed5364; sha256 of the certified-squares.csv row used,square20-0826-95/evidence/certified-squares.csv,the row's cells joined by commas,162bd2032d14beb5b437dd2a18f049ffb455dc8dc561a6fffd3361d44966fe27
+,a,PHerc0826-seed1727; C40 sheets carrying the frozen certified value,square20-0826-95/evidence/certified-squares.csv,certified_square_mm,0 (the lowest sheet is used)
+,a,PHerc0826-seed1727; sha256 of the certified-squares.csv row used,square20-0826-95/evidence/certified-squares.csv,the row's cells joined by commas,3ff96dde439a01bbc3e0618d27f392539445a352b5375f1b39f8609ac0ae0056
+,a,PHerc0826-seed4480; C40 sheets carrying the frozen certified value,square20-0826-95/evidence/certified-squares.csv,certified_square_mm,0 (the lowest sheet is used)
+,a,PHerc0826-seed4480; sha256 of the certified-squares.csv row used,square20-0826-95/evidence/certified-squares.csv,the row's cells joined by commas,d354564fe42b20d6aa19b3bb49cf4e2970d518f31e21ec3e2ff221ae04b69f0c
+,a,rule for the longer growth,evidence/studies/square20-0826-95/squares-PHerc0826-seed*.csv,square_mm_min_step,the largest square over the regrowths (figlib.largest_delivered_sheet)
+,a,seeds regrown,evidence/studies/square20-0826-95/squares-PHerc0826-seed*.csv,point,15
+,a,height of the slice; level 0 voxels,chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,median pz of the cells of the first certified square; rounded,withheld
+slice_seed,a,seed of the first certified square,square20-0826-95/evidence/certified-squares.csv,seed,5364
+,a,squares away from the slice,,,drawn at their own median px and py: projected along z onto the slice
+,a,square 1; hole free; PHerc0826-seed2604 sheet 0; side mm,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,square_mm_min_step,17.7995
+,a,square 1; hole free; PHerc0826-seed2604 sheet 0; cells and corner i;j,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,,476;639;560
+,a,square 1; hole free; PHerc0826-seed2604 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,sha256 of the squares row,481223615203520c637923182ffebd8321751e3dffa0d5fb88c07bfcfd968356
+,a,square 1; hole free; PHerc0826-seed2604 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 1; hole free; PHerc0826-seed2604 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed2604/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 2; hole free; PHerc0826-seed5364 sheet 0; side mm,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,square_mm_min_step,17.1642
+,a,square 2; hole free; PHerc0826-seed5364 sheet 0; cells and corner i;j,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,,459;389;671
+,a,square 2; hole free; PHerc0826-seed5364 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,sha256 of the squares row,ad55a1d79f7746a38f5ede11ef0b8e17bf33c22613c4bb5e1ee4b224c364c74d
+,a,square 2; hole free; PHerc0826-seed5364 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 2; hole free; PHerc0826-seed5364 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 3; hole free; PHerc0826-seed1727 sheet 0; side mm,evidence/studies/chain-0826/squares-PHerc0826-seed1727.csv,square_mm_min_step,17.0473
+,a,square 3; hole free; PHerc0826-seed1727 sheet 0; cells and corner i;j,evidence/studies/chain-0826/squares-PHerc0826-seed1727.csv,,456;735;528
+,a,square 3; hole free; PHerc0826-seed1727 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed1727/C40/patch_0.bin,sha256 of the squares row,7905209fc0ded5817d6299eaf25bb103400bdf0348a87693197e109714f7d817
+,a,square 3; hole free; PHerc0826-seed1727 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed1727/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 3; hole free; PHerc0826-seed1727 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed1727/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 4; hole free; PHerc0826-seed6273 sheet 0; side mm,evidence/studies/chain-0826/squares-PHerc0826-seed6273.csv,square_mm_min_step,15.6438
+,a,square 4; hole free; PHerc0826-seed6273 sheet 0; cells and corner i;j,evidence/studies/chain-0826/squares-PHerc0826-seed6273.csv,,418;478;742
+,a,square 4; hole free; PHerc0826-seed6273 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed6273/C40/patch_0.bin,sha256 of the squares row,1cdfe87dbe5eba0e8e828c0146211f181a7b481e3666f937473e7f44b14b9b54
+,a,square 4; hole free; PHerc0826-seed6273 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed6273/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 4; hole free; PHerc0826-seed6273 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed6273/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 5; hole free; PHerc0826-seed4440 sheet 0; side mm,evidence/studies/chain-0826/squares-PHerc0826-seed4440.csv,square_mm_min_step,15.1859
+,a,square 5; hole free; PHerc0826-seed4440 sheet 0; cells and corner i;j,evidence/studies/chain-0826/squares-PHerc0826-seed4440.csv,,406;562;533
+,a,square 5; hole free; PHerc0826-seed4440 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed4440/C40/patch_0.bin,sha256 of the squares row,b005a72e1ba3a397de4ca464a9889501852668f1a8e55c66fd79224e03a76950
+,a,square 5; hole free; PHerc0826-seed4440 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed4440/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 5; hole free; PHerc0826-seed4440 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed4440/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 6; certified; PHerc0826-seed5364 sheet 0; side mm,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,15.3693
+,a,square 6; certified; PHerc0826-seed5364 sheet 0; cells and corner i;j,evidence/studies/search-yield-0826/yield-seeds.csv,,411;376;679
+,a,square 6; certified; PHerc0826-seed5364 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,sha256 of the squares row,ad55a1d79f7746a38f5ede11ef0b8e17bf33c22613c4bb5e1ee4b224c364c74d
+,a,square 6; certified; PHerc0826-seed5364 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 6; certified; PHerc0826-seed5364 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 7; certified; PHerc0826-seed1727 sheet 0; side mm,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,12.8975
+,a,square 7; certified; PHerc0826-seed1727 sheet 0; cells and corner i;j,evidence/studies/search-yield-0826/yield-seeds.csv,,345;758;618
+,a,square 7; certified; PHerc0826-seed1727 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed1727/C40/patch_0.bin,sha256 of the squares row,7905209fc0ded5817d6299eaf25bb103400bdf0348a87693197e109714f7d817
+,a,square 7; certified; PHerc0826-seed1727 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed1727/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 7; certified; PHerc0826-seed1727 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed1727/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 8; certified; PHerc0826-seed4480 sheet 0; side mm,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,11.9670
+,a,square 8; certified; PHerc0826-seed4480 sheet 0; cells and corner i;j,evidence/studies/search-yield-0826/yield-seeds.csv,,320;971;547
+,a,square 8; certified; PHerc0826-seed4480 sheet 0; sheet file sha256,chain-0826/out/PHerc0826-seed4480/C40/patch_0.bin,sha256 of the squares row,10ff3880d002be03185c9d1d736d4270d6d6fa0b7a7e08baf20a189d146e37ae
+,a,square 8; certified; PHerc0826-seed4480 sheet 0; centre x;y;z; level 0 voxels,chain-0826/out/PHerc0826-seed4480/C40/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 8; certified; PHerc0826-seed4480 sheet 0; z range of its cells,chain-0826/out/PHerc0826-seed4480/C40/patch_0.bin,min and max pz of the square's cells,withheld
+,a,square 9; longer growth; PHerc0826-seed2604 sheet 0; side mm,evidence/studies/square20-0826-95/squares-PHerc0826-seed2604.csv,square_mm_min_step,21.7474
+,a,square 9; longer growth; PHerc0826-seed2604 sheet 0; cells and corner i;j,evidence/studies/square20-0826-95/squares-PHerc0826-seed2604.csv,,581;600;648
+,a,square 9; longer growth; PHerc0826-seed2604 sheet 0; sheet file sha256,square20-0826-95/out/PHerc0826-seed2604/C80/patch_0.bin,sha256 of the squares row,548f6cbed0438c356be499d555d7b4ad01ce53f5dd19d7c62d7205deef58c3d6
+,a,square 9; longer growth; PHerc0826-seed2604 sheet 0; centre x;y;z; level 0 voxels,square20-0826-95/out/PHerc0826-seed2604/C80/patch_0.bin,median px; py; pz of the square's cells,withheld
+,a,square 9; longer growth; PHerc0826-seed2604 sheet 0; z range of its cells,square20-0826-95/out/PHerc0826-seed2604/C80/patch_0.bin,min and max pz of the square's cells,withheld
+hole_free_top_mm,a,largest hole free square marked; mm,evidence/studies/chain-0826/squares-PHerc0826-seed2604.csv,square_mm_min_step,17.7995
+certified_top_mm,a,largest certified square marked; mm,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,15.3693
+longer_growth_top_mm,a,largest longer growth square marked; mm,evidence/studies/square20-0826-95/squares-PHerc0826-seed2604.csv,square_mm_min_step,21.7474
+,a,lowest centre height of the squares marked; level 0 voxels,,,withheld
+,a,highest centre height of the squares marked; level 0 voxels,,,withheld
+,a,published umbilicus,,,not drawn (locations withheld; 2026-09-30)
+,a,whole slice,,,not read and not drawn (locations withheld; 2026-09-30)
+,a,voxel; um,pipeline/datasets/manifests/PHerc0826.json,voxel_um through pipeline/datasets/voxel.py,9.362
+,b,zoom rule,,,bounding box of the squares' centres plus the margin on each side
+zoom_margin_mm,b,zoom margin; mm (display choice),argument --zoom-margin-mm,,3
+zoom_level,b,zoom level,argument --zoom-level,,1
+,b,zoom level scale z;y;x against level 0,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/.zattrs,multiscales scale,2;2;2
+,b,zoom mm per pixel,level scale times the voxel,,0.018724
+,b,zoom slice at this level,height over the level's z scale; rounded,,withheld
+,b,zoom crop y0;y1;x0;x1 at this level,the squares' centres,zoom rule,withheld
+,b,zoom chunks read,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/1,one z layer,88
+,b,sha256 of the zoom's grey bytes before the stretch,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/1,the crop,331d1658d2921e38fb665559abb34d273eaf99373f13f85e15fd8067e88c681a
+,b,zoom display window; low and high grey,the zoom itself,figlib.stretch 1st and 99.5th percentile,33;183
+,a;b,sheet crossings with the slice; chain-0826/out/PHerc0826-seed2604/C40,chain-0826/out/PHerc0826-seed2604/C40,rasterlib.plane_crossings of every patch_<n>.bin,10 sheets; 4606 crossings
+,a;b,sheet crossings with the slice; chain-0826/out/PHerc0826-seed5364/C40,chain-0826/out/PHerc0826-seed5364/C40,rasterlib.plane_crossings of every patch_<n>.bin,10 sheets; 4371 crossings
+,a;b,sheet crossings with the slice; chain-0826/out/PHerc0826-seed1727/C40,chain-0826/out/PHerc0826-seed1727/C40,rasterlib.plane_crossings of every patch_<n>.bin,10 sheets; 6158 crossings
+,a;b,sheet crossings with the slice; chain-0826/out/PHerc0826-seed6273/C40,chain-0826/out/PHerc0826-seed6273/C40,rasterlib.plane_crossings of every patch_<n>.bin,10 sheets; 4804 crossings
+,a;b,sheet crossings with the slice; chain-0826/out/PHerc0826-seed4440/C40,chain-0826/out/PHerc0826-seed4440/C40,rasterlib.plane_crossings of every patch_<n>.bin,10 sheets; 5561 crossings
+,a;b,sheet crossings with the slice; chain-0826/out/PHerc0826-seed4480/C40,chain-0826/out/PHerc0826-seed4480/C40,rasterlib.plane_crossings of every patch_<n>.bin,10 sheets; 5908 crossings
+,a;b,sheet crossings with the slice; square20-0826-95/out/PHerc0826-seed2604/C80,square20-0826-95/out/PHerc0826-seed2604/C80,rasterlib.plane_crossings of every patch_<n>.bin,10 sheets; 4330 crossings
+sheet_folders,a;b,sheet folders traced,,,7
+crossings,a;b,sheet crossings with the slice; total,,rasterlib.plane_crossings,35738
+,b,zoom raster; width;height in pixels,paper/figures/assets/c-f17-where-squares-slice-zoom.png (or --png with -zoom),,1251;879
+,b,scale bar,,,not drawn (locations withheld; 2026-09-30)
+,a;b,figure width; cm (display choice),,,8.6
+,b,key corner of panel b; cm from its top left,,first corner free of marks,5.47;-0.08

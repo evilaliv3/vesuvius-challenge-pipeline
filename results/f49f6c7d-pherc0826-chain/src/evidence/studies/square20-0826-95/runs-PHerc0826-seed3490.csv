@@ -1,0 +1,23 @@
+tool,attempt,quantity,value,what_it_is
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,binary_sha256,6501fdafd42e9f2c215bd3c04b0655cefeea29e0778fed135cdd542c6ccedc44,"the chain-0826 delivered binary, equal to binary_sha256 of chain-0826/evidence/runs/PHerc0826-seed3490.csv"
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,binary_series,flathash+avx512,chain-0826/scratch/bin-flathash+avx512/PHerc0826-seed3490/simpaper10
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,environment,SIMPAPER_SHARED_CHUNKS=512 SIMPAPER_FORCE_THREADS=1 OMP_WAIT_POLICY=passive OMP_NUM_THREADS=3,"read from chain-0826/scratch/deliver-settings.env, exported to the growth and the five stages"
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_zarr,hot-lines-88/scratch/l/0,the chain's growth prediction; downstream stages read datasets/PHerc0826/0
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_return_code,0,0 is a growth that ended by itself or at g 72000; no time cap
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_wall_clock_seconds,1362,"wall clock from date, the machine carried other work"
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_patches,8099,files under the growth tree's patches/
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_highest_generation,36390,largest N of «Patch N had» in log/growth-PHerc0826-seed3490.txt; 72000 or more is the cap
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_rel_csv_lines,17415,lines of rel.csv
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_peak_vmhwm_kb,5910652,"largest VmHWM sampled every 10 s, evidence/rss-PHerc0826-seed3490.csv"
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_missing_chunks,0,read from the growth's standard output
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,downstream_cap_seconds,3600,run_seed.sh's formula on 17415 rel lines
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,downstream_stage_c_seconds,30,wall clock of this stage
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,downstream_stage_l_seconds,2,wall clock of this stage
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,downstream_stage_vm_10_seconds,2,wall clock of this stage
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,downstream_stage_hm_10_seconds,0,wall clock of this stage
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,downstream_stage_fm_30_10_seconds,10,wall clock of this stage
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,downstream_return_code,0,"all five stages returned zero, SIMPAPER_PATCH_LIMIT 80000"
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,delivered_sheets,10,patch_<n>.bin written by the fm stage
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,measure_return_code,0,tools/measure72.sh: square.py and traced area
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,a2_return_code,0,tools/a2_72.py
+square20-0826-95/tools/regrow72.sh,PHerc0826-seed3490,growth_patches_removed,yes,C80/patches holds the copy

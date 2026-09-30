@@ -1,0 +1,14 @@
+"# written by area-0826-90/tools/road1b_seeds.py at 2026-09-28T05:21:36Z: delivered PHerc0826 seeds of per-seed-queue.csv with largest_square_mm_min_step >= 10.0 and a patch folder on disk (growth/patches, else C40/patches), the 12 nearest seed6365; 62 qualified"
+rank,attempt,distance_vox,largest_square_mm,patches,source
+1,PHerc0826-seed6365,0.0,10.2452,7427,chain-0826/out/PHerc0826-seed6365/C40
+2,PHerc0826-seed6701,150.8,10.923,7328,chain-0826/out/PHerc0826-seed6701/C40
+3,PHerc0826-seed6697,150.9,10.021,4264,chain-0826/out/PHerc0826-seed6697/C40
+4,PHerc0826-seed6700,226.8,11.6372,7814,chain-0826/out/PHerc0826-seed6700/C40
+5,PHerc0826-seed3607,1101.7,10.5229,5661,chain-0826/out/PHerc0826-seed3607/C40
+6,PHerc0826-seed6711,1120.4,10.1015,7109,chain-0826/out/PHerc0826-seed6711/C40
+7,PHerc0826-seed782,1159.3,10.7688,5456,chain-0826/out/PHerc0826-seed782/C40
+8,PHerc0826-seed2019,1174.6,10.1015,7847,chain-0826/out/PHerc0826-seed2019/C40
+9,PHerc0826-seed6469,1222.8,14.0972,8542,chain-0826/out/PHerc0826-seed6469/C40
+10,PHerc0826-seed2939,1230.2,10.8947,8677,chain-0826/out/PHerc0826-seed2939/C40
+11,PHerc0826-seed6708,1272.6,10.6254,6433,chain-0826/out/PHerc0826-seed6708/C40
+12,PHerc0826-seed6343,1296.6,11.0404,8153,chain-0826/out/PHerc0826-seed6343/C40

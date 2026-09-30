@@ -1,0 +1,34 @@
+# figure S6; what the raster drew. Left; the delivered sheet of PHerc. 1447 with the largest square over every sheet of every seed of seed-search-1447; right; the published segment of the same scroll with the largest square over the rows of published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv whose source is published. Both squares are the square_cells and the two corner columns of those same rows; neither was recomputed here. The two masks are resampled by nearest neighbour onto the coarser of the four measured cell steps so the panels share one millimetre per pixel; and every step; factor and panel size is a row of this table. Kept in the article by the owner's decision of 2026-09-30; which suspends the rule against surface texture of this scroll. Written 2026-09-30T08:11:11Z. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+panel,what,source_file,source_column,value
+both,cores busy when the figure was drawn,/proc/stat,difference of ticks over five seconds,not checked
+left,seed drawn,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,point,PHerc1447-seed26
+left,sheet drawn,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,sheet,2
+left,sheet file,seed-search-1447/out/PHerc1447-seed26/sheets/patches/patch_2.bin,sha256,b6066c8bbad8576054482c1e34c710e44809d3ee6a987e929337d566c9d2f1f9
+left,square; mm,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,square_mm_min_step,12.7244
+left,second largest over every sheet of every seed; mm,seed-search-1447/evidence/squares-PHerc1447-seed*.csv,square_mm_min_step,11.9836
+left,rows the superlative was recomputed over,seed-search-1447/evidence/squares-PHerc1447-seed*.csv,measured sheets,100
+left,covered cells,seed-search-1447/out/PHerc1447-seed26/sheets/patches/patch_2.bin,cells of the lattice a point landed on,744772
+left,cell step i;j in mm,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,step_i_mm; step_j_mm,0.034577;0.034646
+right,tifxyz shape of x.tif; i;j,published-segments-eligible/out/raw/PHerc1447/z_dbg_gen_00320,the segment's own grid,212;200
+right,cells_i;cells_j as the segment CSV measured them,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,cells_i;cells_j,682;411
+right,shape of the array this figure reads; i;j,published-segments-eligible/out/raw/PHerc1447/z_dbg_gen_00320,read_tifxyz_mask at stride 1,212;200
+right,the CSV's grid is the tifxyz's grid,the three rows above,cells_i;cells_j against the shape of x.tif,no
+right,the square is not drawn; and why,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,square_corner_i;square_corner_j;square_cells,the CSV measured the square at 258;95 with a side of 79 on a grid of 682 by 411 cells; and the segment's own tifxyz is 212 by 200: the two are not the same grid; so the square has no place on this panel
+right,segment drawn,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,segment,20251105093211-z_dbg_gen_00320
+right,mesh read,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,mesh_name,20251105093211-on-20250521151220-8.64um.tifxyz
+right,tifxyz folder,published-segments-eligible/out/raw/PHerc1447/z_dbg_gen_00320,x.tif; y.tif; z.tif,covered where the three are neither all zero nor all minus one and all finite
+right,square; mm,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,square_mm_min_step,13.5262
+right,second largest over the published segments of this scroll; mm,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,square_mm_min_step,13.3507
+right,rows the superlative was recomputed over,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,published segments with a measured square,15
+right,covered cells,published-segments-eligible/out/raw/PHerc1447/z_dbg_gen_00320,the covered test above,23557
+right,subsampling stride applied before resampling,argument --stride,both axes,1
+right,cell step i;j in mm after the stride,published-segments-eligible/evidence/segments-PHerc1447-with-ours.csv,step_i_mm; step_j_mm times the stride,0.171548;0.171218
+both,mm per pixel of both panels after resampling,the four cell steps in the rows above,the largest of them,0.171548
+left,panel size after resampling; pixels,,rows; columns,243;277
+right,panel size after resampling; pixels,,rows; columns,212;200
+both,integer upscale for print; pixels per resampled cell,,smallest k giving 300 dpi at 3.5 in,3
+both,png size after the upscale; pixels,,width;height,1467;729
+left,scale bar; pixels for its millimetres,paper/figures/s-f6-coverage-beside-a-published-segment.png,length in mm over the mm per pixel of both panels; divided by the upscale,175 px for 10 mm
+right,scale bar; pixels for its millimetres,paper/figures/s-f6-coverage-beside-a-published-segment.png,length in mm over the mm per pixel of both panels; divided by the upscale,175 px for 10 mm
+left,panel box in the png; x;y;w;h,paper/figures/s-f6-coverage-beside-a-published-segment.png,layout of tools/figlib.py grey_png,0;0;831;729
+right,panel box in the png; x;y;w;h,paper/figures/s-f6-coverage-beside-a-published-segment.png,layout of tools/figlib.py grey_png,867;45;600;636

@@ -1,0 +1,5 @@
+"# written by runtime-params-96/tools/identity_compare_runtime.py at 2026-09-28T13:31:26Z: the runtime binary (SIMPAPER_SEED_X/Y/Z) against the per seed MLP binaries, chain-0826 settings environment (cap 512, F3), growth on the hot-lines-88 lz4hc copy, stages on the original; growth and sheets by growth-memory-1447/tools/tree_identity.py, stage files by sha256"
+seed,runtime_result,perseed_result,growth_identity,sheets_identity,stage_files_identity,seed_from_environment,holds,reading
+PHerc0826-seed109,0 sheets 10 wall 162,0 sheets 10 wall 158,identical 1199 of 1199,identical 10 of 10,identical 8 of 8,yes; 6 of 6 start lines read [Seed at run time: x y z withheld (environment)],yes,holds
+PHerc0826-seed300,0 sheets 10 wall 1659,0 sheets 10 wall 1666,identical 8065 of 8065,identical 10 of 10,identical 8 of 8,yes; 6 of 6 start lines read [Seed at run time: x y z withheld (environment)],yes,holds
+PHerc0826-seed237,0 sheets 10 wall 718,0 sheets 10 wall 709,identical 3830 of 3830,identical 10 of 10,identical 8 of 8,yes; 6 of 6 start lines read [Seed at run time: x y z withheld (environment)],yes,holds

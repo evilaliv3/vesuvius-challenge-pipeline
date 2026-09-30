@@ -1,0 +1,206 @@
+% The marks of the series: what a paper is, in the left margin of its first page, and, while the
+% series is a draft, the word DRAFT across every page of it.
+%
+% One file for the three papers, so that a later change to the wording, the colour or the position
+% lands in all three at once. It draws, rotated a quarter turn and read from the bottom, the state
+% of the paper, the repository, the paper's own folder and the date of the revision it prints:
+%
+%     DRAFT . evilaliv3/vesuvius-challenge-pipeline . research/00001 . last updated 18 September 2026
+%
+% Why it exists. These are self published reports whose claims are pinned to a codebase that moves
+% under them and to data that changes, and the method they argue for rests on when a thing was
+% declared against when it was measured. A paper that hides its own date is inconsistent with the
+% way it argues, and a reader who prints the front page should be able to see, without reading a
+% line of it, what the thing is, what state it is in and when it was last revised.
+%
+% Usage, two lines per paper. In the PREAMBLE, after the class and before \begin{document}:
+%
+%     \input{sidestripe}
+%
+% and in the BODY, immediately after \begin{document}, with the paper's own folder number:
+%
+%     \sidestripe{00001}
+%
+% The second line has to be in the body because the stripe is attached to the next page shipped
+% out, which is the first page; the first line has to be in the preamble because it loads packages.
+% The build of each paper fails if it carries neither.
+%
+% The date is \BuildDateLong, written by the build from SOURCE_DATE_EPOCH, the same value pdfTeX
+% stamps into /CreationDate. It is never typed, so the front page and the metadata cannot come to
+% say two different days. It is the date of the revision and not a reading of the clock, which is
+% why the stripe labels it "last updated": a bare date beside a title is read as the day of
+% writing, of submission or of the build, and a reader has no way to tell which was meant.
+
+% THE DRAFT SWITCH OF THE SERIES. This one line is the whole control, for all three papers.
+%
+%     \SeriesDrafttrue    the papers are drafts and carry the mark
+%     \SeriesDraftfalse   the papers are final and carry nothing
+%
+% Nothing else moves when it is thrown. The three papers reach this file through
+% \input{sidestripe}, and the build of each one refuses a paper that does not, so none of them can
+% miss the switch and no paper of the series can be marked while another is not.
+%
+% Off, this file draws no watermark and loads no package it did not load before, and each paper
+% rebuilds to the bytes it had before the mark existed. That was checked on 2026-09-18 by building
+% all three with the switch off and comparing the sha256 with the published files, not assumed.
+\newif\ifSeriesDraft
+\SeriesDraftfalse
+
+\usepackage{eso-pic}
+\usepackage{xcolor}
+
+% The build writes build-date.tex and every paper of the series inputs it before this file. If it
+% is missing, the date is not declared anywhere, and the build stops here rather than reaching a
+% page that quietly carries no date or, worse, one taken from the clock.
+\ifdefined\BuildDateLong\else
+  \PackageError{sidestripe}{The command BuildDateLong is not defined: input build-date first}
+    {The build writes build-date.tex from SOURCE_DATE_EPOCH. Run the paper's build script.}
+\fi
+
+\newlength{\SideStripeX}\setlength{\SideStripeX}{0.42in}
+\newlength{\SideStripeY}\setlength{\SideStripeY}{1.05in}
+% The separator is a middle dot: the house rule forbids a dash as punctuation, and a comma would
+% read as a list rather than as the three fields of an identifier.
+\newcommand{\SideStripeSep}{\,\textperiodcentered\,}
+\newcommand{\SideStripeRepo}{evilaliv3/vesuvius-challenge-pipeline}
+
+% The watermark, drawn only while the switch is on.
+%
+% Why a mark on every page and not a banner on the first. A reader almost never meets these papers
+% whole: a page is printed, a screenshot is pasted into a message, a section is forwarded. A mark
+% that lives on the first page alone is gone at that moment, and the page that travels is the one
+% that will be quoted back. A running head would reach every page too, but it belongs to the
+% galley: in this two column class it would move the text block, change where the columns break
+% and cost a page, and it would have to be removed from the galley again to get the final paper
+% back. A shipout picture costs nothing of the kind.
+%
+% Why the FOREGROUND and not the background. It was drawn in the background until 2026-09-18, and
+% there it was invisible wherever a figure sat, because every figure in these papers fills its own
+% box with opaque white before it draws anything. A figure is exactly the part of a page somebody
+% screenshots, so the mark was missing from the part most likely to travel alone. On top of
+% everything it reaches the whole page, figures included.
+%
+% What keeps it from spoiling the page. It is drawn at \SeriesDraftOpacity of full opacity, so what
+% lands on the paper is a tint and not a shape: over white it is the lightest grey a PDF can carry,
+% and over black text it changes nothing at all, because a tint of black over black is black. The
+% text underneath is therefore not dimmed in any way a reader can measure. Nothing is added to the
+% galley either, so the page count, the line breaks and the column breaks are exactly those of the
+% final paper, and the gate on overfull boxes sees nothing new.
+%
+% The colour is black and not a grey, because at this opacity the colour is the only thing left to
+% spend: the tint over white is 1 minus the opacity of the way from white to the ink, so black is
+% the darkest mark two per cent can buy. A light grey at two per cent would be indistinguishable
+% from the paper.
+%
+% \resizebox scales a box set at the normal size instead of asking for a font at 80pt, which the
+% Computer Modern shapes of this class do not have: LaTeX would substitute the nearest design size
+% and print a mark several times smaller than the one asked for, with a font warning the gates do
+% not read. Scaling the box cannot fail that way, and it is a linear transform in the PDF, so the
+% result is the same bytes on every build.
+\ifSeriesDraft
+  % transparent.sty writes the constant alpha into an ExtGState, which is what pdfTeX needs to put
+  % ink on top of ink without hiding it. It is loaded only here, so a paper built with the switch
+  % off carries no transparency machinery and no extra resource at all.
+  \usepackage{transparent}
+  \newcommand{\SeriesDraftWord}{DRAFT}
+  \newcommand{\SeriesDraftOpacity}{0.10}
+  \AddToShipoutPictureFG{%
+    \AtPageCenter{%
+      \makebox(0,0){%
+        \rotatebox{45}{%
+          \transparent{\SeriesDraftOpacity}%
+          \resizebox{0.68\paperwidth}{!}{%
+            \color{black}\sffamily\bfseries\SeriesDraftWord}}}}}
+\fi
+
+% THE CASE OF THE SERIES: the headings and the table captions read as the rest of the article.
+%
+% IEEEtran sets two things in small capitals, and a reader sees them as ALL CAPITALS shouted in the
+% middle of a page whose every other line is ordinary sentence case:
+%
+%   the table captions, IEEEtran.cls line 2778, which puts the caption text through \scshape;
+%   the section headings, IEEEtran.cls line 5473, whose heading font ends in \scshape.
+%
+% Those are the two the responsible person asked for on 2026-09-18, and they are the only two that
+% are live in this class option. The other \scshape sites in the class, lines 2737, 5468, 5501 and
+% 5790, belong to the conference and computer society options, which these papers do not use, and
+% the figure captions never had it: figure captions were already sentence case while table captions
+% were not, so this change also makes the two agree, which they did not before.
+%
+% What is deliberately NOT changed: the drop cap at the start of each section, IEEEtran.cls lines
+% 5835 and 5841, which sets the large initial and the rest of its first word through
+% \MakeUppercase. A large initial followed by a word in capitals is a typographic convention and
+% not shouting, and it is a bigger aesthetic move than was asked for. One line in this file takes
+% it off if it is ever wanted: \renewcommand{\IEEEPARstartWORDCAPSTYLE}{\relax}.
+%
+% The class file is NOT edited. It is a third party class, vendored in three trees, and a modified
+% copy under the same name is what makes a build unreproducible for somebody else. etoolbox patches
+% the two macros from the preamble instead, so one change here reaches all three papers exactly as
+% the draft switch does.
+%
+% Both patches fail the build if they do not apply. That matters more than it looks: if the class
+% is ever updated and the macro no longer matches, a silent failure would bring the capitals back
+% and nobody would know which build changed them.
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@makecaption}{\scshape}{}{}{%
+  \PackageError{sidestripe}{Cannot take the small capitals out of the table captions}
+    {IEEEtran's \string\@makecaption no longer contains \string\scshape where it did at line
+     2778. Read the class and fix the patch rather than removing it.}}
+\patchcmd{\section}{\scshape}{}{}{%
+  \PackageError{sidestripe}{Cannot take the small capitals out of the section headings}
+    {IEEEtran's \string\section no longer contains \string\scshape where it did at line 5473.
+     Read the class and fix the patch rather than removing it.}}
+\makeatother
+
+% Mechanics of the stripe. eso-pic's \AddToShipoutPictureBG* draws in the background layer of the
+% current page only, which is what keeps the body untouched: the text block is not moved by a
+% single point, because nothing is added to the galley. \rotatebox comes from graphicx, which the
+% papers already load for their figures, and the grey is xcolor. tikz with `remember picture,
+% overlay' would do the same thing at the price of a second compilation pass and a much larger
+% dependency, and a raw \rotatebox in a zero size box inside the body would have to be placed by
+% hand relative to the text and would move with it.
+%
+% Geometry. The stripe sits \SideStripeX from the left edge of the paper and starts \SideStripeY
+% from the bottom, reading upwards. Those are far enough inside the paper that a printer's trim
+% does not eat them and far enough from the text block that they cannot collide with it; both are
+% named here so that the three papers cannot drift apart.
+% If the paper that inputs this file has no published-date.tex, say so in words rather than
+% letting TeX report an undefined control sequence from inside a rotated box. The three papers of
+% paper/00001 to 00003 are in exactly that state on 2026-09-22 and are not rebuilt today; whoever
+% builds one next is told here what to add and why, instead of debugging it.
+\ifdefined\PublishedStripe\else
+  \errmessage{sidestripe.tex: this paper inputs the stripe but defines no \string\PublishedStripe.
+  Add a published-date.tex beside the paper and \string\input{published-date}. It holds the day
+  the folder entered the PUBLIC repository, written by hand and never from the clock; a folder not
+  yet published defines \string\PublishedStripe as: not yet published. See REVISION.md,
+  2026-09-22}
+\fi
+
+\newcommand{\sidestripe}[1]{%
+  \AddToShipoutPictureBG*{%
+    \AtPageLowerLeft{%
+      \put(\LenToUnit{\SideStripeX},\LenToUnit{\SideStripeY}){%
+        \rotatebox{90}{%
+          \color[gray]{0.55}%
+          \fontsize{7}{8}\selectfont\ttfamily
+          \ifSeriesDraft\SeriesDraftWord\SideStripeSep\fi%
+          \SideStripeRepo\SideStripeSep results/#1\SideStripeSep
+          \PublishedStripe\SideStripeSep last updated \BuildDateLong}}}}}
+
+% CHANGE OF 2026-09-22, on the owner's word, to the one file all the papers of the series share.
+%
+% The stripe now carries TWO dates and names the folder as results/ rather than research/:
+%
+%   DRAFT . evilaliv3/vesuvius-challenge-pipeline . results/<folder> . <published> . last updated <date>
+%
+% \PublishedStripe comes from a published-date.tex beside the paper and is the day the folder
+% entered the PUBLIC repository, written by hand once and never taken from the clock; a folder
+% that is not published yet defines it as «not yet published». \BuildDateLong is the other
+% quantity and keeps coming from SOURCE_DATE_EPOCH. A build refuses a publication date that is
+% after the build date.
+%
+% EVERY PAPER THAT INPUTS THIS FILE MUST NOW ALSO INPUT A published-date.tex, or \PublishedStripe
+% is undefined and the build stops. The three published papers of paper/00001 to 00003 are NOT
+% rebuilt today: they are recompiled with their true publication dates at their next revision,
+% which is the owner's decision of 2026-09-22 and is written in REVISION.md with its date.

@@ -1,0 +1,3 @@
+# written by src/tools/c-f21-fig-r2c.py (from render-routes-0826/article-figure/fig_r2c.py): what the figure shows, read from this work's snapshot of square-checks.csv (the earlier square, panels b and c), its copy of square-checks-adjudicated.csv (panel a) and the study's scratch/rows; the height of the axial cut is withheld (2026-09-30)
+route,surface,square_mm,adjudicated_square_mm,adjudicated_square_cells,turn_to_z_up,section_i_median_vox,section_i_within3,section_j_median_vox,section_j_within3,our_sheet,our_sheet_within3_share
+R2cnative,PHerc0826-seed6273-squarecentre,29.8961,28.1285,748,none,4.0,0.4553,8.0,0.2692,PHerc0826-seed1045-S0,0.7003

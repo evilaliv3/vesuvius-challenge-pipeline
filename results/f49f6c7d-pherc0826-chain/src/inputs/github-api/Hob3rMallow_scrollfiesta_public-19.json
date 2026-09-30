@@ -1,0 +1,78 @@
+{
+  "url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/19",
+  "repository_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public",
+  "labels_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/19/labels{/name}",
+  "comments_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/19/comments",
+  "events_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/19/events",
+  "html_url": "https://github.com/Hob3rMallow/scrollfiesta_public/issues/19",
+  "id": 5543365490,
+  "node_id": "I_kwDOStgTJ88AAAABSmkLcg",
+  "number": 19,
+  "title": "Three observations from timing and auditing the mesher: thread safety, what Timings reports, and the certificate near the axis",
+  "user": {
+    "login": "evilaliv3",
+    "id": 217034,
+    "node_id": "MDQ6VXNlcjIxNzAzNA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/217034?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/evilaliv3",
+    "html_url": "https://github.com/evilaliv3",
+    "followers_url": "https://api.github.com/users/evilaliv3/followers",
+    "following_url": "https://api.github.com/users/evilaliv3/following{/other_user}",
+    "gists_url": "https://api.github.com/users/evilaliv3/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/evilaliv3/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/evilaliv3/subscriptions",
+    "organizations_url": "https://api.github.com/users/evilaliv3/orgs",
+    "repos_url": "https://api.github.com/users/evilaliv3/repos",
+    "events_url": "https://api.github.com/users/evilaliv3/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/evilaliv3/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 0,
+  "created_at": "2026-09-22T18:09:06Z",
+  "updated_at": "2026-09-22T18:09:06Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "**What we found.** Three things, from timing and auditing `cube_mesh` and `scroll_whole` on\nLinux over a 27 cube window and a 1,728 cube window of PHerc. 0139. The vendored f2c layer keeps\nits state in `static` locals, so two cubes cannot unwrap at once. The `Timings` line names about\na tenth of a cube. The winding certificate is evaluated inside the umbilicus, where its own\nangle is undefined.\n\n<img width=\"1900\" height=\"884\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/0eaec774-a831-46fc-bb8d-89fc67a7deb1\" />\nWhere a cube's time goes, with the growth gate off and on. The Timings line the tool prints names about a tenth of what the cube takes.\n\n**Why it matters.** The shipped default for `--max-concurrent` is 32, so anyone running the tool\nas documented on more than one cube meets the first. The second invites a wrong conclusion about\nwhere a cube's time goes. The third makes a count mean less than a reader takes it to mean.\n\n**That none of this is urgent and none is a claim about your results.** Each of the three is a\nmeasurement of the tool's behaviour on our machine with a control beside it, and no delivered\nsheet is said to be wrong anywhere in this issue. The one finding that does bear on a delivered\nsheet is in a separate issue.\n\n**The numbers**, one row per cube where a cube is the unit:\n\n| cube | total | named by `Timings` | share |\n|---|---:|---:|---:|\n| z09216_y03840_x03840 | 845.900 s | 75.972 s | 8.98 % |\n| z09472_y02560_x02560 | 417.374 s | 50.698 s | 12.15 % |\n| z09728_y03712_x02560 | 498.311 s | 58.020 s | 11.64 % |\n\nFor the concurrency: 27 cubes at `--max-concurrent 4` abort in 3 s, 9 cubes at 3 give\n`free(): double free detected in tcache 2`, and 9 cubes at 1 return rc 0 in 76.0 s. For the\ncertificate: of the 118 faces it rejects over the 1,728 cube window, 71 have their centroid\nbelow one voxel from the axis, between r = 0.0539 and r = 0.4895, and 45 are at 500 voxels or\nmore. That is 60 per cent of the count coming from inside the umbilicus.\n\n**How to check it yourself.** Run `scroll_whole` on nine cubes at `--max-concurrent 3` and then\nat 1. Sum the `Timings` line of one cube and compare it with the cube's own wall clock. Audit a\nmeshed window with the axis table attached and sort the rejected faces by the distance of their\ncentroid from the axis.\n\n---\n\nWe timed and audited `cube_mesh` and `scroll_whole` on Linux, on a 27 cube window and a 1,728\ncube window of PHerc0139. Three things came out that are worth writing down and none of them is\nurgent. A fourth, which is, is in a separate issue.\n\n## 1. The vendored f2c layer keeps its state in `static` locals, so two cubes cannot unwrap at once\n\n`deps/taucs/external/src/genmmd.c` has\n\n    static integer mdeg, ehead, i, mdlmt, mdnode;\n\nand the mmd helpers do the same. Two cubes entering the ordering routine at the same time corrupt\nthe heap. Measured:\n\n| concurrency | outcome |\n|---|---|\n| 27 cubes at `--max-concurrent 4` | abort in 3 s |\n| 9 cubes at 3 | `free(): double free detected in tcache 2` |\n| 9 cubes at 1 | rc 0 in 76.0 s |\n\nWe run `scroll_whole` with `--max-concurrent 1`, which is a serialisation and not a fix, and it\ngives up the whole parallelism of the assembly. **The shipped default is 32**, so anyone running\nthe tool as documented on more than one cube meets this.\n\n## 2. The `Timings` line names about a tenth of a cube on the arm we ship\n\nWe built a stage map of three grid cubes with the growth gate armed, accounting for 99.95 to\n99.97 per cent of the wall clock. Against that, the `Timings` line reports:\n\n| cube | total | named by `Timings` | share |\n|---|---:|---:|---:|\n| z09216_y03840_x03840 | 845.900 s | 75.972 s | **8.98 %** |\n| z09472_y02560_x02560 | 417.374 s | 50.698 s | **12.15 %** |\n| z09728_y03712_x02560 | 498.311 s | 58.020 s | **11.64 %** |\n\nSo **87.8 to 91.0 per cent of a cube is not in that line.**\n\nThis is not a bug, and we raise it for one reason: it invites a wrong conclusion about where the\ntime goes, and we drew one ourselves before building the map. It may also be part of why\nprofiles of this tool disagree. Issue #3 measures MLS at about 83 per cent of wall clock on a\n320 cubed Kaggle cube at `--halo 0 --no-qem`; on the grid cubes we ship, with the gate armed and\nQEM on, we measure Resplit at 85.39 to 88.96 per cent and Extract at 7.48 to 9.92. **Neither\nrefutes the other. Which stage dominates depends on the cube and the flags**, and a `Timings`\nline that named the whole cube would make that visible to everybody at once.\n\n## 3. The winding certificate is evaluated inside the umbilicus, where its own angle is undefined\n\nOver the 1,728 cubes of a twelve cube window, gate armed at 0.45, audited with the axis table\nattached the way `cube_mesh` attaches it, the certificate rejects **118 faces**. By the distance\nof the face centroid from the axis:\n\n| radius | faces |\n|---|---:|\n| **below 1 voxel** | **71** |\n| 1 to 100 | 0 |\n| 100 to 500 | 2 |\n| 500 or more | 45 |\n\nThe 71 lie between r = 0.0539 and r = 0.4895 voxels. At that distance the angle of a position\nabout the axis is not meaningful and a winding difference computed from it is not either.\n\n**Sixty per cent of what the certificate reports on this window comes from inside the\numbilicus.** A floor on the radius, or an exclusion, would make the remaining count mean what a\nreader takes it to mean. We are happy to post the per face table.",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/19/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/19/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

@@ -1,0 +1,37 @@
+# The representative transform of a pair is chosen by the wrong components.
+#
+# align_patches.cpp groups the affine transforms sampled for a pair, takes their mean, and writes
+# to rel.csv the sample nearest that mean. Its own comment says "how far the transformation part
+# is from the mean", but the distance is measured in get<3> and get<5>. The affine is
+# (a, b, tx, d, e, ty): get<2> and get<5> are the translation, get<3> is sin(-theta) and belongs
+# to the rotation. So the sample was chosen by its rotation and its y translation, with the x
+# translation taking no part.
+#
+# MEASURED, and it is what puts this patch in the inert group rather than in corrections.
+# Box w035 of PHerc. 0139, seed 3455,2753,5383, 2858 seeds, stage g:
+#   * instrumented run, both argmins computed side by side: 0 of 6,572 transformation groups
+#     choose a different sample.
+#   * isolation run, the reference tree plus this one line and nothing else: 1,495 of 1,495
+#     patches identical byte for byte, rel.csv identical by sha256
+#     (513860d84bdf6df13fb97c84732072fd8cf6e0ba7172a8d2c77aeb3db7a97777 both), surface.bp and
+#     boundary.bp identical.
+# The reason is not that the two distances agree: it is that within a group the accepted spread of
+# the translation is small (MAX_TRANSLATE_VARIANCE, 2.2 quadmesh units at the limit) and the
+# sample nearest the mean in one pair of coordinates happened to be the nearest in the other in
+# every group of this run. On another field it need not be, which is why the line is repaired.
+#
+# Evidence: runs/rev1/audit/STEVENS-VALLE.md, runs/catena/superficie-stevens/out0139w035-rep.
+--- a/pipeline9/align_patches.cpp
++++ b/pipeline9/align_patches.cpp
+@@ -394,7 +394,10 @@
+ 				for(const affineTx &tx : tsIter.second)
+ 				{
+ 					// See how far the transformation part if from the mean
+-					float distanceFromMean = pow(std::get<3>(tx)-std::get<3>(sampleMean),2) + pow(std::get<5>(tx)-std::get<5>(sampleMean),2);
++					// The translation of the affine is (get<2>, get<5>); get<3> is sin(-theta), part of the
++					// rotation. Measured in (sin theta, ty), the x translation took no part in the choice
++					// of the representative sample.
++					float distanceFromMean = pow(std::get<2>(tx)-std::get<2>(sampleMean),2) + pow(std::get<5>(tx)-std::get<5>(sampleMean),2);
+ 							
+ 					sampleVariance = affineTx(std::get<0>(sampleVariance)+pow(std::get<0>(tx)-std::get<0>(sampleMean),2),
+ 											  std::get<1>(sampleVariance)+pow(std::get<1>(tx)-std::get<1>(sampleMean),2),

@@ -1,0 +1,4 @@
+# written by growth-lto-pgo-1447/tools/identity_compare_arms.py at 2026-09-27T07:35:52Z: one row per arm, chain-0826/evidence/identity-0826-summary.csv's columns; yes only with at least 3 measurable seeds holding and none failing
+build,against,seeds_holding,seeds_failing_or_not_measurable,seeds_replaced,evidence,identity_holds
+flathash+avx512 -march=native (MN),unchanged,PHerc0826-seed109;PHerc0826-seed300;PHerc0826-seed237,none,none,evidence/identity-0826-mn.csv,yes
+flathash+avx512 -march=native -flto=auto PGO (MLP),unchanged,PHerc0826-seed109;PHerc0826-seed300;PHerc0826-seed237,none,none,evidence/identity-0826-mlp.csv,yes

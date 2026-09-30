@@ -1,0 +1,51 @@
+% Entries this work cites that the shared library (paper/papers/library.tex, frozen) does not hold.
+% Read by src/tools/write_references.py beside the shared library; never \input into the paper.
+% winners added 2026-09-28: the page as saved raw by area-0826-90 (winners-20260927T152155Z.html),
+% the only source of the «around 365 cm2» this work compares with.
+
+\bibitem{winners} Vesuvius Challenge, the entry ``Patch-based unwrapping: William
+  Stevens'', read 27 September 2026. \url{https://scrollprize.org/winners}
+
+
+% The two published works of this series that this article cites for its modules, added 2026-09-28 on the
+% director's note of 06:40:45Z. Each is a folder of the laboratory's private repository, published
+% refined on 29 September 2026; the titles are read from each work's main .tex.
+\bibitem{workumbilicus} G. Pellerano, ``A far field attractor in the umbilicus score of Volume
+  Cartographer,'' results/e89eb7ad-umbilicus-estimator, \emph{vesuvius-challenge-pipeline}, 2026.
+
+\bibitem{workS} G. Pellerano, ``Output preserving acceleration of the bad patch finder in the
+  scrollreading pipeline,'' results/aeb2e975-badpatchfinder-acceleration,
+  \emph{vesuvius-challenge-pipeline}, 2026.
+
+% openproblems: the organisers' page as it reads on 30 September 2026 (villa commit f520e04cb4, pull request 1937), saved
+% in src/inputs/open-problems/ with the earlier copy of 28 September beside it; the quotes are cut from it verbatim
+% (src/tools/check_quotes.py). Its own key, because the shared library's openproblems2026 is frozen and says no reading date.
+\bibitem{openproblems} Vesuvius Challenge, \emph{Open Problems: Why Reading Every Herculaneum Scroll Is Still a
+  Challenge}, 2026, read 30 September 2026. \url{https://scrollprize.org/2026_open_problems}
+
+% opendata and inkmodel added 2026-09-29 on the director's order of 06:54:31Z (the article says plainly which parts of the
+% engine are the organisers'): the bucket the chain reads the scan, the m7 prediction and the umbilicus from
+% (rasterlib.py RAW_URL; chain-0826 inputs), and the model card of the released 9 um ink models (hybrid_3d2d, seeds 42 and
+% 43), saved by orientation-1447 as scratch/prior-art/hf-ink9um-README.md.
+\bibitem{opendata} Vesuvius Challenge, \emph{Open data}: the scans of the scrolls and their derived representations,
+  among them the masked scan of PHerc.~0826, its surface prediction and its umbilicus, read September 2026.
+  \url{https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/index.html}
+
+\bibitem{inkmodel} Vesuvius Challenge, \emph{9~$\mu$m ink detection}: the released \texttt{hybrid\_3d2d} ink models
+  trained on aligned labels, Hugging Face, read September 2026.
+  \url{https://huggingface.co/scrollprize/ink_9um}
+
+% v8in added 2026-09-30 on the owner's order: Youssef Nader's model as ink-v8in-0826 read it (evidence/hf-files.csv:
+% repository YoussefMoNader/ink-8um-v8in, revision d89166b41a3f5fad7749b3d7c0fdd1bd3695d844, read 2026-09-29T19:16:14Z;
+% licence MIT in the API's cardData and the README front matter, as the study's DECLARATION.md records).
+\bibitem{v8in} Y. Nader, \emph{ink-8um-v8in}: a ResNet3D-50 encoder with a 2D U-Net decoder for ink detection, code and
+  weights under the MIT licence, Hugging Face, revision d89166b, read 29 September 2026.
+  \url{https://huggingface.co/YoussefMoNader/ink-8um-v8in}
+
+% stevenssr and firstlight added 2026-09-30 (owner's word: no prize references): the shared library's stevens and
+% firstlight2026 name prizes and money, and the shared library is frozen, so this work cites these two entries instead.
+\bibitem{stevenssr} W. Stevens, \emph{scrollreading}: flood-fill autosegmentation and surface growing, 2024--2026.
+  \url{https://github.com/WillStevens/scrollreading}
+
+\bibitem{firstlight} L. Miller, C. M\"uller, \emph{First Light: PHerc.\ 0826}, a workflow for finding letters run end to end
+  with pre-registered criteria, August 2026. \url{https://github.com/millerandmuller/first-light-pherc0826}

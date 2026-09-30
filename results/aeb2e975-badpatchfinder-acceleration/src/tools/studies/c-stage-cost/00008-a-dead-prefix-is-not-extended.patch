@@ -1,0 +1,92 @@
+# A prefix that can never be emitted is not extended.
+#
+# FindBadPatchesGeneral enumerates chains of patches with an odometer over indices[0..length-1]:
+# indices[0] runs over the indexed patches and every later index runs over the alignment list of
+# the patch the previous index landed on. A chain is kept only when no element of it is a bad
+# patch and no element repeats. When the build loop meets a bad patch or a repeat it breaks out of
+# assembling that chain, but the odometer goes on advancing its LAST index, so every suffix of a
+# prefix that is already dead is enumerated one at a time, and every one of them is rejected for
+# the reason the prefix was rejected for.
+#
+# The cost of that is the whole cost of the stage on a tree with a high fan out. The alignment map
+# is made symmetric by AugmentAlignmentMap, so its mean fan out is twice the relation count over
+# the number of patches, and the odometer takes one step per walk of length-1 edges: the number of
+# steps grows with the fan out to the power length-1.
+#
+# MEASURED, on PHerc. 1447, seed 5589,2669,15682, the tree seed40 of runs/rev1/seed-search-1447:
+# 14,959 patches, 230,513 rows of rel.csv, 460,985 directed edges after the augmentation, mean fan
+# out 30.82. The odometer takes 460,985 steps at length 2, 20,319,828 at length 3, 983,163,150 at
+# length 4 and 50,496,320,188 at length 5, counted from that tree's own rel.csv
+# (runs/rev1/c-stage-cost/evidence/step-counts-model.csv) and confirmed by a counting build of the
+# stage itself (evidence/step-counts-measured.csv). The round at length 2 finds 12,628 of the
+# 14,959 patches bad, so from length 3 on almost every prefix is dead at its first or second
+# element and the 51.5 billion steps produce 581,099 chains that could have been reached in
+# 581,099 steps.
+#
+# With this change the odometer advances at the position where the chain died, and the indices
+# below that position go back to zero, which is where the carry would have left them. Every tuple
+# that is skipped shares the dead prefix and carries the same repeat or the same bad patch, so the
+# sequences that reach patchSequences, and the order they reach it in, are exactly the same. When
+# the chain is built whole, deadDepth is length-1 and the odometer is the odometer as it was.
+#
+# The bad first patch is the same argument at depth zero: the original set hasBadPatch, went on
+# building a chain it would throw away, and then enumerated the whole subtree below it.
+#
+# Evidence: runs/rev1/c-stage-cost/OUTCOME.md.
+--- a/pipeline9/badpatchfinder.cpp
++++ b/pipeline9/badpatchfinder.cpp
+@@ -351,14 +351,17 @@
+ 		std::vector<int> currentSequence;
+ 		std::set<int> currentSequencePatches;
+ 		bool hasBadPatch = false, hasRepeat = false, hasNoGeometry = false;
++		// The position at which this chain stopped being extendable. length-1 means it
++		// was built whole, and the odometer then advances its last index as before.
++		int deadDepth = length-1;
+ 				
+ 		// output a patch sequence only if it contains no bad patches
+ 		int currentPatch = indexedPatches[indices[0]];
+-		if (badPatches.count(currentPatch)!=0) hasBadPatch=true;
++		if (badPatches.count(currentPatch)!=0) { hasBadPatch=true; deadDepth=0; }
+ 		if (patches->count(currentPatch)==0) hasNoGeometry=true;
+ 		currentSequence.push_back(currentPatch);
+ 		currentSequencePatches.insert(currentPatch);
+-		for(int i = 1; i<length; i++)
++		for(int i = 1; i<length && !hasBadPatch; i++)
+ 		{
+ 			if (indices[i]<(int)am[currentPatch].size())
+ 			{
+@@ -366,11 +369,13 @@
+ 				if (currentSequencePatches.count(currentPatch)!=0)
+ 				{
+ 					hasRepeat=true;
++					deadDepth=i;
+ 					break;
+ 				}
+ 				if (badPatches.count(currentPatch)!=0)
+ 				{
+ 					hasBadPatch=true;
++					deadDepth=i;
+ 					break;
+ 				}
+ 				if (patches->count(currentPatch)==0) hasNoGeometry=true;
+@@ -401,9 +406,18 @@
+ 			}
+ 		}
+ 		
+-		// increment onto the next sequence of patches
++		// increment onto the next sequence of patches.
++		//
++		// Every tuple that shares indices[0..deadDepth] with this one contains the same
++		// repeated patch, or the same bad patch, or the same bad first patch, and is
++		// rejected for the same reason. Advancing at deadDepth instead of at length-1
++		// skips them all. The indices below it go back to zero, which is where the
++		// carry below would have left them. When the chain was built whole, deadDepth is
++		// length-1 and this is the odometer exactly as it was.
++		for(int i = deadDepth+1; i<length; i++)
++			indices[i]=0;
+ 		bool advanceToNextIndex = true;
+-		for(int indexToInc=length-1; indexToInc>=0 && advanceToNextIndex; indexToInc--)
++		for(int indexToInc=deadDepth; indexToInc>=0 && advanceToNextIndex; indexToInc--)
+ 		{
+ 			advanceToNextIndex = false;
+ 			if (indexToInc==0)

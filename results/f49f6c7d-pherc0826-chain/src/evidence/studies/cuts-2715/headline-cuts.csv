@@ -1,0 +1,11 @@
+# written by cuts-2715/tools/headline.py at 2026-09-30T09:21:14Z: void test (T_air 63.0, runs of 25+ nodes) on 9 axial cuts of the headline square R2cnative PHerc0826-seed6273-squarecentre, adjudicated 28.1285 mm (DECLARATION addition 09:18Z)
+utc,cut,kind,note,nodes,first_column,last_column,void_nodes,void_runs_25plus,longest_void_run_nodes,longest_void_run_mm,longest_void_run_columns,inside_square,median_centre_value
+2026-09-30T09:19:56Z,headline-even0,even0,,218,530,747,0,0,0,0.000,none,yes (only the square's columns are cut),113.2
+2026-09-30T09:20:04Z,headline-even1,even1,,614,134,747,10,0,5,0.188,660..664,yes (only the square's columns are cut),122.6
+2026-09-30T09:20:11Z,headline-even2,even2,,748,0,747,10,0,4,0.150,0..3,yes (only the square's columns are cut),107.4
+2026-09-30T09:20:41Z,headline-even3,even3,,748,0,747,7,0,3,0.113,84..86,yes (only the square's columns are cut),118.0
+2026-09-30T09:20:52Z,headline-even4,even4,,748,0,747,1,0,1,0.038,100..100,yes (only the square's columns are cut),112.0
+2026-09-30T09:21:03Z,headline-even5,even5,,643,0,642,1,0,1,0.038,548..548,yes (only the square's columns are cut),118.3
+2026-09-30T09:21:07Z,headline-even6,even6,,276,0,275,0,0,0,0.000,none,yes (only the square's columns are cut),114.4
+2026-09-30T09:21:13Z,headline-dark-row1,dark-row1,row 461 mean grey 94.3,748,0,747,7,0,7,0.263,722..728,yes (only the square's columns are cut),116.8
+2026-09-30T09:21:14Z,headline-dark-row2,dark-row2,row 542 mean grey 95.9,748,0,747,29,0,19,0.714,0..18,yes (only the square's columns are cut),109.8

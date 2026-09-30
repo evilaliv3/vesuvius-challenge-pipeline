@@ -1,0 +1,18 @@
+# figure C21; written by src/tools/c-f21-r2c.py at 2026-09-30T12:18:23Z: render-routes-0826's figure of the R2c certified square (panel a adjudicated; b and c the earlier square) of PHerc0826-seed6273-squarecentre; pinned and checked against square-checks.csv; RAW SCAN; NO INK DETECTOR. Not for a public repository without the owner's word. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+,a;b;c,r2c-seed6273-squarecentre.pdf sha256 (pinned),paper/figures/assets/r2c-seed6273-squarecentre.pdf,,74a58c34cc374fbf3c1f410237aca03eadf336a984da6dbff12c37f5a679bb57
+,a;b;c,r2c-seed6273-squarecentre.png sha256 (pinned),paper/figures/assets/r2c-seed6273-squarecentre.png,,f4e7551f1eabf34346eb38f8f13ea793273de491dc1d8490a45a2a7b3f5a18df
+,a;b;c,r2c-seed6273-squarecentre-data.csv sha256 (pinned),paper/figures/assets/r2c-seed6273-squarecentre-data.csv,,3a9e901c6af0b4374607395ac62e9d632fb55906b3213bce7c3c9e171153cec4
+,a;b;c,c-f21-fig-r2c.py sha256 (pinned),src/tools/c-f21-fig-r2c.py,,0081a5d21f03aec32599648093188c4dc167734666ee925ec96f7778f34b0074
+,a;b;c,the figure's data table equals square-checks.csv on the square and every section and sheet column,render-routes-0826/square-checks.csv,square_mm and the sections,yes
+square_mm,b;c,square that passed the checks against our sheets before crossings between traced surfaces were adjudicated (panels b and c); mm,render-routes-0826/square-checks.csv,square_mm,29.8961
+square_c,a,certified square with crossings between traced surfaces adjudicated (drawn in panel a); mm,inputs/render-routes-0826/square-three-definitions.csv,c_certified_adjudicated_mm,28.1285
+seed,a,seed of the start,render-routes-0826/square-checks.csv,surface,6273
+,a,turn to z up,figure data,turn_to_z_up,none
+rotation,a,in plane rotation of the grid from the nearest axis aligned grid; over the earlier square's box; degrees,render-routes-0826/routes.csv,rotation_inplane_median,19.65
+,a,panel (a) regrid,,,none: the tracer's own grid; quarter turns only (the align.py regrid was of the earlier square)
+our_sheet,b,our sheet in the cut,render-routes-0826/square-checks.csv,within3_best_sheet,seed1045-S0
+on_ours,b,share of the square's nodes within the near band of that sheet,render-routes-0826/square-checks.csv,within3_share_all_cells,0.7003
+sec_i,c,section i share within the near band,render-routes-0826/square-checks.csv,section_i_share_within_3_vox,0.4553
+sec_j,c,section j share within the near band,render-routes-0826/square-checks.csv,section_j_share_within_3_vox,0.2692
+near_vox,b;c,near band; voxels,render-routes-0826/square-checks.csv,the column name within_3,3

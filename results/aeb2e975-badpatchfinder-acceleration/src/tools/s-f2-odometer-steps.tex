@@ -1,0 +1,36 @@
+%% Figure S2. The odometer's steps before and after, a bar on a logarithmic axis.
+%%
+%% CAPTION: The number of steps the c stage's enumeration takes over the four rounds of one
+%% seed, on a logarithmic axis. The modelled count is the walk as the source describes it, the
+%% pruned count is what the changed arm's counter records, and the unpruned count is the same
+%% counter in the arm that ships. Every bar is column value of
+%% c-stage-cost/evidence/totals.csv on the row whose quantity the plotted table's column is
+%% named for, and each of those values is itself a sum over a per round CSV that file's source
+%% column names. A seed with no row for a series carries nan in the plotted table and its status
+%% column carries the study's own words, so the panel has a gap there and never a bar at zero.
+%% The numbers drawn are in evidence/figures/s-f2-odometer-steps.csv.
+%%
+%% Data: tools/s-f2-odometer-steps.py
+\documentclass[border=2pt]{standalone}
+\input{figpreamble.tex}
+
+\pgfplotstableread{../evidence/figures/s-f2-odometer-steps.csv}\sfSteps
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    sa bars, width=100mm, height=62mm,
+    ymode=log, log origin y=infty,
+    ylabel={odometer steps over the four rounds},
+    xtick=data, xticklabels from table={\sfSteps}{attempt},
+    x tick label style={rotate=30, anchor=east, font=\tiny},
+    bar width=6pt,
+    legend pos=north east,
+  ]
+  \addplot[draw=sagrey,   fill=sagrey!35]   table[x=i, y=modelled_steps] {\sfSteps};
+  \addplot[draw=saorange, fill=saorange!40] table[x=i, y=counted_unpruned_steps] {\sfSteps};
+  \addplot[draw=sablue,   fill=sablue!45]   table[x=i, y=counted_pruned_steps] {\sfSteps};
+  \legend{modelled, counted unpruned, counted pruned}
+\end{axis}
+\end{tikzpicture}
+\end{document}

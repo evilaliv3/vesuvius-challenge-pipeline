@@ -1,0 +1,23 @@
+# written by hot-lines-88/tools/identity_l.py from 2026-09-27T12:35:59Z to 2026-09-27T12:38:03Z
+quantity,value,note
+manifest_chunks,46715,datasets/PHerc0826/chunks.txt
+source_chunk_files,46715,datasets/PHerc0826/0
+copy_chunk_files,46715,hot-lines-88/scratch/l/0
+lists_equal,yes,"source files, copy files and manifest, sorted"
+sha256_manifest_list,fdde7f572bc2ef1588fdb4a9b27409b37df74668ee0e76ce308526e9effaa2fd,"sorted first column, newline joined"
+sha256_source_list,fdde7f572bc2ef1588fdb4a9b27409b37df74668ee0e76ce308526e9effaa2fd,"sorted chunk paths, newline joined"
+sha256_copy_list,fdde7f572bc2ef1588fdb4a9b27409b37df74668ee0e76ce308526e9effaa2fd,"sorted chunk paths, newline joined"
+sha256_copy_manifest_file,4c39c00ee7adc75327e3f77eda373b077f0eaa4a8a1d94927c95bd55cfed69d7,scratch/l-chunks.txt
+chunks_checked,46715,union of the three lists
+decoded_byte_identical,46715,"both decoded to 7077888 bytes and equal; source by numcodecs (c-blosc 1), copy by blosc2/lib/libblosc2.so (ctypes)"
+differing_or_error,0,
+source_md5_not_matching_manifest,0,manifest column 3 against the source file
+copy_chunks_with_a_filter,0,blosc2 extended header bytes 16 to 21 not all 0
+copy_chunks_codec_code_2,46715,blosc2 extended header byte 22 == 2
+copy_complib,LZ4,blosc2_cbuffer_complib over all chunks
+copy_chunks_blosc2_format,46715,header byte 0 == 5
+zarray_keys_differing,compressor.clevel compressor.cname compressor.shuffle,allowed: compressor.clevel compressor.cname compressor.shuffle
+source_bytes,9620029695,sum of file sizes
+copy_bytes,11861828428,sum of file sizes
+copy_over_source,1.233034,
+verdict,identical,"lists equal, every chunk identical, md5 all match, only codec keys differ in .zarray, no filter, codec code as expected in every chunk"

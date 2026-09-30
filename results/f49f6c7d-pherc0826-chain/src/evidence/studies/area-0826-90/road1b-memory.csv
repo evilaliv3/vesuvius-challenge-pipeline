@@ -1,0 +1,3 @@
+tool,run,log,rss_bound_gb,patches,pass3_first_sample_utc,pass3_first_rss_gb,pass3_bad_patch_lines,last_sample_utc,last_sample_rss_gb,stop_utc,stop_rss_gb,pass3_first_to_stop_min,seconds_in_c_at_last_sample
+tools/road1b_memory.py,first,log/road1b.txt,40,52906,2026-09-28T11:51:34Z,15.5,11325,2026-09-28T12:11:55Z,33.0,2026-09-28T12:16:15Z,42.4,25,19571
+tools/road1b_memory.py,second,log/road1b-c.txt,70,52906,2026-09-28T13:50:44Z,12.6,12306,2026-09-28T14:20:47Z,57.7,2026-09-28T14:23:28Z,75.7,33,7235

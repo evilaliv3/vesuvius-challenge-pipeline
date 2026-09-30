@@ -1,0 +1,33 @@
+attempt,series,stage,return_code,wall_clock_seconds,delivered_sheets_after_the_stage,ended_utc,run_log
+PHerc1447-seed34,guard,c,124,14400,not applicable,2026-09-21T18:38:24Z,run-seed34-guard.txt
+PHerc1447-seed34,plain,c,134,39,not applicable,2026-09-21T14:38:20Z,run-seed34-plain.txt
+PHerc1447-seed01,guard,c,0,55,0,2026-09-21T14:33:00Z,run-three-guard.txt
+PHerc1447-seed01,guard,l,0,3,0,2026-09-21T14:33:03Z,run-three-guard.txt
+PHerc1447-seed01,guard,vm 10,0,4,0,2026-09-21T14:33:07Z,run-three-guard.txt
+PHerc1447-seed01,guard,hm 10,0,0,0,2026-09-21T14:33:07Z,run-three-guard.txt
+PHerc1447-seed01,guard,fm 30 10,0,12,10,2026-09-21T14:33:19Z,run-three-guard.txt
+PHerc1447-seed15,guard,c,0,81,0,2026-09-21T14:34:42Z,run-three-guard.txt
+PHerc1447-seed15,guard,l,0,4,0,2026-09-21T14:34:46Z,run-three-guard.txt
+PHerc1447-seed15,guard,vm 10,0,3,0,2026-09-21T14:34:49Z,run-three-guard.txt
+PHerc1447-seed15,guard,hm 10,0,0,0,2026-09-21T14:34:49Z,run-three-guard.txt
+PHerc1447-seed15,guard,fm 30 10,0,16,10,2026-09-21T14:35:05Z,run-three-guard.txt
+PHerc1447-seed26,guard,c,0,53,0,2026-09-21T14:36:00Z,run-three-guard.txt
+PHerc1447-seed26,guard,l,0,2,0,2026-09-21T14:36:02Z,run-three-guard.txt
+PHerc1447-seed26,guard,vm 10,0,3,0,2026-09-21T14:36:05Z,run-three-guard.txt
+PHerc1447-seed26,guard,hm 10,0,0,0,2026-09-21T14:36:05Z,run-three-guard.txt
+PHerc1447-seed26,guard,fm 30 10,0,13,10,2026-09-21T14:36:18Z,run-three-guard.txt
+PHerc1447-seed01,plain,c,0,55,0,2026-09-21T14:28:17Z,run-three-plain.txt
+PHerc1447-seed01,plain,l,0,3,0,2026-09-21T14:28:20Z,run-three-plain.txt
+PHerc1447-seed01,plain,vm 10,0,3,0,2026-09-21T14:28:23Z,run-three-plain.txt
+PHerc1447-seed01,plain,hm 10,0,0,0,2026-09-21T14:28:23Z,run-three-plain.txt
+PHerc1447-seed01,plain,fm 30 10,0,13,10,2026-09-21T14:28:36Z,run-three-plain.txt
+PHerc1447-seed15,plain,c,0,78,0,2026-09-21T14:30:22Z,run-three-plain.txt
+PHerc1447-seed15,plain,l,0,4,0,2026-09-21T14:30:26Z,run-three-plain.txt
+PHerc1447-seed15,plain,vm 10,0,3,0,2026-09-21T14:30:29Z,run-three-plain.txt
+PHerc1447-seed15,plain,hm 10,0,0,0,2026-09-21T14:30:29Z,run-three-plain.txt
+PHerc1447-seed15,plain,fm 30 10,0,17,10,2026-09-21T14:30:46Z,run-three-plain.txt
+PHerc1447-seed26,plain,c,0,49,0,2026-09-21T14:31:45Z,run-three-plain.txt
+PHerc1447-seed26,plain,l,0,3,0,2026-09-21T14:31:48Z,run-three-plain.txt
+PHerc1447-seed26,plain,vm 10,0,2,0,2026-09-21T14:31:50Z,run-three-plain.txt
+PHerc1447-seed26,plain,hm 10,0,0,0,2026-09-21T14:31:50Z,run-three-plain.txt
+PHerc1447-seed26,plain,fm 30 10,0,14,10,2026-09-21T14:32:04Z,run-three-plain.txt

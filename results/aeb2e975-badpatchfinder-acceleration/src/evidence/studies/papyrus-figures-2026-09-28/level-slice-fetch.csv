@@ -1,0 +1,4 @@
+# written by papyrus-figures-2026-09-28/tools/fetch_level_slice.py. One row per plane: chunks_needed = chunks_already_cached + chunks_fetched + chunks_absent_404 + chunks_failed, checked in adds_up. level_shape is the .zarray shape of that level.
+utc,level,z_level0,z_level,chunk_z,level_shape,chunks_needed,chunks_already_cached,chunks_fetched,chunks_absent_404,chunks_failed,bytes_over_wire,adds_up
+2026-09-28T07:59:37Z,3,21240,2655,20,"[3038, 1043, 1043]",81,0,37,44,0,77594624,yes
+2026-09-28T07:59:42Z,3,13234,1654,12,"[3038, 1043, 1043]",81,0,23,58,0,48234496,yes

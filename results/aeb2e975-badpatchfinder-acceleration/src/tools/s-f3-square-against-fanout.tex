@@ -1,0 +1,48 @@
+%% Figure S3. The largest fully covered square of each seed against the fan out of its alignment
+%% map, PHerc. 1447, the kind by colour and by mark.
+%%
+%% CAPTION: Nine of the ten drawn seeds of PHerc. 1447, one point each; the count is the rows
+%% whose plotted column reads yes in the plotted table, and it is read back from there and not
+%% from this sentence, because it changed from eight to nine at 02:23Z on 22 September when
+%% seed44's fan out was measured. One seed is absent and it is not dropped in silence: seed11's
+%% growth returned 3, so it has a fan out, 33.97, and no square, and it is a row of the plotted
+%% table with the reason in why_not_plotted. The abscissa is the mean fan out of the
+%% growth's own alignment map, column fan_out of seed-search-1447/evidence/alignment-fanout.csv,
+%% on a logarithmic axis because the ten seeds span an order of magnitude. The ordinate is the
+%% side of the exact largest axis aligned fully covered square over the seed's delivered sheets,
+%% column largest_square_mm_min_step of seed-search-1447/evidence/per-seed.csv, in millimetres
+%% with the smaller of that sheet's two measured cell steps at this scroll's own voxel of
+%% 8.640 um. The kind is column kind of seed-search-1447/evidence/cost-per-ribbon.csv, which
+%% states it for the seeds that have a time in both arms; a seed no CSV classifies is drawn open
+%% and labelled not classified rather than assigned by a threshold invented here. Seeds missing a
+%% coordinate are listed with the reason in the plotted table and are absent from the panel.
+%% seed-search-1447/tools/check_fanout_agrees.py runs before the table is written and stops the
+%% figure if the fan out file has drifted from per-seed.csv again. The numbers drawn are in
+%% evidence/figures/s-f3-square-against-fanout.csv.
+%%
+%% Data: tools/s-f3-square-against-fanout.py
+\documentclass[border=2pt]{standalone}
+\input{figpreamble.tex}
+
+\pgfplotstableread{../evidence/figures/s-f3-square-against-fanout.csv}\sfSq
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    sa base, width=92mm, height=64mm,
+    xmode=log,
+    xlabel={fan out of the alignment map},
+    ylabel={largest fully covered square, mm},
+    legend pos=north east,
+    only marks,
+  ]
+  \addplot[mark=*,         mark size=2.4pt, draw=sablue,   fill=sablue!55]
+      table[x=fan_out, y=square_mm_ribbon] {\sfSq};
+  \addplot[mark=triangle*, mark size=2.8pt, draw=saorange, fill=saorange!55]
+      table[x=fan_out, y=square_mm_tangle] {\sfSq};
+  \addplot[mark=o,         mark size=2.4pt, draw=sagrey]
+      table[x=fan_out, y=square_mm_not_classified] {\sfSq};
+  \legend{ribbon, tangle, not classified}
+\end{axis}
+\end{tikzpicture}
+\end{document}

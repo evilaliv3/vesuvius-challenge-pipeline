@@ -1,0 +1,39 @@
+"# written by square20-0826-95/tools/cap_and_size_v2.py at 2026-09-28T15:17:44Z: chain-0826 seeds by best g 36000 square after the five of cap-check.csv, walked down until ten at the g 36000 cap are taken"
+attempt,best_square_mm_min_step,best_sheet,highest_generation,patch_lines,growth_return_code,at_cap,regrow,why
+PHerc0826-seed1595,14.5818,0,36000,36001,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed6469,14.0972,0,35216,35217,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed1732,14.0616,1,36001,36002,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed4480,13.8370,0,30077,30078,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed3950,13.8042,0,23819,23820,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed2259,12.7673,0,36000,36001,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed4490,12.7655,0,3649,3650,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6477,12.6087,0,36003,36004,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed6430,12.4549,0,23741,23742,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6429,12.1501,0,22227,22228,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed2715,12.0498,0,34722,34723,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6584,12.0417,3,36003,36004,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed321,12.0416,0,20724,20725,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed3490,11.8660,0,36002,36003,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed5728,11.7496,0,18756,18757,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6700,11.6372,0,32290,32290,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed3839,11.6326,0,36003,36004,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed4494,11.5909,0,36002,36003,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed6691,11.3393,0,17595,17596,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed5382,11.1517,3,21435,21436,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed4695,11.1154,0,33268,33269,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6523,11.0839,0,19631,19632,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6343,11.0404,0,33143,33144,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6701,10.9230,0,30055,30056,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed1450,10.9044,3,13054,13055,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed2939,10.8947,0,35748,35749,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6709,10.8905,0,9852,9853,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6562,10.8883,0,34243,34244,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed5104,10.8855,0,26978,26979,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed3149,10.8843,2,29569,29570,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6376,10.8840,1,31484,31485,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed782,10.7688,0,22040,22041,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed4009,10.7051,6,20633,20634,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed2441,10.6911,1,36003,36004,0,yes,yes,"at the cap, regrown"
+PHerc0826-seed4813,10.6326,1,17129,17130,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed6708,10.6254,2,24523,24524,0,no,no,ended by itself: a regrowth would repeat it
+PHerc0826-seed3648,10.6241,0,36000,36001,0,yes,yes,"at the cap, regrown"

@@ -1,0 +1,82 @@
+{
+  "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1914",
+  "repository_url": "https://api.github.com/repos/ScrollPrize/villa",
+  "labels_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1914/labels{/name}",
+  "comments_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1914/comments",
+  "events_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1914/events",
+  "html_url": "https://github.com/ScrollPrize/villa/issues/1914",
+  "id": 5613219748,
+  "node_id": "I_kwDONRspoc8AAAABTpLvpA",
+  "number": 1914,
+  "title": "GrowPatch: the reference ray occlusion residual is zero on every path",
+  "user": {
+    "login": "evilaliv3",
+    "id": 217034,
+    "node_id": "MDQ6VXNlcjIxNzAzNA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/217034?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/evilaliv3",
+    "html_url": "https://github.com/evilaliv3",
+    "followers_url": "https://api.github.com/users/evilaliv3/followers",
+    "following_url": "https://api.github.com/users/evilaliv3/following{/other_user}",
+    "gists_url": "https://api.github.com/users/evilaliv3/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/evilaliv3/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/evilaliv3/subscriptions",
+    "organizations_url": "https://api.github.com/users/evilaliv3/orgs",
+    "repos_url": "https://api.github.com/users/evilaliv3/repos",
+    "events_url": "https://api.github.com/users/evilaliv3/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/evilaliv3/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 0,
+  "created_at": "2026-09-28T10:40:19Z",
+  "updated_at": "2026-09-28T10:40:19Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "CONTRIBUTOR",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "`ReferenceRayOcclusionCost` in `volume-cartographer/core/src/GrowPatch.cpp` returns a zero residual on every path, so with a `reference_surface` set and `reference_ray_weight` above zero the solver evaluates it on every cell and it contributes nothing. Line numbers below are for main at f4570bfa.\n\n**What the cost was written for.** It came in with 4d33a11142 by @bruniss (2025-10-07, «pt > pt reference surf cost fn and min clearance cost fn»), merged through #518, whose description gives its purpose as «add ref surface cost fn for nearby wrap segmentation». #549 added the skip of the candidate's own material at the start of the ray (lines 837 to 859), and in the same PR `gen_neighbor` in `vc_grow_seg_from_seed.cpp` states the idea in the open: step out of the source sheet (`left_surface`, lines 812 to 816), then the first sample at or above a threshold is the next sheet (`hit_dist`, lines 824 to 825). Our reading of the two together is that a ray from a candidate to its nearest point on the reference should meet no papyrus after leaving its own sheet, and papyrus met on the way means the candidate has drifted more than one wrap from the reference. That is a reading of the history, not a statement from the author, and the exact residual meant is not written anywhere we could find.\n\n**Why it is zero.** After the skip, the march takes each sample into `max_value` (line 868) and only then tests it against `threshold_`, setting `hit_threshold` and breaking on the first one at or above it (lines 869 to 872). So on the one path that reaches the residual, `max_value >= threshold_`, and\n\n```cpp\nconst double diff = std::max(0.0, threshold_ - max_value);   // line 884\nresidual[0] = weight_ * diff;                                // line 885\n```\n\ngives 0. Every other path sets the residual to 0 and returns earlier (lines 814, 821, 826, 854, 876). The cost is added at line 1742 as a `NumericDiffCostFunction` whenever `reference_raycast_enabled()` (line 1288) holds. `ReferenceClearanceCost`, added next to it (lines 1746 to 1752), is live, which is why setting a reference does change the traced surface.\n\n**A test that shows it.** In #1885 we moved the functor to a header and wrote a doctest on a synthetic volume holding one slab: a ray crossing the slab should cost something, a ray in free space nothing (`volume-cartographer/core/test/test_reference_ray_occlusion_cost.cpp` at f0fabee42f7e, lines 130 to 145: https://github.com/ScrollPrize/villa/blob/f0fabee42f7efb766c951422983936569b5ba89d/volume-cartographer/core/test/test_reference_ray_occlusion_cost.cpp#L130-L145). With line 884 as it is on main, the test fails at line 140, `REQUIRE(crossing > 0.0)`.\n\n**One more thing the code shows.** The skip at the start has no counterpart at the reference end. The ray's last sample lies one step short of the nearest point on the reference (line 831, and the loop of lines 861 to 873), and a reference traced on the prediction sits on lit voxels, so a ray that reaches the reference would register a hit on the reference's own sheet whether or not another sheet lies between. This is an observation from the code; we have not measured it.\n\n**What we do not have yet is a fix.** Changing the sign of line 884, which #1885 proposed, is not one: on the PHerc1447 seeds we measured it made the traced surfaces worse, and #1885 is closed for that reason. We are testing candidate residuals against the seeds of #1885 and will open a PR only with one that leaves the surfaces at least as good as with the cost off. If you remember what the residual was meant to charge, that would settle it faster than we can.",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1914/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1914/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

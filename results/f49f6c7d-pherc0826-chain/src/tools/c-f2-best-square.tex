@@ -1,0 +1,60 @@
+%% Figure C2. The best square of every delivered PHerc. 0826 seed, as delivered (one mark per wave)
+%% and under the a2 cluster rule (grey ring), seeds in ascending order of the delivered square.
+%% The two horizontal lines are columns of the plotted table: the fourth wave's source threshold
+%% and the side of a 20 mm square. No number is typed here.
+%% The open black stars (director 2026-09-30) are the certified squares of the organisers' tracer grown from our
+%% starts, column r2c_star_mm of the plotted table, above the x of the seed whose certified square gave the start;
+%% a start whose seed is not delivered sits at the right edge with its seed id (column r2c_star_label).
+%%
+%% Data: tools/c-f2-best-square.py, which writes ../evidence/figures/c-f2-best-square.csv
+\documentclass[border=2pt]{standalone}
+\input{figpreamble.tex}
+
+\pgfplotstableread{../evidence/figures/c-f2-best-square.csv}\cfSq
+
+%% An open five pointed star, outline only.
+\pgfdeclareplotmark{sa open star}{%
+  \pgfpathmoveto{\pgfpointpolar{90}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfpointpolar{126}{0.42\pgfplotmarksize}}\pgfpathlineto{\pgfpointpolar{162}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfpointpolar{198}{0.42\pgfplotmarksize}}\pgfpathlineto{\pgfpointpolar{234}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfpointpolar{270}{0.42\pgfplotmarksize}}\pgfpathlineto{\pgfpointpolar{306}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfpointpolar{342}{0.42\pgfplotmarksize}}\pgfpathlineto{\pgfpointpolar{18}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfpointpolar{54}{0.42\pgfplotmarksize}}\pgfpathclose\pgfusepathqstroke}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    sa base, width=165mm, height=70mm,
+    xmin=0, ymin=0, ymax=30,
+    xlabel={delivered seeds, in ascending order of their best delivered square},
+    ylabel={side of the largest square (mm)},
+    sa legend below, legend style={at={(0.5,-0.22)}, legend columns=4},
+    % text at 7 to 9 pt where the figure prints (owner's order of 2026-09-30): the figure is scaled up by about 1.10
+    label style={font=\footnotesize},
+  ]
+  \addplot[forget plot, only marks, mark=o, mark size=2.2pt, draw=sagrey!70] table[x=x, y=cluster_rule_mm] {\cfSq};
+  \addplot[forget plot, only marks, mark=square*, mark size=1.3pt, draw=sagrey, fill=sagrey] table[x=x, y=delivered_wave1_mm] {\cfSq};
+  \addplot[forget plot, only marks, mark=triangle*, mark size=1.6pt, draw=saorange, fill=saorange] table[x=x, y=delivered_wave2_mm] {\cfSq};
+  \addplot[forget plot, only marks, mark=*, mark size=1.2pt, draw=sablue, fill=sablue] table[x=x, y=delivered_wave3_mm] {\cfSq};
+  \addplot[forget plot, only marks, mark=diamond*, mark size=1.6pt, draw=sagreen, fill=sagreen] table[x=x, y=delivered_wave4_mm] {\cfSq};
+  \addplot[forget plot, only marks, mark=pentagon*, mark size=1.8pt, draw=black, fill=saorange] table[x=x, y=delivered_wave5_mm] {\cfSq};
+  \addplot[forget plot, dashed, thin, draw=sagrey, mark=none] table[x=x, y=source_threshold_mm] {\cfSq};
+  \addplot[forget plot, thick, draw=black, mark=none] table[x=x, y=target_mm] {\cfSq};
+  \addplot[forget plot, only marks, mark=sa open star, mark size=3pt, draw=black, line width=0.6pt,
+    point meta=explicit symbolic, nodes near coords, every node near coord/.append style={font=\tiny, anchor=west, xshift=1pt}]
+    table[x=x, y=r2c_star_mm, meta=r2c_star_label] {\cfSq};
+
+  %% The legend is drawn from explicit images, not from the plots: a wave with no delivered seed yet
+  %% has only nan and pgfplots would skip its plot and shift every later legend entry onto the wrong mark.
+  \addlegendimage{only marks, mark=o, mark size=2.2pt, draw=sagrey!70}\addlegendentry{a2 cluster rule}
+  \addlegendimage{only marks, mark=square*, mark size=1.3pt, draw=sagrey, fill=sagrey}\addlegendentry{wave 1}
+  \addlegendimage{only marks, mark=triangle*, mark size=1.6pt, draw=saorange, fill=saorange}\addlegendentry{wave 2}
+  \addlegendimage{only marks, mark=*, mark size=1.2pt, draw=sablue, fill=sablue}\addlegendentry{wave 3}
+  \addlegendimage{only marks, mark=diamond*, mark size=1.6pt, draw=sagreen, fill=sagreen}\addlegendentry{wave 4}
+  \addlegendimage{only marks, mark=pentagon*, mark size=1.8pt, draw=black, fill=saorange}\addlegendentry{wave 5}
+  \addlegendimage{dashed, thin, draw=sagrey}\addlegendentry{source threshold of wave 4}
+  \addlegendimage{thick, draw=black}\addlegendentry{a 20 mm square}
+  \addlegendimage{only marks, mark=sa open star, mark size=3pt, draw=black, line width=0.6pt}\addlegendentry{organisers' tracer from our start, certified (adjudicated)}
+\end{axis}
+\end{tikzpicture}
+\end{document}

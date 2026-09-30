@@ -1,0 +1,78 @@
+{
+  "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1877",
+  "repository_url": "https://api.github.com/repos/ScrollPrize/villa",
+  "labels_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1877/labels{/name}",
+  "comments_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1877/comments",
+  "events_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1877/events",
+  "html_url": "https://github.com/ScrollPrize/villa/pull/1877",
+  "id": 5560784200,
+  "node_id": "PR_kwDONRspoc8AAAABE1targ",
+  "number": 1877,
+  "title": "vc_grow_seg_from_seed: check the seed against the raw masked scan (#1875)",
+  "user": {
+    "login": "CVasilopoulos",
+    "id": 44254822,
+    "node_id": "MDQ6VXNlcjQ0MjU0ODIy",
+    "avatar_url": "https://avatars.githubusercontent.com/u/44254822?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/CVasilopoulos",
+    "html_url": "https://github.com/CVasilopoulos",
+    "followers_url": "https://api.github.com/users/CVasilopoulos/followers",
+    "following_url": "https://api.github.com/users/CVasilopoulos/following{/other_user}",
+    "gists_url": "https://api.github.com/users/CVasilopoulos/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/CVasilopoulos/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/CVasilopoulos/subscriptions",
+    "organizations_url": "https://api.github.com/users/CVasilopoulos/orgs",
+    "repos_url": "https://api.github.com/users/CVasilopoulos/repos",
+    "events_url": "https://api.github.com/users/CVasilopoulos/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/CVasilopoulos/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 2,
+  "created_at": "2026-09-23T23:26:23Z",
+  "updated_at": "2026-09-24T07:45:57Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "CONTRIBUTOR",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "draft": true,
+  "pull_request": {
+    "url": "https://api.github.com/repos/ScrollPrize/villa/pulls/1877",
+    "html_url": "https://github.com/ScrollPrize/villa/pull/1877",
+    "diff_url": "https://github.com/ScrollPrize/villa/pull/1877.diff",
+    "patch_url": "https://github.com/ScrollPrize/villa/pull/1877.patch",
+    "merged_at": null
+  },
+  "body": "**In one sentence:** `vc_grow_seg_from_seed --scan-volume <raw masked zarr>` tells you, before it traces anything, that your seed is in the air outside the scroll, and `--require-scan-data` makes it refuse instead of growing a surface that means nothing.\n\n**One real example:** On the published PHerc1447 m7 surface prediction (`.../predictions/surfaces/20250521151220-surface-20260413222639-surface-m7-L0-th0.2.zarr`), I picked a seed the way you would pick one from a prediction — a voxel of 255 whose six face neighbours are 255 — inside one of the solid blocks @evilaliv3 counted in #1875. That is `--seed 2678 1345 13536`. With `generations: 24` the tracer grew a 0.6087 cm² patch and said nothing unusual; 1901 of its 2116 cells fall in raw scan chunks that do not exist in the bucket at all, and only 60 (2.8 %) touch a scan voxel above 0. A seed chosen the same way where the scan *does* have data grew a 0.6087 cm² patch too, with 2090 of 2116 cells on scan voxels above 0. The two runs are indistinguishable from their output. With `--scan-volume <the raw masked zarr>` the first one now prints `WARNING: seed 2678 1345 13536 lands in scan chunk 105/10/20, which the scan does not hold`, the second prints `scan value at seed [5733, 4794, 5277] is 85`, and with `--require-scan-data` the first exits 1 in 25 s without starting the trace.\n\n**Before:** nothing in the tool looks outside the volume it is tracing. An explicit `--seed` is used as given; the random-seed mode does check `chunk_has_source_data`, but on the *prediction*, which is exactly the volume that is wrong here. So a seed in a phantom block passes every check, the trace runs for as long as you let it, and the surface it writes carries a perfectly ordinary `area_cm2`.\n\n**After this PR:** `--scan-volume` takes the raw masked OME-Zarr the prediction was made from, local path or URL, and the seed the run is about to grow from is read in it once, at level 0. A voxel of 0, or a chunk the sparse store does not hold, is reported. By default that is a warning and the run continues, so no existing command changes behaviour; `--require-scan-data` turns it into an exit 1 before the tracer starts. Without `--scan-volume` nothing is opened and nothing is read.\n\n**Proof:** upstream `main` `78877eaf3` against this branch, same seed, same params, same `VC_GROWPATCH_RNG_SEED=42`, both binaries built from their own worktree in the project's builder container.\n\n| run | binary | rc | what it said | surface |\n|---|---|---|---|---|\n| phantom seed, no new flag | main | 0 | `seed location [2678, 1345, 13536] value is 255` | 0.608680 cm², 2116 cells |\n| phantom seed, no new flag | this PR | 0 | the same, nothing added | 0.608643 cm², 2116 cells |\n| phantom seed, `--scan-volume` | this PR | 0 | **`WARNING: ... lands in scan chunk 105/10/20, which the scan does not hold`** | 0.608592 cm², still grown |\n| phantom seed, `--scan-volume --require-scan-data` | this PR | **1** | `ERROR: ... lands in scan chunk 105/10/20, ...` | **nothing written** |\n| real seed, no new flag | main | 0 | `seed location [5733, 4794, 5277] value is 255` | 0.608721 cm² |\n| real seed, `--scan-volume` | this PR | 0 | **`scan value at seed [5733, 4794, 5277] is 85`**, no warning | 0.608649 cm² |\n| `--require-scan-data` without `--scan-volume` | this PR | **1** | `ERROR: --require-scan-data can only be used with --scan-volume` | nothing, 0 s |\n\nWhere the two patches actually lie, measured by mapping every written cell to its raw chunk:\n\n| patch (grown by the `main` binary) | cells | raw chunks covering them | on a scan voxel > 0 | on a scan voxel of 0 | in an absent chunk |\n|---|---|---|---|---|---|\n| phantom seed | 2116 | 87, of which **74 absent** | 60 (2.8 %) | 155 | **1901** |\n| real seed | 2116 | 79, of which **0 absent** | **2090 (98.8 %)** | 26 | 0 |\n\nBackwards compatibility, same seed without the new flag: with the wall-clock speed fields and the Ceres iteration counts normalised away, the before and after logs differ in one line, the final `generated surface 815383.100898 vx^2 (0.608680 cm^2)` against `815333.496825 vx^2 (0.608643 cm^2)`. Every `-> done N | fringe N | area X mm^2` line is identical. The 3.7e-5 cm² is inside the tracer's own run-to-run spread: `main` run three times on this seed gives 0.608680, 0.608528, 0.608584 cm².\n\n**Why / where this is useful:** anyone seeding the tracer from a published surface prediction — batch seeding scripts, a sweep over candidate seeds, someone trying a coordinate they read off the prediction in VC3D — can now ask one question before spending the trace: does the scan have anything there? On PHerc1447 that question is not academic. @evilaliv3 measured 4,938 of 74,683 chunks above 0.9 of 255, holding 22 % of all lit voxels, and 48 of 150 naturally chosen seeds landing inside them. A refused seed costs a line; a phantom trace costs the run plus whatever is built on it downstream. The data itself is not something a PR can fix — the ask in #1875 is for the published predictions to be masked, or the mask published — so this is only the user-side guard the issue names, made available in the tool that meets the problem first.\n\n- [x] I personally verified that the example and proof above were produced by this PR on the stated data.\n\n## Details\n\nDiagnosis and the numbers above the line are @evilaliv3's, in #1875. The same artefact was reported earlier by @spencerdavis-tx for Scroll 3 in #1114 (~70 % of positive voxels where the masked CT is 0), noted by Chris Scheirer in [report 03](https://github.com/ShribyrLabs/vesuvius-reports/blob/main/03-m7-orientation-bias/README.md) as a ring of surface in the air, measured across 23 First Letters volumes by @Bullo27 in [this comment](https://github.com/ScrollPrize/villa/issues/1875#issuecomment-5802271337) (34.0 % to 60.7 % of lit prediction samples where the scan is 0), and handled with a `clean` mode by @axiosdevs in [Herculaneum Scroll Tools](https://github.com/axiosdevs/herculaneum-scroll-tools). No code from any of those is used here.\n\n**What I reproduced myself, and what I took from the report.** I re-listed the prediction's level 0 and got the same 74,683 chunks, then read a 200-chunk random sample (`numpy.random.default_rng(20260924)`, 63 MB): 9 chunks strictly above 0.9 of 255 (4.5 %, against 6.6 % over the whole volume), holding 16.7 % of the sample's lit voxels (against 22.22 %), and all 72 raw masked chunks covering those 9 blocks answer HTTP 404 while the control chunk `96/25/25` inside the scroll answers 200. I did **not** re-run the full 74,683-chunk census, the md5 check against the published listing, the 200-block / 1,574-chunk comparison, the \"48 of 150 seeds\" draw, or the 9.21 cm² / 30,975-cell trace; those stay the reporter's. My own phantom trace is smaller and 97.2 %, not 100 %, outside the mask.\n\nTwo commits on `78877eaf3`:\n\n- `core/include/vc/core/util/SeedScanCheck.hpp` and `apps/src/vc_grow_seg_from_seed.cpp`. `sampleSeedInScan()` reads the seed voxel from any `IChunkedArray` at level 0 and returns `Data`, `ZeroVoxel`, `MissingChunk` or `OutsideVolume`; an absent chunk and an all-fill chunk are both `MissingChunk`, and a failed fetch throws rather than being read as empty air. `evaluateSeedScan()` turns that into a message and a stop/continue, defaulting to `Warn`. The CLI opens the scan only when `--scan-volume` is given, refuses a scan whose level-0 shape differs from the traced volume's (a seed coordinate would not be the same voxel in both), and runs the check once, after the seed mode has settled on a coordinate and before the tracer starts. `resume` and `gen_neighbor` are skipped: they have no seed coordinate.\n- `apps/src/vc_grow_seg_from_segments.cpp` gets the same two options for `--seed-coord` / `--seed-coords`, the other entry point that starts a growth from a coordinate. The scan is opened through `Volume`, not the local-only `VcDataset` that tool uses for `--volume`, so `--scan-volume` accepts a URL in both. **I did not run this one on scroll data** — I had no local volume package for it — so that commit rests on the shared helper's unit tests and can be dropped on its own if you would rather see it exercised first.\n\n`core/test/test_seed_scan_check.cpp` covers the four seed cases and the default over a real 64³ local zarr with only one chunk written, so an unwritten chunk is genuinely absent on disk; `ctest -R test_seed_scan_check` passes.\n\nThe 25 s the refused run takes is opening the prediction and the scan over HTTPS; the check itself is one chunk. Limitations: the check is one voxel, so a seed one voxel inside the mask still passes — it is a guard against the air, not a quality metric. It costs one metadata fetch and one chunk on the scan, only when asked for. VC3D passes neither option, so the GUI is unchanged. The scan and the prediction must share a coordinate space and level-0 shape; the tool says so and exits rather than guessing.\n\n### Overlaps with #1869\n\nThis PR and #1869 both edit the option block in `vc_grow_seg_from_seed.cpp`, and they conflict:\n#1869 rewords the `--resume-generations` help line, this one adds `--scan-volume` and\n`--require-scan-data` immediately after it. Verified by rebasing one onto the other\n(`volume-cartographer/apps/src/vc_grow_seg_from_seed.cpp`, one conflict hunk, nothing else).\nThe resolution is to keep both sides: #1869's reworded help line followed by these two new\noptions. Whichever you take first, I will rebase the other and say so here. I have deliberately\nnot rebased this branch, because a force-push would discard the workflow approval its checks\ncurrently have.\n\nAI-assisted, human-directed. All runs above were executed on the published data.\n\n\n",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1877/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1877/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null
+}

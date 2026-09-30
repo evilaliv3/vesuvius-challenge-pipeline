@@ -1,0 +1,7 @@
+"# written by stevens-changes-0826-91/tools/aggregate91.py at 2026-09-28T14:08:20Z: one row per arm A to E for the fifth work (PLACEHOLDERS.md of f49f6c7d); A to D medians over the seeds whose run completed (evidence/per-run.csv), largest_square_mm = the run's best square_mm_min_step; E from evidence/e-yield.csv"
+tool,arm,cpu_seconds,wall_seconds,sheets,stevens_formula_cm2,largest_square_mm,a2_share,v2_cells,deaths,seeds_per_draw,seeds,note
+stevens-changes-0826-91/tools/aggregate91.py,A,4430.1500,2974.6000,10.0000,21.3432,5.6804,0.0023,0.0000,0,not measurable,8,"completed 8, deaths 0, not run 0, pending 0 of 8 seeds"
+stevens-changes-0826-91/tools/aggregate91.py,B,4213.6000,2658.8500,10.0000,21.3432,5.6804,0.0023,0.0000,0,not measurable,8,"completed 8, deaths 0, not run 0, pending 0 of 8 seeds"
+stevens-changes-0826-91/tools/aggregate91.py,C,513.5000,433.2500,10.0000,21.3432,5.6804,0.0023,0.0000,0,not measurable,8,"completed 8, deaths 0, not run 0, pending 0 of 8 seeds"
+stevens-changes-0826-91/tools/aggregate91.py,D,101.9500,73.7500,10.0000,10.5930,5.7772,0.0017,0.0000,0,not measurable,8,"completed 8, deaths 0, not run 0, pending 0 of 8 seeds"
+stevens-changes-0826-91/tools/aggregate91.py,E,not measurable,not measurable,not measurable,not measurable,not measurable,not measurable,not measurable,not measurable,0.0235,158,"seed selection, no growth: 158 delivered seeds of 6712 draws, four waves (e-yield.csv; survivors per draw 0.0308)"

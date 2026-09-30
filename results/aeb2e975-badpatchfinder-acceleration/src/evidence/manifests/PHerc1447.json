@@ -1,0 +1,45 @@
+{
+ "scroll": "PHerc1447",
+ "prize_list": "first-letters-2027",
+ "volume_id": "20250521151220",
+ "model": "20260413222639-surface-m7-L0-th0.2",
+ "voxel_um": 8.64,
+ "voxel_um_source": "samplePixelSize 0.00864 mm in /source/metadata/scan/tomo/acquisition/detector of metadata.json, published beside this scroll's own prediction zarr and fetched 2026-09-20. Read this field, never a constant, and never another scroll's value: the scans differ.",
+ "source": "s3://vesuvius-challenge-open-data/PHerc1447/representations/predictions/surfaces/20250521151220-surface-20260413222639-surface-m7-L0-th0.2.zarr/0/",
+ "listed_at": "2026-09-15T09:20:01Z",
+ "published": {
+  "chunks": 74683,
+  "bytes": 20999206150,
+  "compressor": {
+   "blocksize": 0,
+   "clevel": 1,
+   "cname": "zstd",
+   "id": "blosc",
+   "shuffle": 1
+  }
+ },
+ "shape": [
+  24297,
+  8343,
+  8343
+ ],
+ "chunks": [
+  192,
+  192,
+  192
+ ],
+ "dtype": "|u1",
+ "fill_value": 0,
+ "dimension_separator": "/",
+ "local": {
+  "compressor": {
+   "blocksize": 0,
+   "clevel": 1,
+   "cname": "zstd",
+   "id": "blosc",
+   "shuffle": 1
+  },
+  "path": "/data/scrollagent/data/datasets/PHerc1447/0"
+ },
+ "listing_sha256": "3d1af37cde96beb080795cee7dd639028f0fb8eb5b832deb4d9fca98c0b7097a"
+}

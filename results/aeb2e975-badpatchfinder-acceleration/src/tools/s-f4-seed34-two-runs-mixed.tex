@@ -1,0 +1,57 @@
+%% Figure S4. Two runs mixed in one growth tree: seed34's stale ids, the earlier run's
+%% leftovers, and what became of them.
+%%
+%% CAPTION: Top, one tick per patch id that seed34's growth log names before this run could have
+%% created it, placed at the id on the abscissa and at the round the aligner first named it on
+%% the ordinate; columns patch_id and first_named_at_round_header of
+%% growth-bookkeeping/evidence/impossible-ids-seed34.csv. Middle, the files under
+%% growth/surface.bp that an earlier run left in the same folder and that this growth opened as
+%% its starting surface, one point each at its modification time in minutes from the earliest of
+%% them and at its size, columns mtime and bytes of
+%% growth-bookkeeping/evidence/stale-chunks-seed34.csv. Bottom, the composition of the tree,
+%% each bar column value of growth-bookkeeping/evidence/id-inventory-seed34.csv on the row whose
+%% quantity the plotted table names; that file is a quantity table and is the source of the
+%% counts only, since it carries no patch id and no timestamp. The strip is not coloured by
+%% class: no file of this study pairs a stale id with whether the patches folder holds it, and
+%% the pending line printed on the top panel says so and names the table that would fill it. The
+%% numbers drawn are in evidence/figures/s-f4-seed34-two-runs-mixed.csv.
+%%
+%% Data: tools/s-f4-seed34-two-runs-mixed.py
+\documentclass[border=2pt]{standalone}
+\input{figpreamble.tex}
+
+\pgfplotstableread{../evidence/figures/s-f4-seed34-two-runs-mixed.csv}\sfMix
+\pgfplotstablegetelem{0}{pending_label}\of\sfMix
+\edef\sfpending{\pgfplotsretval}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={group size=1 by 3, vertical sep=19mm},
+    sa base, width=104mm,
+  ]
+
+\nextgroupplot[height=32mm, title={stale ids of seed34, by the round that named them},
+               xlabel={patch id}, ylabel={round}, only marks, ymin=0]
+  \addplot[mark=|, mark size=2.2pt, draw=saorange]
+      table[x=stale_patch_id, y=stale_round] {\sfMix};
+  %% The «pending» note that stood here was dropped on 2026-09-28 (figure pass): it sat over the
+  %% marks, and what it called pending, which stale ids have a patch file, is the last bar of the
+  %% third panel. The column pending_label stays in the plotted table.
+
+\nextgroupplot[height=32mm, title={files the earlier run left under growth/surface.bp},
+               xlabel={minutes from the earliest of them}, ylabel={bytes}, only marks]
+  \addplot[mark=*, mark size=1.1pt, draw=sagreen, fill=sagreen]
+      table[x=chunk_minutes, y=chunk_bytes] {\sfMix};
+
+\nextgroupplot[sa bars, height=44mm, bar width=9pt, xtick=data,
+               xticklabels from table={\sfMix}{comp_label},
+               x tick label style={rotate=22, anchor=east, font=\tiny},
+               ylabel={patch ids}, ymode=log, log origin y=infty,
+               nodes near coords, every node near coord/.append style={font=\tiny},
+               point meta=explicit symbolic]
+  \addplot[draw=sablue, fill=sablue!40]
+      table[x=i, y=comp_count, meta=comp_count] {\sfMix};
+\end{groupplot}
+\end{tikzpicture}
+\end{document}

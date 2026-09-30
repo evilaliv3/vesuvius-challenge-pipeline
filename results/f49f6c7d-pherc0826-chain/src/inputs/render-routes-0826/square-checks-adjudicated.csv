@@ -1,0 +1,22 @@
+# written by render-routes-0826/tools/adjudicate.py: the director's adjudication rule of 2026-09-29T23:59:34Z (DECLARATION addition 00:01Z): in each crossing pair of traced surfaces the one with the larger share of its crossing region within 3 voxels of our 800 sheets is kept, the other flagged, ties flag both
+utc,route,surface,certified_this_study_mm,certified_article_mm,certified_adjudicated_mm,certified_adjudicated_cells,certified_adjudicated_corner,in_square_holes,in_square_v2_800,in_square_flagged_crossing,in_square_self_conflict_a,in_square_self_conflict_b,in_square_a2_rule,flagged_crossing_cells_on_surface,exceeds_29_8961,step_mm
+2026-09-30T00:04:46Z,R2bnative,PHerc0826-seed5364-squarecentre,24.4046,24.4047,24.4047,651,116 150,0,0,0,0,0,0,636,no,0.037488
+2026-09-30T00:05:11Z,R2bnative,PHerc0826-seed6729-squarecentre,18.6396,18.6396,18.6396,498,290 0,0,0,0,0,0,0,1657,no,0.037429
+2026-09-30T00:06:51Z,R2bnative,PHerc0826-seed6729-seedpoint,15.5411,15.5411,15.5411,414,387 311,0,0,0,0,0,0,14513,no,0.037539
+2026-09-30T00:07:48Z,R2bnative,PHerc0826-seed5364-seedpoint,22.7255,22.7256,18.1130,483,0 0,0,0,0,0,0,0,3196,no,0.037501
+2026-09-30T00:08:48Z,R2bnative,PHerc0826-seed6733-seedpoint,16.2795,16.2793,16.2793,434,226 367,0,0,0,0,0,0,18638,no,0.037510
+2026-09-30T00:09:01Z,R2bnative,PHerc0826-seed2715-seedpoint,25.1612,25.1612,25.1612,670,0 0,0,0,0,0,0,0,0,no,0.037554
+2026-09-30T00:09:10Z,R2bnative,PHerc0826-seed6733-squarecentre,19.5866,19.5865,19.5865,522,0 0,0,0,0,0,0,0,4559,no,0.037522
+2026-09-30T00:10:10Z,R2bnative,PHerc0826-seed2715-squarecentre,23.4126,23.4125,23.4125,624,166 98,0,0,0,0,9,0,879,no,0.037520
+2026-09-30T00:11:29Z,R2bnative,PHerc0826-seed6273-squarecentre,30.0063,30.0063,27.8710,744,57 0,0,0,0,0,0,0,2593,no,0.037461
+2026-09-30T00:12:11Z,R2bnative,PHerc0826-seed6273-seedpoint,26.6068,26.6065,23.6836,632,0 169,0,0,0,0,0,0,5854,no,0.037474
+2026-09-30T00:18:43Z,R2cnative,PHerc0826-seed6273-squarecentre,29.8961,28.2790,28.1285,748,392 374,0,0,0,0,0,0,37271,no,0.037605
+2026-09-30T00:20:59Z,R2cnative,PHerc0826-seed5364-squarecentre,27.2369,24.0435,23.4049,623,63 370,0,0,0,0,0,0,107144,no,0.037568
+2026-09-30T00:21:35Z,R2dnative,PHerc0826-seed1727-S0-sq,27.9361,27.9365,27.9365,744,371 326,0,0,0,0,12,0,39480,no,0.037549
+2026-09-30T00:27:28Z,R2dnative,PHerc0826-seed6475-S0-sq,18.2094,18.2093,17.2707,460,963 450,0,0,0,0,9,0,69940,no,0.037545
+2026-09-30T00:29:20Z,R2dnative,PHerc0826-seed2604-S0-sq,29.8314,29.8316,27.2799,727,330 479,0,0,0,0,0,0,54055,no,0.037524
+2026-09-30T00:29:58Z,R2dnative,PHerc0826-seed6732-S4-sq,25.7710,25.7711,25.7711,688,0 515,0,0,0,0,0,0,89312,no,0.037458
+2026-09-30T00:36:14Z,R2dnative,PHerc0826-seed6729-S2-sq,32.7761,30.7156,27.6815,739,415 275,0,0,0,0,0,0,45073,no,0.037458
+2026-09-30T00:36:19Z,R2dnative,PHerc0826-seed4440-S1-sq,27.9028,27.9030,24.7901,661,80 598,0,0,0,0,0,0,67058,no,0.037504
+2026-09-30T00:37:53Z,R2dnative,PHerc0826-seed6733-S9-sq,28.1929,26.2437,27.3309,729,274 674,0,0,0,0,0,0,19438,no,0.037491
+2026-09-30T00:40:01Z,R2dnative,PHerc0826-seed2715-S0-sq,41.9669,41.9664,41.9664,1120,86 126,0,0,0,0,0,0,1973,yes,0.037470

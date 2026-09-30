@@ -1,0 +1,6 @@
+"# written by chain-0826/tools/identity_summary.py at 2026-09-26T19:59:50Z: every seed row of the G6 identity bar, flathash+avx512 against unchanged; reading per DECLARATION.md addition of 2026-09-26T19:46:28Z"
+seed,variant_result,unchanged_result,growth_identity,sheets_identity,stage_files_identity,holds,reading,source
+PHerc0826-seed109,0 sheets 10 wall 152,0 sheets 10 wall 197,identical 1199 of 1199,identical 10 of 10,identical 8 of 8,yes,holds,identity-0826.csv
+PHerc0826-seed300,0 sheets 10 wall 1692,0 sheets 10 wall 2126,identical 8065 of 8065,identical 10 of 10,identical 8 of 8,yes,holds,identity-0826.csv
+PHerc0826-seed43,growth 139,growth 139,not measurable,not measurable,not measurable,not measurable (a run did not finish: growth / growth),"not measurable, crashed on both builds (replaced)",identity-0826.csv
+PHerc0826-seed237,0 sheets 10 wall 506,0 sheets 10 wall 689,identical 3830 of 3830,identical 10 of 10,identical 8 of 8,yes,holds,identity-0826-PHerc0826-seed237.csv

@@ -1,0 +1,4 @@
+# written by square20-0826-95/tools/checks_file.py at 2026-09-28T14:31:06Z from evidence/check95-T72.csv and check95-box-T72.csv: PHerc0826-seed2604 C80 (g 72000) sheet 0, verdict about the cells inside the 21.7474 mm square (581 cells at 600, 648)
+check,verdict,square_mm,cells_in_square,flagged_cells_in_square,crossed_cells_in_square,jumped_cells_in_square,cells_whole_sheet,flagged_cells_whole_sheet,square_with_itself_working_cells,largest_square_avoiding_flagged_mm,method
+v2_crossing,crossing found,21.7474,337561,317,0,317,1487010,6377,,20.7368,"sheet_cross_v2 pair_v2 and marks as area-0826-90 ran them, partners the 800 sheets plus 9 siblings; flagged = crossed or jumped"
+one_lamina,crossing found,21.7474,337561,3383,,,1487010,111310,799,9.4700,"area-0826-90 lamina.conflicts self conflict at one pitch 15.125 voxels; square_with_itself: working cells (stride 2) of the square in conflict with another cell of the square, of 84681"

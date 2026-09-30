@@ -1,0 +1,7 @@
+"# written by chain-0826/tools/draw_near_wave5.py at 2026-09-28T12:41:30Z: one row per source of the near draw; candidates_in_shell counts voxels of 255 with six 255 neighbours at 48 to 128 voxels from the source point"
+source,source_draw_order,source_best_square_mm,candidates_in_shell,drawn,draws_made,redrawn,attempts
+PHerc0826-seed1727,1727,17.0473,654496,8,8,0,PHerc0826-seed6713..6720
+PHerc0826-seed2604,2604,17.7995,1013896,8,8,0,PHerc0826-seed6721..6728
+PHerc0826-seed4440,4440,15.1859,701215,8,8,0,PHerc0826-seed6729..6736
+PHerc0826-seed5364,5364,17.1642,775367,8,8,0,PHerc0826-seed6737..6744
+PHerc0826-seed6273,6273,15.6438,1055857,8,8,0,PHerc0826-seed6745..6752

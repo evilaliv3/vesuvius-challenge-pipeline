@@ -1,0 +1,79 @@
+--- a/pipeline9/PatchSpringSimulation.cpp
++++ b/pipeline9/PatchSpringSimulation.cpp
+@@ -1,3 +1,4 @@
++#include <iomanip>
+ #include "PatchSpringSimulation.hpp"
+ 
+ #include <algorithm>
+@@ -242,7 +243,7 @@
+             auto it = patchIndexLookup_.find(patchNum);
+             if (it == patchIndexLookup_.end()) continue;
+             const Patch& p = patches_[it->second];
+-            f << patchNum << " " << p.x << " " << p.y << " " << addAngle(p.a, p.ga) << "\n";
++            f << std::setprecision(17) << patchNum << " " << p.x << " " << p.y << " " << addAngle(p.a, p.ga) << "\n";
+         }
+     }
+     //std::cout << "Saved\n";
+--- a/pipeline9/simpaper10.cpp
++++ b/pipeline9/simpaper10.cpp
+@@ -1,3 +1,4 @@
++#include <iomanip>
+ #include <cstdio>
+ #include <cstdlib>
+ #include <tuple>
+@@ -542,6 +543,7 @@
+ 	
+ 	{
+ 		std::ofstream os(outPath("/rel.csv"));
++			os << std::setprecision(9);
+ 		for(auto &a : *am)
+ 		{
+ 			for(auto &al : a.second)
+@@ -880,6 +882,7 @@
+ 		int tenuti = 0;
+ 		{
+ 			std::ofstream os(outPath("/rel.csv"));
++			os << std::setprecision(9);
+ 			// Same convention as the growth stage writes: the first column is the patch that was
+ 			// aligned, the second is the one it was aligned against, which AlignPatches reports in
+ 			// field zero. Here p1 is the one being aligned, so it goes first.
+@@ -1047,6 +1050,7 @@
+ 
+ 		{
+ 			ofstream os(outPath("/patchVolCoords.csv"));
++			os << std::setprecision(9);
+ 		
+ 			for(auto &p : *patches)
+ 			{
+@@ -1093,6 +1097,7 @@
+ 		}
+ 		{
+ 			std::ofstream os(outPath("/badpatchscores.csv"));
++			os << std::setprecision(9);
+ 			for(auto i : badPatchScores)
+ 			{
+ 				os << std::get<0>(i) << "," << std::get<1>(i) << "," << std::get<2>(i) << std::endl;;
+@@ -1182,6 +1187,7 @@
+ 		}
+ 		{
+ 			std::ofstream os(outPath("/badpatchscores.csv"));
++			os << std::setprecision(9);
+ 			for(auto i : badPatchScores)
+ 			{
+ 				os << std::get<0>(i) << "," << std::get<1>(i) << "," << std::get<2>(i) << std::endl;;
+@@ -1224,6 +1230,7 @@
+ 		
+ 		{
+ 			ofstream os(outPath("/alignmentorder.txt"));
++			os << std::setprecision(9);
+ 			
+ 			for(auto &a : alignmentOrder)
+ 			{
+@@ -1327,6 +1334,7 @@
+ 		
+ 		{
+ 			ofstream os(outPath("/alignmentorders.txt"));
++			os << std::setprecision(9);
+ 			
+ 			for(auto &i : alignmentOrders)
+ 			{

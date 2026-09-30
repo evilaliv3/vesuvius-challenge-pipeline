@@ -1,0 +1,14 @@
+--- a/pipeline9/badpatchfinder.h
++++ b/pipeline9/badpatchfinder.h
+@@ -28,11 +28,7 @@
+ // for k>0: the 2D grid of the negative half plane is offset by half a cell (2 voxels here)
+ // from that of the positive half plane. Build with -DSYMMETRIC_ROUND to round to nearest on
+ // both sides; the default is left as it was so that published numbers still reproduce.
+-#ifdef SYMMETRIC_ROUND
+ #define ROUND(x) ((int)floorf((x)+0.5f))
+-#else
+-#define ROUND(x) (((x)-(int)(x))<0.5?(int)(x):((int)(x))+1)
+-#endif
+ 
+ // what resolution to use for points in rendered?
+ #define RESCALE 1

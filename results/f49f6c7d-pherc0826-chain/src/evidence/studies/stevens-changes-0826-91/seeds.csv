@@ -1,0 +1,10 @@
+"# written by stevens-changes-0826-91/tools/select_seeds.py at 2026-09-28T05:52:56Z: rule of DECLARATION.md (population 145 delivered 0826 seeds with a square, growth patches <= 10000, delivered growth tree on disk, road 1b 12 and road 2 3 excluded); rng 20260928"
+tool,share_half,square_bin,share_median,square_quartiles_of_half,half_size,cell_size,draw_index,attempt,pred_chunk_share_255,largest_square_mm_min_step,growth_patches,note
+stevens-changes-0826-91/tools/select_seeds.py,low,1,0.1877,6.9570;8.7467;10.2075,73,19,3,PHerc0826-seed1700,0.1581,6.3190,2162,
+stevens-changes-0826-91/tools/select_seeds.py,low,2,0.1877,6.9570;8.7467;10.2075,73,18,9,PHerc0826-seed5702,0.1877,8.3765,1627,
+stevens-changes-0826-91/tools/select_seeds.py,low,3,0.1877,6.9570;8.7467;10.2075,73,18,16,PHerc0826-seed6689,0.1249,9.5049,7512,
+stevens-changes-0826-91/tools/select_seeds.py,low,4,0.1877,6.9570;8.7467;10.2075,73,18,0,PHerc0826-seed1595,0.1115,14.5818,9226,
+stevens-changes-0826-91/tools/select_seeds.py,high,1,0.1877,8.4025;9.3330;10.5424,72,18,11,PHerc0826-seed5989,0.2302,5.5337,5396,
+stevens-changes-0826-91/tools/select_seeds.py,high,2,0.1877,8.4025;9.3330;10.5424,72,18,5,PHerc0826-seed4202,0.2290,8.4114,9019,
+stevens-changes-0826-91/tools/select_seeds.py,high,3,0.1877,8.4025;9.3330;10.5424,72,18,8,PHerc0826-seed4690,0.2421,10.2424,8500,
+stevens-changes-0826-91/tools/select_seeds.py,high,4,0.1877,8.4025;9.3330;10.5424,72,18,7,PHerc0826-seed3648,0.2520,10.6241,9208,

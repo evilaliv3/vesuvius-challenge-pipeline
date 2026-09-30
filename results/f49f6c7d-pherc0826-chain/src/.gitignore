@@ -1,0 +1,6 @@
+# Written by a run, not part of the source.
+__pycache__/
+paper/build/
+paper/figures/*.aux
+paper/figures/*.pdflatex.log
+paper/figures/*.log

@@ -138,6 +138,9 @@ def score(scroll, raw):
             centroid_ci_hi_mm=round(float(np.percentile(cen_boot, 97.5)), 2),
             fake_axis_mm=round(float(np.median(fake_e)), 2),
             margin_vs_centroid_mm=round(margin, 2),
+            # the margin before rounding, which the verdicts test (referee 2026-09-30, finding 3:
+            # PHerc0813 counted as won at the rounded 0.30 against the threshold of 0.30)
+            margin_unrounded_mm=float(margin),
             margin_ci_lo_mm=round(float(m_lo), 2), margin_ci_hi_mm=round(float(m_hi), 2),
             margin_ci_includes_zero=int(m_lo <= 0 <= m_hi),
             margin_ci_below_threshold=int(m_lo < L.THRESHOLD_MM),
@@ -152,9 +155,10 @@ def verdict(rows, block, need_repair, need_beat):
     a = {(q["scroll"]): q for q in rows if q["block"] == block and q["variant"] == "as-is"}
     repaired = [s for s in b if b[s]["median_mm"] < a[s]["median_mm"]]
     zero_outside = all(b[s]["inside"] == b[s]["inside_of"] for s in b)
-    beats = [s for s in b if b[s]["margin_vs_centroid_mm"] >= T]
+    # the unrounded margin: a margin that rounds to the threshold is not one that reaches it
+    beats = [s for s in b if float(b[s]["margin_unrounded_mm"]) >= T]
     never_double = all(b[s]["median_mm"] <= 2 * b[s]["centroid_mm"] for s in b)
-    loses = [s for s in b if b[s]["margin_vs_centroid_mm"] <= -T]
+    loses = [s for s in b if float(b[s]["margin_unrounded_mm"]) <= -T]
     p1 = len(repaired) >= need_repair and zero_outside
     won = len(beats) >= need_beat and never_double
     lost = len(loses) >= need_beat

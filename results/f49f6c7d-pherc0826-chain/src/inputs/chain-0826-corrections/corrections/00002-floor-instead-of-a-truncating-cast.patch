@@ -1,0 +1,32 @@
+--- a/pipeline9/common_types.cpp
++++ b/pipeline9/common_types.cpp
+@@ -318,13 +318,13 @@
+ 	for(auto &point : points)
+ 	{
+ 		if (point.x<minux || first)
+-			minux = point.x;
++			minux = (int)floorf(point.x);
+ 		if (point.x>maxux || first)
+-			maxux = point.x;
++			maxux = (int)floorf(point.x);
+ 		if (point.y<minuy || first)
+-			minuy = point.y;
++			minuy = (int)floorf(point.y);
+ 		if (point.y>maxuy || first)
+-			maxuy = point.y;
++			maxuy = (int)floorf(point.y);
+ 
+ 		if (point.v.x<minx || first)
+ 			minx = point.v.x;
+@@ -793,9 +793,9 @@
+ 	
+ 	for(auto &pt : points)
+ 	{
+-		pointGrid[(int)pt.x-minux][(int)pt.y-minuy] = new patchPoint(pt);
++		pointGrid[(int)floorf(pt.x)-minux][(int)floorf(pt.y)-minuy] = new patchPoint(pt);
+ 		
+-		//patchPoint *p = pointGrid[(int)pt.x-minux][(int)pt.y-minuy];
++		//patchPoint *p = pointGrid[(int)floorf(pt.x)-minux][(int)floorf(pt.y)-minuy];
+ 		//printf("%d,%d : %f,%f,%f,%f,%f\n",(int)pt.x-minux,(int)pt.y-minuy,p->x,p->y,p->v.x,p->v.y,p->v.z);
+ 	}
+ 	

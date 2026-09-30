@@ -1,0 +1,13 @@
+# written by stevens-remedy-half-on/tools/summarise.py at 2026-09-25T18:09:25Z: one row per seed of ten-seeds.csv, arm-on (c, l, vm 10, bridges, nm 10 1000, manualBadPatch, vm 10, hm 10, fm 30 10, delivered binary) against the delivery; best_* = the largest over the seed's sheets; a2 at T* 25, cluster rule S 101. Bar (DECLARATION.md): the remedy fully on changes the delivered sheets on at least one seed of ten. One annealing run per seed is one random draw (anneal.cpp:675).
+seed,status,sheets_delivered,sheets_arm,sheets_byte_equal,sheets_changed,delivered_sheets_changed,badpatches_stage_c,bridges_in_badbridges_csv,anneal_excluded_patches,best_square_mm_before,best_square_mm_after,a2_best_cluster_rule_square_mm_before,a2_best_cluster_rule_square_mm_after,a2_kept_points_sum_before,a2_kept_points_sum_after,a2_largest_cluster_before,a2_largest_cluster_after,nm_seconds,downstream_seconds,bytes_kept
+PHerc1447-seed262,measured,10,10,1,9,yes,1461,2,199,11.6981,8.1453,11.6981,8.1453,115,0,115,5,1336.3,1538,145797733
+PHerc1447-seed1193,measured,10,10,0,10,yes,1600,0,278,13.3658,10.2063,13.3658,10.2063,109,0,109,6,1459.0,1717,156591391
+PHerc1447-seed73,measured,10,10,0,10,yes,19749,0,139,13.4440,10.7826,13.4440,10.7826,0,0,9,9,1333.9,9435,96355369
+PHerc1447-seed422,measured,10,10,8,2,yes,7,0,3,4.5940,4.5916,4.5940,4.5916,0,0,0,1,28.4,32,6399109
+PHerc1447-seed1166,measured,10,10,0,10,yes,1434,2,93,8.7979,7.6933,8.7979,7.6933,0,0,59,6,1178.9,1322,120951049
+PHerc1447-seed355,measured,10,10,0,10,yes,2030,7,136,15.2840,12.2848,13.2602,12.2848,1436,0,504,91,2126.6,2407,241455105
+PHerc1447-seed486,measured,10,10,0,10,yes,1964,2,167,15.2583,10.9734,13.6174,10.9734,1969,0,1486,77,2647.3,3070,272147449
+PHerc1447-seed664,measured,10,10,0,10,yes,1740,1,113,10.0413,10.2511,10.0413,10.2511,0,0,75,25,2284.7,2601,186661530
+PHerc1447-seed57,measured,10,10,6,4,yes,18245,0,17,7.8093,7.3947,7.8093,7.3947,0,0,9,9,632.2,899,30938884
+PHerc1447-seed539,measured,10,10,0,10,yes,825,0,56,9.3182,7.4911,9.3182,7.4911,0,0,54,21,1045.4,1148,82254698
+BAR,met: the remedy fully on changes the delivered sheets on 10 of 10 measured seeds,,,,,,,,,,,,,,,,,,,

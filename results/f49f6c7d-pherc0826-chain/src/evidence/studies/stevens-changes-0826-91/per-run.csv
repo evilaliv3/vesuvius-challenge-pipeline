@@ -1,0 +1,42 @@
+"# written by stevens-changes-0826-91/tools/aggregate91.py at 2026-09-28T14:08:20Z: one row per arm and seed, from evidence/runs, evidence/measures (the total row of measure91.py) and evidence/not-run.csv; X is the chain as delivered (C plus the corrections), no run here, its wall read from chain-0826 (machine shared)"
+tool,arm,attempt,outcome,cpu_seconds,wall_seconds,growth_patches,growth_peak_vmhwm_kb,sheets,stevens_formula_cm2,best_square_mm,a2_share,v2_cells,clean_cm2
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed1700,completed,235.7,163.4,178,1617108,10,4.4684,5.2735,0.000418,0,4.4857
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed5702,completed,30.6,23.6,34,1007676,10,0.8597,2.7294,0.000000,0,0.8612
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed6689,completed,6098.3,4254.4,3479,2770836,10,32.8282,11.3669,0.011020,0,34.7065
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed1595,completed,12703.1,8014.0,8947,5082596,10,23.2786,4.7096,0.002060,0,23.3883
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed5989,completed,2762.0,1694.8,2363,2322496,10,19.4078,6.0873,0.007525,0,19.9210
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed4202,completed,26.3,18.9,16,937108,10,2.5134,2.3543,0.000000,0,2.5072
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed4690,completed,6866.6,4309.4,5116,3917192,10,40.0645,9.1241,0.002564,768,41.5688
+stevens-changes-0826-91/tools/aggregate91.py,A,PHerc0826-seed3648,completed,8607.0,5793.7,5490,3833004,10,48.5468,8.2663,0.002838,0,48.6668
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed1700,completed,199.4,118.4,178,1610080,10,4.4684,5.2735,0.000418,0,4.4857
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed5702,completed,32.7,24.6,34,1024468,10,0.8597,2.7294,0.000000,0,0.8612
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed6689,completed,5679.0,3755.1,3479,2826832,10,32.8282,11.3669,0.011020,0,34.7065
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed1595,completed,12579.0,7835.9,8947,5099460,10,23.2786,4.7096,0.002060,0,23.3883
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed5989,completed,2748.2,1562.6,2363,2338556,10,19.4078,6.0873,0.007525,0,19.9210
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed4202,completed,23.3,16.9,16,934380,10,2.5134,2.3543,0.000000,0,2.5072
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed4690,completed,6529.6,3924.4,5116,3933164,10,40.0645,9.1241,0.002564,768,41.5688
+stevens-changes-0826-91/tools/aggregate91.py,B,PHerc0826-seed3648,completed,7202.4,4345.1,5490,3841084,10,48.5468,8.2663,0.002838,0,48.6668
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed1700,completed,30.3,22.6,178,2877968,10,4.4684,5.2735,0.000418,0,4.4857
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed5702,completed,4.7,3.9,34,0,10,0.8597,2.7294,0.000000,0,0.8612
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed6689,completed,676.9,576.1,3479,5333844,10,32.8282,11.3669,0.011020,0,34.7065
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed1595,completed,1603.5,1253.1,8947,6187560,10,23.2786,4.7096,0.002060,0,23.3883
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed5989,completed,350.1,290.4,2363,5168424,10,19.4078,6.0873,0.007525,0,19.9210
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed4202,completed,2.9,2.5,16,0,10,2.5134,2.3543,0.000000,0,2.5072
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed4690,completed,920.3,690.1,5116,5493868,10,40.0645,9.1241,0.002564,768,41.5688
+stevens-changes-0826-91/tools/aggregate91.py,C,PHerc0826-seed3648,completed,1069.0,814.0,5490,5504988,10,48.5468,8.2663,0.002838,0,48.6668
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed1700,completed,126.1,89.8,842,4133228,10,13.3438,5.7582,0.002672,0,13.3640
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed5702,completed,35.7,26.2,249,2585232,10,4.1631,3.8502,0.002210,0,4.2320
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed6689,completed,483.0,348.3,2614,5094552,10,38.9099,7.1465,0.001200,0,39.4133
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed1595,completed,9.2,7.5,66,1062372,10,1.2719,3.8878,0.000000,0,1.2733
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed5989,completed,77.8,57.7,519,3753076,10,7.8421,5.7961,0.002234,0,8.0038
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed4202,completed,53.6,40.6,402,2758576,10,4.3766,3.9275,0.000632,0,4.3764
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed4690,completed,215.2,154.9,1192,4977616,10,19.7385,7.3282,0.000606,0,19.8916
+stevens-changes-0826-91/tools/aggregate91.py,D,PHerc0826-seed3648,completed,1622.6,1163.9,8744,5842748,10,50.2271,9.4263,0.003073,0,51.6531
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed1700,delivered by the chain (no run here),not measurable,280.0,2162,,10,21.0082,6.319,0.007194,0,21.1225
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed5702,delivered by the chain (no run here),not measurable,223.0,1627,,10,16.9307,8.3765,0.008033,0,17.3692
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed6689,delivered by the chain (no run here),not measurable,2397.0,7512,,10,90.7043,9.5049,0.016179,980,98.9585
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed1595,delivered by the chain (no run here),not measurable,1826.0,9226,,10,65.3742,14.5818,0.009222,0,68.1445
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed5989,delivered by the chain (no run here),not measurable,875.0,5396,,10,21.1020,5.5337,0.004329,0,21.0739
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed4202,delivered by the chain (no run here),not measurable,1962.0,9019,,10,71.1367,8.4114,0.005353,0,72.2703
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed4690,delivered by the chain (no run here),not measurable,1280.0,8500,,10,63.5751,10.2424,0.002674,0,64.1689
+stevens-changes-0826-91/tools/aggregate91.py,X,PHerc0826-seed3648,delivered by the chain (no run here),not measurable,1365.0,9208,,10,72.3865,10.6241,0.040312,0,78.5295

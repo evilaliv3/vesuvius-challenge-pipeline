@@ -1,0 +1,5 @@
+# written by best-windows-0826/tools/bw.py selftest at 2026-09-29T06:16:40Z; bars in DECLARATION.md (Checks)
+test,what,bar,got,passes
+S1,"synthetic 900 x 900 lattice, 30 per cent holes except a clean 560 x 560 block at (200, 300): first candidate of a 535 cell window lies inside the block, covered 1, flagged 0","inside, 1, 0","(200, 300), 1.0000, 0",yes
+S2,"one window of 535 x 535, 2863 flagged cells (over 1 per cent) rejected; one fewer (at 1 per cent) accepted",0 / 1,0 / 1,yes
+S3,"tile corners for n = 535: 8 per axis (64 tiles), last tile ends at the window edge","8, ends at 535","8, ends at 535",yes

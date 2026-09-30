@@ -1,0 +1,99 @@
+%% Figure S1. The c stage on two scrolls: a two hundredfold gain on one, nothing separable on the
+%% other.
+%%
+%% CAPTION: Left, PHerc. 1447, the Grand Prize scroll. One pair of bars per seed on a logarithmic
+%% axis, ordered by the fan out of the seed's alignment map, column fan_out of
+%% seed-search-1447/evidence/alignment-fanout.csv. Before is column reference_seconds and after
+%% is column arm_seconds of c-stage-cost/evidence/c-stage-times.csv on the rows whose arm is c2,
+%% and that file's reference_source column says for each seed whether the before is an uncapped
+%% run or a seed runner row. Right, PHerc. 0139, the reference scroll, drawn as a range and not
+%% as a pair: the marker is column median_seconds of
+%% c-stage-on-0139/evidence/c-stage-times.csv over the repeated runs of that tree and arm, and
+%% the bar spans min_seconds to max_seconds. The two panels say different things and the figure
+%% is honest about it. On the reference scroll the change is not a speedup: the verdict column
+%% of c-stage-on-0139/evidence/c-stage-diff.csv, on the pair plain against c2, reads not
+%% separable from the spread on four of the seven trees and the other three are faster by single
+%% or low double digit percentages, each in that file's delta_percent column; no tree is slower.
+%% Every second here was measured on a machine carrying other work, which the machine columns of
+%% the plotted table record; the quiet bench of PLAN 58 fills the quiet columns of that table
+%% and this caption is rewritten with them. The numbers drawn are in
+%% evidence/figures/s-f1-c-stage-before-after.csv.
+%%
+%% Redrawn 2026-09-28 for the figure pass (director 18:29:38Z, owner's word): the shared palette
+%% by role (untouched is the reference, orange; with S1 and S2 is ours, blue; the guard alone is a
+%% second series of ours, sky blue), and a bluish green mark over every pair whose output the
+%% evidence shows byte identical, from the identity_ columns of the plotted table.
+%%
+%% Data: tools/s-f1-c-stage-before-after.py
+\documentclass[border=2pt]{standalone}
+\input{figpreamble.tex}
+
+\pgfplotstableread{../evidence/figures/s-f1-c-stage-before-after.csv}\sfC
+
+%% The range of an arm on the reference scroll: the median with the observed minimum and
+%% maximum, so that two arms whose ranges overlap are seen to overlap. «y explicit» and not
+%% «y explicit relative=false»: the second one left the relative mode on, and on 2026-09-28 every
+%% whisker came out as its difference times the median, off the top of the panel.
+\pgfplotsset{sa range/.style={only marks, error bars/.cd, y dir=both,
+                              y explicit}}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={group size=2 by 1, horizontal sep=17mm},
+    sa base, ymode=log,
+    ylabel={\texttt{c} stage, seconds (log scale)},
+    xtick=data, x tick label style={rotate=45, anchor=east, font=\footnotesize},
+  ]
+
+%% Left: the three seeds with a QUIET pair, and only those. The afternoon before and after are
+%% not a pair: on the three ribbons the before was taken at twenty four threads and the after at
+%% four. The data step sorts the quiet seeds first and marks the others; the domain below draws
+%% the first three and the table keeps the rest. Each bar is placed by its own bar shift rather
+%% than by the axis, so that the identity mark can sit over the after bar it belongs to. ymax is
+%% set because the factor label of the tallest bar is drawn outside it.
+\nextgroupplot[title={PHerc.~1447, quiet machine}, enlarge x limits=0.28,
+               log origin y=infty, ymax=40000,
+               sa legend below, legend style={legend columns=2, at={(0.5,-0.36)}},
+               restrict x to domain=-0.5:2.5,
+               xticklabels from table={\sfC}{seed_label_1447}]
+  \addplot[ybar, bar width=9pt, bar shift=-5pt, draw=saref, fill=saref!55,
+           point meta=explicit symbolic,
+           area legend,
+           nodes near coords, every node near coord/.append style={
+             anchor=south east, xshift=0.5pt, font=\footnotesize, yshift=0.8mm}]
+      table[x=i, y=quiet_plain_seconds, meta=quiet_factor_label] {\sfC};
+  \addplot[ybar, bar width=9pt, bar shift=5pt, draw=saours, fill=saours!65, area legend]
+      table[x=i, y=quiet_c2_seconds] {\sfC};
+  \addplot[only marks, mark=diamond*, mark size=3pt, sagreen,
+           every mark/.append style={xshift=5pt, yshift=6pt},
+           legend image post style={xshift=-5pt, yshift=-6pt}]
+      table[x=i, y=identity_mark_1447] {\sfC};
+  \legend{untouched, with S1 and S2, output byte identical}
+
+%% Right: the reference scroll, median and observed range of each arm, and the same mark over a
+%% tree whose downstream files are identical between the untouched arm and S1 with S2.
+\nextgroupplot[title={PHerc.~0139, median and range}, enlarge x limits=0.10,
+               legend pos=south east, legend cell align=left,
+               legend style={font=\footnotesize, draw=gray!50, fill=white, fill opacity=1},
+               xticklabels from table={\sfC}{tree_0139}]
+  \addplot[saref, mark=square*, mark size=1.8pt, sa range, error bar style={saref}]
+      table[x expr=\thisrow{i}-0.2, y=plain_median,
+            y error minus expr=\thisrow{plain_median}-\thisrow{plain_min},
+            y error plus  expr=\thisrow{plain_max}-\thisrow{plain_median}] {\sfC};
+  \addplot[saours, mark=*, mark size=2pt, sa range, error bar style={saours}]
+      table[x=i, y=c2_median,
+            y error minus expr=\thisrow{c2_median}-\thisrow{c2_min},
+            y error plus  expr=\thisrow{c2_max}-\thisrow{c2_median}] {\sfC};
+  \addplot[sasky, mark=triangle*, mark size=2.2pt, sa range, error bar style={sasky}]
+      table[x expr=\thisrow{i}+0.2, y=guarded_median,
+            y error minus expr=\thisrow{guarded_median}-\thisrow{guarded_min},
+            y error plus  expr=\thisrow{guarded_max}-\thisrow{guarded_median}] {\sfC};
+  \addplot[only marks, mark=diamond*, mark size=3pt, sagreen,
+           every mark/.append style={yshift=7pt},
+           legend image post style={yshift=-7pt}]
+      table[x=i, y=identity_mark_0139] {\sfC};
+  \legend{untouched, with S1 and S2, guard alone, output byte identical}
+\end{groupplot}
+\end{tikzpicture}
+\end{document}

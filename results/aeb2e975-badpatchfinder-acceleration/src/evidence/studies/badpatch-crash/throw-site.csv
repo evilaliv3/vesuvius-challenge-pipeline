@@ -1,0 +1,10 @@
+fact,value,how_it_was_read
+exception type,St12out_of_range (std::out_of_range),"evidence/throwtrace.txt, the __cxa_throw interposer"
+what(),map::at,evidence/throwtrace.txt
+"frame 2, the throwing frame",0x8abb in BadPatchFinder::FindBadPatchesGeneral(...)._omp_fn.0.cold,"evidence/throwtrace.txt, sym 2"
+"frame 4, its caller","0x3c142, BadPatchFinder::FindBadPatchesGeneral, badpatchfinder.cpp:479 (the end of the parallel block)",addr2line -f -C -i on scratch/bin/debug/simpaper10
+"frame 5, the call that threw","0x13342, main, simpaper10.cpp:1154, the return of the length 2 call bpf->FindBadPatchesGeneral(*am,patches,2,...) at simpaper10.cpp:1151",addr2line -f -C -i; the source lines read from scratch/src/build/corrected/simpaper10.cpp
+what addr2line attributes 0x8abb to,"std::map<int,std::vector<alignment>>::at, badpatchfinder.cpp:460, which is am.at(p)",addr2line -f -C -i
+why that attribution does not decide it,"FindBadPatchesGeneral._omp_fn.0 contains exactly ONE call to _ZSt20__throw_out_of_rangePKc, at 0x8ab6 in its .cold section, while the body has three .at calls (patches->at at 456, am.at at 460, patches->at at 468): the cold paths are tail merged into one block and the DWARF line names only one of them","objdump -d scratch/bin/debug/simpaper10, counted per function by tools/key_containers-era scan; scratch/debug.dis"
+the measurement that decides it,"in all 202 failing chains the alignment map HAS the key (am_has_p=1) and the patches map does NOT (patches_has_p=0), and the failing element is always the second (count=1), never the first (DIAG-FIRST never printed)","evidence/diag-missing.txt, written by the instrumented build scratch/diag/simpaper10"
+the .at that throws,"patches->at(p), badpatchfinder.cpp:468 of the built corrected copy, line 436 of /data/repositories/scrollreading/pipeline9/badpatchfinder.cpp: PlacePatchInto(st,patches->at(p),p,aftx,false) for the last element of the chain",the two lines read with grep -n from both copies

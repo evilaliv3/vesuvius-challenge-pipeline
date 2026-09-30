@@ -1,0 +1,6 @@
+# the files figure C21 is taken from, redrawn in this work at 2026-09-30T06:04:48Z by src/tools/c-f21-fig-r2c.py (panel (a) the adjudicated square from src/inputs/render-routes-0826/square-checks-adjudicated.csv; panels (b) and (c) the earlier square; panel (b) without the height of the cut; director 2026-09-30); sha256 of each; a different file stops src/tools/c-f21-r2c.py; repinned 2026-09-30 after the referee: data table without the internal marking and square_mm read from square-checks.csv (29.8961), images unchanged; repinned 2026-09-30 again: text at 7 to 9 pt where the article prints the figure (owner's order), no plotted value changed
+file,sha256
+r2c-seed6273-squarecentre.pdf,74a58c34cc374fbf3c1f410237aca03eadf336a984da6dbff12c37f5a679bb57
+r2c-seed6273-squarecentre.png,f4e7551f1eabf34346eb38f8f13ea793273de491dc1d8490a45a2a7b3f5a18df
+r2c-seed6273-squarecentre-data.csv,3a9e901c6af0b4374607395ac62e9d632fb55906b3213bce7c3c9e171153cec4
+c-f21-fig-r2c.py,0081a5d21f03aec32599648093188c4dc167734666ee925ec96f7778f34b0074

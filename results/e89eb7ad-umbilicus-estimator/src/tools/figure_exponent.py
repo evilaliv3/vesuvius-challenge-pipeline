@@ -51,7 +51,10 @@ PS = [0.5, 1.0, 1.5, 2.0]
 # palette.RAMP_REPAIRED, rather than four colours.
 RAMP = dict(zip((0.5, 1.0, 1.5, 2.0), P.RAMP_REPAIRED))
 # the same light to dark ordering in the paper's other colour, for the mean at each exponent
-RAMP_MEAN = dict(zip((0.5, 1.0, 1.5, 2.0), P.RAMP_PUBLISHED))
+# 2026-09-30, the owner's order: the lightest step of RAMP_PUBLISHED (#EBEFF5) left the p = 0.5 mean
+# invisible at print size, so the mean takes four darker steps of the same grey ramp, still light
+# to dark with the exponent, the lightest at a contrast of about 2.9 on white
+RAMP_MEAN = dict(zip((0.5, 1.0, 1.5, 2.0), (P.GRAY[5], P.GRAY[6], P.GRAY[8], P.GRAY[9])))
 DASH = {0.5: (0, (5, 2)), 1.0: "solid", 1.5: (0, (4, 1.6, 1, 1.6)), 2.0: (0, (1.4, 1.6))}
 SLICE_SCROLL, SLICE_Z = "PHerc0826", 8000
 SLICE_FILE = os.path.join(L.NG, "cache", "pherc0826", "ngrid", "xy", "008000.grid")
@@ -59,10 +62,11 @@ MECH = os.path.join(L.EV, "exponent-ablation-mechanism-curve.csv")
 FIELD = os.path.join(L.EV, "exponent-ablation-score-field.csv")
 
 
-def save(fig, name):
+def save(fig, name, tight=True):
     os.makedirs(FIG, exist_ok=True)
     for ext in ("pdf", "png"):
-        fig.savefig(os.path.join(FIG, f"{name}.{ext}"), bbox_inches="tight", dpi=200)
+        fig.savefig(os.path.join(FIG, f"{name}.{ext}"), bbox_inches="tight" if tight else None,
+                    dpi=200)
     plt.close(fig)
     print(f"written {FIG}/{name}.pdf and .png")
 
@@ -198,36 +202,46 @@ def fA():
     lambda_max of the normals' covariance and does not depend on the exponent.
     """
     r = L.read_csv(MECH)
-    fig, ax = plt.subplots(figsize=(7.4, 4.4))
+    # drawn at the column width it is printed at (figstyle.COLUMN_IN), so a size in points here is
+    # the size on the page: 8 pt for the labels, 7 pt for the ticks, the legend and the note
+    # The page is laid out by hand and saved without a tight box, so the file is exactly the
+    # column wide and nothing is scaled when it is included at \\columnwidth.
+    fig, ax = plt.subplots(figsize=(3.5, 4.75))
+    fig.subplots_adjust(left=.17, right=.97, top=.915, bottom=.43)
     for p in PS:
         q = [x for x in r if x["p"] == f"{p:.1f}"]
         D = np.array([float(x["distance_units"]) for x in q])
         y = np.array([float(x["weighted_sum"]) for x in q])
-        ax.loglog(D, y, color=RAMP[p], lw=2.4 if p == 1.0 else 1.8, ls=DASH[p],
-                  label=f"weighted sum, p = {p:.1f}" + (" (the patch)" if p == 1.0 else ""))
-        ax.plot(D[int(np.argmax(y))], y.max(), "o", color=RAMP[p], ms=5.5,
-                mec=P.OVER_FIELD, path_effects=P.stroke(3.0), mew=1.0, zorder=5)
+        ax.loglog(D, y, color=RAMP[p], lw=1.6 if p == 1.0 else 1.2, ls=DASH[p],
+                  label=f"sum, p = {p:.1f}" + (" (the patch)" if p == 1.0 else ""))
+        ax.plot(D[int(np.argmax(y))], y.max(), "o", color=RAMP[p], ms=4,
+                mec=P.OVER_FIELD, path_effects=P.stroke(2.2), mew=.7, zorder=5)
+    # the four means share one plateau, so the lightest is drawn last, on top, where its dashes
+    # show over the others instead of vanishing under them
     for p in PS:
         q = [x for x in r if x["p"] == f"{p:.1f}"]
         D = np.array([float(x["distance_units"]) for x in q])
         ax.loglog(D, [float(x["weighted_mean"]) for x in q], color=RAMP_MEAN[p],
-                  lw=2.4 if p == 1.0 else 1.8, ls=DASH[p],
-                  label=f"weighted mean, p = {p:.1f}" + (" (as published)" if p == 1.0 else ""))
-    ax.set_xlabel("distance of the candidate from the centre of the section, pixels", fontsize=9)
-    ax.set_ylabel("refinement score", fontsize=9)
-    ax.set_title("Every exponent of the sum falls away; no exponent makes the mean fall",
-                 fontsize=10, loc="left")
-    ax.legend(frameon=False, fontsize=7.4, loc="lower left", ncol=2, columnspacing=1.1)
+                  lw=1.6 if p == 1.0 else 1.2, ls=DASH[p], zorder=4 if p == 0.5 else 2,
+                  label=f"mean, p = {p:.1f}" + (" (published)" if p == 1.0 else ""))
+    ax.set_xlabel("distance of the candidate from the centre\nof the section, grid units", fontsize=8)
+    ax.set_ylabel("refinement score", fontsize=8)
+    ax.set_title("Every exponent of the sum falls away;\nno exponent makes the mean fall",
+                 fontsize=8, loc="left")
+    h, lab = ax.get_legend_handles_labels()
+    fig.legend(h, lab, frameon=False, fontsize=7.2, loc="upper left", ncol=2, columnspacing=.6,
+               handlelength=2.2, handletextpad=.35, borderaxespad=0, bbox_to_anchor=(.01, .245))
     ax.grid(alpha=.22, which="both")
-    ax.tick_params(labelsize=8)
+    ax.tick_params(labelsize=7.2)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
     # the two notes go under the axes, where no curve can run through them
-    fig.text(.5, -.02, "Filled circle: the largest value of each sum on the range drawn. The four "
-             "means lie on one plateau, which is lambda_max of the\nnormals' covariance and does "
-             "not depend on p; the four sums leave that plateau at a rate p, each on its own "
-             "units.", ha="center", va="top", fontsize=7.4, color=P.TEXT)
-    save(fig, "exponent-mechanism")
+    fig.text(.02, .105, "Filled circle: the largest value of each sum on the range drawn.\n"
+             "The four means lie on one plateau, which is lambda_max of the\n"
+             "normals' covariance and does not depend on p; the four sums\n"
+             "leave that plateau at a rate p, each on its own units.", ha="left", va="top",
+             fontsize=7.2, color=P.TEXT)
+    save(fig, "exponent-mechanism", tight=False)
 
 
 def fB():

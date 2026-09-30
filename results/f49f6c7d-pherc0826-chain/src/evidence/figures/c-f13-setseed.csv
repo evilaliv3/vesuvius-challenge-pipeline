@@ -1,0 +1,36 @@
+# figure c-f13-setseed; what the raster drew; written by src/tools/c-f13-setseed.py at 2026-09-30T12:16:37Z (cores busy not checked): the sheets of two runs from the same seed point on the same axial slice of the raw scan of PHerc0826; same crop and scale. Files: area-0826-90/evidence/squares-coll-setseed-seed6365.csv (snapshot evidence/studies/area-0826-90/squares-coll-setseed-seed6365.csv); chain-0826/evidence/per-seed-queue.csv (snapshot evidence/studies/chain-0826/per-seed-queue.csv); chain-0826/evidence/per-seed-queue.csv seed point (live study (the snapshot withholds seed_x; seed_y; seed_z)); chain-0826/evidence/squares-PHerc0826-seed6365.csv (snapshot evidence/studies/chain-0826/squares-PHerc0826-seed6365.csv). Chunks this run: shared cache 286; chain-0826 flat cache 0; fetched 0; absent 3. NO INK. Not for a public repository without the owner's word. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+seed,a;b,seed number,chain-0826/evidence/per-seed-queue.csv,attempt,6365
+,a;b,seed point x;y;z (level 0 voxels),chain-0826/evidence/per-seed-queue.csv,seed_x; seed_y; seed_z,withheld
+,a;b,slice z (level 0 voxels),chain-0826/evidence/per-seed-queue.csv,seed_z,withheld
+,a;b,crop y0;y1;x0;x1 (level 0 voxels),seed point plus and minus half the width,,withheld
+crop_mm,a;b,crop width; mm (display choice),argument --width-mm,,20
+,a;b,voxel; um,pipeline/datasets/manifests/PHerc0826.json,voxel_um through pipeline/datasets/voxel.py,9.362
+,a;b,display bin; voxels per pixel side (block mean),argument --bin,,2
+,a;b,mm per pixel,display bin times the voxel,,0.018724
+,a;b,grey source,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0,raw masked scan level 0; uint8; compressor null,open data bucket
+,a;b,chunks covering the crop,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0,one z layer of chunks,289
+,a;b,sha256 of the crop's grey bytes before the stretch,https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0826/volumes/20250821151701-9.362um-1.2m-113keV-masked.zarr/0,plane z; rows y0:y1; columns x0:x1,a82dec9f7f78fa46aec0ec03d80190c23f39916626f759af1b97749c6b28305d
+,a;b,display window; low and high grey,the binned slice itself,figlib.stretch,30;200
+,a,run,chain-0826/evidence/squares-PHerc0826-seed6365.csv,,as delivered
+,a,squares file read from,chain-0826/evidence/squares-PHerc0826-seed6365.csv,,snapshot evidence/studies/chain-0826/squares-PHerc0826-seed6365.csv
+sheets_before,a,sheets in the run,chain-0826/evidence/squares-PHerc0826-seed6365.csv,rows,10
+square_before_mm,a,largest square of the run; mm,chain-0826/evidence/squares-PHerc0826-seed6365.csv,square_mm_min_step (max over sheets),10.2452
+,a,sheet holding it,chain-0826/evidence/squares-PHerc0826-seed6365.csv,sheet,0
+best_crosses_before,a,the sheet with the run's largest square crosses the crop,chain-0826/out/PHerc0826-seed6365/C40,rasterlib.plane_crossings,yes
+,a,sheet files checked against their squares row sha256,chain-0826/out/PHerc0826-seed6365/C40,sha256,all 10 equal
+,a,crossings drawn per sheet (sheet:count),chain-0826/out/PHerc0826-seed6365/C40,rasterlib.plane_crossings,0:1393; 1:1679; 2:1524; 3:1433; 4:678; 5:299; 6:916; 7:379; 8:761; 9:723
+crossing_before,a,sheets crossing the crop,chain-0826/out/PHerc0826-seed6365/C40,rasterlib.plane_crossings,10
+,b,run,area-0826-90/evidence/squares-coll-setseed-seed6365.csv,,SetSeed
+,b,squares file read from,area-0826-90/evidence/squares-coll-setseed-seed6365.csv,,snapshot evidence/studies/area-0826-90/squares-coll-setseed-seed6365.csv
+sheets_after,b,sheets in the run,area-0826-90/evidence/squares-coll-setseed-seed6365.csv,rows,10
+square_after_mm,b,largest square of the run; mm,area-0826-90/evidence/squares-coll-setseed-seed6365.csv,square_mm_min_step (max over sheets),8.0756
+,b,sheet holding it,area-0826-90/evidence/squares-coll-setseed-seed6365.csv,sheet,4
+best_crosses_after,b,the sheet with the run's largest square crosses the crop,area-0826-90/scratch/coll/setseed-seed6365/C40,rasterlib.plane_crossings,no
+,b,sheet files checked against their squares row sha256,area-0826-90/scratch/coll/setseed-seed6365/C40,sha256,all 10 equal
+,b,crossings drawn per sheet (sheet:count),area-0826-90/scratch/coll/setseed-seed6365/C40,rasterlib.plane_crossings,0:559; 1:566; 2:843; 3:659; 4:0; 5:740; 6:0; 7:0; 8:36; 9:164
+crossing_after,b,sheets crossing the crop,area-0826-90/scratch/coll/setseed-seed6365/C40,rasterlib.plane_crossings,7
+scale_bar_mm,a;b,scale bar; mm (display choice),argument --bar-mm,,5
+,a;b,scale bar; pixels,bar mm over mm per pixel; rounded,,267
+,a,panel box in the png; x;y;w;h,paper/figures/c-f13-setseed.png,rasterlib.side_by_side,0;0;1068;1068
+,b,panel box in the png; x;y;w;h,paper/figures/c-f13-setseed.png,rasterlib.side_by_side,1084;0;1068;1068

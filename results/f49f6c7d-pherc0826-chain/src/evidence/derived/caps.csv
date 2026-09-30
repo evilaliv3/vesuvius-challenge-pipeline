@@ -1,0 +1,12 @@
+"# written by src/tools/caps.py at 2026-09-30T19:17:08Z: the generation cap and patch limit of the chain as run and of item 95's regrowths, parsed from the shipped tools, and the freeze of chain-0826 from chain-as-run.csv"
+scope,quantity,value,source
+chain_as_run,generation_cap,36000,tools/studies/chain-0826/run_seed.sh line «$BIN g <n>»
+chain_as_run,patch_limit,40000,tools/studies/chain-0826/run_seed.sh line «N=C<k>; LIM=<n>»
+chain_as_run,tool_sha256,dcf736c10d8fe3dff1699b1a4ffe32d872c04b86da42463e71e23cd5eff6e80f,tools/studies/chain-0826/run_seed.sh
+g72000_regrowth,generation_cap,72000,tools/studies/square20-0826-95/regrow72.sh line «$BIN g <n>»
+g72000_regrowth,patch_limit,80000,tools/studies/square20-0826-95/regrow72.sh line «N=C<k>; LIM=<n>»
+g72000_regrowth,tool_sha256,7881b1792b1a25860aea1c6ba73a4b8e2aedab3433f3fe7e841f14bf911fe51f,tools/studies/square20-0826-95/regrow72.sh
+freeze,freeze_utc,2026-09-28T16:15:12Z,derived/chain-as-run.csv freeze_utc
+freeze,seeds_in,173,derived/chain-as-run.csv in_chain_as_run = yes
+freeze,seeds_out,70,derived/chain-as-run.csv in_chain_as_run = no
+freeze,seeds_out_at_g72000,70,derived/chain-as-run.csv in_chain_as_run = no and growth_generation_cap = 72000

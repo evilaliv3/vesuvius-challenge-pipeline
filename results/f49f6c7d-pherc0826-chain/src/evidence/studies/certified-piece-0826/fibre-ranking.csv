@@ -1,0 +1,96 @@
+# written by certified-piece-0826/tools/fibre2.py combine at 2026-09-29T02:47:25Z: every certified piece of 10 cm2 or more (strict: recomputed where recomputed), largest first; fibre_score as fibre.py (DECLARATION.md 01:24:25Z); bar 0.0680 = 0.75 x reference 0.0906 (seed3648 C40 S0), passes when fibre_score >= bar; bright_cm2 = dark-pieces.csv strict_piece_bright_cm2; squares from certified-pieces.csv and pairwise-cert-0826 pairwise-squares.csv; 92 rows, 61 pass; last two rows are the summaries; DECLARATION.md addition 2026-09-29T02:22:50Z
+label,source,seed,sheet,strict_piece_cm2,open_piece_cm2,fibre_score,iqr,windows_drawn,windows_accepted,status,passes_bar,bright_cm2,certified_square_mm,certified_strict_square_mm,pairwise_square_mm,fetch_gb,score_from
+C40-PHerc0826-seed2427-S0,C40,PHerc0826-seed2427,0,33.1595,30.8298,0.0448,0.0127,31634,64,measured,no,32.7199,5.8618,5.8618,5.8618,0.000,fibre.py (01:24:25Z)
+C40-PHerc0826-seed4391-S0,C40,PHerc0826-seed4391,0,32.1905,29.4661,0.0429,0.0096,20391,64,measured,no,31.9120,6.7558,6.7558,6.7558,1.460,fibre.py (01:24:25Z)
+C40-PHerc0826-seed6206-S0,C40,PHerc0826-seed6206,0,30.3226,28.6792,0.0458,0.0110,24399,64,measured,no,29.9793,6.5027,6.5027,6.5027,1.237,fibre.py (01:24:25Z)
+C40-PHerc0826-seed3412-S0,C40,PHerc0826-seed3412,0,29.1848,26.3827,0.0485,0.0217,29547,64,measured,no,not measured,6.2369,6.2369,6.2369,1.334,fibre.py (01:24:25Z)
+C40-PHerc0826-seed3648-S0,C40,PHerc0826-seed3648,0,27.9846,24.9208,0.0906,0.0191,4537,64,measured,yes,23.7175,9.9134,9.9134,10.2501,0.000,fibre.py (01:24:25Z)
+C80-PHerc0826-seed3648-S0,C80,PHerc0826-seed3648,0,27.1769,24.3500,0.0745,0.0317,3276,64,measured,yes,not measured,9.3525,7.9309,9.3525,0.902,fibre2.py
+C40-PHerc0826-seed2531-S0,C40,PHerc0826-seed2531,0,26.9939,25.3630,0.0352,0.0082,10691,64,measured,no,not measured,7.0186,7.0186,7.0186,0.558,fibre2.py
+C40-PHerc0826-seed6473-S0,C40,PHerc0826-seed6473,0,25.6980,11.6756,0.0784,0.0189,3665,64,measured,yes,not measured,10.2075,9.5718,10.2075,0.352,fibre2.py
+C40-PHerc0826-seed5262-S0,C40,PHerc0826-seed5262,0,25.0447,19.4907,0.0378,0.0105,28764,64,measured,no,not measured,6.3886,6.3886,6.3886,0.780,fibre2.py
+C40-PHerc0826-seed2715-S0,C40,PHerc0826-seed2715,0,24.4890,16.6359,0.1096,0.0297,6966,64,measured,yes,not measured,8.7567,8.1206,8.8316,1.533,fibre2.py
+C40-PHerc0826-seed6733-S0,C40,PHerc0826-seed6733,0,23.7474,11.3281,0.0909,0.0290,20380,64,measured,yes,not measured,6.1814,6.0690,7.0056,0.149,fibre2.py
+C40-PHerc0826-seed6731-S0,C40,PHerc0826-seed6731,0,23.5581,22.6919,0.1058,0.0205,2736,64,measured,yes,not measured,9.6505,8.9024,10.0993,0.415,fibre2.py
+C40-PHerc0826-seed2259-S0,C40,PHerc0826-seed2259,0,23.0311,13.5896,0.1033,0.0317,2280,64,measured,yes,not measured,9.6972,9.6972,9.6972,0.178,fibre2.py
+C80-PHerc0826-seed2259-S0,C80,PHerc0826-seed2259,0,23.0311,13.5896,0.1033,0.0317,2280,64,measured,yes,not measured,9.6972,9.6972,9.6972,0.226,fibre2.py
+C40-PHerc0826-seed6475-S0,C40,PHerc0826-seed6475,0,22.6837,13.0658,0.0874,0.0139,9501,64,measured,yes,not measured,8.4959,7.5603,10.5170,0.071,fibre2.py
+C40-PHerc0826-seed6743-S0,C40,PHerc0826-seed6743,0,21.7814,18.5526,0.0640,0.0147,6219,64,measured,no,not measured,10.0299,8.6826,10.4790,0.134,fibre2.py
+C40-PHerc0826-seed6727-S0,C40,PHerc0826-seed6727,0,21.7081,13.0500,0.0904,0.0334,3740,64,measured,yes,not measured,8.3778,8.3778,8.3778,0.296,fibre2.py
+C40-PHerc0826-seed6582-S0,C40,PHerc0826-seed6582,0,21.4529,14.2240,0.0644,0.0222,2406,64,measured,no,not measured,9.1256,8.9012,9.3126,0.329,fibre2.py
+C40-PHerc0826-seed5364-S1,C40,PHerc0826-seed5364,1,20.8641,20.4248,0.0866,0.0305,2533,64,measured,yes,not measured,8.3424,8.3424,8.3424,0.719,fibre2.py
+C80-PHerc0826-seed5364-S1,C80,PHerc0826-seed5364,1,20.8198,20.4152,0.0864,0.0285,2533,64,measured,yes,not measured,8.3422,8.3422,8.3422,0.755,fibre2.py
+C40-PHerc0826-seed3950-S0,C40,PHerc0826-seed3950,0,20.5314,15.7025,0.0744,0.0438,5615,64,measured,yes,not measured,8.9036,7.4446,9.0158,0.946,fibre2.py
+C40-PHerc0826-seed4058-S0,C40,PHerc0826-seed4058,0,20.3236,19.1355,0.0431,0.0234,37523,64,measured,no,not measured,6.0863,6.0863,6.0863,0.524,fibre2.py
+C80-PHerc0826-seed2604-S0,C80,PHerc0826-seed2604,0,18.9743,9.8949,0.0876,0.0191,4601,64,measured,yes,not measured,9.4700,6.2135,10.0315,0.099,fibre2.py
+C40-PHerc0826-seed5608-S0,C40,PHerc0826-seed5608,0,18.8829,17.9201,0.0470,0.0177,19722,64,measured,no,not measured,6.3517,6.3517,6.3517,0.566,fibre2.py
+C40-PHerc0826-seed1045-S0,C40,PHerc0826-seed1045,0,18.5762,12.5897,0.0607,0.0202,3830,64,measured,no,not measured,10.0969,10.0969,10.0969,0.178,fibre2.py
+C40-PHerc0826-seed4343-S0,C40,PHerc0826-seed4343,0,17.8837,17.1434,0.1385,0.0145,200000,32,measured on 32 windows (fewer than 64),yes,not measured,6.0995,5.5756,6.8479,0.489,fibre2.py
+C40-PHerc0826-seed6557-S0,C40,PHerc0826-seed6557,0,17.8593,16.9510,0.0928,0.0127,10927,64,measured,yes,not measured,8.6680,8.6680,9.0042,0.357,fibre2.py
+C80-PHerc0826-seed1595-S0,C80,PHerc0826-seed1595,0,17.6454,15.2648,0.0703,0.0141,5129,64,measured,yes,not measured,10.1343,10.0595,10.6205,0.231,fibre2.py
+C40-PHerc0826-seed1595-S0,C40,PHerc0826-seed1595,0,17.6450,15.2419,0.0685,0.0169,4402,64,measured,yes,not measured,9.6464,8.7490,9.6464,0.310,fibre2.py
+C40-PHerc0826-seed5364-S0,C40,PHerc0826-seed5364,0,17.6325,14.5720,0.0811,0.0247,1971,64,measured,yes,not measured,15.3693,14.5093,15.7059,0.321,fibre.py (01:24:25Z)
+C80-PHerc0826-seed5364-S0,C80,PHerc0826-seed5364,0,17.6325,14.5720,0.0811,0.0247,1971,64,measured,yes,not measured,15.3693,14.5093,15.7059,0.057,fibre2.py
+C40-PHerc0826-seed2604-S0,C40,PHerc0826-seed2604,0,17.5852,12.5765,0.0905,0.0365,2236,64,measured,yes,not measured,11.4052,7.8153,11.8165,0.019,fibre2.py
+C40-PHerc0826-seed6572-S0,C40,PHerc0826-seed6572,0,17.4790,17.1534,0.0688,0.0040,200000,19,measured on 19 windows (fewer than 64),yes,not measured,7.2873,7.2873,7.2873,1.321,fibre2.py
+C40-PHerc0826-seed5198-S0,C40,PHerc0826-seed5198,0,17.4781,15.9490,0.0246,0.0020,200000,26,measured on 26 windows (fewer than 64),no,not measured,5.3821,5.3821,5.3821,0.252,fibre2.py
+C80-PHerc0826-seed1727-S0,C80,PHerc0826-seed1727,0,17.1012,16.3315,0.0898,0.0156,1723,64,measured,yes,not measured,12.8971,7.7757,12.8971,0.763,fibre2.py
+C80-PHerc0826-seed4440-S0,C80,PHerc0826-seed4440,0,16.9863,15.3537,0.0565,0.0170,15718,64,measured,no,not measured,6.2466,5.7230,6.9947,0.325,fibre2.py
+C40-PHerc0826-seed4440-S0,C40,PHerc0826-seed4440,0,16.9770,15.3682,0.0562,0.0159,15718,64,measured,no,not measured,6.2465,5.7228,6.9945,0.354,fibre2.py
+C40-PHerc0826-seed3490-S0,C40,PHerc0826-seed3490,0,16.9699,15.1936,0.0433,0.0013,200000,5,measured on 5 windows (fewer than 64),no,not measured,5.0533,4.8662,5.8394,0.141,fibre2.py
+C80-PHerc0826-seed3490-S0,C80,PHerc0826-seed3490,0,16.9699,15.1936,0.0433,0.0013,200000,5,measured on 5 windows (fewer than 64),no,not measured,5.0533,4.8662,5.8394,0.141,fibre2.py
+C40-PHerc0826-seed4202-S0,C40,PHerc0826-seed4202,0,16.8113,7.3409,0.0732,0.0110,115702,64,measured,yes,not measured,5.5330,5.5330,5.5330,0.388,fibre2.py
+C40-PHerc0826-seed4480-S0,C40,PHerc0826-seed4480,0,16.7832,15.9844,0.1296,0.0261,3358,64,measured,yes,not measured,11.9670,7.1802,12.3784,0.835,fibre2.py
+C40-PHerc0826-seed633-S0,C40,PHerc0826-seed633,0,16.7302,14.0436,0.1009,0.0144,53551,64,measured,yes,not measured,5.7956,5.7956,6.3191,0.369,fibre2.py
+C40-PHerc0826-seed5608-S1,C40,PHerc0826-seed5608,1,16.6996,11.6403,0.0499,0.0201,154313,64,measured,no,not measured,6.1256,6.1256,6.1256,0.438,fibre2.py
+C40-PHerc0826-seed1727-S0,C40,PHerc0826-seed1727,0,16.6426,15.6547,0.0852,0.0175,1735,64,measured,yes,not measured,12.8975,7.7759,12.8975,0.740,fibre2.py
+C40-PHerc0826-seed5728-S1,C40,PHerc0826-seed5728,1,16.5516,16.1025,0.1517,0.0501,7932,64,measured,yes,not measured,8.7079,6.8393,8.8948,0.992,fibre2.py
+C40-PHerc0826-seed4058-S1,C40,PHerc0826-seed4058,1,16.5159,6.1669,0.0506,0.0132,51144,64,measured,no,not measured,6.0520,6.0520,6.0520,0.390,fibre2.py
+C80-PHerc0826-seed4494-S0,C80,PHerc0826-seed4494,0,16.4822,15.2688,0.0787,0.0198,9755,64,measured,yes,not measured,7.5156,6.5808,7.9643,0.373,fibre2.py
+C40-PHerc0826-seed6273-S0,C40,PHerc0826-seed6273,0,16.4047,9.8703,0.1051,0.0321,18956,64,measured,yes,not measured,7.5973,6.5868,8.2709,0.088,fibre2.py
+C80-PHerc0826-seed6273-S0,C80,PHerc0826-seed6273,0,16.4047,9.8703,0.1051,0.0321,18956,64,measured,yes,not measured,7.5973,6.5868,8.2709,0.088,fibre2.py
+C40-PHerc0826-seed6736-S1,C40,PHerc0826-seed6736,1,16.3456,15.9327,0.0542,0.0233,14168,64,measured,no,not measured,7.6637,7.6637,7.7759,1.120,fibre2.py
+C40-PHerc0826-seed4494-S0,C40,PHerc0826-seed4494,0,16.2528,15.1960,0.0748,0.0172,10174,64,measured,yes,not measured,7.5154,6.5806,7.9641,0.384,fibre2.py
+C40-PHerc0826-seed6602-S1,C40,PHerc0826-seed6602,1,15.9520,15.6915,0.1117,0.0126,89780,64,measured,yes,not measured,6.2790,6.2790,6.2790,0.141,fibre2.py
+C40-PHerc0826-seed2427-S1,C40,PHerc0826-seed2427,1,15.8308,13.6261,0.0472,0.0140,45207,64,measured,no,not measured,5.7095,5.7095,5.7095,0.141,fibre2.py
+C40-PHerc0826-seed1181-S0,C40,PHerc0826-seed1181,0,15.8149,9.2527,0.1126,0.0241,7866,64,measured,yes,not measured,7.4774,7.4774,7.4774,0.589,fibre2.py
+C40-PHerc0826-seed1788-S0,C40,PHerc0826-seed1788,0,15.5211,13.1290,0.1147,0.0289,3877,64,measured,yes,not measured,9.8694,9.8694,9.8694,0.224,fibre2.py
+C40-PHerc0826-seed6732-S0,C40,PHerc0826-seed6732,0,15.5191,6.5362,0.0721,0.0106,174225,64,measured,yes,not measured,5.3132,4.6771,5.5751,0.170,fibre2.py
+C80-PHerc0826-seed1732-S1,C80,PHerc0826-seed1732,1,15.4368,12.5263,0.0831,0.0184,7291,64,measured,yes,not measured,7.8540,7.4800,7.9662,0.638,fibre2.py
+C40-PHerc0826-seed6531-S0,C40,PHerc0826-seed6531,0,15.2768,6.7926,not measurable,not measurable,200000,0,not measurable: no window accepted,no,not measured,4.7863,4.7115,9.6848,0.061,fibre2.py
+C40-PHerc0826-seed6597-S0,C40,PHerc0826-seed6597,0,15.2714,10.5408,0.0965,0.0293,18492,64,measured,yes,not measured,7.1787,7.1787,7.3282,0.891,fibre2.py
+C40-PHerc0826-seed4062-S0,C40,PHerc0826-seed4062,0,15.2673,11.4864,0.0730,0.0192,4791,64,measured,yes,not measured,9.5670,9.4175,9.5670,0.648,fibre2.py
+C80-PHerc0826-seed1732-S0,C80,PHerc0826-seed1732,0,15.1451,9.5460,0.0758,0.0177,2412,64,measured,yes,not measured,10.3199,7.3660,11.0303,0.025,fibre2.py
+C40-PHerc0826-seed1732-S0,C40,PHerc0826-seed1732,0,15.1105,9.4950,0.0759,0.0177,2412,64,measured,yes,not measured,10.3199,7.3660,11.0303,0.025,fibre2.py
+C40-PHerc0826-seed5835-S0,C40,PHerc0826-seed5835,0,15.0750,13.5175,0.0848,0.0135,13598,64,measured,yes,not measured,8.5318,8.5318,8.7937,0.600,fibre2.py
+C40-PHerc0826-seed6719-S1,C40,PHerc0826-seed6719,1,15.0383,14.8463,0.1078,0.0415,7096,64,measured,yes,not measured,7.8895,7.8895,7.8895,0.115,fibre2.py
+C40-PHerc0826-seed6423-S0,C40,PHerc0826-seed6423,0,14.9926,14.2582,0.0740,0.0198,3031,64,measured,yes,not measured,8.8938,8.8938,9.3049,0.235,fibre2.py
+C40-PHerc0826-seed6487-S0,C40,PHerc0826-seed6487,0,14.9612,12.1194,0.0821,0.0278,4867,64,measured,yes,not measured,9.0460,7.9993,9.0460,0.000,fibre2.py
+C40-PHerc0826-seed6429-S1,C40,PHerc0826-seed6429,1,14.5236,11.7646,0.1005,0.0208,7055,64,measured,yes,not measured,8.1952,7.3345,8.1952,0.673,fibre2.py
+C40-PHerc0826-seed3911-S0,C40,PHerc0826-seed3911,0,14.4748,13.8055,0.1042,0.0489,15727,64,measured,yes,not measured,7.7439,6.6216,7.9309,0.679,fibre2.py
+C40-PHerc0826-seed6523-S0,C40,PHerc0826-seed6523,0,14.4541,3.6999,0.1076,0.0020,200000,6,measured on 6 windows (fewer than 64),yes,not measured,5.3922,5.0552,5.7292,0.277,fibre2.py
+C40-PHerc0826-seed1732-S1,C40,PHerc0826-seed1732,1,14.3421,11.4096,0.0817,0.0292,6681,64,measured,yes,not measured,7.8536,7.4796,7.9658,0.627,fibre2.py
+C40-PHerc0826-seed2193-S0,C40,PHerc0826-seed2193,0,14.3197,10.8300,0.0639,0.0143,4381,64,measured,no,not measured,7.8931,7.8931,7.8931,0.128,fibre2.py
+C40-PHerc0826-seed2441-S2,C40,PHerc0826-seed2441,2,14.0667,13.3165,0.0948,0.0155,1329,64,measured,yes,not measured,9.2725,9.2725,9.2725,1.030,fibre2.py
+C80-PHerc0826-seed2441-S2,C80,PHerc0826-seed2441,2,14.0667,13.3165,0.0948,0.0155,1329,64,measured,yes,not measured,9.2725,9.2725,9.2725,1.019,fibre2.py
+C80-PHerc0826-seed4494-S1,C80,PHerc0826-seed4494,1,14.0070,9.4807,0.0796,0.0202,3579,64,measured,yes,not measured,8.7544,8.6048,9.0537,0.883,fibre2.py
+C40-PHerc0826-seed4494-S1,C40,PHerc0826-seed4494,1,13.9590,9.4369,0.0792,0.0201,3398,64,measured,yes,not measured,8.7544,8.6048,9.0537,0.879,fibre2.py
+C40-PHerc0826-seed6609-S0,C40,PHerc0826-seed6609,0,13.8185,12.8461,0.1109,0.0313,2542,64,measured,yes,not measured,8.7177,8.7177,8.7177,0.937,fibre2.py
+C40-PHerc0826-seed1181-S2,C40,PHerc0826-seed1181,2,13.7801,13.3572,0.1176,0.0401,2761,64,measured,yes,not measured,8.8640,8.8640,8.8640,0.531,fibre2.py
+C80-PHerc0826-seed6477-S0,C80,PHerc0826-seed6477,0,13.7798,10.4926,0.0788,0.0123,15697,64,measured,yes,not measured,7.2203,6.9210,7.2203,0.231,fibre2.py
+C40-PHerc0826-seed6699-S0,C40,PHerc0826-seed6699,0,13.5213,13.2326,0.0850,0.0224,8071,64,measured,yes,not measured,7.9271,7.9271,7.9271,1.147,fibre2.py
+C40-PHerc0826-seed4440-S1,C40,PHerc0826-seed4440,1,13.4210,11.8527,0.0574,0.0177,3016,64,measured,no,not measured,8.5288,8.5288,8.5288,0.734,fibre2.py
+C80-PHerc0826-seed4440-S1,C80,PHerc0826-seed4440,1,13.4210,11.8527,0.0574,0.0177,3016,64,measured,no,not measured,8.5288,8.5288,8.5288,0.734,fibre2.py
+C80-PHerc0826-seed3839-S1,C80,PHerc0826-seed3839,1,13.4201,12.0043,0.0639,0.0185,1760,64,measured,no,not measured,11.4459,10.8100,11.4459,0.078,fibre2.py
+C40-PHerc0826-seed5171-S0,C40,PHerc0826-seed5171,0,13.3329,12.3119,0.0377,0.0090,89784,64,measured,no,not measured,7.8210,7.7087,7.8210,0.558,fibre2.py
+C40-PHerc0826-seed6602-S0,C40,PHerc0826-seed6602,0,13.3139,3.3735,0.0559,0.0033,200000,35,measured on 35 windows (fewer than 64),no,not measured,5.0939,4.4197,5.7681,0.006,fibre2.py
+C40-PHerc0826-seed6477-S0,C40,PHerc0826-seed6477,0,13.2664,10.8537,0.0766,0.0096,12460,64,measured,yes,not measured,7.2211,6.9218,7.2211,0.256,fibre2.py
+C40-PHerc0826-seed2453-S0,C40,PHerc0826-seed2453,0,13.1726,10.0280,0.0887,0.0096,200000,8,measured on 8 windows (fewer than 64),yes,not measured,8.8631,6.5071,8.9005,0.447,fibre2.py
+C40-PHerc0826-seed5728-S0,C40,PHerc0826-seed5728,0,12.9091,4.2512,not measurable,not measurable,200000,0,not measurable: no window accepted,no,not measured,4.2283,4.2283,6.5483,0.000,fibre2.py
+C40-PHerc0826-seed2939-S0,C40,PHerc0826-seed2939,0,12.4011,4.5233,not measurable,not measurable,200000,0,not measurable: no window accepted,no,not measured,4.3429,4.1183,5.2789,0.000,fibre2.py
+C40-PHerc0826-seed2019-S1,C40,PHerc0826-seed2019,1,11.8322,10.5440,0.0782,0.0165,5939,64,measured,yes,not measured,8.4884,8.4884,8.4884,0.705,fibre2.py
+C40-PHerc0826-seed6536-S0,C40,PHerc0826-seed6536,0,11.2300,8.9855,0.0756,0.0136,25247,64,measured,yes,not measured,6.4699,6.4699,6.7690,0.556,fibre2.py
+C40-PHerc0826-seed6416-S0,C40,PHerc0826-seed6416,0,10.9857,2.4063,not measurable,not measurable,200000,0,not measurable: no window accepted,no,not measured,4.3758,4.3758,7.8540,0.000,fibre2.py
+C40-PHerc0826-seed321-S0,C40,PHerc0826-seed321,0,10.0429,6.9420,0.0633,0.0088,14835,64,measured,no,not measured,9.0124,9.0124,9.0124,0.442,fibre2.py
+LARGEST_PIECE_PASSING,C40,PHerc0826-seed3648,0,27.9846,24.9208,0.0906,0.0191,4537,64,measured,yes,23.7175,9.9134,9.9134,10.2501,0.000,fibre.py (01:24:25Z)
+LARGEST_SQUARE_PASSING,C40,PHerc0826-seed5364,0,17.6325,14.5720,0.0811,0.0247,1971,64,measured,yes,not measured,15.3693,14.5093,15.7059,0.321,fibre.py (01:24:25Z)

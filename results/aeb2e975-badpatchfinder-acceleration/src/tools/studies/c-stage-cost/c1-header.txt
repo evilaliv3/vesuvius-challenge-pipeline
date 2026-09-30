@@ -1,0 +1,35 @@
+# A prefix that can never be emitted is not extended.
+#
+# FindBadPatchesGeneral enumerates chains of patches with an odometer over indices[0..length-1]:
+# indices[0] runs over the indexed patches and every later index runs over the alignment list of
+# the patch the previous index landed on. A chain is kept only when no element of it is a bad
+# patch and no element repeats. When the build loop meets a bad patch or a repeat it breaks out of
+# assembling that chain, but the odometer goes on advancing its LAST index, so every suffix of a
+# prefix that is already dead is enumerated one at a time, and every one of them is rejected for
+# the reason the prefix was rejected for.
+#
+# The cost of that is the whole cost of the stage on a tree with a high fan out. The alignment map
+# is made symmetric by AugmentAlignmentMap, so its mean fan out is twice the relation count over
+# the number of patches, and the odometer takes one step per walk of length-1 edges: the number of
+# steps grows with the fan out to the power length-1.
+#
+# MEASURED, on PHerc. 1447, seed 5589,2669,15682, the tree seed40 of runs/rev1/seed-search-1447:
+# 14,959 patches, 230,513 rows of rel.csv, 460,985 directed edges after the augmentation, mean fan
+# out 30.82. The odometer takes 460,985 steps at length 2, 20,319,828 at length 3, 983,163,150 at
+# length 4 and 50,496,320,188 at length 5, counted from that tree's own rel.csv
+# (runs/rev1/c-stage-cost/evidence/step-counts-model.csv) and confirmed by a counting build of the
+# stage itself (evidence/step-counts-measured.csv). The round at length 2 finds 12,628 of the
+# 14,959 patches bad, so from length 3 on almost every prefix is dead at its first or second
+# element and the 51.5 billion steps produce 581,099 chains that could have been reached in
+# 581,099 steps.
+#
+# With this change the odometer advances at the position where the chain died, and the indices
+# below that position go back to zero, which is where the carry would have left them. Every tuple
+# that is skipped shares the dead prefix and carries the same repeat or the same bad patch, so the
+# sequences that reach patchSequences, and the order they reach it in, are exactly the same. When
+# the chain is built whole, deadDepth is length-1 and the odometer is the odometer as it was.
+#
+# The bad first patch is the same argument at depth zero: the original set hasBadPatch, went on
+# building a chain it would throw away, and then enumerated the whole subtree below it.
+#
+# Evidence: runs/rev1/c-stage-cost/OUTCOME.md.

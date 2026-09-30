@@ -1,0 +1,326 @@
+[
+  {
+    "sha": "028c25c61d51fe0fc10bac0c243173f117e80a6e",
+    "node_id": "C_kwDOUJ0Z9doAKDAyOGMyNWM2MWQ1MWZlMGZjMTBiYWMwYzI0MzE3M2YxMTdlODBhNmU",
+    "commit": {
+      "author": {
+        "name": "TAUIL Abd Elilah",
+        "email": "tauilabdelilah97@gmail.com",
+        "date": "2026-09-16T17:15:09Z"
+      },
+      "committer": {
+        "name": "TAUIL Abd Elilah",
+        "email": "tauilabdelilah97@gmail.com",
+        "date": "2026-09-16T17:15:09Z"
+      },
+      "message": "Update correction: surfaces are half off-scan, and oblique where on it\n\nA visual check drew one of these surfaces over an all-black slice. The\nfourteen sit on nonzero CT a median of 46% of the time; this repo's own\nCT gate measured the four published surfaces at 48-53% nonzero mid-layer\nand let them through, so its threshold was too permissive. Tested whether\nthat alone explains the obliquity: it does not. The three surfaces lying\nentirely on real CT read 49.9 / 68.2 / 71.1 deg and visibly cut across the\nsheets. Two independent reasons, and the scroll-level conclusion stays\nwithdrawn.",
+      "tree": {
+        "sha": "7682f7422e2184bdbdb3d4a811c114bcb729cd4c",
+        "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/trees/7682f7422e2184bdbdb3d4a811c114bcb729cd4c"
+      },
+      "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/commits/028c25c61d51fe0fc10bac0c243173f117e80a6e",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/028c25c61d51fe0fc10bac0c243173f117e80a6e",
+    "html_url": "https://github.com/TAUIL-Abd-Elilah/pherc1447-ink-survey/commit/028c25c61d51fe0fc10bac0c243173f117e80a6e",
+    "comments_url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/028c25c61d51fe0fc10bac0c243173f117e80a6e/comments",
+    "author": {
+      "login": "TAUIL-Abd-Elilah",
+      "id": 100880820,
+      "node_id": "U_kgDOBgNRtA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/100880820?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/TAUIL-Abd-Elilah",
+      "html_url": "https://github.com/TAUIL-Abd-Elilah",
+      "followers_url": "https://api.github.com/users/TAUIL-Abd-Elilah/followers",
+      "following_url": "https://api.github.com/users/TAUIL-Abd-Elilah/following{/other_user}",
+      "gists_url": "https://api.github.com/users/TAUIL-Abd-Elilah/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/TAUIL-Abd-Elilah/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/TAUIL-Abd-Elilah/subscriptions",
+      "organizations_url": "https://api.github.com/users/TAUIL-Abd-Elilah/orgs",
+      "repos_url": "https://api.github.com/users/TAUIL-Abd-Elilah/repos",
+      "events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "TAUIL-Abd-Elilah",
+      "id": 100880820,
+      "node_id": "U_kgDOBgNRtA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/100880820?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/TAUIL-Abd-Elilah",
+      "html_url": "https://github.com/TAUIL-Abd-Elilah",
+      "followers_url": "https://api.github.com/users/TAUIL-Abd-Elilah/followers",
+      "following_url": "https://api.github.com/users/TAUIL-Abd-Elilah/following{/other_user}",
+      "gists_url": "https://api.github.com/users/TAUIL-Abd-Elilah/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/TAUIL-Abd-Elilah/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/TAUIL-Abd-Elilah/subscriptions",
+      "organizations_url": "https://api.github.com/users/TAUIL-Abd-Elilah/orgs",
+      "repos_url": "https://api.github.com/users/TAUIL-Abd-Elilah/repos",
+      "events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "041c240caa311e3ebb696dd79c3f62139cf84630",
+        "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/041c240caa311e3ebb696dd79c3f62139cf84630",
+        "html_url": "https://github.com/TAUIL-Abd-Elilah/pherc1447-ink-survey/commit/041c240caa311e3ebb696dd79c3f62139cf84630"
+      }
+    ]
+  },
+  {
+    "sha": "041c240caa311e3ebb696dd79c3f62139cf84630",
+    "node_id": "C_kwDOUJ0Z9doAKDA0MWMyNDBjYWEzMTFlM2ViYjY5NmRkNzljM2Y2MjEzOWNmODQ2MzA",
+    "commit": {
+      "author": {
+        "name": "TAUIL Abd Elilah",
+        "email": "tauilabdelilah97@gmail.com",
+        "date": "2026-09-13T19:32:04Z"
+      },
+      "committer": {
+        "name": "TAUIL Abd Elilah",
+        "email": "tauilabdelilah97@gmail.com",
+        "date": "2026-09-13T19:32:04Z"
+      },
+      "message": "Correction: the surfaces under this negative do not follow the sheets\n\nMeasured all 14 published PHerc1447 surfaces against the team's surface\nprediction: median 61.2 deg, 0/14 within 30, against a 60 deg null. Controls\non the same instrument read 4.1-6.5 deg.\n\nThe scroll-level conclusion is withdrawn: this shows no ink was recovered\nfrom these surfaces, not that the regions lack ink. The pipeline-validation\nhalf -- CT-support gate, label-smoothing rescale, control distribution,\nconfidence-ratio test -- is unaffected.",
+      "tree": {
+        "sha": "f6521c6082f39b6ca07280141c403063d0288583",
+        "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/trees/f6521c6082f39b6ca07280141c403063d0288583"
+      },
+      "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/commits/041c240caa311e3ebb696dd79c3f62139cf84630",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/041c240caa311e3ebb696dd79c3f62139cf84630",
+    "html_url": "https://github.com/TAUIL-Abd-Elilah/pherc1447-ink-survey/commit/041c240caa311e3ebb696dd79c3f62139cf84630",
+    "comments_url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/041c240caa311e3ebb696dd79c3f62139cf84630/comments",
+    "author": {
+      "login": "TAUIL-Abd-Elilah",
+      "id": 100880820,
+      "node_id": "U_kgDOBgNRtA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/100880820?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/TAUIL-Abd-Elilah",
+      "html_url": "https://github.com/TAUIL-Abd-Elilah",
+      "followers_url": "https://api.github.com/users/TAUIL-Abd-Elilah/followers",
+      "following_url": "https://api.github.com/users/TAUIL-Abd-Elilah/following{/other_user}",
+      "gists_url": "https://api.github.com/users/TAUIL-Abd-Elilah/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/TAUIL-Abd-Elilah/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/TAUIL-Abd-Elilah/subscriptions",
+      "organizations_url": "https://api.github.com/users/TAUIL-Abd-Elilah/orgs",
+      "repos_url": "https://api.github.com/users/TAUIL-Abd-Elilah/repos",
+      "events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "TAUIL-Abd-Elilah",
+      "id": 100880820,
+      "node_id": "U_kgDOBgNRtA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/100880820?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/TAUIL-Abd-Elilah",
+      "html_url": "https://github.com/TAUIL-Abd-Elilah",
+      "followers_url": "https://api.github.com/users/TAUIL-Abd-Elilah/followers",
+      "following_url": "https://api.github.com/users/TAUIL-Abd-Elilah/following{/other_user}",
+      "gists_url": "https://api.github.com/users/TAUIL-Abd-Elilah/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/TAUIL-Abd-Elilah/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/TAUIL-Abd-Elilah/subscriptions",
+      "organizations_url": "https://api.github.com/users/TAUIL-Abd-Elilah/orgs",
+      "repos_url": "https://api.github.com/users/TAUIL-Abd-Elilah/repos",
+      "events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/TAUIL-Abd-Elilah/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "de242d411c58d8961b1ceabc9d20454b9d92a4f9",
+        "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/de242d411c58d8961b1ceabc9d20454b9d92a4f9",
+        "html_url": "https://github.com/TAUIL-Abd-Elilah/pherc1447-ink-survey/commit/de242d411c58d8961b1ceabc9d20454b9d92a4f9"
+      }
+    ]
+  },
+  {
+    "sha": "de242d411c58d8961b1ceabc9d20454b9d92a4f9",
+    "node_id": "C_kwDOUJ0Z9doAKGRlMjQyZDQxMWM1OGQ4OTYxYjFjZWFiYzlkMjA0NTRiOWQ5MmE0Zjk",
+    "commit": {
+      "author": {
+        "name": "TAUIL Abd Elilah",
+        "email": "hafsatauil2004@gmail.com",
+        "date": "2026-09-02T00:51:48Z"
+      },
+      "committer": {
+        "name": "TAUIL Abd Elilah",
+        "email": "hafsatauil2004@gmail.com",
+        "date": "2026-09-02T00:51:48Z"
+      },
+      "message": "Correct the seam finding: it depends on coverage, not the blend\n\nThe 1.205x gradient excess on the 64 px stride lattice was reported as a general\nproperty of the Hann overlap-add, measured on a single segment. Re-measuring on the\nknown-ink control shows no effect at all (ratio 0.997), and across five segments the\nexcess scales inversely with the supported fraction: 0.925 -> 0.997, 0.723 -> 1.205,\n0.118 -> 1.255.\n\nSo the artifact belongs to partially covered segments, where patches straddle the\ncoverage boundary, not to the blend itself. Adds scripts/repro_seam.py so anyone can\ncheck their own predictions.",
+      "tree": {
+        "sha": "8bfbec58a2f27745e12aa53e77507705d1b26acc",
+        "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/trees/8bfbec58a2f27745e12aa53e77507705d1b26acc"
+      },
+      "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/commits/de242d411c58d8961b1ceabc9d20454b9d92a4f9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/de242d411c58d8961b1ceabc9d20454b9d92a4f9",
+    "html_url": "https://github.com/TAUIL-Abd-Elilah/pherc1447-ink-survey/commit/de242d411c58d8961b1ceabc9d20454b9d92a4f9",
+    "comments_url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/de242d411c58d8961b1ceabc9d20454b9d92a4f9/comments",
+    "author": {
+      "login": "HafsaTAUIL",
+      "id": 299282510,
+      "node_id": "U_kgDOEdawTg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/299282510?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/HafsaTAUIL",
+      "html_url": "https://github.com/HafsaTAUIL",
+      "followers_url": "https://api.github.com/users/HafsaTAUIL/followers",
+      "following_url": "https://api.github.com/users/HafsaTAUIL/following{/other_user}",
+      "gists_url": "https://api.github.com/users/HafsaTAUIL/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/HafsaTAUIL/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/HafsaTAUIL/subscriptions",
+      "organizations_url": "https://api.github.com/users/HafsaTAUIL/orgs",
+      "repos_url": "https://api.github.com/users/HafsaTAUIL/repos",
+      "events_url": "https://api.github.com/users/HafsaTAUIL/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/HafsaTAUIL/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "HafsaTAUIL",
+      "id": 299282510,
+      "node_id": "U_kgDOEdawTg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/299282510?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/HafsaTAUIL",
+      "html_url": "https://github.com/HafsaTAUIL",
+      "followers_url": "https://api.github.com/users/HafsaTAUIL/followers",
+      "following_url": "https://api.github.com/users/HafsaTAUIL/following{/other_user}",
+      "gists_url": "https://api.github.com/users/HafsaTAUIL/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/HafsaTAUIL/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/HafsaTAUIL/subscriptions",
+      "organizations_url": "https://api.github.com/users/HafsaTAUIL/orgs",
+      "repos_url": "https://api.github.com/users/HafsaTAUIL/repos",
+      "events_url": "https://api.github.com/users/HafsaTAUIL/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/HafsaTAUIL/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5caaf54b1a290183963fedde3b6786aa2362ac39",
+        "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/5caaf54b1a290183963fedde3b6786aa2362ac39",
+        "html_url": "https://github.com/TAUIL-Abd-Elilah/pherc1447-ink-survey/commit/5caaf54b1a290183963fedde3b6786aa2362ac39"
+      }
+    ]
+  },
+  {
+    "sha": "5caaf54b1a290183963fedde3b6786aa2362ac39",
+    "node_id": "C_kwDOUJ0Z9doAKDVjYWFmNTRiMWEyOTAxODM5NjNmZWRkZTNiNjc4NmFhMjM2MmFjMzk",
+    "commit": {
+      "author": {
+        "name": "TAUIL Abd Elilah",
+        "email": "hafsatauil2004@gmail.com",
+        "date": "2026-08-31T13:53:33Z"
+      },
+      "committer": {
+        "name": "TAUIL Abd Elilah",
+        "email": "hafsatauil2004@gmail.com",
+        "date": "2026-08-31T13:53:33Z"
+      },
+      "message": "PHerc1447 ink survey: control-calibrated negative on four published surface volumes\n\nRuns the 18 August First Letters workflow on prize-eligible PHerc1447 with\nscrollprize/ink_9um, and reports no legible ink across ~42 cm2 and 956 sliding\n4 cm2 windows per direction.\n\nThe negative is calibrated against a 345-window known-ink control (PHerc0139\nw043) run through the identical pipeline, validated against the bucket's own\npublished 2.4um prediction at Pearson r=0.3829 and 2.73x enrichment.\n\nCloses four confounds before the verdict: CT support, label smoothing, voxel\nscale mismatch, and single-region baselines.\n\nAlso documents two defects: one transient remote read aborts the whole ink\ninference, and overlap-blend seams leave a 1.205x gradient excess on the\nstride lattice.",
+      "tree": {
+        "sha": "db2e3e4936380564a7fa828ab833622f5fbac055",
+        "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/trees/db2e3e4936380564a7fa828ab833622f5fbac055"
+      },
+      "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/git/commits/5caaf54b1a290183963fedde3b6786aa2362ac39",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/5caaf54b1a290183963fedde3b6786aa2362ac39",
+    "html_url": "https://github.com/TAUIL-Abd-Elilah/pherc1447-ink-survey/commit/5caaf54b1a290183963fedde3b6786aa2362ac39",
+    "comments_url": "https://api.github.com/repos/TAUIL-Abd-Elilah/pherc1447-ink-survey/commits/5caaf54b1a290183963fedde3b6786aa2362ac39/comments",
+    "author": {
+      "login": "HafsaTAUIL",
+      "id": 299282510,
+      "node_id": "U_kgDOEdawTg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/299282510?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/HafsaTAUIL",
+      "html_url": "https://github.com/HafsaTAUIL",
+      "followers_url": "https://api.github.com/users/HafsaTAUIL/followers",
+      "following_url": "https://api.github.com/users/HafsaTAUIL/following{/other_user}",
+      "gists_url": "https://api.github.com/users/HafsaTAUIL/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/HafsaTAUIL/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/HafsaTAUIL/subscriptions",
+      "organizations_url": "https://api.github.com/users/HafsaTAUIL/orgs",
+      "repos_url": "https://api.github.com/users/HafsaTAUIL/repos",
+      "events_url": "https://api.github.com/users/HafsaTAUIL/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/HafsaTAUIL/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "HafsaTAUIL",
+      "id": 299282510,
+      "node_id": "U_kgDOEdawTg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/299282510?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/HafsaTAUIL",
+      "html_url": "https://github.com/HafsaTAUIL",
+      "followers_url": "https://api.github.com/users/HafsaTAUIL/followers",
+      "following_url": "https://api.github.com/users/HafsaTAUIL/following{/other_user}",
+      "gists_url": "https://api.github.com/users/HafsaTAUIL/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/HafsaTAUIL/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/HafsaTAUIL/subscriptions",
+      "organizations_url": "https://api.github.com/users/HafsaTAUIL/orgs",
+      "repos_url": "https://api.github.com/users/HafsaTAUIL/repos",
+      "events_url": "https://api.github.com/users/HafsaTAUIL/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/HafsaTAUIL/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+
+    ]
+  }
+]

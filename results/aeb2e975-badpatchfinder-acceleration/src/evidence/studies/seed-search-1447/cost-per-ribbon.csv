@@ -1,0 +1,8 @@
+"# what one delivered ribbon costs in machine time, over the SIX seeds of seed-search-1447 that have both a measured fan out and a c stage time in both arms of c-stage-cost. growth_seconds is from per-seed.csv; c_stage_before is reference_seconds and c_stage_after is arm_seconds of arm c2 in c-stage-cost/evidence/c-stage-times.csv. The l, vm, hm and fm stages are seconds and are NOT in these sums, which are therefore the growth and the c stage only and are stated as such. The last column applies the rule of early-tangle: a tangle stopped when its log passes 100,000 lines, which on seed44 was inside 532 s of wall clock, and it is 532 for every tangle because the rule reads the same place in every log. That column is an ARITHMETIC PROJECTION and not a measurement: no growth has ever been stopped by that rule."
+attempt,kind,fan_out,growth_seconds,c_stage_before,c_stage_after,growth_plus_c_before,growth_plus_c_after,growth_plus_c_if_tangles_stop_at_100000_lines
+PHerc1447-seed01,ribbon,4.61,2922,30,55.1,2952,2977,2977
+PHerc1447-seed15,ribbon,4.64,3007,32,78.3,3039,3085,3085
+PHerc1447-seed26,ribbon,4.51,2400,22,51.8,2422,2452,2452
+PHerc1447-seed38,tangle,27.40,7287,7808,63.0,15095,7350,532
+PHerc1447-seed40,tangle,30.82,6136,7251,34.9,13387,6171,532
+PHerc1447-seed48,tangle,30.86,7675,8300,54.4,15975,7729,532

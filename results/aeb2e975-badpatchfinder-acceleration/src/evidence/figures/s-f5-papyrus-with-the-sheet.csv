@@ -1,0 +1,48 @@
+# figure S5; what the raster drew. One row per quantity; with the file and the column it was read from. Panels a and b are PHerc. 0139 and panel c is PHerc. 1447; one pixel is one voxel in each; at that scroll's own voxel from its manifest. The superlative in panel c was recomputed over every sheet of every seed file named in its rows; and the second largest is beside it. Panel a's superlative was recomputed over every delivered arm of remeasure-at-9362; and its rows carry the arms tied at the maximum; the arms and sheets the word covers; and the next value below. Every square is column square_mm_min_step; named in each row; never a column of restated.csv; whose two voxels sit side by side. Kept in the article by the owner's decision of 2026-09-30; which suspends the rule against surface texture of this scroll. Written 2026-09-30T08:11:10Z. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+panel,scroll,what,source_file,source_column,value
+all,,cores busy when the figure was drawn,/proc/stat,difference of ticks over five seconds,not checked
+a,PHerc0139,arm drawn,remeasure-at-9362/evidence/squares-C40.csv,point,C40
+a,PHerc0139,arms tied at the largest square,remeasure-at-9362/evidence/squares-*.csv,point,A500; C40; P40
+a,PHerc0139,arms the superlative was recomputed over,remeasure-at-9362/evidence/squares-*.csv,point,12
+a,PHerc0139,measured sheets the superlative was recomputed over,remeasure-at-9362/evidence/squares-*.csv,square_mm_min_step,610
+a,PHerc0139,sheet drawn,remeasure-at-9362/evidence/squares-C40.csv,sheet,1
+a,PHerc0139,sheet file,corrected-base/out/sheets-C40/patches/patch_1.bin,sha256,153e0bcd2af3f0430c0e8c5b80d3bba9ab4b4497c6b55e6b3024f9721eb71d48
+a,PHerc0139,largest square over every delivered arm of the scroll; mm,remeasure-at-9362/evidence/squares-*.csv,square_mm_min_step,12.123
+a,PHerc0139,next distinct value below it; mm,remeasure-at-9362/evidence/squares-*.csv,square_mm_min_step,11.9743
+a,PHerc0139,a file this figure does not read; and why,remeasure-at-9362/evidence/restated.csv,largest_square_mm_at_9_0 beside largest_square_mm_at_9_362,the two columns differ by 4.02 per cent and a row does not say which one a reader wants; every square here is column square_mm_min_step of a per sheet table whose header states its voxel
+a,PHerc0139,z slice,corrected-base/out/sheets-C40/patches/patch_1.bin,pz of the cells of the square; median rounded,5871
+a,PHerc0139,bounding box y0;y1;x0;x1 in voxels,corrected-base/out/sheets-C40/patches/patch_1.bin,py and px of the cells on the slice,3227;4131;2241;3798
+a,PHerc0139,cube stacks read,finished-sheet-0139/data/cubes_RAW,files covering the box,104
+a,PHerc0139,sheet cells drawn on the slice,corrected-base/out/sheets-C40/patches/patch_1.bin,cells within half a voxel of the slice,606
+a,PHerc0139,mm per pixel,pipeline/datasets/manifests/PHerc0139.json,voxel_um through pipeline/datasets/voxel.py,0.009362
+a,PHerc0139,where that voxel comes from,pipeline/datasets/manifests/PHerc0139.json,voxel_um_source,samplePixelSize 0.009362 mm in /source/metadata/scan/tomo/acquisition/detector of metadata.json; published beside the prediction zarr at the source below and fetched 2026-09-20; sensorPixelSize 6500.0; sensorBinning 2; optical_magnification 1.0. NOT the z_step of 9.302 in the same block; which is the stage step. Read this field; never a constant.
+b,PHerc0139,coverage mask; cells i by j,remeasure-at-9362/evidence/squares-C40.csv,cells_i; cells_j,3054;3389
+b,PHerc0139,covered cells,corrected-base/out/sheets-C40/patches/patch_1.bin,cells of the lattice a point landed on,4253221
+b,PHerc0139,square side; cells,remeasure-at-9362/evidence/squares-C40.csv,square_cells,324
+b,PHerc0139,square top left corner i;j,remeasure-at-9362/evidence/squares-C40.csv,square_corner_i; square_corner_j,1292;1376
+c,PHerc1447,seed drawn,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,point,PHerc1447-seed26
+c,PHerc1447,sheet drawn,seed-search-1447/evidence/squares-PHerc1447-seed26.csv,sheet,2
+c,PHerc1447,sheet file,seed-search-1447/out/PHerc1447-seed26/sheets/patches/patch_2.bin,sha256,b6066c8bbad8576054482c1e34c710e44809d3ee6a987e929337d566c9d2f1f9
+c,PHerc1447,largest square over every sheet of every seed; mm,seed-search-1447/evidence/squares-PHerc1447-seed*.csv,square_mm_min_step,12.7244
+c,PHerc1447,second largest over the same rows; mm,seed-search-1447/evidence/squares-PHerc1447-seed*.csv,square_mm_min_step,11.9836
+c,PHerc1447,rows the superlative was recomputed over,seed-search-1447/evidence/squares-PHerc1447-seed*.csv,files,10
+c,PHerc1447,what the greyscale is,pipeline/datasets/manifests/PHerc1447.json,model,20260413222639-surface-m7-L0-th0.2
+c,PHerc1447,why it is not papyrus,pipeline/datasets/manifests/PHerc1447.json,source,the reconstructed grayscale of this scroll is not on this disk; the panel shows the published surface prediction field named above and not the volume
+c,PHerc1447,z slice,seed-search-1447/out/PHerc1447-seed26/sheets/patches/patch_2.bin,pz of the cells of the square; median rounded,14396
+c,PHerc1447,bounding box y0;y1;x0;x1 in voxels,seed-search-1447/out/PHerc1447-seed26/sheets/patches/patch_2.bin,py and px of the cells on the slice,1965;2639;3143;5756
+c,PHerc1447,sheet cells drawn on the slice,seed-search-1447/out/PHerc1447-seed26/sheets/patches/patch_2.bin,cells within half a voxel of the slice,133
+c,PHerc1447,mm per pixel,pipeline/datasets/manifests/PHerc1447.json,voxel_um through pipeline/datasets/voxel.py,0.008640
+c,PHerc1447,where that voxel comes from,pipeline/datasets/manifests/PHerc1447.json,voxel_um_source,samplePixelSize 0.00864 mm in /source/metadata/scan/tomo/acquisition/detector of metadata.json; published beside this scroll's own prediction zarr and fetched 2026-09-20. Read this field; never a constant; and never another scroll's value: the scans differ.
+a,PHerc0139,display window; low and high grey,the slice itself,1st and 99.5th percentile of its non zero voxels,19;185
+c,PHerc1447,display window; low and high grey,the slice itself,1st and 99.5th percentile of its non zero voxels,255;255
+a,,scale bar; pixels for its millimetres,paper/figures/s-f5-papyrus-with-the-sheet.png,length in mm over the mm per pixel row of this panel,534 px for 5 mm
+c,,scale bar; pixels for its millimetres,paper/figures/s-f5-papyrus-with-the-sheet.png,length in mm over the mm per pixel row of this panel,579 px for 5 mm
+all,,title size; pixels,,8 pt at the printed width of 7.16 in,118
+all,,display rule,,,each greyscale panel is stretched linearly between the 1st and 99.5th percentile of its own non zero voxels (the two values are the display window rows); the sheet's cells are discs of radius 9 pixels and the square's outline is 18 pixels wide; in orange (255; 90; 0); which is about 1.2 pt at the printed width of 7.16 in
+a,PHerc0139,cubes read from the shared raw chunk cache,tools/raw_chunk_cache.py,level 0 chunks of 20250728140407-9.362um-1.2m-113keV-masked.zarr,104
+a,,caption drawn inside the figure,paper/figures/s-f5-papyrus-with-the-sheet.png,titles of tools/figlib.py grey_png,a  PHerc. 0139; one z slice; the delivered sheet in orange
+b,,caption drawn inside the figure,paper/figures/s-f5-papyrus-with-the-sheet.png,titles of tools/figlib.py grey_png,b  the same sheet's coverage mask; orange square = the largest fully covered square
+c,,caption drawn inside the figure,paper/figures/s-f5-papyrus-with-the-sheet.png,titles of tools/figlib.py grey_png,c  PHerc. 1447; the prediction field; the best sheet in orange
+a,,panel box in the png; x;y;w;h,paper/figures/s-f5-papyrus-with-the-sheet.png,layout of tools/figlib.py grey_png,0;1075;1557;904
+b,,panel box in the png; x;y;w;h,paper/figures/s-f5-papyrus-with-the-sheet.png,layout of tools/figlib.py grey_png,1569;0;3389;3054
+c,,panel box in the png; x;y;w;h,paper/figures/s-f5-papyrus-with-the-sheet.png,layout of tools/figlib.py grey_png,4970;1190;2613;674

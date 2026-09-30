@@ -1,0 +1,3 @@
+# what performance/00002-selection-render-state-and-precomputed-normals is worth on the c stage, per seed, read back from evidence/c-stage-summary.csv. The factor is the arm without the change over the arm with it, both from runs that finished on a quiet machine. Where the arm without the change was stopped by its cap the factor column says `at least` and the bound is the cap: a bound is never written as a time and never as zero.
+attempt,baseline_arm,baseline_seconds,baseline_runs,other_arm,other_seconds,other_runs,factor,how_to_read_it
+PHerc1447-seed26,plain,49.4,2,noA8,1548.2,3,31.34,"smallest second of each arm, the arm without the change over the arm with it (1548.2 over 49.4 here); the spread of each is in c-stage-summary.csv, columns spread_seconds and spread_pct"

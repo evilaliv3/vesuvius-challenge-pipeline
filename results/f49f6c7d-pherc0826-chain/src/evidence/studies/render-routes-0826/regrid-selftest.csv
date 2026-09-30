@@ -1,0 +1,34 @@
+# written by render-routes-0826/tools/regrid_z.py selftest: synthetic cylinder r = 1500 + 3 sin(2 pi z / 400) voxels around an axis tilted 2 degrees, lattice step 4 voxels rotated 30 degrees to z (T1, T3, T4); smooth cone r = 1500 + 0.02 (z - z0) (T2)
+run,test,what,value,bar,passed
+2026-09-29T06:47:32Z,T1,fit none: row step IN PLANE angle to z median (deg),0.2560,< 0.5,yes
+2026-09-29T06:47:32Z,T1,"fit none: row step 3D angle to z median (deg; holds the sheet's inclination to z, information)",2.0150,information,yes
+2026-09-29T06:47:32Z,T1,fit none: u spacing median / h - 1,-0.00001,|x| < 0.01,yes
+2026-09-29T06:47:32Z,T1,fit none: |r_out - r_true| p95 (vox),0.0008,< 0.1,yes
+2026-09-29T06:47:32Z,T1,fit none: valid output nodes,90000,> 50000,yes
+2026-09-29T06:47:32Z,T2,fit spline 0.5 mm knots on a smooth cone: |r_out - r_true| p95 (vox),0.0009,< 0.1,yes
+2026-09-29T06:47:32Z,T2,fit spline: row step IN PLANE angle to z median (deg),0.622,< 0.5,no
+2026-09-29T06:47:32Z,T3,tifxyz round trip (float32),equal,equal,yes
+2026-09-29T06:47:32Z,T4,patch .bin and the same lattice as tifxyz give the same output,equal,equal,yes
+2026-09-29T06:48:05Z,T1,"fit none: v step IN PLANE angle to z median (deg; the grid's shear, information)",0.2560,information,yes
+2026-09-29T06:48:05Z,T5,fit none: median |90 - 3D angle of the u step to z| (deg),0.00000,< 0.01,yes
+2026-09-29T06:48:05Z,T1,"fit none: row step 3D angle to z median (deg; holds the sheet's inclination to z, information)",2.0150,information,yes
+2026-09-29T06:48:05Z,T1,fit none: u spacing median / h - 1,-0.00001,|x| < 0.01,yes
+2026-09-29T06:48:05Z,T1,fit none: |r_out - r_true| p95 (vox),0.0008,< 0.1,yes
+2026-09-29T06:48:05Z,T1,fit none: valid output nodes,90000,> 50000,yes
+2026-09-29T06:48:05Z,T2,fit spline 0.5 mm knots on a smooth cone: |r_out - r_true| p95 (vox),0.0009,< 0.1,yes
+2026-09-29T06:48:05Z,T2,"fit spline: v step IN PLANE angle to z median (deg; the grid's shear, information)",0.622,information,yes
+2026-09-29T06:48:05Z,T6,fit spline: median |90 - 3D angle of the u step to z| (deg),0.00000,< 0.01,yes
+2026-09-29T06:48:05Z,T3,tifxyz round trip (float32),equal,equal,yes
+2026-09-29T06:48:05Z,T4,patch .bin and the same lattice as tifxyz give the same output,equal,equal,yes
+2026-09-29T07:34:18Z,T1,"fit none: v step IN PLANE angle to z median (deg; the grid's shear, information)",0.2560,information,yes
+2026-09-29T07:34:18Z,T5,fit none: median |90 - 3D angle of the u step to z| (deg),0.00000,< 0.01,yes
+2026-09-29T07:34:18Z,T1,"fit none: row step 3D angle to z median (deg; holds the sheet's inclination to z, information)",2.0150,information,yes
+2026-09-29T07:34:18Z,T1,fit none: u spacing median / h - 1,-0.00001,|x| < 0.01,yes
+2026-09-29T07:34:18Z,T1,fit none: |r_out - r_true| p95 (vox),0.0008,< 0.1,yes
+2026-09-29T07:34:18Z,T1,fit none: valid output nodes,90000,> 50000,yes
+2026-09-29T07:34:18Z,T2,fit spline 0.5 mm knots on a smooth cone: |r_out - r_true| p95 (vox),0.0009,< 0.1,yes
+2026-09-29T07:34:18Z,T2,"fit spline: v step IN PLANE angle to z median (deg; the grid's shear, information)",0.622,information,yes
+2026-09-29T07:34:18Z,T6,fit spline: median |90 - 3D angle of the u step to z| (deg),0.00000,< 0.01,yes
+2026-09-29T07:34:18Z,T7,--max-dist-3d 2h on a surface without folds drops no node (nodes dropped),0,0,yes
+2026-09-29T07:34:18Z,T3,tifxyz round trip (float32),equal,equal,yes
+2026-09-29T07:34:18Z,T4,patch .bin and the same lattice as tifxyz give the same output,equal,equal,yes

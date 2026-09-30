@@ -1,0 +1,9 @@
+# the .text section of each binary built with -g beside the same build without it.
+# text_sha256 is sha256 of the bytes objcopy --only-section=.text extracts. Two rows of
+# a pair with the same text_sha256 mean -g added debug sections and changed no
+# instruction, so a time measured on the -g build is a time of the code that ships.
+label,debug_flag,text_bytes,text_sha256,binary
+guarded,no,421316,2896b8c9c888bc451eea7087a89281d708eee70d1f97283fdc2031a95a5df9b0,/data/scrollagent/runs/rev1/c-stage-cost/scratch/bin/guarded/simpaper10
+guarded-g,yes,421316,2896b8c9c888bc451eea7087a89281d708eee70d1f97283fdc2031a95a5df9b0,/data/scrollagent/runs/rev1/c-stage-cost/scratch/bin/guarded-g/simpaper10
+c1,no,421508,43b59d52e5fac52c5e062198fddd8548d14fea17de52194413cd0ab32fc135f4,/data/scrollagent/runs/rev1/c-stage-cost/scratch/bin/c1/simpaper10
+c1-g,yes,421508,43b59d52e5fac52c5e062198fddd8548d14fea17de52194413cd0ab32fc135f4,/data/scrollagent/runs/rev1/c-stage-cost/scratch/bin/c1-g/simpaper10

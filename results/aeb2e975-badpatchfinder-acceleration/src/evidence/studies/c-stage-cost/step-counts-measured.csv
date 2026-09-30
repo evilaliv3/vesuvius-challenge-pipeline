@@ -1,0 +1,14 @@
+# measured by a counting build of the stage itself: one increment per visit of the odometer's while body, printed once per chain length. variant is `unpruned` for the source with the orphan guard alone and `pruned` for that source with 00008 and 00009. odometer_steps is the count; sequences is the number of chains kept, which the two variants must agree on. The counting build is an instrument and is not in the delivered series.
+variant,attempt,length,odometer_steps,sequences,log
+unpruned,PHerc1447-seed26,2,42868,21432,log/chain-counter-unpruned-PHerc1447-seed26-c.txt
+unpruned,PHerc1447-seed26,3,243529,52571,log/chain-counter-unpruned-PHerc1447-seed26-c.txt
+unpruned,PHerc1447-seed26,4,1443677,191087,log/chain-counter-unpruned-PHerc1447-seed26-c.txt
+unpruned,PHerc1447-seed26,5,9030989,682561,log/chain-counter-unpruned-PHerc1447-seed26-c.txt
+pruned,PHerc1447-seed26,2,42868,21432,log/chain-counter-c2-PHerc1447-seed26-c.txt
+pruned,PHerc1447-seed26,3,160887,52571,log/chain-counter-c2-PHerc1447-seed26-c.txt
+pruned,PHerc1447-seed26,4,654536,191087,log/chain-counter-c2-PHerc1447-seed26-c.txt
+pruned,PHerc1447-seed26,5,2494873,682561,log/chain-counter-c2-PHerc1447-seed26-c.txt
+pruned,PHerc1447-seed40,2,460985,230472,log/chain-counter-c2-PHerc1447-seed40-c.txt
+pruned,PHerc1447-seed40,3,73846,1903,log/chain-counter-c2-PHerc1447-seed40-c.txt
+pruned,PHerc1447-seed40,4,130903,4942,log/chain-counter-c2-PHerc1447-seed40-c.txt
+pruned,PHerc1447-seed40,5,280593,14130,log/chain-counter-c2-PHerc1447-seed40-c.txt

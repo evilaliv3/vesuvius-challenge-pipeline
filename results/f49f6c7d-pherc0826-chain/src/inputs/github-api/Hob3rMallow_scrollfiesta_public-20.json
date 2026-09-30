@@ -1,0 +1,78 @@
+{
+  "url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/20",
+  "repository_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public",
+  "labels_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/20/labels{/name}",
+  "comments_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/20/comments",
+  "events_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/20/events",
+  "html_url": "https://github.com/Hob3rMallow/scrollfiesta_public/issues/20",
+  "id": 5543376138,
+  "node_id": "I_kwDOStgTJ88AAAABSmk1Cg",
+  "number": 20,
+  "title": "The verification the unarmed warning recommends cannot see the faces the pipeline's own certificate rejects",
+  "user": {
+    "login": "evilaliv3",
+    "id": 217034,
+    "node_id": "MDQ6VXNlcjIxNzAzNA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/217034?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/evilaliv3",
+    "html_url": "https://github.com/evilaliv3",
+    "followers_url": "https://api.github.com/users/evilaliv3/followers",
+    "following_url": "https://api.github.com/users/evilaliv3/following{/other_user}",
+    "gists_url": "https://api.github.com/users/evilaliv3/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/evilaliv3/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/evilaliv3/subscriptions",
+    "organizations_url": "https://api.github.com/users/evilaliv3/orgs",
+    "repos_url": "https://api.github.com/users/evilaliv3/repos",
+    "events_url": "https://api.github.com/users/evilaliv3/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/evilaliv3/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 0,
+  "created_at": "2026-09-22T18:10:10Z",
+  "updated_at": "2026-09-22T18:10:10Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "**What we found.** The warning `grid_pipeline` prints when the winding gates are not armed names\n`wind_audit`'s FULL TURN test as the way to verify the result. That check passes while the\npipeline's own certificate does not, and the faces the certificate rejects reach the delivered\nsheet.\n\n<img width=\"1259\" height=\"692\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/74477d5b-cc56-4c83-96c5-8b6a91b34c7c\" />\nThe certificate per cube, with the axis table and with one constant centre, over the 1,728 cubes of the window.\n\n**Why it matters.** The two tests do not look at the same thing. FULL TURN looks for a component\nwhose turn count closes a whole wrap; the faces in question reach 0.366318 of a wrap at the\nlargest, where a full turn fusion would be near 1.0. So no full turn test can see them, and a\nuser who follows the warning is told a run is clean when the pipeline would refuse part of it.\n\n**That it is not the scroll centre we chose.** The window was certified twice, once with the\naxis table it was meshed with and once with one constant scroll centre. Both readings find\nfaces the certificate rejects and both find FULL TURN at zero, so the disagreement is between\nthe two tests and not between two ways of placing the axis. The two readings do not even agree\nwith each other, and not in one direction: four cubes the constant centre flags are clean under\nthe table, and one it calls clean carries three under it.\n\n**The numbers**, on a 27 cube window of PHerc. 0139 with `--grow-wind-tol 0`, which is both the\ncompiled default and what the warning recommends:\n\n| reading of the axis | FULL TURN fusions | faces the certificate rejects at 0.30 | cubes carrying them, of 27 | max abs dw |\n|---|---:|---:|---:|---:|\n| the axis table the window was meshed with | 0 | 3 | 1 | 0.366318 |\n| one constant scroll centre | 0 | 26 | 4 | 0.476326 |\n\nEach row is the same on the mesh geometry and on the placed geometry, so nothing is removed\nbetween the mesher and the strip. The count that belongs in a report is the one the pipeline\nitself applies, which is the first row.\n\n**How to check it yourself.** Mesh a window with `--grow-wind-tol 0`, run `wind_audit` on it and\nread FULL TURN, then run `pipeline_count_winding_shortcut_faces` at tolerance 0.30 on the same\ncubes. The first says zero and the second does not.\n\n---\n\nWhen the winding gates are not armed, `grid_pipeline` prints a warning that tells the user how to\narm them and how to check the result:\n\n```\n***   Arm it:  --umb-y 3405 --umb-x 2878 --wrap-pitch 9.5\n***            --grow-wind-tol 0  (keeps the certificate,\n***             disables only the over-splitting BPA gate)\n***   Verify with wind_audit: FULL-TURN must be 0.\n```\n\nWe followed it, on a 27 cube window of PHerc0139 with the axis and pitch of that scroll. **The\ncheck it names passes and the pipeline's own certificate does not**, and the faces the certificate\nrejects reach the delivered sheet.\n\n## What we measured\n\nWith `--grow-wind-tol 0`, which is both the compiled default (`grid_pipeline.c:305`) and what the\nwarning recommends:\n\n| what | with the axis table the window was meshed with | with one constant scroll centre |\n|---|---|---|\n| `wind_audit` FULL TURN fusions, the check the warning names | **0** | **0** |\n| faces `pipeline_count_winding_shortcut_faces` rejects at 0.30 | **3** | **26** |\n| cubes carrying them, of 27 | **1** | **4** |\n| max abs dw over the window | 0.366318 | 0.476326 |\n\n**The two readings do not agree, and not in one direction either.** The four cubes the constant\ncentre flags are **clean** under the table; a fifth cube the constant centre calls clean,\n`z09216_y02432_x02560`, carries **3** under it. The `<id>_mesh.obj` and `<id>_placed.obj`\ngeometries give the same count cube for cube, so nothing is removed between the mesher and the\nstrip in either reading. FULL TURN fusions are **0 on every row of both**\n(`growth-gate-cost/evidence/placed-certificate-axis.csv` for the table reading and\n`placed-certificate.csv` for the constant one; the audit's own column is `full_turn_fusions` of\n`evidence/wind-audit.csv`).\n\nThe count that belongs in a report is the one the pipeline itself applies, and that is the\ntable: **3 faces on 1 cube of 27**. We are telling you the other number too, because the\ndifference between them is the point of the last remedy below.\n\n## Why the two disagree, which we think is the whole of it\n\nThey measure different things and the warning points at the weaker one.\n\n`wind_audit`'s FULL TURN test looks for a component whose turn count closes a whole wrap, and\nthe faces the certificate rejects here do not: their `max |dw|` is 0.366318 at the largest,\nwhere a face bridging turn N to turn N+1 would be near 1.0. They are not full turn fusions and\nno full turn test can see them. They are the smaller winding errors the certificate exists to\ncatch, and `--grow-wind-tol 0` leaves them in while the recommended verification says the run is\nclean.\n\n**One measurement we had and have withdrawn.** An earlier draft added that those faces span\nabout 0.34 of a wrap pitch. That figure was computed over the **26** faces of the constant\ncentre reading, and we cannot recompute it over the **3** the axis table gives, because the tool\nthat writes the per face radii, `src/tools/sa_bad_faces.c` in our tree, takes a constant\numbilicus and not the table. That is the same limitation as remedy 3 below, met from the other\nside, and we would rather drop a number than carry one measured on the other reading's faces.\n\n## What we are not saying\n\nWe are **not** saying the gate should be armed by default. `grid_pipeline.c:300` explains why it\nis not: on PHerc0139 the growth gate fragments ordinary sheets, 10 charts to 68 or more on the\ncanonical fixture, and we see the same, 9 charts against 141 on one cube. Arming it has a real\ncost and the comment is right to call it research only.\n\nWe are also aware that a winding guard in this repository has already made a consumer worse:\n**#13** is kept in draft by its own author because the complete RAW five stage consumer regressed,\nmulti cover 50.96 to 57.78 per cent against a 0.20 point safety limit. That is a reason to be\ncareful with any remedy here, including ours.\n\n## What we think would help, in order of how cheap it is\n\n1. **Change the verification line in the warning.** `wind_audit` FULL TURN is not a sufficient\n   check for what `--grow-wind-tol 0` leaves. The pipeline already computes the stronger one; if\n   the warning named the certificate's own count instead, a user following it would see the 26.\n2. **Say in the warning that the certificate can reject faces that then ship.** One sentence. The\n   present text reads as though the certificate being kept is enough.\n3. **Say that the count depends on the centre, and have the warning name the axis table.** This\n   is the one we would put first if we had measured it before writing. The same 27 cubes, the\n   same certificate code, the same tolerance: **3 rejected faces on 1 cube** when the certificate\n   is given the axis table the window was meshed with, **26 on 4 other cubes** when it is given\n   one constant centre. A user who runs the check with a constant centre, which is the easy\n   thing to do, gets a number that is wrong in both directions. If the tool that reports this\n   took the axis table the way `cube_mesh` takes it, the question would not arise.\n4. If it is useful to you, we can post the per face table: cube, face index, the dw, the radial\n   span and the edge lengths, for either reading.\n\nHappy to turn any of this into a pull request in whatever form fits.",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/20/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/Hob3rMallow/scrollfiesta_public/issues/20/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

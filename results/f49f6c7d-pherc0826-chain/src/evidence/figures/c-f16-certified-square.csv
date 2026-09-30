@@ -1,0 +1,59 @@
+# figure C16; what the raster drew; written by src/tools/c-f16-certified-square.py at 2026-09-29T03:32:51Z (cores busy not checked): the certified square of PHerc0826-seed5364 sheet 0 (C40) and its hole free square on raw scan texture; NO INK DETECTOR; panel a one lattice cell per pixel from texture_best.py's CSV; panel b a zoom resampled from the raw chunks. Not for a public repository without the owner's word. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+seed,a,seed number,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,point,5364
+sheet,a,sheet,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,sheet,0
+,a,sheet file sha256 (equal to the squares row),chain-0826/out/PHerc0826-seed5364/C40/patch_0.bin,sha256,ad55a1d79f7746a38f5ede11ef0b8e17bf33c22613c4bb5e1ee4b224c364c74d
+,a,lattice cells_i;cells_j,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,cells_i; cells_j,1698;2147
+,a,cell step i;j; mm,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,step_i_mm; step_j_mm,0.037422;0.037395
+step_mm,a,cell step used for every length in the figure; mm,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,smaller of step_i_mm and step_j_mm,0.037395
+hole_free_cells,a,hole free square; cells,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,square_cells,459
+,a,hole free square corner i;j,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,square_corner_i; square_corner_j,389;671
+hole_free_mm,a,hole free square; mm,evidence/studies/chain-0826/squares-PHerc0826-seed5364.csv,square_mm_min_step,17.1642
+,a,sha256 of the C40 row of the seed and sheet (its cells in the order of its sorted column names joined by a tab),square20-0826-95/evidence/certified-squares.csv,every column of that row,d0c5279d847af625f76a32837acbbe2a7ed5ae13b0644dc60eeed9ed62da7891
+certified_cells,a,certified square; cells,square20-0826-95/evidence/certified-squares.csv,certified_square_cells (C40 row of the seed and sheet),411
+,a,certified square corner i;j,square20-0826-95/evidence/certified-squares.csv,certified_corner_i; certified_corner_j,376;679
+certified_mm,a,certified square; mm,square20-0826-95/evidence/certified-squares.csv,certified_square_mm,15.3693
+,a,the same row; status,square20-0826-95/evidence/certified-squares.csv,status,measured
+,a,the same row; hole_free_square_mm,square20-0826-95/evidence/certified-squares.csv,hole_free_square_mm,17.1643
+,a,the same row; hole_free_equal_squares_row,square20-0826-95/evidence/certified-squares.csv,hole_free_equal_squares_row,yes
+,a,the same row; v2_cells,square20-0826-95/evidence/certified-squares.csv,v2_cells,1893
+,a,the same row; self_conflict_cells,square20-0826-95/evidence/certified-squares.csv,self_conflict_cells,20184
+,a,the same row; a2_rule_cells,square20-0826-95/evidence/certified-squares.csv,a2_rule_cells,0
+,a,the same row; certified_cells,square20-0826-95/evidence/certified-squares.csv,certified_cells,1262883
+,a,the same row; masks,square20-0826-95/evidence/certified-squares.csv,masks,computed here
+certified_seeds,a,seeds of the chain as run with a measured best certified square,evidence/studies/search-yield-0826/yield-seeds.csv,seed; best_certified_mm (a number),158
+,a,delivered seeds in that file,evidence/studies/search-yield-0826/yield-seeds.csv,seed,158
+,a,largest best certified square over those seeds; mm,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,15.3693
+,a,seeds at that value,evidence/studies/search-yield-0826/yield-seeds.csv,seed,PHerc0826-seed5364
+certified_runner_up_mm,a,next distinct value below it; mm,evidence/studies/search-yield-0826/yield-seeds.csv,best_certified_mm,12.8975
+is_largest,a,this seed's square is the largest alone,evidence/studies/search-yield-0826/yield-seeds.csv,,yes
+,a,masks sha256,square20-0826-95/scratch/check_best/seed5364-C40-S0.npz,,c10ce15476337d9c6a811e07ffc8a8080012f15a48aa1d9c513df82fe5aa7bf9
+,a,certified square cells covered; of cells,square20-0826-95/scratch/check_best/seed5364-C40-S0.npz,valid,168921;168921
+certified_flagged,a,certified square cells flagged (v2 crossed or jumped; self conflict; a2 cluster rule),square20-0826-95/scratch/check_best/seed5364-C40-S0.npz,v2c | v2j | self_conflict | a2_rule,0
+,a,hole free square cells flagged v2;self conflict;a2 cluster rule,square20-0826-95/scratch/check_best/seed5364-C40-S0.npz,v2c | v2j; self_conflict; a2_rule,217;1;0
+,a,texture file sha256,square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,,b7de3029fc376ff3ffaff5b3c51f1effcac9755e989716ca54e3b0e94cd0be5f
+,a,window rows a0;a1 and columns b0;b1 of the lattice (end excluded),square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,header,329;908;611;1190
+window_cells,a,cells of the window drawn (covered),square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,rows,330212
+,a,largest difference of the texture's px;py;pz from the sheet file; voxels,square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,x; y; z,0.001
+,a,texture grey recomputed here at the nearest voxel of the sheet file's px;py;pz; equal cells;of cells,square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,value,330212;330212
+,a,grey window of the main panel; p1;p99 of its nonzero samples,square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,value,31.0;186.0
+,a,cells stored 0 (masked scan),square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,value,16
+,a,empty cells drawn,,,white; a cell stored 0 black
+,a,pixels of the main panel; one per cell,,,579;579
+,a,main panel asset sha256 of its pixels,paper/figures/assets/c-f16-certified-square-texture.png (default --png),,26ed1885c207b0bf2af97fa19ecda5ad3ae16b4676dcb4ed7f708e9f7f99e07a
+,b,zoom side; mm (display choice),argument --zoom-mm,,2
+,b,zoom side; cells,zoom mm over the cell step; rounded,,53
+zoom_mm,b,zoom side as drawn; mm,cells times the cell step,,1.98
+,b,rule for the zoom window,argument --zoom-stride,,largest local contrast (mean absolute grey difference between neighbouring cells along i plus along j; texture_best.py's grey) among windows wholly inside the certified square with the corner on a stride of 8 cells from the certified corner; first in row order on a tie
+,b,zoom corner i;j on the lattice,,,552;879
+,b,zoom window local contrast; grey levels,square20-0826-95/scratch/texture_best/seed5364-C40-S0.csv,value,61.897
+zoom_samples,b,samples per cell side in the zoom,argument --zoom-samples,,8
+,b,sampling of the zoom,raw masked scan level 0; local chunk caches of texture_best.py,,position bilinear between the four covered cells; grey trilinear between the eight voxels around it
+,b,zoom samples not measurable,,,0
+,b,grey window of the zoom; p1;p99 of its nonzero samples,,,30.4;216.9
+,b,pixels of the zoom,,,424;424
+zoom_magnification,b,magnification of the zoom against the main panel,panel side over window side,,10.9
+,b,zoom asset sha256 of its pixels,paper/figures/assets/c-f16-certified-square-zoom.png (default --png),,0a78db09ee1ca1150084def42cfce1371ae8a0694c259f4970e4cee2158e351f
+scale_bar_mm,a,scale bar; mm (display choice),argument --bar-mm,,5
+zoom_bar_mm,b,scale bar; mm (display choice),argument --zoom-bar-mm,,0.5
+,a;b,chunks of the raw scan read,local caches,,504

@@ -1,0 +1,12 @@
+"# the crash diagnosis of PHerc1447-seed34 as numbers, written by tools/crash_diagnosis.py from evidence/diag-missing.txt and evidence/key-containers.csv, so that a text quotes a CSV and not a log. value is what was counted and out_of is what it was counted over or checked against; a row where the two differ and the check does not explain it is a defect. The tool exits without writing when the log has a line it cannot parse, or when the distinct patches of the log are not the rows of key-containers.csv."
+quantity,value,out_of,how_it_was_read,the_check
+failing chains reported by the instrumented build,202,202,"one DIAG line each in evidence/diag-missing.txt, every line parsed",the count of lines read equals the count parsed
+distinct patches among them,73,73,"the p field of those lines, made distinct","equals the row count of evidence/key-containers.csv, and the two sets are identical"
+chain length of every one of them,2,2,the length field,"one value only, and it is 2"
+"of those chains, the alignment map HAS the key",202,202,am_has_p=1,all of them
+"of those chains, the patches map does NOT have it",202,202,patches_has_p=0,all of them
+"of those chains, the failing element is the SECOND",202,202,the last element of seq equals p,all of them
+"of those chains, the first element is in both maps",202,202,am_has_first=1 and patches_has_first=1,all of them
+times the 73 patches are reported across the chains,202,202,the sum of times_reported_missing in key-containers.csv,"equals the chain count, so no chain is counted twice and none is missing"
+"the throwing call, source line",436,436,line 436 of /data/repositories/scrollreading/pipeline9/badpatchfinder.cpp,the line was read and it contains patches->at(p): yes
+the text of that line,"PlacePatchInto(st,patches->at(p),p,aftx,false);",,"read from the file, not remembered",quoted so a reader can check the line number

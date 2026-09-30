@@ -1,0 +1,12 @@
+"# the standard output of each stage, the two arms compared line by line. first_difference quotes the first line that differs, or says where one output stops, and is empty when they are the same."
+tree,stage,lines_noA8,lines_plain,identical,first_difference
+seed26,c,1936692,1936693,NO,line 1935204: noA8 'Round 1 bad patches' against plain 'points skipped as off-grid: 0'
+seed26,l,101,101,yes,
+seed26,vm 10,534,534,yes,
+seed26,hm 10,108,108,yes,
+seed26,fm 30 10,194,194,yes,
+repeat,c,2205828,2205829,NO,line 2204797: noA8 'Round 1 bad patches' against plain 'points skipped as off-grid: 0'
+repeat,l,84,84,yes,
+repeat,vm 10,506,506,yes,
+repeat,hm 10,108,108,yes,
+repeat,fm 30 10,177,177,yes,

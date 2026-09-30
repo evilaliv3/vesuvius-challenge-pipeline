@@ -1,0 +1,29 @@
+--- a/pipeline9/bigpatch.cpp
++++ b/pipeline9/bigpatch.cpp
+@@ -99,12 +99,20 @@
+ 		
+ 		closedir(dir);
+ 
+-		// A7.4 belongs to the CORRECTED build, not here.
+-		// readdir() returns entries in filesystem order, and this vector is then indexed to pick
+-		// a seed: so the reproducibility of this build is a property of the machine, not of the
+-		// program. Sorting repairs that, but the gate declared in the audit (byte identity on a
+-		// single run) FAILED: 177 files out of 178 differ, and 198 patches instead of 178. So it
+-		// is not a speed-up at equal result and it cannot live in this build. See pipeline9-B2.
++		// A7.4: readdir() returns files in filesystem order, which depends on the directory's
++		// creation history and not on the code. This vector is then INDEXED to pick a seed
++		// (SelectRandomPoint: allChunks[rn1 % n]), so which seed is chosen depends on how the
++		// filesystem happened to order the entries.
++		//
++		// Consequence: the chain reproduces on this machine, but that is a property of the
++		// filesystem and not of the program. It is also the first suspect for something never
++		// explained: stage g alone is identical over six runs, yet four concurrent runs from the
++		// same seed gave 1846, 1822, 1945 and 1943 patches.
++		//
++		// Sorting changes no computed value: it only changes which entry has which index, and it
++		// makes that a property of the program. On an already ordered directory the output is
++		// identical byte for byte, and that is how it is checked.
++		std::sort(ret.begin(), ret.end());
+ 	}
+ 	
+ 	return ret;

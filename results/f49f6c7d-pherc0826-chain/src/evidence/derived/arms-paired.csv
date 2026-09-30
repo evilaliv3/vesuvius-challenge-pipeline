@@ -1,0 +1,20 @@
+"# written by src/tools/arms_paired.py at 2026-09-30T19:17:08Z from the snapshot of stevens-changes-0826-91/per-run.csv: medians over the seeds completed in both arms of each pair; nothing divided"
+pair,shared_seeds,seeds,measure,old_arm,old_median,new_arm,new_median
+AB,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,cpu_seconds,A,4430.1500,B,4213.6000
+AB,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,wall_seconds,A,2974.6000,B,2658.8500
+AB,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,sheets,A,10.0000,B,10.0000
+AB,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,stevens_formula_cm2,A,21.3432,B,21.3432
+AB,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,best_square_mm,A,5.6804,B,5.6804
+AB,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,a2_share,A,0.0023,B,0.0023
+BC,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,cpu_seconds,B,4213.6000,C,513.5000
+BC,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,wall_seconds,B,2658.8500,C,433.2500
+BC,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,sheets,B,10.0000,C,10.0000
+BC,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,stevens_formula_cm2,B,21.3432,C,21.3432
+BC,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,best_square_mm,B,5.6804,C,5.6804
+BC,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,a2_share,B,0.0023,C,0.0023
+CD,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,cpu_seconds,C,513.5000,D,101.9500
+CD,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,wall_seconds,C,433.2500,D,73.7500
+CD,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,sheets,C,10.0000,D,10.0000
+CD,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,stevens_formula_cm2,C,21.3432,D,10.5930
+CD,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,best_square_mm,C,5.6804,D,5.7772
+CD,8,PHerc0826-seed1595;PHerc0826-seed1700;PHerc0826-seed3648;PHerc0826-seed4202;PHerc0826-seed4690;PHerc0826-seed5702;PHerc0826-seed5989;PHerc0826-seed6689,a2_share,C,0.0023,D,0.0017

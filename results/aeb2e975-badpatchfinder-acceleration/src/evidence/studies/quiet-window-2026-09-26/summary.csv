@@ -1,0 +1,43 @@
+tool,arm,quantity,value,what_it_is
+quiet-window-2026-09-26/tools/summary.py,U,runs_started,1,rows of runs.csv for this arm
+quiet-window-2026-09-26/tools/summary.py,U,runs_counted,1,"rc 0, tree identical, no other growth seen"
+quiet-window-2026-09-26/tools/summary.py,U,wall_clock_seconds_median,not measurable,"1 counted runs, fewer than 3 (434.2)"
+quiet-window-2026-09-26/tools/summary.py,U,wall_clock_seconds_min,not measurable,"1 counted runs, fewer than 3 (434.2)"
+quiet-window-2026-09-26/tools/summary.py,U,wall_clock_seconds_max,not measurable,"1 counted runs, fewer than 3 (434.2)"
+quiet-window-2026-09-26/tools/summary.py,U,rule_median_below_min_U,not applicable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,U,rule_median_below_min_C,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,C,runs_started,2,rows of runs.csv for this arm
+quiet-window-2026-09-26/tools/summary.py,C,runs_counted,2,"rc 0, tree identical, no other growth seen"
+quiet-window-2026-09-26/tools/summary.py,C,wall_clock_seconds_median,not measurable,"2 counted runs, fewer than 3 (594.1, 640.0)"
+quiet-window-2026-09-26/tools/summary.py,C,wall_clock_seconds_min,not measurable,"2 counted runs, fewer than 3 (594.1, 640.0)"
+quiet-window-2026-09-26/tools/summary.py,C,wall_clock_seconds_max,not measurable,"2 counted runs, fewer than 3 (594.1, 640.0)"
+quiet-window-2026-09-26/tools/summary.py,C,rule_median_below_min_U,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,C,rule_median_below_min_C,not applicable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,F,runs_started,2,rows of runs.csv for this arm
+quiet-window-2026-09-26/tools/summary.py,F,runs_counted,2,"rc 0, tree identical, no other growth seen"
+quiet-window-2026-09-26/tools/summary.py,F,wall_clock_seconds_median,not measurable,"2 counted runs, fewer than 3 (615.2, 615.5)"
+quiet-window-2026-09-26/tools/summary.py,F,wall_clock_seconds_min,not measurable,"2 counted runs, fewer than 3 (615.2, 615.5)"
+quiet-window-2026-09-26/tools/summary.py,F,wall_clock_seconds_max,not measurable,"2 counted runs, fewer than 3 (615.2, 615.5)"
+quiet-window-2026-09-26/tools/summary.py,F,rule_median_below_min_U,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,F,rule_median_below_min_C,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,N,runs_started,2,rows of runs.csv for this arm
+quiet-window-2026-09-26/tools/summary.py,N,runs_counted,2,"rc 0, tree identical, no other growth seen"
+quiet-window-2026-09-26/tools/summary.py,N,wall_clock_seconds_median,not measurable,"2 counted runs, fewer than 3 (595.6, 596.5)"
+quiet-window-2026-09-26/tools/summary.py,N,wall_clock_seconds_min,not measurable,"2 counted runs, fewer than 3 (595.6, 596.5)"
+quiet-window-2026-09-26/tools/summary.py,N,wall_clock_seconds_max,not measurable,"2 counted runs, fewer than 3 (595.6, 596.5)"
+quiet-window-2026-09-26/tools/summary.py,N,rule_median_below_min_U,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,N,rule_median_below_min_C,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,NF,runs_started,2,rows of runs.csv for this arm
+quiet-window-2026-09-26/tools/summary.py,NF,runs_counted,2,"rc 0, tree identical, no other growth seen"
+quiet-window-2026-09-26/tools/summary.py,NF,wall_clock_seconds_median,not measurable,"2 counted runs, fewer than 3 (618.2, 617.0)"
+quiet-window-2026-09-26/tools/summary.py,NF,wall_clock_seconds_min,not measurable,"2 counted runs, fewer than 3 (618.2, 617.0)"
+quiet-window-2026-09-26/tools/summary.py,NF,wall_clock_seconds_max,not measurable,"2 counted runs, fewer than 3 (618.2, 617.0)"
+quiet-window-2026-09-26/tools/summary.py,NF,rule_median_below_min_U,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,NF,rule_median_below_min_C,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,H,runs_started,2,rows of runs.csv for this arm
+quiet-window-2026-09-26/tools/summary.py,H,runs_counted,2,"rc 0, tree identical, no other growth seen"
+quiet-window-2026-09-26/tools/summary.py,H,wall_clock_seconds_median,not measurable,"2 counted runs, fewer than 3 (533.2, 534.7)"
+quiet-window-2026-09-26/tools/summary.py,H,wall_clock_seconds_min,not measurable,"2 counted runs, fewer than 3 (533.2, 534.7)"
+quiet-window-2026-09-26/tools/summary.py,H,wall_clock_seconds_max,not measurable,"2 counted runs, fewer than 3 (533.2, 534.7)"
+quiet-window-2026-09-26/tools/summary.py,H,rule_median_below_min_U,not measurable,declared before any number
+quiet-window-2026-09-26/tools/summary.py,H,rule_median_below_min_C,not measurable,declared before any number

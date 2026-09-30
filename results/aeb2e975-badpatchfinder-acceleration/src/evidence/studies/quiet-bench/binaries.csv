@@ -1,0 +1,5 @@
+# one row per binary this study built. sha256 is of the file as built; sha256_stripped is of a copy passed through `strip`, which removes the debug sections and nothing else, so two builds that differ only by -g have equal sha256_stripped. Seed and volume shape come from seed-ladder-1447/evidence/attempts.csv and pipeline/datasets/manifests/PHerc1447.json, never typed here.
+label,series,debug_flag,sha256,sha256_stripped,build_seconds,how_it_was_measured
+plain-repro,plain-repro,no,ab5ef13fb28c47d6d8dd9403690de64f0887cdad2b7e5fdd61030ef82fdddf2d,45e45b8279d85a10bc0b294554bdf99cf4615d8d7e9a8d82e58aba0bfbeee26f,3.3,"built by tools/build_one.py, the route of seed-search-1447/tools/build_binaries.py"
+noA8,noA8,no,c426242c84bb3c3cf5f5a8ab928f5a2c08b853119ca5803d3941f4ee44a0e4f6,e59a0c10fb1e93bc7433ced81d401443a826628959d627b20882227b4c3e3373,3.2,"built by tools/build_one.py, the route of seed-search-1447/tools/build_binaries.py"
+noA8,noA8,no,f8fcc6fe13380a17963aec58771139b11f9d4ae8cffb0960513065948e6708ca,dd33775b93da0b9cbc48eff1c23ecf93ad5ff688d7461fc63e963c6c7eeae36d,3.2,"built by tools/build_one.py, the route of seed-search-1447/tools/build_binaries.py"

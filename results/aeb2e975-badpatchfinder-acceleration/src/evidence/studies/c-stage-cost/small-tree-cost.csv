@@ -1,0 +1,6 @@
+# repeated runs of the c stage of PHerc1447-seed26, all at four threads on the same shared machine within one hour, read back from evidence/runs.csv column seconds on the rows whose stage is c. runs is how many; min, median and max are of those seconds; spread is max minus min and is what a difference has to beat before it is called an effect. The tags are in the tag column of runs.csv.
+series,attempt,runs,min_seconds,median_seconds,max_seconds,spread_seconds,tags
+plain (the binary that wrote the sheets),PHerc1447-seed26,4,39.0,39.4,39.8,0.8,spread-plain-1 spread-plain-2 spread-plain-3 plain-4threads
+guarded (00007 only),PHerc1447-seed26,3,39.3,39.5,40.7,1.4,spread-guarded-1 spread-guarded-2 spread-guarded-3
+00007 and 00008,PHerc1447-seed26,3,47.6,49.5,50.2,2.6,spread-c1-1 spread-c1-2 spread-c1-3
+"00007, 00008 and 00009",PHerc1447-seed26,3,45.9,46.6,47.2,1.3,spread-c2-1 spread-c2-2 spread-c2-3

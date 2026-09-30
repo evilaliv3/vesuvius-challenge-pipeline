@@ -1,0 +1,8 @@
+The organisers' open problems page as it reads on 30 September 2026: the Markdown source
+scrollprize.org/docs/37_2026_open_problems.md of ScrollPrize/villa at commit f520e04cb4, the merge of
+villa pull request 1937 (merged 2026-09-30T15:02:05Z), which changed the page so that it no longer asks
+for sheet switch detection. Saved at 2026-09-30T18:26:13Z (the file's time) as
+open-problems-md-20260930T182613Z.md, sha256
+c42f13cd2665b6b3649f70077eecade13606c438463f6d1ebd43e6a1cc887b1b. The earlier copy of the rendered page,
+open-problems-raw-20260928T062948Z.html, is kept beside it; the article quotes only the copy of
+30 September (src/tools/check_quotes.py reads the newest copy).

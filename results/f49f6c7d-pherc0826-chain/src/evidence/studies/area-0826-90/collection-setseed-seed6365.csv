@@ -1,0 +1,13 @@
+"# written by area-0826-90/tools/stevens_method.py at 2026-09-27T23:08:34Z: one run's delivered sheets (scratch/coll/setseed-seed6365/C40, simpaper10 u then the chain's downstream) measured by Stevens' formula (points x step_i_mm x step_j_mm from area-0826-90/evidence/squares-coll-setseed-seed6365.csv, the formula that gives his 363.8629; reference seed6365 delivered 101.3992 reproduced), a2 share (flagged over measurable stride points, T* 25, S 101) and a2 cells, v2 cells against the other sheets of this run, clean area and clean square; his 363.8629 is one run of ten components on PHerc1667"
+run,sheet,points,stevens_formula_cm2,local_area_cm2,a2_measurable,a2_flagged,a2_share,a2_cells,v2_cells,clean_cm2,square_mm_delivered,square_mm_clean
+setseed-seed6365,0,650211,9.0888,9.0457,9919,4,0.000403,216,0,9.0423,5.3064,5.3064
+setseed-seed6365,1,573969,8.0190,8.0288,8788,8,0.000910,467,0,8.0196,7.0247,7.0247
+setseed-seed6365,2,559578,7.8186,7.7960,8600,2,0.000233,126,0,7.7942,5.9424,5.9424
+setseed-seed6365,3,320324,4.4816,4.6865,4902,74,0.015096,4778,0,4.5867,6.3563,5.7207
+setseed-seed6365,4,343164,4.7991,4.8058,5253,1,0.000190,32,0,4.8054,8.0756,8.0756
+setseed-seed6365,5,352990,4.9344,4.9156,5414,1,0.000185,60,0,4.9144,6.4289,6.4289
+setseed-seed6365,6,165413,2.3109,2.3034,2530,0,0.000000,0,0,2.3034,4.0736,4.0736
+setseed-seed6365,7,128949,1.8026,1.7992,1969,0,0.000000,0,0,1.7992,4.6734,4.6734
+setseed-seed6365,8,102046,1.4261,1.4211,1562,0,0.000000,0,0,1.4211,6.4669,6.4669
+setseed-seed6365,9,114071,1.5952,1.6012,1724,0,0.000000,0,0,1.6012,3.3654,3.3654
+setseed-seed6365,all 10 sheets,3310715,46.2763,46.4032,50661,90,0.001777,5679,0,46.2875,8.0756,one-step dedup union of clean cells 45.5496 cm2

@@ -1,0 +1,12 @@
+"# the rule of early-tangle taken off PHerc1447, per DECLARATION.md's dated addition of 2026-09-21T16:08:59Z. kind is settled by fan_out, twice the edges over the keys of that growth's own rel.csv, with the cut at 10 that fell in an empty gap on PHerc1447; it is NEVER settled by the rule being tested. share_of_first_100000 is the rule's own reading of the growth log. verdict_of_the_rule applies the two bands fitted on PHerc1447, ribbon 0.02825 to 0.04275 and tangle 0.12002 to 0.15170, and says 'outside both bands' when the value falls in neither, which is itself a result. scroll is read from each study's own DECLARATION.md and is 'not measurable' when the file names none. A pairing with no tree or a log shorter than 100,000 lines is not measurable, never a pass."
+study,scroll,edges,keys,fan_out,kind,log_lines_at_least_n,share_of_first_100000,verdict_of_the_rule,rule_agrees_with_the_fan_out,log,tree
+growth-repeat,PHerc0139,19123,7854,4.87,ribbon,yes,0.03762,ribbon,yes,growth-repeat/log/chain-growth-g.txt,growth-repeat/out/growth
+reference-b40,PHerc0139,19123,7854,4.87,ribbon,yes,0.03762,ribbon,yes,reference-b40/log/chain-growth-g.txt,reference-b40/out/growth
+seed-distance-ladder,PHerc0139,36968,15183,4.87,ribbon,yes,0.04977,outside both bands,no,seed-distance-ladder/log/growth-D150.txt,seed-distance-ladder/out/growth-D150
+seed-distance-ladder,PHerc0139,36687,15117,4.85,ribbon,yes,0.04924,outside both bands,no,seed-distance-ladder/log/growth-D450.txt,seed-distance-ladder/out/growth-D450
+why-the-growth-stops,not measurable,not measurable,not measurable,not measurable,not measurable,yes,0.02896,ribbon,not measurable,why-the-growth-stops/log/growth-P.txt,why-the-growth-stops/out/growth-P
+why-the-growth-stops,not measurable,37060,15338,4.83,ribbon,yes,0.03967,ribbon,yes,why-the-growth-stops/log/growth-P2.txt,why-the-growth-stops/out/growth-P2
+why-the-growth-stops,not measurable,35849,15231,4.71,ribbon,yes,0.04486,outside both bands,no,why-the-growth-stops/log/growth-C.txt,why-the-growth-stops/out/growth-C
+why-the-growth-stops,not measurable,35145,14583,4.82,ribbon,yes,0.04692,outside both bands,no,why-the-growth-stops/log/growth-S.txt,why-the-growth-stops/out/growth-S
+held-patch,PHerc0139,970,392,4.95,ribbon,no,not measurable,not measurable,not measurable,held-patch/log/growth-A.txt,held-patch/out/growth-A
+ceiling-24000,not measurable,not measurable,not measurable,not measurable,not measurable,no,not measurable,not measurable,not measurable,ceiling-24000/log/chain-growth-g.txt,ceiling-24000/out/growth

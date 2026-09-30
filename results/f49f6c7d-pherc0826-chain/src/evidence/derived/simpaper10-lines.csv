@@ -1,0 +1,23 @@
+"# written by src/tools/mode_lines.py at 2026-09-28T12:57:11Z from scrollreading 62cbc21:pipeline9/simpaper10.cpp (git show)"
+key,line,text,commit,path,matches
+usage_g,626,"fprintf(stderr,""g - default : generation, write patches and relationships\n"");",62cbc21,pipeline9/simpaper10.cpp,1
+mode_g,704,"if (mode==""g"")",62cbc21,pipeline9/simpaper10.cpp,1
+g_generate,713,"GeneratePatches(patches,am,numPatches);",62cbc21,pipeline9/simpaper10.cpp,2
+mode_l,739,"if (mode==""l"")",62cbc21,pipeline9/simpaper10.cpp,1
+l_centre,753,if (p.second.CentreVolCoords(v)),62cbc21,pipeline9/simpaper10.cpp,1
+mode_c,805,"if (mode==""c"")",62cbc21,pipeline9/simpaper10.cpp,1
+c_round_2,820,"bpf->FindBadPatchesGeneral(*am,patches,2,badPatches,badPatchScores);",62cbc21,pipeline9/simpaper10.cpp,1
+c_round_5,840,"bpf->FindBadPatchesGeneral(*am,patches,5,badPatches,badPatchScores);",62cbc21,pipeline9/simpaper10.cpp,1
+mode_vm,996,"if (mode==""vm"")",62cbc21,pipeline9/simpaper10.cpp,1
+vm_orders,1021,"numComponents = MakeVisitOrders(numComponents,am,patches,badPatches,manualBadRel,patchOrders,alignmentOrders,patchPositionss,neighbourList,true);",62cbc21,pipeline9/simpaper10.cpp,1
+vm_bridges,1073,"bpf->FindNeighbourProblems(neighbourList,patches,badBridges,newBadBridges,patchOrders[i],patchPositionss[i]);",62cbc21,pipeline9/simpaper10.cpp,1
+mode_hm,1626,"if (mode==""hm"")",62cbc21,pipeline9/simpaper10.cpp,1
+hm_springs,1637,"PatchSpringSimulation pss(QUADMESH_SIZE,OUTPUT_DIR,i);",62cbc21,pipeline9/simpaper10.cpp,1
+hm_run,1677,pss.run(50);,62cbc21,pipeline9/simpaper10.cpp,2
+mode_fm,1223,"if (mode==""fm"")",62cbc21,pipeline9/simpaper10.cpp,1
+param_surface_zarr,13,"#define SURFACE_ZARR ""d:/zarrs/PHerc0139/surface/0""",62cbc21,pipeline9/parameters.h,1
+surface_zarr_open,201,pg[i] = new PatchGenerator(string(SURFACE_ZARR));,62cbc21,pipeline9/simpaper10.cpp,1
+param_seed_x,15,#define SEED_X 4052,62cbc21,pipeline9/parameters.h,1
+param_seed_y,16,#define SEED_Y 2763,62cbc21,pipeline9/parameters.h,1
+param_seed_z,17,#define SEED_Z 10487,62cbc21,pipeline9/parameters.h,1
+fm_score,1309,"float score = ScorePlacement(am, patches, patchPositionsXYA,patchOrder, patchesToColour, manualGoodRel, patchesInvolved, maxDistanceThresh, 1.0, true, true, false, compIndex);",62cbc21,pipeline9/simpaper10.cpp,1

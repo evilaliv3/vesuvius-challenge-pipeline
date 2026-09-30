@@ -1,0 +1,27 @@
+# figure C23; written by src/tools/c-f23-v8in-0826.py at 2026-09-30T12:16:33Z: v8-in on the square of PHerc0826-seed6273-squarecentre (R2c) as it stood before the adjudication; in both depth orders (top the order measured on w016; bottom the other); sheet and two null copies; the square's own grid; NO POSITION: grid cells and digests only. Owner's decision of 2026-09-30: ink detector maps of PHerc0826 may be published without location cues; this figure carries none. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+square_mm,a;b;c,square before the adjudication; mm,inputs/render-routes-0826/square-three-definitions.csv,a_certified_this_study_mm,29.8961
+seed,a;b;c,seed of the start,inputs/render-routes-0826/square-three-definitions.csv,surface,6273
+,a;b;c,square in the window's render pixels; rows and columns (grid cells over the scale),window.json; window.tifxyz/meta.json,I0; J0; S; i0; j0; scale,241:3437;241:3437
+,a;b;c,mm per render pixel,square-checks-adjudicated.csv step_mm; window.tifxyz/meta.json,step_mm times scale,0.009355
+,a;b;c,pixels covered on all three maps (the shares' pixel set),,,10214416
+,a,the sheet: share of the common pixels at probability >= 0.5; against ratio-calibration.csv,ink-v8in-0826/scratch/pred/s6273/base-sheet-read-reverse-w016-order.npy,probability; share_ge_0.5_sheet,0.08018 (equal)
+,b,null copy; one gap: share of the common pixels at probability >= 0.5; against ratio-calibration.csv,ink-v8in-0826/scratch/pred/s6273/base-plus-read-reverse-w016-order.npy,probability; share_ge_0.5_plus,0.05247 (equal)
+,c,null copy; the other gap: share of the common pixels at probability >= 0.5; against ratio-calibration.csv,ink-v8in-0826/scratch/pred/s6273/base-minus-read-reverse-w016-order.npy,probability; share_ge_0.5_minus,0.04922 (equal)
+,d;e;f,pixels covered on all three maps of the other order,,,10214416
+,d,the sheet; the other order: share of those pixels at probability >= 0.5 (descriptive),ink-v8in-0826/scratch/pred/s6273/base-sheet-read-normal-not-w016-order.npy,probability,0.09741
+,e,null copy; one gap; the other order: share of those pixels at probability >= 0.5 (descriptive),ink-v8in-0826/scratch/pred/s6273/base-plus-read-normal-not-w016-order.npy,probability,0.10232
+,f,null copy; the other gap; the other order: share of those pixels at probability >= 0.5 (descriptive),ink-v8in-0826/scratch/pred/s6273/base-minus-read-normal-not-w016-order.npy,probability,0.12205
+,a,the sheet; the order measured on w016: map read (sha256),ink-v8in-0826/scratch/pred/s6273/base-sheet-read-reverse-w016-order.npy,,90d7ed68ed503d2f22dba690945d81a69d270c3b06bdfde9a6b16bfd0a20873f
+,a,scale bar; pixels,,,178
+,b,null copy; one gap; the order measured on w016: map read (sha256),ink-v8in-0826/scratch/pred/s6273/base-plus-read-reverse-w016-order.npy,,554c47c1c3ab2364af7f4f211291df34cc3a3fd60e3e9e2cca21d81bb8c3d272
+,c,null copy; the other gap; the order measured on w016: map read (sha256),ink-v8in-0826/scratch/pred/s6273/base-minus-read-reverse-w016-order.npy,,6e40ead0f1ba044925dc94db7cbd52670ca40f94fe270c18032f741fe0b76993
+,d,the sheet; the other order: map read (sha256),ink-v8in-0826/scratch/pred/s6273/base-sheet-read-normal-not-w016-order.npy,,00a64e9826e43302670805a3fc70474d5e368d77850d4ca2157d0517e99997fb
+,e,null copy; one gap; the other order: map read (sha256),ink-v8in-0826/scratch/pred/s6273/base-plus-read-normal-not-w016-order.npy,,2c6ffee057d07d945c1d01cb0c94b2fa87b229143a845f3dc06acab492081e78
+,f,null copy; the other gap; the other order: map read (sha256),ink-v8in-0826/scratch/pred/s6273/base-minus-read-normal-not-w016-order.npy,,c1c6e8c3c1977cc20976bd30c23020728afb23a5e3b47e394a38f3048601a3ce
+bar_mm,a;b;c,scale bar; mm (display choice),,,5
+,a;b;c,depth order,,,the order measured on w016 (--reverse on this surface)
+,d;e;f,depth order,,,the other order (normal on this surface)
+,a;b;c,display bin; render pixels per side (block mean),,,3
+region,a;b;c,labelled region the depth order was measured on,,,w016
+model,a;b;c,model,hf-files.csv of ink-v8in-0826,repo YoussefMoNader/ink-8um-v8in,v8-in

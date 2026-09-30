@@ -1,0 +1,9 @@
+# one row per arm per seed of the quiet bench, read back from evidence/c-stage-runs.csv. seconds_min, seconds_max, spread and mean cover ONLY the runs that returned zero and were not stopped by a cap; a run stopped by its cap is counted in runs_stopped_by_the_cap and its bound is written in bounds_from_the_cap as a lower bound, never as a time. spread_pct is the spread over the smallest second, which is the quantity a difference has to beat to be called a difference. cores_busy_min and _max are over the same runs, from the one second /proc/stat reading each row carries.
+arm,attempt,runs_written,runs_that_finished,runs_stopped_by_the_cap,runs_that_did_neither,seconds_min,seconds_max,spread_seconds,spread_pct,seconds_mean,every_second_that_finished,cores_busy_min,cores_busy_max,bounds_from_the_cap,the_other_runs
+c2,PHerc1447-seed26,3,3,0,0,47.4,48.6,1.2,2.53,48.1,47.4; 48.6; 48.3,0.05,0.12,,
+c2,PHerc1447-seed38,3,3,0,0,56.6,62.2,5.6,9.89,60.0,62.2; 56.6; 61.2,0.05,0.06,,
+c2,PHerc1447-seed40,3,3,0,0,34.5,35.6,1.1,3.19,35.2,35.6; 35.5; 34.5,0.08,0.10,,
+noA8,PHerc1447-seed26,3,3,0,0,1548.2,1675.7,127.5,8.24,1599.3,1548.2; 1574.0; 1675.7,0.06,0.11,,
+plain,PHerc1447-seed26,2,2,0,0,49.4,51.8,2.4,4.86,50.6,51.8; 49.4,0.07,0.09,,
+plain,PHerc1447-seed38,1,1,0,0,7930.6,7930.6,"not measurable, one run","not measurable, one run",7930.6,7930.6,0.09,0.09,,
+plain,PHerc1447-seed40,1,1,0,0,7094.8,7094.8,"not measurable, one run","not measurable, one run",7094.8,7094.8,0.14,0.14,,

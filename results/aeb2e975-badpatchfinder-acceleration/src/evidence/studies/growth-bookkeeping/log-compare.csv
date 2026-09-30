@@ -1,0 +1,12 @@
+"# one row per growth log. rounds: '======== Patch n ========' lines. created: 'Patch n had m growth steps' lines, one per id generated. patches_in_flight: from the log's own hardware line. alignment_targets_named: 'Patch n has m matches' lines. impossible_mentions: those whose id is above every id this run can have created by then. impossible_ids: distinct such ids. last_round_with_an_impossible_id: the round header at the last one."
+log,rounds,created,patches_in_flight,alignment_targets_named,impossible_mentions,impossible_ids,min_impossible_id,max_impossible_id,last_round_with_an_impossible_id
+growth-PHerc1447-seed34.txt,9003,36000,4,1158893,2192,413,12,603,583
+growth-PHerc1447-seed01.txt,9019,36003,4,60614,0,0,,,
+growth-PHerc1447-seed11.txt,9074,36001,4,1067146,0,0,,,
+growth-PHerc1447-seed15.txt,9100,36003,4,60832,0,0,,,
+growth-PHerc1447-seed26.txt,9053,36004,4,51326,0,0,,,
+growth-PHerc1447-seed35.txt,9038,36002,4,907814,0,0,,,
+growth-PHerc1447-seed38.txt,9017,36001,4,710508,0,0,,,
+growth-PHerc1447-seed40.txt,9029,36000,4,535310,0,0,,,
+growth-PHerc1447-seed44.txt,8773,34974,4,1040254,0,0,,,
+growth-PHerc1447-seed48.txt,9044,36001,4,661810,0,0,,,

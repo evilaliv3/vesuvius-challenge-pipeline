@@ -1,0 +1,13 @@
+"# what one delivered ribbon costs in machine time, recomputed by tools/cost_per_ribbon.py with the quiet bench's seconds where they exist. growth_seconds is unchanged and was measured with two or three growths in parallel, so it is a cost record and not a result. The c seconds of 3 of the 6 seeds are the quiet bench's, medians of the runs that finished, and the column beside them says so per row. Written beside evidence/cost-per-ribbon.csv and not over it."
+attempt,kind,fan_out,growth_seconds,c_stage_before,c_stage_after,where_the_c_seconds_come_from,growth_plus_c_before,growth_plus_c_after
+PHerc1447-seed01,ribbon,4.61,2922,30.0,55.1,"shared machine, as the old file had it",2952.0,2977.1
+PHerc1447-seed15,ribbon,4.64,3007,32.0,78.3,"shared machine, as the old file had it",3039.0,3085.3
+PHerc1447-seed26,ribbon,4.51,2400,50.6,48.3,"quiet bench, medians of 2 and 3 runs",2450.6,2448.3
+PHerc1447-seed38,tangle,27.40,7287,7930.6,61.2,"quiet bench, medians of 1 and 3 runs",15217.6,7348.2
+PHerc1447-seed40,tangle,30.82,6136,7094.8,35.5,"quiet bench, medians of 1 and 3 runs",13230.8,6171.5
+PHerc1447-seed48,tangle,30.86,7675,8300.0,54.4,"shared machine, as the old file had it",15975.0,7729.4
+
+"# totals, recomputed here and not carried"
+total ribbon,,,8329,112.6,181.7,,8441.6,8510.7
+total tangle,,,21098,23325.4,151.1,,44423.4,21249.1
+total all six,,,29427,23438.0,332.8,,52865.0,29759.8

@@ -1,0 +1,106 @@
+%% THIS FILE IS SHARED. Its one source is results/figpreamble.tex and the copy in each work's
+%% src/tools is taken from it, because a published folder has to stand on its own and cannot
+%% follow a link out of itself. tools/check_figpreamble.py refuses a copy that has drifted.
+%%
+%% It is one file because it was two, and they drifted: the panel title correction of
+%% 2026-09-22T06:44Z was made in one work's copy and never reached the other, so that work drew
+%% both panel titles at the axis origin, inside the plot and over the first bar, until
+%% 2026-09-22T14:33Z. One source and a check is what stops that happening twice.
+
+%% figpreamble.tex: what every figure of this work loads, and the one filter they all use.
+%%
+%% Every figure is a standalone pgfplots document that reads its numbers with pgfplotstable from
+%% the CSV its own data script wrote under evidence/figures/. No number is typed in a figure
+%% source. That is not a style: it is what makes the picture and the table of plotted numbers
+%% unable to disagree, because they are the same file read twice.
+%%
+%% The CSVs written by tools/figlib.py open with one comment line, so every table is read with
+%% skip first n=1, and they carry no comma inside a cell, so col sep=comma is exact.
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotstableset{col sep=comma, skip first n=1, trim cells}
+
+%% One CSV per figure, and no filtering in the figure source.
+%%
+%% The plotted tables are wide: one row per position on the abscissa, one column per series.
+%% That is not a taste, it is what works. pgfplotstable parses every cell of a column an
+%% \addplot names, and its read time row filter does not see column values, so a long table with
+%% one row per series cannot be split inside the figure: the rows of the other series are parsed
+%% too. The first render of figure S2 failed on exactly that, on the cell "not measurable", and
+%% the tables were rewritten wide. A series with no value at a position carries nan, which
+%% pgfplots drops with its default unbounded coords setting, and never a zero; the words the
+%% study used sit in the status column beside the number.
+
+%% One neutral set of marks and fills, light background, no colour carrying meaning on its own:
+%% every series is also told apart by its mark, because a reader printing in grey is still a
+%% reader.
+\pgfplotsset{
+  sa base/.style={
+    width=82mm, height=58mm,
+    tick align=outside, tick pos=left,
+    grid=major, grid style={gray!25, very thin},
+    axis line style={gray!60},
+    label style={font=\small}, tick label style={font=\footnotesize},
+    legend style={font=\footnotesize, draw=gray!50, fill=white, fill opacity=0.9,
+                  text opacity=1, cells={anchor=west}},
+    %% The title sits ABOVE the panel and not on it: with `above` alone it landed on the
+    %% plot area and over the tick labels of the panel beside it, seen 2026-09-22T06:44Z.
+    every axis title/.style={font=\small, at={(0.5,1)}, anchor=south, yshift=2.5mm},
+  },
+  %% A legend BELOW the panel, outside the plot area entirely, in one row.
+  %%
+  %% Written 2026-09-22 on the director's rejection of figure S1. `sa base` gives the legend
+  %% `fill opacity=0.9`, so a legend placed inside does not hide what is under it, it GHOSTS it:
+  %% on S1 the legend sat over the seed40 pair and its «200 times» label showed through the box
+  %% as pale grey text, which is worse than hiding it, because a reader sees something is there
+  %% and cannot read it. The remedy is not a better corner. A legend inside the plot area has to
+  %% be re placed by hand every time the data moves, and nobody checks. Outside, it cannot
+  %% collide with anything at any data value.
+  %%
+  %% The negative y in `at` is in axis fractions, so it follows `height` and does not have to be
+  %% retuned. 0.32 clears rotated tick labels at \tiny; a panel with longer ones passes its own.
+  sa legend below/.style={
+    legend style={at={(0.5,-0.32)}, anchor=north, legend columns=-1,
+                  font=\footnotesize, draw=gray!50, fill=white, fill opacity=1,
+                  text opacity=1, cells={anchor=west},
+                  /tikz/every even column/.append style={column sep=4mm}},
+  },
+  sa bars/.style={
+    sa base, ybar, bar width=4pt, enlarge x limits=0.08,
+  },
+  sa stacked/.style={
+    sa base, ybar stacked, bar width=14pt, enlarge x limits=0.28,
+  },
+}
+\definecolor{sablue}{RGB}{31,78,121}
+\definecolor{saorange}{RGB}{191,98,4}
+\definecolor{sagrey}{RGB}{110,110,110}
+\definecolor{sagreen}{RGB}{31,110,70}
+
+%% ---- Addition of 2026-09-28T18:30Z (coordinator, director's note of 18:29:38Z, owner's word) ----
+%% One visual language across S, A, the umbilicus and the PHerc. 0826 article: IEEE serif type and
+%% one colour blind safe palette, the Okabe and Ito set (Okabe M., Ito K., Color Universal Design,
+%% 2002, the eight colours of its table). The four names above keep their names and take Okabe Ito
+%% values, so every figure that already uses them follows. Colours carry a ROLE, the umbilicus
+%% work's rule: our result blue, the reference or the published label orange, an outcome we do not
+%% want vermillion; a second series of ours sky blue, a third bluish green; neutral grey. The same
+%% values, under the same role names, are in results/figstyle.py for the rasters and matplotlib.
+\usepackage{mathptmx}
+\definecolor{sablue}{RGB}{0,114,178}
+\definecolor{saorange}{RGB}{230,159,0}
+\definecolor{sagrey}{RGB}{110,110,110}
+\definecolor{sagreen}{RGB}{0,158,115}
+\definecolor{sasky}{RGB}{86,180,233}
+\definecolor{savermillion}{RGB}{213,94,0}
+\definecolor{sapurple}{RGB}{204,121,167}
+\definecolor{sayellow}{RGB}{240,228,66}
+\colorlet{saours}{sablue}
+\colorlet{saref}{saorange}
+\colorlet{sabad}{savermillion}
+\pgfplotscreateplotcyclelist{sa roles}{
+  {sablue, mark=*}, {saorange, mark=square*}, {sasky, mark=triangle*},
+  {sagreen, mark=diamond*}, {savermillion, mark=pentagon*}, {sapurple, mark=o}, {sagrey, mark=x}}
+\pgfplotsset{sa base/.append style={cycle list name=sa roles, axis x line*=bottom, axis y line*=left}}

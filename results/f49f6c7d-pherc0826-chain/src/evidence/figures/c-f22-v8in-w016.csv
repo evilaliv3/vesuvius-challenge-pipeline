@@ -1,0 +1,25 @@
+# figure C22; written by src/tools/c-f22-v8in-w016.py at 2026-09-30T12:16:45Z: v8-in on PHerc0139 w016; the labelled scroll; the organisers' surface and our sheet Bx; each in the depth order measured on w016; balanced accuracy on the clean held out label points matched within 4 voxels; NO POSITION of any scroll. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+label_points,a;b,clean held out label points of w016,positive-control-0139/scratch/labels-9362.npz,p; ink,171693
+,a,the organisers' surface: map read,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/theirs-sheet-read-normal-w016-order.npy,sha256,152e46fac28fee9d1283c1b0bfc43a62c30b79ec34f4e4714b3b4a13ffa12a06
+,a,the organisers' surface: depth order (the one measured on w016 by the side sign),ink-v8in-0826/scratch/pred/v8in-0826-w016cal/theirs-sheet-read-normal-w016-order.npy,file name,normal
+n_theirs,a,the organisers' surface: label points matched within 4 voxels and covered by a tile,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/theirs-sheet-read-normal-w016-order.npy,score.py matched,171693
+n_ink_theirs,a,the organisers' surface: of them ink,positive-control-0139/scratch/labels-9362.npz,ink,40331
+ba_theirs,a,the organisers' surface: balanced accuracy at probability >= 0.5,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/theirs-sheet-read-normal-w016-order.npy,score_ink_0139.ba_auc,0.6305
+auc_theirs,a,the organisers' surface: AUC,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/theirs-sheet-read-normal-w016-order.npy,score_ink_0139.ba_auc,0.7415
+,a,the organisers' surface: crop; pixels high and wide,,,575;2291
+,b,our sheet Bx: map read,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/Bx-sheet-read-reverse-w016-order.npy,sha256,2433c764cc0ea99cd3426575c699a5dc6a5924cf434578e768e5edf069f1ede3
+,b,our sheet Bx: depth order (the one measured on w016 by the side sign),ink-v8in-0826/scratch/pred/v8in-0826-w016cal/Bx-sheet-read-reverse-w016-order.npy,file name,reverse
+n_bx,b,our sheet Bx: label points matched within 4 voxels and covered by a tile,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/Bx-sheet-read-reverse-w016-order.npy,score.py matched,91075
+n_ink_bx,b,our sheet Bx: of them ink,positive-control-0139/scratch/labels-9362.npz,ink,25312
+ba_bx,b,our sheet Bx: balanced accuracy at probability >= 0.5,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/Bx-sheet-read-reverse-w016-order.npy,score_ink_0139.ba_auc,0.6017
+auc_bx,b,our sheet Bx: AUC,ink-v8in-0826/scratch/pred/v8in-0826-w016cal/Bx-sheet-read-reverse-w016-order.npy,score_ink_0139.ba_auc,0.6862
+,b,our sheet Bx: turned a quarter turn to lie landscape,,,yes
+,b,our sheet Bx: crop; pixels high and wide,,,2916;722
+,a;b,voxel of the w016 renders; um,positive-control-0139/evidence/label-map.csv,9.362 um nodes,9.362
+bar_mm,a;b,scale bar; mm,,,1
+k_vox,a;b,matching distance; voxels,positive-control-0139/tools/score.py,k,4
+scroll,a;b,scroll,,,PHerc. 0139
+model,a;b,model,hf-files.csv of ink-v8in-0826,repo YoussefMoNader/ink-8um-v8in,v8-in
+region,a;b,labelled region,,,w016
+,a;b,outline,,,sky blue: the matched clean ink label points; dilated 2 px and closed

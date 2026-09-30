@@ -1,0 +1,11 @@
+# one row per PHerc0139 growth tree named in DECLARATION.md, read only. rel_edges is the line count of rel.csv, rel_keys the distinct patch numbers in its first two columns, fan_out twice the first over the second. content_sha256 is the sha256 of the sorted 'name size sha256' listing of every file under patches/ plus rel.csv, so two trees with equal values hold the same content.
+tree,path,exists,patch_files,rel_edges,rel_keys,fan_out,bytes_on_disk,content_sha256,note
+repeat,/data/scrollagent/runs/rev1/growth-repeat/out/growth,yes,7854,19123,7854,4.8696,986299353,79f829f2653473f45fea726e217bcc03f7582fb83ece0d45f1c4f31d809b0f95,
+b40,/data/scrollagent/runs/rev1/reference-b40/out/growth,yes,7854,19123,7854,4.8696,986299353,79f829f2653473f45fea726e217bcc03f7582fb83ece0d45f1c4f31d809b0f95,
+D150,/data/scrollagent/runs/rev1/seed-distance-ladder/out/growth-D150,yes,15183,36968,15183,4.8697,1731735952,37cecbb928cb831b09a5bc9aebc7b8c7c2a8a433f085ff7cc41aea6072947e08,
+D450,/data/scrollagent/runs/rev1/seed-distance-ladder/out/growth-D450,yes,15117,36687,15117,4.8537,1721020699,abc5e11db1e7ee5d09c04884cbdce6893bf11b289022a8c4985cff189d0413fd,
+P2,/data/scrollagent/runs/rev1/why-the-growth-stops/out/growth-P2,yes,15338,37060,15338,4.8324,1758774153,a0392cea488c160da3608c654cb2ff8eba0aa583efccd69484d2b06b383f104b,
+C,/data/scrollagent/runs/rev1/why-the-growth-stops/out/growth-C,yes,15231,35849,15231,4.7074,1734905603,3cd211f71be11463ac9c07630381852965d058861616d41037c45da726fde020,
+S,/data/scrollagent/runs/rev1/why-the-growth-stops/out/growth-S,yes,14583,35145,14583,4.8200,1595514097,c7ac952312047492c9e40c7a2fe7d2961a427e71415a48845a1f55cd0e51e2a6,
+A,/data/scrollagent/runs/rev1/held-patch/out/growth-A,yes,392,970,392,4.9490,46421290,8374d0927ec634a042bfe14180f6d4620d8dda1290766a751b3448949e41d90b,
+ceiling24000,/data/scrollagent/runs/rev1/ceiling-24000/out/growth,no,,,,,,,the folder is not on disk

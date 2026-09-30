@@ -1,0 +1,82 @@
+{
+  "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1875",
+  "repository_url": "https://api.github.com/repos/ScrollPrize/villa",
+  "labels_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1875/labels{/name}",
+  "comments_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1875/comments",
+  "events_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1875/events",
+  "html_url": "https://github.com/ScrollPrize/villa/issues/1875",
+  "id": 5558806978,
+  "node_id": "I_kwDONRspoc8AAAABS1Spwg",
+  "number": 1875,
+  "title": "Solid blocks of 255 outside the scroll in the published PHerc1447 m7 surface prediction",
+  "user": {
+    "login": "evilaliv3",
+    "id": 217034,
+    "node_id": "MDQ6VXNlcjIxNzAzNA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/217034?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/evilaliv3",
+    "html_url": "https://github.com/evilaliv3",
+    "followers_url": "https://api.github.com/users/evilaliv3/followers",
+    "following_url": "https://api.github.com/users/evilaliv3/following{/other_user}",
+    "gists_url": "https://api.github.com/users/evilaliv3/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/evilaliv3/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/evilaliv3/subscriptions",
+    "organizations_url": "https://api.github.com/users/evilaliv3/orgs",
+    "repos_url": "https://api.github.com/users/evilaliv3/repos",
+    "events_url": "https://api.github.com/users/evilaliv3/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/evilaliv3/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 5,
+  "created_at": "2026-09-23T20:00:26Z",
+  "updated_at": "2026-09-25T04:19:34Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "CONTRIBUTOR",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "The published surface prediction of PHerc1447,\n`s3://vesuvius-challenge-open-data/PHerc1447/representations/predictions/surfaces/20250521151220-surface-20260413222639-surface-m7-L0-th0.2.zarr`,\nlevel 0, holds solid blocks of 255 in the air outside the scroll. We read every one of its 74,683 listed chunks\n(192 cubed voxels, every local file equal by md5 to the published listing) and counted the share of 255 in each:\n\n| share of 255 in the chunk | chunks |\n|---|---|\n| 0.0 to 0.1 | 12,540 |\n| 0.1 to 0.2 | 12,336 |\n| 0.2 to 0.3 | 28,809 |\n| 0.3 to 0.4 | 7,062 |\n| 0.4 to 0.5 | 2,997 |\n| 0.5 to 0.6 | 2,781 |\n| 0.6 to 0.7 | 864 |\n| 0.7 to 0.8 | 1,502 |\n| 0.8 to 0.9 | 852 |\n| 0.9 to 1.0 | 4,940 |\n\n4,938 chunks are strictly above 0.9 of 255 (the last row also holds two chunks at 0.9000), 2,648 above 0.99, and 163 are 255 in every voxel. The chunks above 0.9 hold\n22.22 per cent of all the 255 voxels of the volume. A chunk is a cube 1.66 mm on a side.\n\n**Where they lie.** We drew 200 of the 4,938 chunks at random (numpy `default_rng(20260923)`) and looked at the\nraw masked scan of the same volume, `20250521151220-8.640um-1.2m-116keV-masked.zarr` level 0, which has the same\nshape and whose `fill_value` is 0, over the same region. Every one of the 1,574 raw chunks that cover the 200 is\nabsent from the bucket (HTTP 404, while a raw chunk inside the scroll, `96/25/25`, answers with data under the\nsame URL form). So in all 200 sampled blocks every 255 voxel lies where the raw scan is masked away: outside the\nscroll. The sample spans the whole height of the scan, from z 0 to z 24,192.\n\n**How a user meets them.** A natural way to seed a tracer on this prediction, and the one we used, is to pick a voxel of\n255 whose six face neighbours are 255. Drawn that way, 48 of our 150 seeds on PHerc1447 fell in chunks above 0.9 of 255. A tracer\nstarted there still grows: one of those seeds, grown with villa's `vc_grow_seg_from_seed`, gave a surface of\n9.21 cm2 over 30,975 grid cells, and not one of the cells lands on a grey voxel of the raw scan (all 30,975 fall\nwhere the raw scan has no data). The run reports an area like any other, and nothing in the prediction tells the\nuser that the seed was in the air.\n\n**The same thing was seen before on other scrolls.** Chris Scheirer's report 03,\nhttps://github.com/ShribyrLabs/vesuvius-reports/blob/main/03-m7-orientation-bias/README.md, notes: «Also found: the\nhosted maps carry a ring of \"surface\" in the air around the scroll (up to half the lit voxels on some 0846A\nplanes); that is the hosting pipeline, not the model.» Its DETAILS.md,\nhttps://github.com/ShribyrLabs/vesuvius-reports/blob/main/03-m7-orientation-bias/DETAILS.md, describes «a blocky\nstair-stepped band of \"surface\" in the air outside the scroll». What we add is the count over a whole scroll,\nPHerc1447, and its position against the raw scan's own mask.\n\n**What would help.** Masking the published predictions with the raw scan's mask (0 wherever the raw chunk is\nabsent or 0), or publishing the mask beside them so that a seeder can test a point in one lookup. Until then, a\nuser can protect themselves by rejecting any seed whose raw masked voxel is 0 or whose raw chunk is absent. We can\nshare the per chunk table (74,683 rows: key, md5 check, share of 255) and the sampled comparison.\n\n<img width=\"1280\" height=\"1436\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/6f2582ab-4d79-4404-ba69-4f6b0976afe3\" />",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/ScrollPrize/villa/issues/1875/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/ScrollPrize/villa/issues/1875/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

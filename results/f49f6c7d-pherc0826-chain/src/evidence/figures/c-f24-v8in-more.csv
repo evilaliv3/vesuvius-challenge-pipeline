@@ -1,0 +1,26 @@
+# figure C24; written by src/tools/c-f24-v8in-more.py at 2026-09-30T13:47:11Z: v8-in on the seed 5364 square (R2c; before the adjudication) and on the whole R2d surface of seed 2715; both depth orders; sheet only; each in its own grid; NO POSITION: grid cells; display factors and digests only. Owner's decision of 2026-09-30: ink detector maps of PHerc0826 may be published without location cues; this figure carries none. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+,a;b,square of seed 5364 in the window's render pixels; rows and columns,ink-v8in-0826 scratch/r5364 window.json; meta.json,I0; J0; S; i0; j0; scale,241:3156;241:3156
+,a;b,the square's side before the adjudication; mm,ink-v8in-0826 scratch/r5364 window.json,MM,27.2368
+,a,seed 5364 square; w016 order: map read (sha256),ink-v8in-0826/scratch/pred/s5364/base-sheet-read-reverse-w016-order.npy,,467ecbf5a952aec16009137fa8234ccdaa54e48e6d47bf99f0ca3b5d836ebe94
+,a,seed 5364 square; w016 order: display bin; render pixels per side,,,3
+,b,seed 5364 square; other order: map read (sha256),ink-v8in-0826/scratch/pred/s5364/base-sheet-read-normal-not-w016-order.npy,,51ab64c327596f3f20f13368d2ea93e7ef437f0b90e3b3659b7a8c8a62349df5
+,b,seed 5364 square; other order: display bin; render pixels per side,,,3
+,c,seed 2715 whole surface; w016 order: map read (sha256),ink-v8in-0826-r2d/scratch/pred/r2d-s2715-S0-sheet-normal.npy,,746fc3c096ed87eed4caa755991d105bcc29941f57c59f2b2bd5d152ebf8773f
+,c,seed 2715 whole surface; w016 order: render pixels high and wide; display bin,,,8040;8040; 8
+,c,seed 2715 whole surface; w016 order: pixels no tile covered (drawn white),,,2666890
+,d,seed 2715 whole surface; other order: map read (sha256),ink-v8in-0826-r2d/scratch/pred/r2d-s2715-S0-sheet-reverse.npy,,2ca40aec6a5f75d314ec17574ddffaba9781e2a7454bda0b9170d5a91c4aa9e6
+,d,seed 2715 whole surface; other order: render pixels high and wide; display bin,,,8040;8040; 8
+,d,seed 2715 whole surface; other order: pixels no tile covered (drawn white),,,2666890
+,a;b;c;d,text size; pixels (8 pt at the text width),rasterlib.print_size,,63
+,a,scale bar; pixels,,,178
+,b,scale bar; pixels,,,178
+,c,scale bar; pixels,,,67
+,d,scale bar; pixels,,,67
+bar_mm,a;b;c;d,scale bar; mm (display choice),,,5
+region,a;b;c;d,labelled region the depth order was measured on,,,w016
+seed_1,a;b,seed of the square's start,ink-v8in-0826/evidence/describe-v2.csv,square,5364
+route,c;d,route; sheet and seed of the whole surface,ink-v8in-0826-r2d/evidence/describe.csv,header,R2d
+sheet,c;d,sheet of the seed the route started from,ink-v8in-0826-r2d/evidence/describe.csv,header,0
+seed_2,c;d,seed the route started from,ink-v8in-0826-r2d/evidence/describe.csv,header,2715
+model,a;b;c;d,model,hf-files.csv of ink-v8in-0826,repo YoussefMoNader/ink-8um-v8in,v8-in

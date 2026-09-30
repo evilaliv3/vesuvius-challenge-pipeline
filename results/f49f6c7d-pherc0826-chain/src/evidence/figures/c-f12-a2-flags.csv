@@ -1,0 +1,35 @@
+# figure C12; what the raster drew; written by src/tools/c-f12-a2-flags.py at 2026-09-30T12:16:22Z (cores busy not checked): one delivered PHerc0826 sheet in its own grid with arm a2 recomputed by the chain's own imported code and checked equal to its a2-cluster row. Geometry only: NO INK. Commas inside a cell were written as semicolons so that pgfplotstable reads the columns this header names.
+key,panel,what,source_file,source_column,value
+sheets_measured,a,measured sheets in the a2-cluster files,evidence/studies/chain-0826/a2-cluster/*.csv,delivered_square_mm and a2_cluster_rule_square_mm both numbers,1580
+sheets_rule_below,a,of them with the cluster rule square below the delivered square,evidence/studies/chain-0826/a2-cluster/*.csv,a2_cluster_rule_square_mm < delivered_square_mm,20
+seed,a,seed drawn (largest drop),evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,seed,5728
+sheet,a,sheet drawn (largest drop),evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,sheet,0
+delivered_square_mm,a,delivered square; mm,evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,delivered_square_mm,11.7496
+rule_square_mm,a,square after the cluster rule; mm,evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,a2_cluster_rule_square_mm,8.1948
+,a,sheet file,chain-0826/out/PHerc0826-seed5728/C40/patch_0.bin,sha256,d32865085e3ae3eae18a95edae17bd1ccdfd77f8025fbdde15479634bc7d77be
+,a,recomputed here and equal to the a2-cluster row: a2_measurable,evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,a2_measurable,20933
+,a,recomputed here and equal to the a2-cluster row: a2_flagged,evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,a2_flagged,1226
+,a,recomputed here and equal to the a2-cluster row: a2_largest_cluster,evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,a2_largest_cluster,298
+,a,recomputed here and equal to the a2-cluster row: a2_kept_points,evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,a2_kept_points,577
+,a,recomputed here and equal to the a2-cluster row: a2_cluster_rule_square_mm,evidence/studies/chain-0826/a2-cluster/PHerc0826-seed5728.csv,a2_cluster_rule_square_mm,8.1948
+t_star_deg,a,T* (degrees),lamina-crossing-detect verdict.csv a2_pred RULE,T_star,25
+cluster_s,a,S (flagged points a cluster must exceed),lamina-crossing-map-1447 cluster-calibration.csv a2 RULE,S,101
+,a,stride between evaluated points; cells,lamina-crossing-map-1447/tools/map_crossing.py,STRIDE,8
+,a,cut radius around a kept point; cells (taxicab),lamina-crossing-map-1447/tools/map_crossing.py,K,2
+,a,grid cells i by j,lattice_from_patch,,2012;2404
+,a,covered cells,lattice_from_patch,valid,1362812
+,a,cells the rule cuts,cluster_rule.rule_holes,,7500
+,a,delivered square side; corner i; corner j (cells),square.py largest_square of valid; equal to the squares row,square_cells; square_corner_i; square_corner_j,314;1174;1733
+,a,square after the rule side; corner i; corner j (cells),square.py largest_square of valid minus the cut cells,,219;1348;1963
+,a,median cell steps i;j; voxels,square.py median_step,,3.9973;3.9969
+,a,panel a crop i0;i1;j0;j1 (cells),bounding box of the covered cells,,0;2012;0;2404
+,a,panel a pixels per cell side; flag dot side in cells,,,1; 5
+,b,panel b crop i0;i1;j0;j1 (cells),the two squares plus the margin,argument --margin,1134;1607;1693;2222
+,b,panel b pixels per cell side; flag dot side in cells,argument --zoom,,3; 3 (a flag in a large cluster: 1; the cut cells around it show)
+,a,flagged stride points; not in a cluster above S,,,649
+,a,flagged stride points; in a cluster above S,,,577
+,a,mm per cell (smaller median step times the voxel),square.py median_step; PHerc0826 manifest,,0.037419
+scale_bar_mm,a;b,scale bar; mm (display choice),,,5
+,a;b,scale bar; pixels in a; pixels in b,,,134; 401
+,a,panel box in the png below the key; x;y;w;h,paper/figures/c-f12-a2-flags.png,rasterlib.side_by_side,0;0;2404;2012
+,b,panel box in the png below the key; x;y;w;h,paper/figures/c-f12-a2-flags.png,rasterlib.side_by_side,2434;296;1587;1419

@@ -1,0 +1,13 @@
+tool,variant,attempt,quantity,value,what_it_is
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,binary_sha256,3fb3e87e3fcd62624a851ca8b786f33a0975c46c0679add247db193139a87e3a,"the growth binary, gated in evidence/binary-gate.csv"
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,downstream_binary_sha256,3fb3e87e3fcd62624a851ca8b786f33a0975c46c0679add247db193139a87e3a,"the delivered per seed binary, used for the five downstream stages"
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,shared_chunks_cap,128,SIMPAPER_SHARED_CHUNKS given to the growth; unset is the delivered run (a quarter of MemAvailable)
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,mem_available_gb_at_start,77,/proc/meminfo at the start; other runners were growing
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,growth_return_code,0,0 is a growth that ended by itself
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,growth_wall_clock_seconds,729.2,patch-filter-harness-1447/tools/peak.py; other runners were growing
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,growth_peak_rss_kb,2869392,"ru_maxrss of the growth (getrusage RUSAGE_CHILDREN via peak.py), the exact peak"
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,growth_peak_vmhwm_sampled_kb,2869392,"largest VmHWM of evidence/rss-unchanged-cap128.csv, sampled every 10 s"
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,growth_patch_files,2492,files under patches/
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,growth_identity,identical 2493 of 2493,"tools/tree_identity.py: every patches/ file and rel.csv, sha256 against the delivered growth tree (rc 0)"
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,downstream,rc_0_sheets_10,"five stages c, l, vm 10, hm 10, fm 30 10 on the copy, 10 s"
+growth-memory-1447/tools/grow_measure2.sh,unchanged-cap128,PHerc1447-seed1111,sheets_identity,identical 10 of 10,tools/tree_identity.py: sha256 of every delivered C40/patch_<n>.bin against this run's (rc 0)

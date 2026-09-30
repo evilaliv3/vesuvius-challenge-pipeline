@@ -1,0 +1,33 @@
+tool,arm,quantity,value,what_it_is
+hot-lines-88/tools/clock_summary_zl.py,Z,runs_started,3,rows of clock-runs.csv for this arm
+hot-lines-88/tools/clock_summary_zl.py,Z,runs_counted,3,"rc 0, tree identical, no other growth seen, others under 1.0"
+hot-lines-88/tools/clock_summary_zl.py,Z,run_cpu_seconds_median,590.50,"median of counted runs (CPU seconds of the growth, the runner's reaped children)"
+hot-lines-88/tools/clock_summary_zl.py,Z,run_cpu_seconds_min,588.60,"min of counted runs (CPU seconds of the growth, the runner's reaped children)"
+hot-lines-88/tools/clock_summary_zl.py,Z,run_cpu_seconds_max,591.20,"max of counted runs (CPU seconds of the growth, the runner's reaped children)"
+hot-lines-88/tools/clock_summary_zl.py,Z,rule_cpu_median_below_Z_min,not applicable,declared in hot-lines-88 DECLARATION.md (C) before any number
+hot-lines-88/tools/clock_summary_zl.py,Z,wall_clock_seconds_median,417.30,median of counted runs (peak.py)
+hot-lines-88/tools/clock_summary_zl.py,Z,wall_clock_seconds_min,416.20,min of counted runs (peak.py)
+hot-lines-88/tools/clock_summary_zl.py,Z,wall_clock_seconds_max,426.20,max of counted runs (peak.py)
+hot-lines-88/tools/clock_summary_zl.py,Z,rule_wall_median_below_Z_min,not applicable,declared in hot-lines-88 DECLARATION.md (C) before any number
+hot-lines-88/tools/clock_summary_zl.py,Z,cores_busy_over_run_median,1.45,"median of counted runs (cores busy on the machine over the run, /proc/stat)"
+hot-lines-88/tools/clock_summary_zl.py,Z,cores_busy_over_run_min,1.42,"min of counted runs (cores busy on the machine over the run, /proc/stat)"
+hot-lines-88/tools/clock_summary_zl.py,Z,cores_busy_over_run_max,1.48,"max of counted runs (cores busy on the machine over the run, /proc/stat)"
+hot-lines-88/tools/clock_summary_zl.py,Z,cores_busy_others_over_run_median,0.05,median of counted runs (cores busy minus run CPU over wall)
+hot-lines-88/tools/clock_summary_zl.py,Z,cores_busy_others_over_run_min,0.05,min of counted runs (cores busy minus run CPU over wall)
+hot-lines-88/tools/clock_summary_zl.py,Z,cores_busy_others_over_run_max,0.08,max of counted runs (cores busy minus run CPU over wall)
+hot-lines-88/tools/clock_summary_zl.py,L,runs_started,3,rows of clock-runs.csv for this arm
+hot-lines-88/tools/clock_summary_zl.py,L,runs_counted,3,"rc 0, tree identical, no other growth seen, others under 1.0"
+hot-lines-88/tools/clock_summary_zl.py,L,run_cpu_seconds_median,545.90,"median of counted runs (CPU seconds of the growth, the runner's reaped children)"
+hot-lines-88/tools/clock_summary_zl.py,L,run_cpu_seconds_min,545.70,"min of counted runs (CPU seconds of the growth, the runner's reaped children)"
+hot-lines-88/tools/clock_summary_zl.py,L,run_cpu_seconds_max,546.30,"max of counted runs (CPU seconds of the growth, the runner's reaped children)"
+hot-lines-88/tools/clock_summary_zl.py,L,rule_cpu_median_below_Z_min,"pass (median 545.9, Z min 588.6)",declared in hot-lines-88 DECLARATION.md (C) before any number
+hot-lines-88/tools/clock_summary_zl.py,L,wall_clock_seconds_median,388.30,median of counted runs (peak.py)
+hot-lines-88/tools/clock_summary_zl.py,L,wall_clock_seconds_min,388.00,min of counted runs (peak.py)
+hot-lines-88/tools/clock_summary_zl.py,L,wall_clock_seconds_max,388.50,max of counted runs (peak.py)
+hot-lines-88/tools/clock_summary_zl.py,L,rule_wall_median_below_Z_min,"pass (median 388.3, Z min 416.2)",declared in hot-lines-88 DECLARATION.md (C) before any number
+hot-lines-88/tools/clock_summary_zl.py,L,cores_busy_over_run_median,1.45,"median of counted runs (cores busy on the machine over the run, /proc/stat)"
+hot-lines-88/tools/clock_summary_zl.py,L,cores_busy_over_run_min,1.45,"min of counted runs (cores busy on the machine over the run, /proc/stat)"
+hot-lines-88/tools/clock_summary_zl.py,L,cores_busy_over_run_max,1.52,"max of counted runs (cores busy on the machine over the run, /proc/stat)"
+hot-lines-88/tools/clock_summary_zl.py,L,cores_busy_others_over_run_median,0.05,median of counted runs (cores busy minus run CPU over wall)
+hot-lines-88/tools/clock_summary_zl.py,L,cores_busy_others_over_run_min,0.05,min of counted runs (cores busy minus run CPU over wall)
+hot-lines-88/tools/clock_summary_zl.py,L,cores_busy_others_over_run_max,0.12,max of counted runs (cores busy minus run CPU over wall)

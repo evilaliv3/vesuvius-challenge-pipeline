@@ -1,0 +1,21 @@
+"# written by src/tools/corrections_list.py at 2026-09-30T19:17:08Z: the nine corrections the chain as delivered ran beyond arm C (src/prereg/stevens-changes-0826-91.md, arm X), from the patches shipped under src/inputs/chain-0826-corrections, and the chain's trees beside arm C's on the same seeds"
+key,group,what,value,source
+00001-symmetric-round-about-zero,changes output,source files touched; changes output: yes,badpatchfinder.h,inputs/chain-0826-corrections/corrections/00001-symmetric-round-about-zero.patch
+00002-floor-instead-of-a-truncating-cast,changes output,source files touched; changes output: yes,common_types.cpp,inputs/chain-0826-corrections/corrections/00002-floor-instead-of-a-truncating-cast.patch
+00003-positions-relative-to-the-patch-origin,changes output,source files touched; changes output: yes,patch_generator.cpp;patch_generator.h,inputs/chain-0826-corrections/corrections/00003-positions-relative-to-the-patch-origin.patch
+00004-significant-digits-at-stage-boundaries,changes output,source files touched; changes output: yes,PatchSpringSimulation.cpp;simpaper10.cpp,inputs/chain-0826-corrections/corrections/00004-significant-digits-at-stage-boundaries.patch
+00005-chunk-listing-sorted-before-it-is-indexed,changes output,source files touched; changes output: yes,bigpatch.cpp,inputs/chain-0826-corrections/corrections/00005-chunk-listing-sorted-before-it-is-indexed.patch
+00006-right-angle-test-written-with-or-where-and-was-meant,changes output,source files touched; changes output: yes,align_patches.cpp,inputs/chain-0826-corrections/corrections/00006-right-angle-test-written-with-or-where-and-was-meant.patch
+00001-absolute-value-of-a-boolean,inert,source files touched; changes output: no,common_types.cpp,inputs/chain-0826-corrections/corrections-inert/00001-absolute-value-of-a-boolean.patch
+00002-the-renderer-rounds-instead-of-truncating,inert,source files touched; changes output: no,render_from_zarr6.cpp,inputs/chain-0826-corrections/corrections-inert/00002-the-renderer-rounds-instead-of-truncating.patch
+00003-representative-transform-chosen-by-the-translation,inert,source files touched; changes output: no,align_patches.cpp,inputs/chain-0826-corrections/corrections-inert/00003-representative-transform-chosen-by-the-translation.patch
+count_changes_output,corrections,patches that change output,6,inputs/chain-0826-corrections/corrections
+count_inert,corrections-inert,patches measured inert,3,inputs/chain-0826-corrections/corrections-inert
+x_c_seeds,X against C,seeds with both a delivered tree (X) and an arm C run,8,evidence/studies/stevens-changes-0826-91/per-run.csv
+x_c_seeds_growth_differs,X against C,"of them, seeds whose growth patch count differs",8,evidence/studies/stevens-changes-0826-91/per-run.csv
+median_growth_patches_x,X against C,"median over those seeds of growth_patches, arm X",8006,evidence/studies/stevens-changes-0826-91/per-run.csv
+median_growth_patches_c,X against C,"median over those seeds of growth_patches, arm C",2921,evidence/studies/stevens-changes-0826-91/per-run.csv
+median_formula_cm2_x,X against C,"median over those seeds of stevens_formula_cm2, arm X",64.4746,evidence/studies/stevens-changes-0826-91/per-run.csv
+median_formula_cm2_c,X against C,"median over those seeds of stevens_formula_cm2, arm C",21.3432,evidence/studies/stevens-changes-0826-91/per-run.csv
+median_square_mm_x,X against C,"median over those seeds of best_square_mm, arm X",8.9581,evidence/studies/stevens-changes-0826-91/per-run.csv
+median_square_mm_c,X against C,"median over those seeds of best_square_mm, arm C",5.6804,evidence/studies/stevens-changes-0826-91/per-run.csv

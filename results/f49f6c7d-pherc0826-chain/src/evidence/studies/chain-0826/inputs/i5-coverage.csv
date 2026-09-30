@@ -1,0 +1,4 @@
+"# written by chain-0826/tools/check_inputs_0826.py at 2026-09-26T08:37:16Z: I5 of DECLARATION.md part 1: raw masked level 5 and prediction level 5 fetched whole from the bucket (scale 32); mask = raw above 0; bar: predicted in mask at least 0.95, the swapped x/y frame at least 0.20 lower, listed level 0 chunks cover at least 0.90 of the mask; PHerc1447 is the reference that must pass"
+scroll,level5_shape,mask_voxels,predicted_voxels,predicted_in_mask_share,predicted_in_mask_share_swapped_xy,mask_under_listed_chunks_share,mask_z_range_level0,predicted_z_range_level0,listed_chunks_z_range_level0,listed_chunks,passes
+PHerc0826,529x256x256,5812242,2952269,0.3935,0.3028,1.0000,0..16927,0..16927,0..16927,46715,no
+PHerc1447,760x261x261,10568223,4717669,0.5335,0.4573,1.0000,0..24319,0..24319,0..24319,74683,no

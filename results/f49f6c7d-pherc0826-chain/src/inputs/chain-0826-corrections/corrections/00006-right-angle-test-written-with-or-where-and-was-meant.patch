@@ -1,0 +1,50 @@
+# The right angle test in the matcher is written with || where && was meant.
+#
+# align_patches.cpp keeps three minima and, when they are not collinear, asks whether they form a
+# right angle with minCount at the corner. The first clause is that test: the corner shares a row
+# with one of the other two and a column with the other. The second clause is meant to be its
+# mirror, and a mirror needs the same &&; written with || it accepts any point sharing a row, or
+# any point sharing a column, which is not a corner. The projection that follows divides by
+# QUADMESH_SIZE squared, which assumes the two legs have length QUADMESH_SIZE and are orthogonal,
+# so on a triple that is not a corner the match is placed wrong by up to a cell, four voxels.
+#
+# MEASURED, and it is what puts this patch in corrections and not in the inert group. Box w035 of
+# PHerc. 0139, seed 3455,2753,5383, 2858 seeds, the whole chain g c l vm hm fm, the reference run
+# out0139w035 against the corrected run out0139w035-gfix:
+#
+#   the test changes its answer         1,482,950 of 7,188,850 tests, 20.63 per cent
+#   patches grown                       1,495  ->  1,539
+#   patches dropped by stage c            348  ->    329, 23.28 % -> 21.38 % of those grown
+#   flattened sheet, ten components     20.4272 cm2 -> 24.5790 cm2, plus 20.3 per cent
+#     (area by triangulation in the box, tools/clip_box_tifxyz.py, the same formula both sides)
+#   sheet contrast against the CT, all twenty components, weighted by area
+#     (tools/contrasto_foglio.py)       blocks resting on a sheet 58.4 % -> 57.4 %
+#                                       attached area 11.93 cm2 -> 14.10 cm2, plus 18.2 per cent
+#   cover of the published w035 mesh    95.83 % -> 96.27 %, cells within 3 voxels 15.76 % -> 16.20 %
+#     (tools/ancoraggio_superficie.py, cubic cells of 8 voxels)
+#
+# So what the repair buys is a fifth more sheet at the same seating quality, not a better seated
+# sheet: the fraction of blocks resting on papyrus does not move. The number quoted on the largest
+# component alone, 35.0 % -> 58.2 %, is the choice of that component and not a property of the
+# chain, and it is written here so that nobody quotes it later.
+#
+# The two corrections of this file were run together; the other one is measured identical by
+# sha256 on its own, so every number above belongs to this one.
+#
+# Evidence: runs/rev1/audit/STEVENS-VALLE.md, runs/catena/superficie-stevens/out0139w035-gfix.
+--- a/pipeline9/align_patches.cpp
++++ b/pipeline9/align_patches.cpp
+@@ -207,8 +207,12 @@
+ 							//matchList.push_back(match(x0,y0,minimums[minCount][0],minimums[minCount][1]));		  
+ 						} 
+ 						// They must form a right angle triangle, with mincount at the corner
++						// The second clause is the mirror of the first: the corner shares a row with one of
++						// the other two AND a column with the other. Written with || it accepted any point
++						// sharing a row, or any point sharing a column, which is not a corner, and the
++						// projection below assumes |v0| = |v1| = QUADMESH_SIZE and orthogonal.
+ 						else if ((minimums[minCount%3][0]==minimums[(minCount+1)%3][0] && minimums[minCount%3][1] == minimums[(minCount+2)%3][1]) ||
+-								 (minimums[minCount%3][1]==minimums[(minCount+1)%3][1] || minimums[minCount%3][0] == minimums[(minCount+2)%3][0]))
++								 (minimums[minCount%3][1]==minimums[(minCount+1)%3][1] && minimums[minCount%3][0] == minimums[(minCount+2)%3][0]))
+ 						{
+ 							// If so then work out what plane it is in, then project xp0,yp0,zp0 onto that plane
+ 							float v0[3],v1[3];

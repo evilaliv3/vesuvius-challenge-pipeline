@@ -1,0 +1,10 @@
+# sha256 of each correction as copied on 2026-09-30 from the laboratory's patch series, pipeline/patches/corrections and pipeline/patches/corrections-inert (the series' description of the two groups: SERIES.md there); arm X of stevens-changes-0826-91 (the chain as delivered) is arm C plus these nine (src/prereg/stevens-changes-0826-91.md)
+18092b62f646ae0cc6b268940556630b9800dbb3b8fa826283b3c051a5f4780a  corrections/00001-symmetric-round-about-zero.patch
+aaf4a0b1d90235f2388e7fe7539d967fedb1a9829eb7877748e7309c803a4c75  corrections/00002-floor-instead-of-a-truncating-cast.patch
+7aa3b706be19afd91ceb895c8a278a24c0eb6f66ac3431b348d367a23d17d3cb  corrections/00003-positions-relative-to-the-patch-origin.patch
+3603e557425722f884715b8e50cf89d7b22ce0be6959651f81a47ccd168691cd  corrections/00004-significant-digits-at-stage-boundaries.patch
+3c01168e158a3c8628a11f323ae45a9127302f15dfb49c46c0b9ab4757bad035  corrections/00005-chunk-listing-sorted-before-it-is-indexed.patch
+8c589c0f383cc84696de32929fa659a952352c934f067fda56f77340f20d2d2d  corrections/00006-right-angle-test-written-with-or-where-and-was-meant.patch
+40e06b2c73306784e76bd95591575fec5a0fee587fd3d8cf2808d22b9ebe738f  corrections-inert/00001-absolute-value-of-a-boolean.patch
+6caf935798d56be18e39764916900c6cf53e924ac95cc2e85164b0a9e60a607f  corrections-inert/00002-the-renderer-rounds-instead-of-truncating.patch
+c6b4675083cb28eebfe3f8830aca614cf2dabd503fa5a6359096be87dc740c50  corrections-inert/00003-representative-transform-chosen-by-the-translation.patch

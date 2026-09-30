@@ -1,0 +1,35 @@
+"# written by src/tools/v8in_summary.py at 2026-09-30T19:17:08Z from the copies of ink-v8in-0826 and selftrain-v8in-0826 in src/evidence/studies; rows_covered says which rows a value is over; a repeated key of describe-v2.csv takes its last row"
+quantity,value,source_file,source_column,rows_covered
+order_w016_ba_chosen,0.6798,selftrain-v8in-0826/order-0139.csv,ba,chosen yes (order normal)
+order_w016_ba_other,0.4411,selftrain-v8in-0826/order-0139.csv,ba,chosen no (order reverse)
+order_w016_pixels,171693,selftrain-v8in-0826/order-0139.csv,pixels,chosen yes
+model_repo,YoussefMoNader/ink-8um-v8in,ink-v8in-0826/hf-files.csv,repo,every row
+model_revision_short,d89166b,ink-v8in-0826/hf-files.csv,revision,every row of the model repository
+threshold,0.5,ink-v8in-0826/describe-v2.csv,the column name share_prob_ge_0.5,header
+s6273_otherorder_sheet_share,0.09822,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of square s6273, set base, order normal, surface sheet"
+s6273_otherorder_plus_share,0.10502,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of square s6273, set base, order normal, surface plus"
+s6273_otherorder_minus_share,0.11575,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of square s6273, set base, order normal, surface minus"
+s5364_otherorder_sheet_share,0.10992,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of square s5364, set base, order normal, surface sheet"
+s5364_otherorder_plus_share,0.10949,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of square s5364, set base, order normal, surface plus"
+s5364_otherorder_minus_share,0.08695,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of square s5364, set base, order normal, surface minus"
+face_offset_vox,5,ink-v8in-0826/describe-v2.csv,"render_set (faceplus5, faceminus5)",render set names
+s6273_faceplus_w016order_share,0.07356,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of s6273, faceplus5, reverse, sheet"
+s6273_faceplus_otherorder_share,0.10708,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of s6273, faceplus5, normal, sheet"
+s6273_faceminus_w016order_share,0.05238,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of s6273, faceminus5, reverse, sheet"
+s6273_faceminus_otherorder_share,0.10132,ink-v8in-0826/describe-v2.csv,share_prob_ge_0.5,"last row of s6273, faceminus5, normal, sheet"
+ratio_known_rows,3,ink-v8in-0826/ratio-calibration.csv,surface,"scroll PHerc0139 w016, pixel set labelled"
+ratio_known_min,0.2601,ink-v8in-0826/ratio-calibration.csv,ratio_to_larger_copy,min over the 3 known ink rows (A)
+ratio_known_max,1.6077,ink-v8in-0826/ratio-calibration.csv,ratio_to_larger_copy,max over the 3 known ink rows (Bx)
+s6273_w016order_sheet_share,0.08018,ink-v8in-0826/ratio-calibration.csv,share_ge_0.5_sheet,"surface s6273, scroll PHerc0826 (pixel set square (render pixels 241:3437))"
+s6273_w016order_plus_share,0.05247,ink-v8in-0826/ratio-calibration.csv,share_ge_0.5_plus,"surface s6273, scroll PHerc0826 (pixel set square (render pixels 241:3437))"
+s6273_w016order_minus_share,0.04922,ink-v8in-0826/ratio-calibration.csv,share_ge_0.5_minus,"surface s6273, scroll PHerc0826 (pixel set square (render pixels 241:3437))"
+ratio_s6273,1.5281,ink-v8in-0826/ratio-calibration.csv,ratio_to_larger_copy,"surface s6273, scroll PHerc0826"
+ratio_s6273_inside_known,yes,ink-v8in-0826/ratio-calibration.csv,ratio_to_larger_copy,s6273 against the min and max of the known ink rows
+s5364_w016order_sheet_share,0.06928,ink-v8in-0826/ratio-calibration.csv,share_ge_0.5_sheet,"surface s5364, scroll PHerc0826 (pixel set square (render pixels 241:3156))"
+s5364_w016order_plus_share,0.06403,ink-v8in-0826/ratio-calibration.csv,share_ge_0.5_plus,"surface s5364, scroll PHerc0826 (pixel set square (render pixels 241:3156))"
+s5364_w016order_minus_share,0.08685,ink-v8in-0826/ratio-calibration.csv,share_ge_0.5_minus,"surface s5364, scroll PHerc0826 (pixel set square (render pixels 241:3156))"
+ratio_s5364,0.7977,ink-v8in-0826/ratio-calibration.csv,ratio_to_larger_copy,"surface s5364, scroll PHerc0826"
+ratio_s5364_inside_known,yes,ink-v8in-0826/ratio-calibration.csv,ratio_to_larger_copy,s5364 against the min and max of the known ink rows
+null_layers_shared_min,14,ink-v8in-0826/ratio-calibration.csv,plus_independence; minus_independence,"the PHerc0826 rows, both copies"
+null_layers_shared_max,19,ink-v8in-0826/ratio-calibration.csv,plus_independence; minus_independence,"the PHerc0826 rows, both copies"
+null_layers_total,24,ink-v8in-0826/ratio-calibration.csv,plus_independence; minus_independence,the PHerc0826 rows

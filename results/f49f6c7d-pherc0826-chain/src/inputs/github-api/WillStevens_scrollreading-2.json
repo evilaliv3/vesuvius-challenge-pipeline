@@ -1,0 +1,78 @@
+{
+  "url": "https://api.github.com/repos/WillStevens/scrollreading/issues/2",
+  "repository_url": "https://api.github.com/repos/WillStevens/scrollreading",
+  "labels_url": "https://api.github.com/repos/WillStevens/scrollreading/issues/2/labels{/name}",
+  "comments_url": "https://api.github.com/repos/WillStevens/scrollreading/issues/2/comments",
+  "events_url": "https://api.github.com/repos/WillStevens/scrollreading/issues/2/events",
+  "html_url": "https://github.com/WillStevens/scrollreading/issues/2",
+  "id": 5542987962,
+  "node_id": "I_kwDOMqM4Bs8AAAABSmNIug",
+  "number": 2,
+  "title": "Mode g reuses an output folder without checking it, and the patch ids of the previous run survive into rel.csv",
+  "user": {
+    "login": "evilaliv3",
+    "id": 217034,
+    "node_id": "MDQ6VXNlcjIxNzAzNA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/217034?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/evilaliv3",
+    "html_url": "https://github.com/evilaliv3",
+    "followers_url": "https://api.github.com/users/evilaliv3/followers",
+    "following_url": "https://api.github.com/users/evilaliv3/following{/other_user}",
+    "gists_url": "https://api.github.com/users/evilaliv3/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/evilaliv3/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/evilaliv3/subscriptions",
+    "organizations_url": "https://api.github.com/users/evilaliv3/orgs",
+    "repos_url": "https://api.github.com/users/evilaliv3/repos",
+    "events_url": "https://api.github.com/users/evilaliv3/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/evilaliv3/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 0,
+  "created_at": "2026-09-22T17:31:34Z",
+  "updated_at": "2026-09-22T17:31:34Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "**What we found.** A growth started into a folder that already holds `surface.bp` opens it as\nfound and numbers its own patches from zero again, so the ids of a run that no longer exists are\nwritten into `rel.csv`.\n\n<img width=\"1264\" height=\"1320\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/77c8fc91-bd2e-409f-ba5e-5accd1092432\" />\n\nPatch ids of a tree grown twice into one folder. The stale ids, marked, are the ones rel.csv names and the second run created again.\n\n**Why it matters.** Mode `c` aborts on some of those ids and is silently wrong on the rest, and\nthe case is easy to reach: `OUTPUT_DIR` is compiled in, so every `g` run uses the same folder\nand an interrupted growth followed by another one is the ordinary case rather than an accident.\n\n**That it is the folder and not the machine.** Ten growth trees of one batch were counted the\nsame way by the same tool. Only the one grown twice into a folder shows any of this, and every\ncount on the other nine is exactly zero, not small.\n\n**The numbers**, one row per tree:\n\n| growth tree | ids in `rel.csv` with no patch file | ids named before the run could create them | log mentions of those ids |\n|---|---:|---:|---:|\n| seed34, grown twice into one folder | 104 | 413 | 2,192 |\n| the other nine trees, each | 0 | 0 | 0 |\n\nThat tree has 28,054 patch files and 505,213 rows of `rel.csv`, of which 33,493 name one of the\n413 ids and 5,133 name one of the 104. Mode `c` aborts on it with `std::out_of_range` after 39\nseconds.\n\n**How to reproduce it yourself.** Run `simpaper10 g <n>` and interrupt it once it has written\nsome of `surface.bp`, run `simpaper10 g <n>` again into the same folder, then run\n`simpaper10 c`.\n\n---\n\nA growth started into a folder that already holds `surface.bp` opens it as found and numbers its\nown patches from zero again. The points of the earlier run keep their own patch ids, the aligner\ncannot tell them from the new ones, and the ids of a run that no longer exists are written into\n`rel.csv`. Downstream this shows up in two ways: mode `c` aborts on some of them, and the rest are\nsilently wrong.\n\nThis is easy to reach with the code as shipped, because `OUTPUT_DIR` is compiled in\n(`parameters.h`, `\"d:/pipelineOutput\"`), so every `g` run uses the same folder and an interrupted\ngrowth followed by another one is the ordinary case rather than an accident.\n\n## How to reproduce\n\n1. Run `simpaper10 g <n>` and interrupt it after it has written some of `surface.bp`. Patch files\n   are written only at the very end, so the folder is left with a surface and an empty `patches`.\n2. Run `simpaper10 g <n>` again into the same folder.\n3. Run `simpaper10 c`.\n\nWe met it by restarting a growth after an interrupted one into the same folder.\n\n## What goes wrong, with the counts of one such tree\n\nThe tree below is one growth of PHerc. 1447 that we made this way by accident, 28,054 patch files\nand 505,213 rows of `rel.csv`. Nine other trees of the same batch, grown the same way into clean\nfolders, show none of this: every count of the previous run's ids on them is zero.\n\n**The loud half.** `rel.csv` names **104** patch ids that have no `patch_<n>.bin`. Chain assembly\nin `FindBadPatchesGeneral` builds chains through them, and the first call that asks for the\ngeometry throws:\n\n    badpatchfinder.cpp, in FindBadPatchesGeneral, the branch that places the last element:\n        if (count == (int)i.size()-1)\n            PlacePatchInto(st,patches->at(p),p,aftx,false);\n\n`patches` is keyed by the files on disk; the alignment map is keyed by `rel.csv` plus the reverse\nedges that `AugmentAlignmentMap` inserts, and that function inserts every alignment target as a\nkey without checking that the target was loaded (`position_patches.cpp`). So the two maps do not\nhave the same key set, and the chain walk uses the larger one.\n\nOn this tree mode `c` aborts with `std::out_of_range, what(): map::at` after 39 seconds.\n\n**The silent half, which is larger.** The growth log names **413** distinct ids that the run could\nnot have created yet at the point it names them. Of those, 86 have no patch file: those are the\nones that abort. The other **327** had their number created again by the second run, so\n`patch_<n>.bin` exists and nothing throws, but the alignment was computed over a set of points\nthat includes the first run's. Each grid point carries its own patch id through the big patch\nfile, and `WritePatchPoints` appends, so a point numbered 300 from the first run and a point\nnumbered 300 from the second are one patch to the aligner.\n\n**33,493 of the 505,213 rows of `rel.csv`, 6.63 per cent, name one of those 413 ids**, and about\n28,956 of them are of the silent kind. Without the 104 that abort, this tree would have delivered\nsheets built partly on alignments computed against points that are not in the patches, and nothing\nwould have reported it.\n\n## Two possible fixes, and the choice is yours\n\n1. **Refuse the folder.** At the start of mode `g`, if the output folder already holds points and\n   no state saying they are this run's, stop with a message. Cheapest, and it makes the failure\n   impossible rather than detectable.\n2. **Stamp the run.** Write a run id beside the points and carry it with the patch id, so an\n   alignment against a point of another run is visible where it is made rather than three stages\n   later. More work, and it also makes deliberate continuation possible, which option 1 forbids.\n\nWe have not written either, because which one is right depends on whether resuming a growth into\nan existing folder is meant to work.\n\n## The consumer side, which we did write and can send as a pull request\n\nIndependently of the fix above, chain assembly should not build a chain through a patch it has no\ngeometry for. Our change refuses such a chain where the chain is assembled rather than at the call\nthat throws, which is one of three places that would throw, and it counts and prints what it\nrefused, because a run that silently drops chains should say so as loudly as one that dies.\n\nOn the tree above it reports `chains=202 patches=73` at chain length 2 and `chains=178 patches=58`\nat length 3, and the stage then runs on instead of aborting. The 202 and the 73 were derived from\n`rel.csv` alone before the change existed, and the sets of ids match exactly.\n\nOn three trees with no such ids, the same build writes every output **byte for byte identical**:\n234 files of 234, sheets and intermediate files together, and the stage's time does not move\n(55 s against 55, 81 against 78, 53 against 49). On those trees the new counter reports zero at\neach of the four chain lengths.\n\nSay the word and we will open it as a pull request.",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/WillStevens/scrollreading/issues/2/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/WillStevens/scrollreading/issues/2/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

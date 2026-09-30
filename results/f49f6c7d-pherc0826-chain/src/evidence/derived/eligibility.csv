@@ -1,0 +1,4 @@
+"# written by src/tools/eligibility.py at 2026-09-28T06:07:01Z from src/inputs/prize-eligibility, the raw prizeEligibility.json of the villa repository at the commit named in each row"
+list,scrolls,pherc0826_listed,pherc0826_volume,commit,commit_date,read_at,source
+grand-prize-2027,13,yes,20250821151701,f4570bfa6c2b357fd24a17b46f8a43becf87ea8d,2026-09-25,20260927T185018Z,prizeEligibility-f4570bfa6c2b357fd24a17b46f8a43becf87ea8d-20260927T185018Z.json
+first-letters-2027,22,yes,20250821151701,f4570bfa6c2b357fd24a17b46f8a43becf87ea8d,2026-09-25,20260927T185018Z,prizeEligibility-f4570bfa6c2b357fd24a17b46f8a43becf87ea8d-20260927T185018Z.json

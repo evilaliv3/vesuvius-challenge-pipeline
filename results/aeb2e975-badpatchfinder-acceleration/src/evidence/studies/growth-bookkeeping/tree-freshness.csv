@@ -1,0 +1,12 @@
+"# one row per seed of seed-search-1447. chunk_files: files under growth/surface.bp. oldest_chunk_mtime and newest_chunk_mtime: their mtimes in UTC. growth_started: mtime of growth/rel.csv minus growth_wall_clock_seconds of the study's evidence/runs/<attempt>.csv, which is when the growth that wrote the tree began. chunks_older_than_the_growth_start: chunk files written before it, with a second of slack, which are the points an earlier run into the same directory left behind."
+attempt,chunk_files,oldest_chunk_mtime,newest_chunk_mtime,growth_started,growth_wall_clock_seconds,chunks_older_than_the_growth_start
+PHerc1447-seed01,39209,2026-09-20T16:29:42.305000000Z,2026-09-20T17:18:08.871000000Z,2026-09-20T16:29:28.648000000Z,2922,0
+PHerc1447-seed11,47392,2026-09-20T16:29:47.715000000Z,2026-09-20T18:40:53.692000000Z,2026-09-20T16:29:31.734000000Z,7888,0
+PHerc1447-seed15,53456,2026-09-20T16:29:40.746000000Z,2026-09-20T17:19:43.992000000Z,2026-09-20T16:29:38.834000000Z,3007,0
+PHerc1447-seed26,37074,2026-09-20T18:42:08.563000000Z,2026-09-20T19:22:04.861000000Z,2026-09-20T18:42:06.360000000Z,2400,0
+PHerc1447-seed34,52716,2026-09-20T20:32:37.655000000Z,2026-09-21T03:58:00.92000000Z,2026-09-21T01:10:11.876000000Z,10075,124
+PHerc1447-seed35,37433,2026-09-21T01:10:23.976000000Z,2026-09-21T03:35:12.181000000Z,2026-09-21T01:10:17.243000000Z,8701,0
+PHerc1447-seed38,45059,2026-09-21T03:59:22.809000000Z,2026-09-21T05:59:48.310000000Z,2026-09-21T03:58:26.151000000Z,7287,0
+PHerc1447-seed40,31104,2026-09-21T03:59:21.924000000Z,2026-09-21T05:40:45.39000000Z,2026-09-21T03:58:32.672000000Z,6136,0
+PHerc1447-seed44,16963,2026-09-21T15:10:46.328000000Z,2026-09-21T15:24:02.231000000Z,not measurable,10800,not measurable
+PHerc1447-seed48,37944,2026-09-21T06:00:24.618000000Z,2026-09-21T08:07:59.526000000Z,2026-09-21T06:00:09.114000000Z,7675,0

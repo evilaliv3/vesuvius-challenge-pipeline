@@ -1,0 +1,5 @@
+"# the totals of identity.csv as columns, one row per growth tree and one for the two together, so that a text reads the pair off a column instead of counting the rows of another file. The two binary rows of identity.csv are not files either arm wrote and are not counted here."
+tree,scroll,files_compared,files_byte_identical,files_differing
+repeat,PHerc0139,46074,46074,0
+seed26,PHerc1447,48888,48888,0
+both trees,PHerc1447 and PHerc0139,94962,94962,0

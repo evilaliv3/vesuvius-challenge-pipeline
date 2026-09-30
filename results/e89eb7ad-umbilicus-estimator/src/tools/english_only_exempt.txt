@@ -1,0 +1,17 @@
+# Exemptions for tools/english_only.py: one <glob><TAB><reason> per line, # for a comment.
+#
+# An exemption with no reason is refused, and an exemption that matches nothing is reported as
+# possibly stale, because a sweep that quietly stops covering something is worse than no sweep.
+# Run `english_only.py --no-exempt` to see exactly what these three hide.
+#
+# There is one ground for an exemption here and no other: a file somebody else wrote and published,
+# which is quoted and not rewritten.
+#
+# The globs are written so that they match under either root this file is used with: the public
+# folder of research/00001, where the sweep normally runs, and this folder, which holds the
+# sources of the article. An exemption whose file is not under the root of the run matches
+# nothing and is reported as possibly stale, which is the warning to expect and not a finding.
+
+*inputs/external-references/drobkov-README.md	third party, kept as published: the README that came with AlexeyDrobkovStrikesBack/herculaneum-umbilici, MIT, quoted and not edited.
+*cls/IEEEtran.cls	third party, kept as published: the IEEE LaTeX class, under the LaTeX Project Public Licence. Not ours to edit.
+*cls/IEEEtran.bst	third party, kept as published: the IEEE BibTeX style, under the LaTeX Project Public Licence. Not ours to edit.

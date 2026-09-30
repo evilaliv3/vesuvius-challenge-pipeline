@@ -1,0 +1,4 @@
+"# written by ink-finetune-k2/tools/refcheck.py; our base render (vc_render_tifxyz, 28 layers) against the organisers' native9 surface volume, 512 px crop at the centre of the labelled box, layer means, NCC over 8 orientations and offsets in [-8, 8]"
+time,segment,crop_row_label,crop_col_label,their_shape,best_ncc,best_k,best_m,best_dy,best_dx,pixels,ncc_at_k0m0_00,second_ncc,second_alignment,verdict
+2026-09-29T07:22:03Z,w035,1474,1494,28x5820x5240,1.0000,0,0,0,0,262144,1.0000,0.9722,"k0m0 (1, 0)",pass
+2026-09-29T07:23:49Z,w039,4094,3554,28x8560x7720,1.0000,0,0,0,0,262144,1.0000,0.9693,"k0m0 (-1, 0)",pass

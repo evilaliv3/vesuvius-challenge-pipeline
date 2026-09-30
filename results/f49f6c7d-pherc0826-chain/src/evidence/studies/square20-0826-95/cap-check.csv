@@ -1,0 +1,7 @@
+"# written by square20-0826-95/tools/cap_and_size.py at 2026-09-28T12:40:31Z: did each growth of the five seeds at 15 mm or more stop at the g 36000 cap or by itself; highest_generation is the largest N of «Patch N had» in chain-0826/log/growth-<seed>.txt"
+attempt,best_square_mm_min_step,cap_generations,highest_generation,patch_lines,growth_return_code,at_cap,growth_patches,growth_rel_csv_lines,growth_wall_clock_seconds,growth_peak_vmhwm_kb,binary_series,binary_sha256,growth_zarr
+PHerc0826-seed2604,17.7995,36000,36000,36001,0,yes,9200,20280,1367,6072792,flathash+avx512+lto+pgo+native,063366ee4bee8892239132fba48f68006554b27493f31984c7686b55d62223d7,hot-lines-88/scratch/l/0
+PHerc0826-seed5364,17.1642,36000,36000,36000,0,yes,8848,19998,1853,5373656,flathash+avx512+lto+pgo+native,0dce4a4ced8698bcacafee536bf7881b13c17ed53a138f675835eb068dde166e,hot-lines-88/scratch/l/0
+PHerc0826-seed1727,17.0473,36000,36002,36003,0,yes,8982,19697,1829,5944688,flathash+avx512,5419bf20dca4ed7c1607f96f7c231395b28fdb119cb329a85727b61bca4470d7,not listed
+PHerc0826-seed6273,15.6438,36000,36002,36003,0,yes,8760,19454,1720,5532840,flathash+avx512+lto+pgo+native,17cc78d8fc6d836e45824946266cc544b11ebdf7565601987b325a2dfca168ca,hot-lines-88/scratch/l/0
+PHerc0826-seed4440,15.1859,36000,36003,36004,0,yes,9020,20135,1788,6201884,flathash+avx512,5ef8964890ffbf81e422ad3ddc273c2779798b48781d0852c0ba04eafbab0c77,not listed

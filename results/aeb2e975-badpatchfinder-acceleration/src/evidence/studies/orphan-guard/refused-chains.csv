@@ -1,0 +1,5 @@
+"# what the guard refused on PHerc1447-seed34, read from the guarded stage c own standard output, log/chain-guard-PHerc1447-seed34-c.txt, one row per chain length the stage has reached SO FAR: the run is still going and length 5 has not been reported. chains_refused counts assemblies dropped, patches_involved the distinct ids with no geometry that caused them. predicted_patches is the count badpatch-crash derived beforehand from rel.csv alone, evidence/key-containers.csv, written only for length 2 because that is the length whose crash it was derived from. The plain build of the same tree and the same binary route aborted inside length 2 with std::out_of_range map::at after 39 s."
+attempt,chain_length,chains_refused,patches_involved,predicted_patches,matches_prediction
+PHerc1447-seed34,2,202,73,73,yes
+PHerc1447-seed34,3,178,58,not applicable,not applicable
+PHerc1447-seed34,4,83,32,not applicable,not applicable

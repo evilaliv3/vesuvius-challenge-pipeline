@@ -1,0 +1,11 @@
+--- a/pipeline9/common_types.cpp
++++ b/pipeline9/common_types.cpp
+@@ -260,7 +260,7 @@
+ 	// Estimate the radius using minx,maxx,miny,maxy
+ 	// Currently radius is only used for visualisation in patchsprings, so it doesn't matter too much if it's wrong.
+ 	radius = abs(minux)>maxux ? abs(minux) : maxux;
+-	if (maxuy>radius || abs(minuy>radius))
++	if (maxuy>radius || abs(minuy)>radius)
+ 		radius = abs(minuy)>maxuy ? abs(minuy) : maxuy;
+ }
+ 

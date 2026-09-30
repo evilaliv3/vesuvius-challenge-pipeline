@@ -1,0 +1,58 @@
+tool,quantity,value,source
+growth-memory-1447/tools/finalize2.py,unchanged_shared_chunks_cap,not measurable,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,unchanged_mem_available_gb_at_start,63,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,unchanged_growth_return_code,0,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,unchanged_growth_wall_clock_seconds,654.1,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,unchanged_growth_peak_rss_kb,9550152,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,unchanged_growth_identity,identical 2493 of 2493,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,unchanged_downstream,rc_0_sheets_10,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,unchanged_sheets_identity,identical 10 of 10,evidence/growth-unchanged.csv
+growth-memory-1447/tools/finalize2.py,memstore_shared_chunks_cap,unset,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,memstore_mem_available_gb_at_start,78,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,memstore_growth_return_code,0,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,memstore_growth_wall_clock_seconds,641.2,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,memstore_growth_peak_rss_kb,9378340,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,memstore_growth_identity,identical 2493 of 2493,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,memstore_downstream,rc_0_sheets_10,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,memstore_sheets_identity,identical 10 of 10,evidence/growth-memstore.csv
+growth-memory-1447/tools/finalize2.py,streamfree_shared_chunks_cap,not measurable,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,streamfree_mem_available_gb_at_start,53,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,streamfree_growth_return_code,0,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,streamfree_growth_wall_clock_seconds,593.0,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,streamfree_growth_peak_rss_kb,9169532,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,streamfree_growth_identity,identical 2493 of 2493,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,streamfree_downstream,rc_0_sheets_10,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,streamfree_sheets_identity,identical 10 of 10,evidence/growth-streamfree.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_shared_chunks_cap,128,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_mem_available_gb_at_start,77,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_growth_return_code,0,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_growth_wall_clock_seconds,729.2,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_growth_peak_rss_kb,2869392,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_growth_identity,identical 2493 of 2493,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_downstream,rc_0_sheets_10,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap128_sheets_identity,identical 10 of 10,evidence/growth-unchanged-cap128.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_shared_chunks_cap,512,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_mem_available_gb_at_start,75,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_growth_return_code,0,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_growth_wall_clock_seconds,637.9,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_growth_peak_rss_kb,5586884,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_growth_identity,identical 2493 of 2493,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_downstream,rc_0_sheets_10,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,unchanged-cap512_sheets_identity,identical 10 of 10,evidence/growth-unchanged-cap512.csv
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_vmrss_bytes,9549287424,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_store_chunks_held,1035,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_store_bytes,7325614080,"chunks held times 7,077,888"
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_store_share_of_rss,0.767,store bytes over VmRSS
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_patch_grid_bytes_estimate,335577920,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_patch_share_of_rss,0.035,patch estimate over VmRSS
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_accepted_patches,2452,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_uordblks,7680928960,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,memstore_peak_line_hblkhd,2320154624,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,memstore_last_line_store_hits,32297,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,memstore_last_line_store_misses,1038,/data/scrollagent/runs/rev1/growth-memory-1447/evidence/memlog-memstore.txt
+growth-memory-1447/tools/finalize2.py,cap128_peak_ratio_over_unchanged,0.300,growth_peak_rss_kb of the two CSVs
+growth-memory-1447/tools/finalize2.py,cap128_wall_clock_ratio_over_unchanged,1.115,growth_wall_clock_seconds of the two CSVs; the machine carried other growths
+growth-memory-1447/tools/finalize2.py,cap128_bar_verdict,pass,"peak ratio <= 0.5, growth tree and sheets identical (DECLARATION.md)"
+growth-memory-1447/tools/finalize2.py,cap512_peak_ratio_over_unchanged,0.585,growth_peak_rss_kb of the two CSVs
+growth-memory-1447/tools/finalize2.py,cap512_wall_clock_ratio_over_unchanged,0.975,growth_wall_clock_seconds of the two CSVs; the machine carried other growths
+growth-memory-1447/tools/finalize2.py,cap512_bar_verdict,fail,"peak ratio <= 0.5, growth tree and sheets identical (DECLARATION.md)"

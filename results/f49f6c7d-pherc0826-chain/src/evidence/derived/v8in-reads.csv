@@ -1,0 +1,8 @@
+"# written by src/tools/v8in_reads.py at 2026-09-30T19:17:08Z: one row per v8-in read of PHerc. 0826 (share = pixels at probability 0.5 or more over the pixels scored), from this work's copies of ink-v8in-0826 and every ink-v8in-0826-r2d* study; uncalibrated, descriptive"
+read,surface,extent,order,pixels,pixel_set,sheet_share,plus_share,minus_share,sheet_over_larger_copy,nulls,source
+R2c-s6273-w016,R2c from seed 6273,square before the adjudication,w016,632025,nodes of the square's aligned grid,0.08415,0.05438,0.05544,1.5179,read,ink-v8in-0826/describe-v2.csv
+R2c-s6273-other,R2c from seed 6273,square before the adjudication,other,632025,nodes of the square's aligned grid,0.09822,0.10502,0.11575,0.8486,read,ink-v8in-0826/describe-v2.csv
+R2c-s5364-w016,R2c from seed 5364,square before the adjudication,w016,523077,nodes of the square's aligned grid,0.06831,0.06347,0.08129,0.8403,read,ink-v8in-0826/describe-v2.csv
+R2c-s5364-other,R2c from seed 5364,square before the adjudication,other,523077,nodes of the square's aligned grid,0.10992,0.10949,0.08695,1.0039,read,ink-v8in-0826/describe-v2.csv
+R2d-seed2715-S0-whole-surface-w016,R2d from seed 2715 S0,whole surface,w016,61974710,render pixels covered by the read,0.05253,not read,not read,not read,not read,ink-v8in-0826-r2d/describe.csv
+R2d-seed2715-S0-whole-surface-other,R2d from seed 2715 S0,whole surface,other,61974710,render pixels covered by the read,0.08880,not read,not read,not read,not read,ink-v8in-0826-r2d/describe.csv

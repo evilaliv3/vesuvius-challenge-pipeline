@@ -1,0 +1,3 @@
+# written by cuts-2715/tools/air_ref.py at 2026-09-30T09:22:07Z: VAL <= 57 on the 2715 S0 square, reference for headline-air.csv
+utc,route,surface,cells,cells_measurable,cells_le_57,share_le_57_of_measurable,square_median,share_le_57_dark_corner_rows850_cols930
+2026-09-30T09:22:07Z,R2dnative,PHerc0826-seed2715-S0-sq,1254400,1254400,261733,0.2087,105.0,0.6213

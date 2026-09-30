@@ -1,0 +1,10 @@
+# the patch files against the edit scripts that wrote them. A is a working copy laid by
+# build.sh from the pinned upstream plus the series up to 00007; B is the same laid with
+# 00008 and 00009 in the series as well; C is A with the two edit scripts run on it.
+# identical says whether B and C are byte for byte the same file, which is what makes the
+# patch files, and not a hand edited working copy, the thing that was built and measured.
+file,sha256,bytes,what_it_is
+A-guard-only,6fe58b4e550531860aac4895cafdbe5bc1e16ae4f396c70e86cf283fd9f7368c,19215,A-guard-only
+B-from-the-patches,db825fd12078799a6093b57ac2abdfd465a78bf72695b716fcd6a7c3aa579ea0,20753,B-from-the-patches
+C-from-the-edits,db825fd12078799a6093b57ac2abdfd465a78bf72695b716fcd6a7c3aa579ea0,20753,C-from-the-edits
+B_equals_C,yes,,the patch files lay down exactly the source the edit scripts produce

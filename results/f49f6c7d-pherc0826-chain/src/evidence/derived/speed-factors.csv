@@ -1,0 +1,6 @@
+"# written by src/tools/speed_factors.py at 2026-09-28T08:05:54Z: one row per step and clock, each from one quiet session; factor = old median over new median, both named in factor_is"
+step,seed,clock,old_arm,new_arm,old_median_s,new_median_s,factor,factor_is,old_runs,new_runs,old_range_s,new_range_s,old_cores_busy_median,new_cores_busy_median,source
+hash and AVX-512 to MLP,PHerc0826-seed237,cpu,HV3,STACK,615.70,589.10,1.05,old median over new median (615.70 over 589.10),3,3,615.00 to 617.30,582.90 to 589.30,1.48,1.46,growth-exact-fixes-88/clock-summary-PHerc0826-seed237.csv
+hash and AVX-512 to MLP,PHerc0826-seed237,wall,HV3,STACK,432.10,416.50,1.04,old median over new median (432.10 over 416.50),3,3,432.00 to 433.40,412.20 to 416.70,1.48,1.46,growth-exact-fixes-88/clock-summary-PHerc0826-seed237.csv
+"zstd copy to LZ4HC copy, MLP",PHerc0826-seed237,cpu,Z,L,590.50,545.90,1.08,old median over new median (590.50 over 545.90),3,3,588.60 to 591.20,545.70 to 546.30,1.45,1.45,hot-lines-88/clock-summary.csv
+"zstd copy to LZ4HC copy, MLP",PHerc0826-seed237,wall,Z,L,417.30,388.30,1.07,old median over new median (417.30 over 388.30),3,3,416.20 to 426.20,388.00 to 388.50,1.45,1.45,hot-lines-88/clock-summary.csv

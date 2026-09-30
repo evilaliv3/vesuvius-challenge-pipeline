@@ -1,0 +1,15 @@
+--- a/pipeline9/render_from_zarr6.cpp
++++ b/pipeline9/render_from_zarr6.cpp
+@@ -163,9 +163,9 @@
+ 				if (patchPosLookup.count(patch)==0)
+ 					continue;
+ 				
+-				x = (int)xo;
+-				y = (int)yo;
+-				z = (int)zo;
++				x = (int)floorf(xo+0.5f);
++				y = (int)floorf(yo+0.5f);
++				z = (int)floorf(zo+0.5f);
+ 
+ 				// transform xr,yr
+ 				std::tuple<float,float,float,float> patchPos = patchPosLookup[patch];

@@ -1,0 +1,12 @@
+# written by stevens-remedy-half-on/tools/draw_seeds.py at 2026-09-25T13:52:42Z: random.Random(20260925).sample of the 55 all-55 in_set yes attempts of coverage-union-1447/evidence/union-seed-lists-2026-09-25.csv sorted as strings; draw_order 1 is the identity seed
+draw_order,attempt,pool_size
+1,PHerc1447-seed262,55
+2,PHerc1447-seed1193,55
+3,PHerc1447-seed73,55
+4,PHerc1447-seed422,55
+5,PHerc1447-seed1166,55
+6,PHerc1447-seed355,55
+7,PHerc1447-seed486,55
+8,PHerc1447-seed664,55
+9,PHerc1447-seed57,55
+10,PHerc1447-seed539,55

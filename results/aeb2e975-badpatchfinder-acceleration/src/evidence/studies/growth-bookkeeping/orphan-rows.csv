@@ -1,0 +1,6 @@
+"# seed34's growth rel.csv read once. population: which second column ids the row must name. rows: how many rows name one of them. first_column_min/median/max: the patch that had just been grown when the row was written, which orders the rows in time. total_rows, distinct_first_column and distinct_second_column describe the whole file."
+population,rows,first_column_min,first_column_median,first_column_max,total_rows,distinct_first_column,distinct_second_column
+every_row,505213,1,20817,36000,505213,28053,26636
+orphan_ids_104,5133,1,10012,35996,505213,28053,26636
+impossible_ids_413,33493,1,9128,35996,505213,28053,26636
+impossible_and_orphan_86,4537,1,9571,35996,505213,28053,26636

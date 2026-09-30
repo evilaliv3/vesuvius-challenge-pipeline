@@ -1,0 +1,47 @@
+"# written by src/tools/fibre_summary.py from the copies of certified-piece-0826 in src/evidence/studies and derived/area-summary.csv; rows_covered says which rows a value is over"
+quantity,value,source_file,source_column,rows_covered,check,check_value
+fibre_bar,0.0680,certified-piece-0826/fibre-ranking.csv,header line,header,bar equals factor x reference to 4 decimals,yes
+fibre_bar_factor,0.75,certified-piece-0826/fibre-ranking.csv,header line,header,,
+fibre_reference_score,0.0906,certified-piece-0826/fibre-score.csv,fibre_score,label = C40-PHerc0826-seed3648-S0,equals the reference in the ranking header,yes
+fibre_reference_sheet,PHerc0826-seed3648-S0,certified-piece-0826/fibre-score.csv,label,label = C40-PHerc0826-seed3648-S0,,
+fibre_white_noise,0.0293,certified-piece-0826/fibre-score.csv,white_noise_share,every row,one value on every row,yes
+fibre_window_cells,128,certified-piece-0826/fibre-score.csv,header line,header,,
+fibre_period_min_mm,0.15,certified-piece-0826/fibre-score.csv,header line,header,,
+fibre_period_max_mm,0.6,certified-piece-0826/fibre-score.csv,header line,header,,
+fibre_windows,64,certified-piece-0826/fibre-ranking.csv,"windows_accepted, max",every ranked row,,
+fibre_pieces_fewer_windows,8,certified-piece-0826/fibre-ranking.csv,rows with a score and fewer windows than the max,every ranked row,,
+fibre_pieces_not_measurable,4,certified-piece-0826/fibre-ranking.csv,rows with no score (no window fits),every ranked row,none of them passes,yes
+fibre_pieces_ranked,92,certified-piece-0826/fibre-ranking.csv,rows,every ranked row,,
+fibre_pieces_passing,61,certified-piece-0826/fibre-ranking.csv,passes_bar = yes,every ranked row,passes_bar equals fibre_score >= bar on every row,yes
+fibre_population_min_cm2,10,certified-piece-0826/fibre-ranking.csv,header line,header,every ranked row at or above it,yes
+fibre_best_piece_cm2,27.9846,certified-piece-0826/fibre-ranking.csv,"strict_piece_cm2, max over passing rows",rows with passes_bar = yes (61),equals the file's LARGEST_PIECE_PASSING row,yes
+fibre_best_piece_sheet,PHerc0826-seed3648-S0,certified-piece-0826/fibre-ranking.csv,"seed, sheet of that row",,,
+fibre_best_piece_source,C40,certified-piece-0826/fibre-ranking.csv,source of that row,,,
+fibre_best_piece_score,0.0906,certified-piece-0826/fibre-ranking.csv,fibre_score of that row,,,
+fibre_best_other_piece_cm2,25.6980,certified-piece-0826/fibre-ranking.csv,"strict_piece_cm2, max over passing rows whose seed is not the reference's",rows with passes_bar = yes and seed != PHerc0826-seed3648 (59),,
+fibre_best_other_piece_sheet,PHerc0826-seed6473-S0,certified-piece-0826/fibre-ranking.csv,"seed, sheet of that row",,,
+fibre_best_other_piece_source,C40,certified-piece-0826/fibre-ranking.csv,source of that row,,,
+fibre_best_other_piece_score,0.0784,certified-piece-0826/fibre-ranking.csv,fibre_score of that row,,,
+fibre_top_failing_count,4,certified-piece-0826/fibre-ranking.csv,"rows before the first passes_bar = yes, strict_piece_cm2 descending",every ranked row,"the file lists the same rows first, in the same order",yes
+fibre_top_failing_scored,4,certified-piece-0826/fibre-ranking.csv,fibre_score measured on those rows,the ranked rows larger than the largest passing piece (4),each measured on the full count of windows,yes
+fibre_top_failing_score_min,0.0429,certified-piece-0826/fibre-ranking.csv,"fibre_score, min",the ranked rows larger than the largest passing piece (4),,
+fibre_top_failing_score_max,0.0485,certified-piece-0826/fibre-ranking.csv,"fibre_score, max",the ranked rows larger than the largest passing piece (4),under the bar,yes
+fibre_top_failing_piece_min_cm2,29.1848,certified-piece-0826/fibre-ranking.csv,"strict_piece_cm2, min",the ranked rows larger than the largest passing piece (4),,
+fibre_top_failing_piece_max_cm2,33.1595,certified-piece-0826/fibre-ranking.csv,"strict_piece_cm2, max",the ranked rows larger than the largest passing piece (4),,
+fibre_top_failing_sheets,"2427, 4391, 6206, 3412",certified-piece-0826/fibre-ranking.csv,"seed numbers of those rows, in order",the ranked rows larger than the largest passing piece (4),,
+fibre_top_failing_square_max_mm,6.7558,certified-piece-0826/fibre-ranking.csv,"certified_square_mm, max",the ranked rows larger than the largest passing piece (4),,
+fibre_best_square_mm,15.3693,certified-piece-0826/fibre-ranking.csv,"certified_square_mm, max over passing rows",rows with passes_bar = yes (61),equals the file's LARGEST_SQUARE_PASSING row,yes
+fibre_best_square_sheet,PHerc0826-seed5364-S0,certified-piece-0826/fibre-ranking.csv,"seed, sheet of that row",,,
+fibre_best_square_score,0.0811,certified-piece-0826/fibre-ranking.csv,fibre_score of that row,,,
+fibre_union_piece_score,0.0429,certified-piece-0826/fibre-ranking.csv,fibre_score,label = C40-PHerc0826-seed4391-S0 (area-summary.csv union_largest_piece_sheet),"the sheet's certified piece, not the area study's clean piece",
+fibre_union_piece_certified_cm2,32.1905,certified-piece-0826/fibre-ranking.csv,strict_piece_cm2,label = C40-PHerc0826-seed4391-S0,,
+fibre_lamina_piece_score,0.0448,certified-piece-0826/fibre-ranking.csv,fibre_score,label = C40-PHerc0826-seed2427-S0 (area-summary.csv lamina_piece_sheet),"the sheet's certified piece, not the area study's clean piece",
+fibre_lamina_piece_certified_cm2,33.1595,certified-piece-0826/fibre-ranking.csv,strict_piece_cm2,label = C40-PHerc0826-seed2427-S0,,
+fibre_group_members_scored,1,certified-piece-0826/fibre-ranking.csv,rows whose label is a member,members of the largest group of area-0826-90/one-lamina.csv (9),,
+fibre_group_member_sheet,PHerc0826-seed5198-S0,certified-piece-0826/fibre-ranking.csv,"seed, sheet of the scored member with the largest certified piece",the scored members,,
+fibre_group_member_score,0.0246,certified-piece-0826/fibre-ranking.csv,fibre_score of that row,the scored members,,
+fibre_coll_four_seeds,4,prereg/area-0826-90.md,"(1) One collection, declared: Seeds",PHerc0826-seed6365 PHerc0826-seed5349 PHerc0826-seed1383 PHerc0826-seed4868,,
+fibre_coll_four_seeds_ranked,0,certified-piece-0826/fibre-ranking.csv,rows whose seed is one of the four,every ranked row (92),,
+fibre_coll_four_pieces_ranked,0,certified-piece-0826/fibre-ranking.csv,rows whose seed is one of the four,every ranked row (92),,
+fibre_coll_four_scores,0,certified-piece-0826/fibre-score.csv,rows whose label names one of the four,every row,,
+fibre_coll_four_legend,four seeds as one run (not scored by the fibre test),this tool,legend of the four seed line of the Stevens formula figure,,,

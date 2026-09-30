@@ -1,0 +1,12 @@
+# written by chain-0826/tools/a2_cluster_seed.py at 2026-09-27T06:56:08Z: one row per delivered sheet of PHerc0826-seed1788; a2 at T* 25 (lamina-crossing-detect verdict.csv a2_pred RULE), cluster rule S 101 (lamina-crossing-map-1447 cluster-calibration.csv a2 RULE), stride 8, taxicab 2; measured by stevens-remedy-half-on/tools/a2_after.py a2_measure, imported unchanged; delivered_square_mm is square_mm_min_step of evidence/squares-<seed>.csv. The only reading of a low share: no steep crossing (above 25 degrees against the surface prediction, 33 against the raw scan) at the rate of ink labelled segments. A cluster rule square is not a bound on crossing.
+seed,sheet,file,sha256,sha256_match_squares_row,delivered_square_status,delivered_square_mm,a2_T_star,a2_S,a2_measurable,a2_flagged,a2_flagged_share,a2_largest_cluster,a2_kept_points,a2_cluster_rule_square_mm,seconds
+PHerc0826-seed1788,0,patch_0.bin,fc9c36e1d91042bbcbbd61df048b00e97b3f4ca4b8eed4088600d0e294126e42,yes,measured,10.0936,25.0,101,17363,147,0.008466,20,0,10.0936,65.2
+PHerc0826-seed1788,1,patch_1.bin,c67e0f5c49ffdf90cb4502323db3648a2ee8648e7757b2e4d75272b2c5e84e0f,yes,measured,4.8591,25.0,101,5767,2,0.000347,1,0,4.8591,21.9
+PHerc0826-seed1788,2,patch_2.bin,228553b5d4bbafac9adaf8eec9b5ff259ddf3eca2b447fb33a98be3abf7f95e6,yes,measured,5.9801,25.0,101,7335,20,0.002727,8,0,5.9801,29.1
+PHerc0826-seed1788,3,patch_3.bin,9fb701cdff97698f7054f61f75312996b9bc166b79fc26e998a066661aadd4de,yes,measured,8.8958,25.0,101,8199,1,0.000122,1,0,8.8958,31.8
+PHerc0826-seed1788,4,patch_4.bin,6ef46e7fc9b6003cefaf061510f4fa3569d2b21a35d8b05e43611de7527dfc66,yes,measured,6.5346,25.0,101,4740,11,0.002321,3,0,6.5346,18.7
+PHerc0826-seed1788,5,patch_5.bin,cef8f806066949b43b7fc21a966ad67ad30e89133ad6e290f63fc5418af47ff6,yes,measured,5.3823,25.0,101,5651,2,0.000354,1,0,5.3823,22.3
+PHerc0826-seed1788,6,patch_6.bin,ad56f9ab1f05d53ee2bf316d7b47ad8a9a66fe77749fcb07c9042185ecd44b15,yes,measured,4.8986,25.0,101,4994,0,0.000000,0,0,4.8986,19.8
+PHerc0826-seed1788,7,patch_7.bin,ee3454a09c84caafb7814e669055dba15c62eb238f4b443f282e0a49cb22bb0c,yes,measured,3.8466,25.0,101,3366,0,0.000000,0,0,3.8466,12.7
+PHerc0826-seed1788,8,patch_8.bin,92f7f6e82ea2a633684e62f41d77fa48395241d9d255d91f1ac09e495be43b87,yes,measured,7.734,25.0,101,3335,6,0.001799,2,0,7.734,12.9
+PHerc0826-seed1788,9,patch_9.bin,62454285bcccbf4b58b5e2698cecbb1285987848e71dbab05e76157fb6119245,yes,measured,4.9686,25.0,101,3560,0,0.000000,0,0,4.9686,13.3

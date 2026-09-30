@@ -1,0 +1,32 @@
+%% Figure C3. Stevens' formula (the sum of the flattened components of one run, overlaps between
+%% components counted) on every PHerc. 0826 growth run, in ascending order, with three horizontal
+%% lines read from the plotted table: his one run on PHerc. 1667 measured by the same formula, the
+%% four seed collection and the one seed control, each pooled as one run. No number is typed here.
+%%
+%% Data: tools/c-f3-stevens-formula.py, which writes ../evidence/figures/c-f3-stevens-formula.csv
+\documentclass[border=2pt]{standalone}
+\input{figpreamble.tex}
+
+\pgfplotstableread{../evidence/figures/c-f3-stevens-formula.csv}\cfSt
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    sa base, width=165mm, height=66mm,
+    xmin=0, ymin=0, ymax=400,
+    xlabel={growth runs of PHerc. 0826 (one seed each), in ascending order},
+    ylabel={Stevens' formula (cm$^2$)},
+    sa legend below, legend style={at={(0.5,-0.22)}},
+  ]
+  \addplot[only marks, mark=*, mark size=1.3pt, draw=sablue, fill=sablue] table[x=x, y=sum_components_cm2] {\cfSt};
+  \addlegendentry{one growth run}
+  \addplot[thick, draw=black, mark=none] table[x=x, y=stevens_1667_cm2] {\cfSt};
+  \addlegendentry{reference: Stevens on PHerc. 1667, another scroll}
+  \addplot[dashed, thick, draw=saorange, mark=none] table[x=x, y=collection_four_cm2] {\cfSt};
+  \pgfplotstablegetelem{0}{collection_four_legend}\of\cfSt\let\cfFourLegend\pgfplotsretval
+  \addlegendentry{\cfFourLegend}
+  \addplot[dotted, thick, draw=sagreen, mark=none] table[x=x, y=collection_control_cm2] {\cfSt};
+  \addlegendentry{one seed as one run}
+\end{axis}
+\end{tikzpicture}
+\end{document}
