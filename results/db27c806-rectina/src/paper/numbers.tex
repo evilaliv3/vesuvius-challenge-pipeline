@@ -1,0 +1,335 @@
+\newcommand{\NRmark}{[not yet read]}
+\newcommand{\MAArmLabels}{the dense composite labels of one label set}
+\newcommand{\MAArmOnly}{the dense model only}
+\newcommand{\MAArmReader}{a dense ink reader}
+\newcommand{\MABlockLongAbove}{5}
+\newcommand{\MABlockLongN}{6}
+\newcommand{\MABlockShortAbove}{1}
+\newcommand{\MABlockShortN}{2}
+\newcommand{\MACkptClause}{the checkpoint released under this name is the last step of each stage, as for Reader v3}
+\newcommand{\MACtrlAbove}{3}
+\newcommand{\MACtrlMeanDiff}{+0.0042}
+\newcommand{\MACtrlMeanModel}{0.8778}
+\newcommand{\MACtrlMeanReader}{0.8736}
+\newcommand{\MACtrlMedianDiff}{+0.0063}
+\newcommand{\MACtrlMedianModel}{0.8801}
+\newcommand{\MACtrlMedianReader}{0.8784}
+\newcommand{\MACtrlN}{4}
+\newcommand{\MADraftLabelNote}{}
+\newcommand{\MAFalseInkParagraph}{At the threshold that marks 80 per cent of the ink pixels of each unit, \MAModelName{} marks less blank papyrus as ink than Reader v3 on 5 of 8 units (mean share 0.2267 against 0.2585, median 0.2306 against 0.2917). The units where \MAModelName{} marks more blank papyrus as ink than Reader v3 at that threshold are 20250716055229, 20250904233748-0\_b2 and 20250919140325; the units where its area under the curve is below that of Reader v3 are 20250716055229 and 20250919140325, which is not the same set (only in the first: 20250904233748-0\_b2; only in the second: no unit).}
+\newcommand{\MAFootLabel}{}
+\newcommand{\MAHeldAbove}{6}
+\newcommand{\MAHeldMeanDiff}{+0.0157}
+\newcommand{\MAHeldMeanModel}{0.8704}
+\newcommand{\MAHeldMeanReader}{0.8547}
+\newcommand{\MAHeldMedianDiff}{+0.0137}
+\newcommand{\MAHeldMedianModel}{0.8754}
+\newcommand{\MAHeldMedianReader}{0.8503}
+\newcommand{\MAHfRepo}{evilaliv3/rectina}
+\newcommand{\MAHfRepoUrl}{https://huggingface.co/evilaliv3/rectina}
+\newcommand{\MAHonestSentence}{Over the 8 held-out units \MAModelName{} scores above Reader v3 on 6 of 8 and the median difference is +0.0137, above zero; over the 6 control units it scores above Reader v3 on 5 of 6 and the median difference is +0.0040, so that on the controls the median of \MAModelName{} is above that of Reader v3.}
+\newcommand{\MALabelComposite}{24}
+\newcommand{\MALabelNative}{5}
+\newcommand{\MALabelOffsetHigh}{7.4}
+\newcommand{\MALabelOffsetLow}{7.2}
+\newcommand{\MALabelPlaced}{74}
+\newcommand{\MALabelSearchPx}{4}
+\newcommand{\MALabelUnits}{103}
+\newcommand{\MALowCtrl}{, and the unit that lowers the mean is ag1 (-0.0047)}
+\newcommand{\MALowHeld}{, and the unit that lowers the mean is 20250919140325 (-0.0082)}
+\newcommand{\MAMethodsCkpt}{The checkpoint of each stage is its last step, as for Reader v3.}
+\newcommand{\MAModelName}{Rectina m2}
+\newcommand{\MAOtherClause}{}
+\newcommand{\MAOtherMeanClause}{}
+\newcommand{\MAOverlapWord}{fourteen}
+\newcommand{\MAPrFetched}{2026-11-01T02:06:02Z}
+\newcommand{\MAPrState}{read from the code host API, raw answer sha256 48e0cd2cb963}
+\newcommand{\MAProvenanceScores}{the AUC, the AUC on thin strokes and the false ink shares of both readers are read from one merge of the GPU reads, the cell file with the sha256 \path{2723ada060fe999368565c3cc1c0258f5ae8a7ba1bc28e35e45d72ee704c1bfa}, and the paired tests from the statistics file with the sha256 \path{ae8ffe90e17ac6441f9ac77df57622f68dce07799de6d5da7438f97b712e9591}, both pinned by checksum}
+\newcommand{\MAPublishVerb}{are published}
+\newcommand{\MARegridAbsent}{8}
+\newcommand{\MARegridKept}{1}
+\newcommand{\MAReleaseCkpt}{The checkpoint released under this name is the last step of each stage, as for Reader v3.}
+\newcommand{\MAResultsFolder}{db27c806-rectina-m2}
+\newcommand{\MAReviewPubid}{}
+\newcommand{\MARuleKMin}{6}
+\newcommand{\MARuleMargin}{0.003}
+\newcommand{\MARuleMedianGain}{+0.0137}
+\newcommand{\MARuleOutcome}{met}
+\newcommand{\MARuleSentence}{The rule for adopting the model was fixed in advance: on the 8 held-out units the count of units on which the model scores above Reader v3 must be at least 6 of 8, and the median gain over Reader v3 must be above 0.003. The rule is evaluated on the held-out units only. On the 8 held-out units the count above Reader v3 is 6 of 8 and the median gain is +0.0137, so the stated rule is met. Over all 14 units the count above Reader v3 is 11 of 14.}
+\newcommand{\MASeedParagraph}{Both \MAModelName{} and Reader v3 were trained with a single seed (42 in both training configurations), so the spread between two runs of the same recipe is not measured here. The comparison is therefore between two single runs, and the paired test above concerns these two checkpoints, not the two recipes.\footnote{The seed of Reader v3 is the key \texttt{seed} of \path{reader-v3/train_config.json}, value 42; the seed of \MAModelName{} is the key \texttt{seed} of the job entry of its training chain in the job record of that run, value 42.}}
+\newcommand{\MASelectionSentence}{Other variants of the same procedure were also trained, and the choice was made on the same units; the paired tests describe this checkpoint, not the recipe.}
+\newcommand{\MASentAll}{Over the 14 units, 8 held-out and 6 control, two of which are information units, \MAModelName{} is above Reader v3 on 11 and the mean difference is +0.0104.}
+\newcommand{\MAStatScope}{over all the units of the table that are not left out}
+\newcommand{\MAStatsAllK}{11}
+\newcommand{\MAStatsAllKText}{11 of 14}
+\newcommand{\MAStatsAllMedianDiff}{+0.0067}
+\newcommand{\MAStatsAllN}{14}
+\newcommand{\MAStatsAllSignGreater}{0.0287}
+\newcommand{\MAStatsAllSignTwo}{0.0574}
+\newcommand{\MAStatsAllWilcoxonGreater}{0.0123}
+\newcommand{\MAStatsAllWilcoxonTwo}{0.0245}
+\newcommand{\MAStatsAllZeros}{0}
+\newcommand{\MAStatsCtrlK}{5}
+\newcommand{\MAStatsCtrlKText}{5 of 6}
+\newcommand{\MAStatsCtrlMedianDiff}{+0.0040}
+\newcommand{\MAStatsCtrlN}{6}
+\newcommand{\MAStatsCtrlSignGreater}{0.109}
+\newcommand{\MAStatsCtrlSignTwo}{0.219}
+\newcommand{\MAStatsCtrlWilcoxonGreater}{0.0781}
+\newcommand{\MAStatsCtrlWilcoxonTwo}{0.156}
+\newcommand{\MAStatsCtrlZeros}{0}
+\newcommand{\MAStatsHeldK}{6}
+\newcommand{\MAStatsHeldKText}{6 of 8}
+\newcommand{\MAStatsHeldMedianDiff}{+0.0137}
+\newcommand{\MAStatsHeldN}{8}
+\newcommand{\MAStatsHeldSignGreater}{0.145}
+\newcommand{\MAStatsHeldSignTwo}{0.289}
+\newcommand{\MAStatsHeldWilcoxonGreater}{0.0391}
+\newcommand{\MAStatsHeldWilcoxonTwo}{0.0781}
+\newcommand{\MAStatsHeldZeros}{0}
+\newcommand{\MAStatsParagraph}{Exploratory paired tests of the AUC difference, descriptive and not confirmatory (\MAModelName{} minus Reader v3), the unit being the pair, zero differences dropped before the ranks (zero\_method wilcox of scipy 1.18.1), exact p-values read at build time from the pinned statistics file (sha256 ae8ffe90e17a). Over the 8 held-out units (n = 8 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.0391 one-sided (\MAModelName{} greater than Reader v3) and 0.0781 two-sided, and the sign test on the 6 of 8 non zero differences where \MAModelName{} is above gives 0.145 one-sided and 0.289 two-sided. Over the 6 control units (n = 6 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.0781 one-sided (\MAModelName{} greater than Reader v3) and 0.156 two-sided, and the sign test on the 5 of 6 non zero differences where \MAModelName{} is above gives 0.109 one-sided and 0.219 two-sided. Over all 14 units (n = 14 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.0123 one-sided (\MAModelName{} greater than Reader v3) and 0.0245 two-sided, and the sign test on the 11 of 14 non zero differences where \MAModelName{} is above gives 0.0287 one-sided and 0.0574 two-sided.}
+\newcommand{\MAUnitCodes}{0009B$\cdot$172639 is 20250510172639. 0009B$\cdot$125754 is 20250919125754. 0009B$\cdot$133208 is 20250919133208. 0009B$\cdot$140325 is 20250919140325. 0500P2$\cdot$055229 is 20250716055229. 0500P2$\cdot$055230 is 20250716055230. 0343P$\cdot$233748-0 is 20250904233748-0\_b2. 0343P$\cdot$172054-1 is 20250905172054-1\_b2.}
+\newcommand{\MAValidationNote}{The held-out units were in villa's validation set; no checkpoint was selected on it.}
+\newcommand{\MAValidationSent}{Validation: for each training segment, whole 512 px tiles holding 5 percent of its supervised pixels (selection seed 20261017) are kept out of training.}
+\newcommand{\MBArmLabels}{the dense composite labels of one label set}
+\newcommand{\MBArmOnly}{the dense model only}
+\newcommand{\MBArmReader}{a dense ink reader}
+\newcommand{\MBBlockLongAbove}{5}
+\newcommand{\MBBlockLongN}{6}
+\newcommand{\MBBlockShortAbove}{1}
+\newcommand{\MBBlockShortN}{2}
+\newcommand{\MBCkptClause}{the checkpoint released under this name is the last step of each stage, as for Reader v3}
+\newcommand{\MBCtrlAbove}{2}
+\newcommand{\MBCtrlMeanDiff}{-0.0042}
+\newcommand{\MBCtrlMeanModel}{0.8694}
+\newcommand{\MBCtrlMeanReader}{0.8736}
+\newcommand{\MBCtrlMedianDiff}{-0.0046}
+\newcommand{\MBCtrlMedianModel}{0.8637}
+\newcommand{\MBCtrlMedianReader}{0.8784}
+\newcommand{\MBCtrlN}{4}
+\newcommand{\MBDraftLabelNote}{}
+\newcommand{\MBFalseInkParagraph}{At the threshold that marks 80 per cent of the ink pixels of each unit, \MBModelName{} marks less blank papyrus as ink than Reader v3 on 6 of 8 units (mean share 0.2284 against 0.2585, median 0.2436 against 0.2917). The units where \MBModelName{} marks more blank papyrus as ink than Reader v3 at that threshold are 20250716055229 and 20250919140325, and these are also the units where its area under the curve is below that of Reader v3.}
+\newcommand{\MBFootLabel}{}
+\newcommand{\MBHeldAbove}{6}
+\newcommand{\MBHeldMeanDiff}{+0.0150}
+\newcommand{\MBHeldMeanModel}{0.8696}
+\newcommand{\MBHeldMeanReader}{0.8547}
+\newcommand{\MBHeldMedianDiff}{+0.0162}
+\newcommand{\MBHeldMedianModel}{0.8689}
+\newcommand{\MBHeldMedianReader}{0.8503}
+\newcommand{\MBHfRepo}{evilaliv3/rectina}
+\newcommand{\MBHfRepoUrl}{https://huggingface.co/evilaliv3/rectina}
+\newcommand{\MBHonestSentence}{Over the 8 held-out units \MBModelName{} scores above Reader v3 on 6 of 8 and the median difference is +0.0162, above zero; over the 6 control units it scores above Reader v3 on 3 of 6 and the median difference is -0.0046, so that on the controls the median of \MBModelName{} is below that of Reader v3.}
+\newcommand{\MBLabelComposite}{24}
+\newcommand{\MBLabelNative}{5}
+\newcommand{\MBLabelOffsetHigh}{7.4}
+\newcommand{\MBLabelOffsetLow}{7.2}
+\newcommand{\MBLabelPlaced}{74}
+\newcommand{\MBLabelSearchPx}{4}
+\newcommand{\MBLabelUnits}{103}
+\newcommand{\MBLowCtrl}{, and the unit that lowers the mean is w00 (-0.0229)}
+\newcommand{\MBLowHeld}{, and the unit that lowers the mean is 20250716055229 (-0.0366)}
+\newcommand{\MBMethodsCkpt}{The checkpoint of each stage is its last step, as for Reader v3.}
+\newcommand{\MBModelName}{Rectina m1}
+\newcommand{\MBOtherClause}{}
+\newcommand{\MBOtherMeanClause}{}
+\newcommand{\MBOverlapWord}{fourteen}
+\newcommand{\MBPrFetched}{2026-11-01T02:06:02Z}
+\newcommand{\MBPrState}{read from the code host API, raw answer sha256 48e0cd2cb963}
+\newcommand{\MBProvenanceScores}{the AUC, the AUC on thin strokes and the false ink shares of both readers are read from one merge of the GPU reads, the cell file with the sha256 \path{2723ada060fe999368565c3cc1c0258f5ae8a7ba1bc28e35e45d72ee704c1bfa}, and the paired tests from the statistics file with the sha256 \path{ae8ffe90e17ac6441f9ac77df57622f68dce07799de6d5da7438f97b712e9591}, both pinned by checksum}
+\newcommand{\MBPublishVerb}{are published}
+\newcommand{\MBRegridAbsent}{8}
+\newcommand{\MBRegridKept}{1}
+\newcommand{\MBReleaseCkpt}{The checkpoint released under this name is the last step of each stage, as for Reader v3.}
+\newcommand{\MBResultsFolder}{a37326c1-rectina-m1}
+\newcommand{\MBReviewPubid}{}
+\newcommand{\MBRuleKMin}{6}
+\newcommand{\MBRuleMargin}{0.003}
+\newcommand{\MBRuleMedianGain}{+0.0162}
+\newcommand{\MBRuleOutcome}{met}
+\newcommand{\MBRuleSentence}{The rule for adopting the model was fixed in advance: on the 8 held-out units the count of units on which the model scores above Reader v3 must be at least 6 of 8, and the median gain over Reader v3 must be above 0.003. The rule is evaluated on the held-out units only. On the 8 held-out units the count above Reader v3 is 6 of 8 and the median gain is +0.0162, so the stated rule is met. Over all 14 units the count above Reader v3 is 9 of 14.}
+\newcommand{\MBSeedParagraph}{Both \MBModelName{} and Reader v3 were trained with a single seed (42 in both training configurations), so the spread between two runs of the same recipe is not measured here. The comparison is therefore between two single runs, and the paired test above concerns these two checkpoints, not the two recipes.\footnote{The seed of Reader v3 is the key \texttt{seed} of \path{reader-v3/train_config.json}, value 42; the seed of \MBModelName{} is the key \texttt{seed} of the job entry of its training chain in the job record of that run, value 42.}}
+\newcommand{\MBSelectionSentence}{Other variants of the same procedure were also trained, and the choice was made on the same units; the paired tests describe this checkpoint, not the recipe.}
+\newcommand{\MBSentAll}{Over the 14 units, 8 held-out and 6 control, two of which are information units, \MBModelName{} is above Reader v3 on 9 and the mean difference is +0.0073.}
+\newcommand{\MBStatScope}{over all the units of the table that are not left out}
+\newcommand{\MBStatsAllK}{9}
+\newcommand{\MBStatsAllKText}{9 of 14}
+\newcommand{\MBStatsAllMedianDiff}{+0.0071}
+\newcommand{\MBStatsAllN}{14}
+\newcommand{\MBStatsAllSignGreater}{0.212}
+\newcommand{\MBStatsAllSignTwo}{0.424}
+\newcommand{\MBStatsAllWilcoxonGreater}{0.292}
+\newcommand{\MBStatsAllWilcoxonTwo}{0.583}
+\newcommand{\MBStatsAllZeros}{0}
+\newcommand{\MBStatsCtrlK}{3}
+\newcommand{\MBStatsCtrlKText}{3 of 6}
+\newcommand{\MBStatsCtrlMedianDiff}{-0.0046}
+\newcommand{\MBStatsCtrlN}{6}
+\newcommand{\MBStatsCtrlSignGreater}{0.656}
+\newcommand{\MBStatsCtrlSignTwo}{1}
+\newcommand{\MBStatsCtrlWilcoxonGreater}{0.719}
+\newcommand{\MBStatsCtrlWilcoxonTwo}{0.688}
+\newcommand{\MBStatsCtrlZeros}{0}
+\newcommand{\MBStatsHeldK}{6}
+\newcommand{\MBStatsHeldKText}{6 of 8}
+\newcommand{\MBStatsHeldMedianDiff}{+0.0162}
+\newcommand{\MBStatsHeldN}{8}
+\newcommand{\MBStatsHeldSignGreater}{0.145}
+\newcommand{\MBStatsHeldSignTwo}{0.289}
+\newcommand{\MBStatsHeldWilcoxonGreater}{0.191}
+\newcommand{\MBStatsHeldWilcoxonTwo}{0.383}
+\newcommand{\MBStatsHeldZeros}{0}
+\newcommand{\MBStatsParagraph}{Exploratory paired tests of the AUC difference, descriptive and not confirmatory (\MBModelName{} minus Reader v3), the unit being the pair, zero differences dropped before the ranks (zero\_method wilcox of scipy 1.18.1), exact p-values read at build time from the pinned statistics file (sha256 ae8ffe90e17a). Over the 8 held-out units (n = 8 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.191 one-sided (\MBModelName{} greater than Reader v3) and 0.383 two-sided, and the sign test on the 6 of 8 non zero differences where \MBModelName{} is above gives 0.145 one-sided and 0.289 two-sided. Over the 6 control units (n = 6 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.719 one-sided (\MBModelName{} greater than Reader v3) and 0.688 two-sided, and the sign test on the 3 of 6 non zero differences where \MBModelName{} is above gives 0.656 one-sided and 1 two-sided. Over all 14 units (n = 14 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.292 one-sided (\MBModelName{} greater than Reader v3) and 0.583 two-sided, and the sign test on the 9 of 14 non zero differences where \MBModelName{} is above gives 0.212 one-sided and 0.424 two-sided.}
+\newcommand{\MBUnitCodes}{0009B$\cdot$172639 is 20250510172639. 0009B$\cdot$125754 is 20250919125754. 0009B$\cdot$133208 is 20250919133208. 0009B$\cdot$140325 is 20250919140325. 0500P2$\cdot$055229 is 20250716055229. 0500P2$\cdot$055230 is 20250716055230. 0343P$\cdot$233748-0 is 20250904233748-0\_b2. 0343P$\cdot$172054-1 is 20250905172054-1\_b2.}
+\newcommand{\MBValidationNote}{The held-out units were in villa's validation set; no checkpoint was selected on it.}
+\newcommand{\MBValidationSent}{Validation: for each training segment, whole 512 px tiles holding 5 percent of its supervised pixels (selection seed 20261017) are kept out of training.}
+\newcommand{\MCArmLabels}{the dense composite labels of one label set}
+\newcommand{\MCArmOnly}{the dense model only}
+\newcommand{\MCArmReader}{a dense ink reader}
+\newcommand{\MCBlockLongAbove}{6}
+\newcommand{\MCBlockLongN}{6}
+\newcommand{\MCBlockShortAbove}{2}
+\newcommand{\MCBlockShortN}{2}
+\newcommand{\MCCkptClause}{the checkpoint released under this name is the last step of each stage, as for Reader v2}
+\newcommand{\MCCtrlAbove}{3}
+\newcommand{\MCCtrlMeanDiff}{+0.0098}
+\newcommand{\MCCtrlMeanModel}{0.8694}
+\newcommand{\MCCtrlMeanReader}{0.8596}
+\newcommand{\MCCtrlMedianDiff}{+0.0104}
+\newcommand{\MCCtrlMedianModel}{0.8637}
+\newcommand{\MCCtrlMedianReader}{0.8588}
+\newcommand{\MCCtrlN}{4}
+\newcommand{\MCDraftLabelNote}{}
+\newcommand{\MCFalseInkParagraph}{At the threshold that marks 80 per cent of the ink pixels of each unit, \MCModelName{} marks less blank papyrus as ink than Reader v2 on 8 of 8 units (mean share 0.2284 against 0.2865, median 0.2436 against 0.2768). There is no unit where \MCModelName{} marks more blank papyrus as ink than Reader v2 at that threshold.}
+\newcommand{\MCFootLabel}{}
+\newcommand{\MCHeldAbove}{8}
+\newcommand{\MCHeldMeanDiff}{+0.0275}
+\newcommand{\MCHeldMeanModel}{0.8696}
+\newcommand{\MCHeldMeanReader}{0.8421}
+\newcommand{\MCHeldMedianDiff}{+0.0270}
+\newcommand{\MCHeldMedianModel}{0.8689}
+\newcommand{\MCHeldMedianReader}{0.8435}
+\newcommand{\MCHfRepo}{evilaliv3/rectina}
+\newcommand{\MCHfRepoUrl}{https://huggingface.co/evilaliv3/rectina}
+\newcommand{\MCHonestSentence}{Over the 8 held-out units \MCModelName{} scores above Reader v2 on 8 of 8 and the median difference is +0.0270, above zero; over the 6 control units it scores above Reader v2 on 4 of 6 and the median difference is +0.0104, so that on the controls the median of \MCModelName{} is above that of Reader v2.}
+\newcommand{\MCLabelComposite}{24}
+\newcommand{\MCLabelNative}{5}
+\newcommand{\MCLabelOffsetHigh}{7.4}
+\newcommand{\MCLabelOffsetLow}{7.2}
+\newcommand{\MCLabelPlaced}{74}
+\newcommand{\MCLabelSearchPx}{4}
+\newcommand{\MCLabelUnits}{103}
+\newcommand{\MCLowCtrl}{, and the unit that lowers the mean is ag1 (-0.0015)}
+\newcommand{\MCLowHeld}{}
+\newcommand{\MCMethodsCkpt}{The checkpoint of each stage is its last step, as for Reader v2.}
+\newcommand{\MCModelName}{Rectina m1}
+\newcommand{\MCOtherClause}{}
+\newcommand{\MCOtherMeanClause}{}
+\newcommand{\MCOverlapWord}{fourteen}
+\newcommand{\MCPrFetched}{2026-11-01T02:06:02Z}
+\newcommand{\MCPrState}{read from the code host API, raw answer sha256 48e0cd2cb963}
+\newcommand{\MCProvenanceScores}{the AUC, the AUC on thin strokes and the false ink shares of both readers are read from one merge of the GPU reads, the cell file with the sha256 \path{d8a4fde07374d1d1cbde894efec73dd5b59c5467ecf8985450fd282e31eb9fe7}, and the paired tests from the statistics file with the sha256 \path{278491a321cd717ad85d9482b3b1d78ff1b8c9ae380c0d950285902b6737d953}, both pinned by checksum}
+\newcommand{\MCPublishVerb}{are published}
+\newcommand{\MCRegridAbsent}{8}
+\newcommand{\MCRegridKept}{1}
+\newcommand{\MCReleaseCkpt}{The checkpoint released under this name is the last step of each stage, as for Reader v2.}
+\newcommand{\MCResultsFolder}{a37326c1-rectina-m1}
+\newcommand{\MCReviewPubid}{}
+\newcommand{\MCRuleKMin}{6}
+\newcommand{\MCRuleMargin}{0.003}
+\newcommand{\MCRuleMedianGain}{+0.0270}
+\newcommand{\MCRuleOutcome}{met}
+\newcommand{\MCRuleSentence}{The rule for adopting the model was fixed in advance: on the 8 held-out units the count of units on which the model scores above Reader v2 must be at least 6 of 8, and the median gain over Reader v2 must be above 0.003. The rule is evaluated on the held-out units only. On the 8 held-out units the count above Reader v2 is 8 of 8 and the median gain is +0.0270, so the stated rule is met. Over all 14 units the count above Reader v2 is 12 of 14.}
+\newcommand{\MCSeedParagraph}{\MCModelName{} was trained with a single seed (42), so the spread between two runs of the same recipe is not measured here, and the paired test above concerns this checkpoint, not the recipe.}
+\newcommand{\MCSelectionSentence}{Other variants of the same procedure were also trained, and the choice was made on the same units; the paired tests describe this checkpoint, not the recipe.}
+\newcommand{\MCSentAll}{Over the 14 units, 8 held-out and 6 control, two of which are information units, \MCModelName{} is above Reader v2 on 12 and the mean difference is +0.0192.}
+\newcommand{\MCStatScope}{over all the units of the table that are not left out}
+\newcommand{\MCStatsAllK}{12}
+\newcommand{\MCStatsAllKText}{12 of 14}
+\newcommand{\MCStatsAllMedianDiff}{+0.0200}
+\newcommand{\MCStatsAllN}{14}
+\newcommand{\MCStatsAllSignGreater}{0.00647}
+\newcommand{\MCStatsAllSignTwo}{0.0129}
+\newcommand{\MCStatsAllWilcoxonGreater}{0.00061}
+\newcommand{\MCStatsAllWilcoxonTwo}{0.00122}
+\newcommand{\MCStatsAllZeros}{0}
+\newcommand{\MCStatsCtrlK}{4}
+\newcommand{\MCStatsCtrlKText}{4 of 6}
+\newcommand{\MCStatsCtrlMedianDiff}{+0.0104}
+\newcommand{\MCStatsCtrlN}{6}
+\newcommand{\MCStatsCtrlSignGreater}{0.344}
+\newcommand{\MCStatsCtrlSignTwo}{0.688}
+\newcommand{\MCStatsCtrlWilcoxonGreater}{0.109}
+\newcommand{\MCStatsCtrlWilcoxonTwo}{0.219}
+\newcommand{\MCStatsCtrlZeros}{0}
+\newcommand{\MCStatsHeldK}{8}
+\newcommand{\MCStatsHeldKText}{8 of 8}
+\newcommand{\MCStatsHeldMedianDiff}{+0.0270}
+\newcommand{\MCStatsHeldN}{8}
+\newcommand{\MCStatsHeldSignGreater}{0.00391}
+\newcommand{\MCStatsHeldSignTwo}{0.00781}
+\newcommand{\MCStatsHeldWilcoxonGreater}{0.00391}
+\newcommand{\MCStatsHeldWilcoxonTwo}{0.00781}
+\newcommand{\MCStatsHeldZeros}{0}
+\newcommand{\MCStatsParagraph}{Exploratory paired tests of the AUC difference, descriptive and not confirmatory (\MCModelName{} minus Reader v2), the unit being the pair, zero differences dropped before the ranks (zero\_method wilcox of scipy 1.18.1), exact p-values read at build time from the pinned statistics file (sha256 278491a321cd). Over the 8 held-out units (n = 8 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.00391 one-sided (\MCModelName{} greater than Reader v2) and 0.00781 two-sided, and the sign test on the 8 of 8 non zero differences where \MCModelName{} is above gives 0.00391 one-sided and 0.00781 two-sided. Over the 6 control units (n = 6 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.109 one-sided (\MCModelName{} greater than Reader v2) and 0.219 two-sided, and the sign test on the 4 of 6 non zero differences where \MCModelName{} is above gives 0.344 one-sided and 0.688 two-sided. Over all 14 units (n = 14 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.00061 one-sided (\MCModelName{} greater than Reader v2) and 0.00122 two-sided, and the sign test on the 12 of 14 non zero differences where \MCModelName{} is above gives 0.00647 one-sided and 0.0129 two-sided.}
+\newcommand{\MCUnitCodes}{0009B$\cdot$172639 is 20250510172639. 0009B$\cdot$125754 is 20250919125754. 0009B$\cdot$133208 is 20250919133208. 0009B$\cdot$140325 is 20250919140325. 0500P2$\cdot$055229 is 20250716055229. 0500P2$\cdot$055230 is 20250716055230. 0343P$\cdot$233748-0 is 20250904233748-0\_b2. 0343P$\cdot$172054-1 is 20250905172054-1\_b2.}
+\newcommand{\MCValidationNote}{The held-out units were in villa's validation set; no checkpoint was selected on it.}
+\newcommand{\MCValidationSent}{Validation: for each training segment, whole 512 px tiles holding 5 percent of its supervised pixels (selection seed 20261017) are kept out of training.}
+\newcommand{\AbstractDiff}{The differences from Reader v3 are the start from random weights and a per-patch depth warp with its normalisation guard in the first stage;}
+\newcommand{\CkptCounters}{Rectina m1 is the checkpoint taken at the fixed step 130001 (file ckpt\_130001; embedded step counter 130000), and Rectina m2 is the final step of stage 4 (file ckpt\_020000; embedded step counter 19999).}
+\newcommand{\CompositeCanvas}{9.596}
+\newcommand{\CompositeSentence}{The composite labels are the set defined in section~\ref{sec:labels}; we do not compare them with the labels of Reader v3.}
+\newcommand{\DataAttribution}{The scan data were obtained from the Vesuvius Challenge data server (dl.ash2txt.org) under the data licence of the Vesuvius Challenge (LICENSE.txt).}
+\newcommand{\DraftLabelNote}{}
+\newcommand{\FewThousandths}{differences of a few thousandths, below what this work can resolve with one seed.}
+\newcommand{\GpuSentence}{The table of this appendix lists, for each model, how many of its fourteen unit reads ran on each type of graphics processor, as recorded by the pod of the read. Different types of graphics processor do not give bit-identical maps, and every comparison in this article is between maps from graphics processors, never between a map from a graphics processor and one from CPU.}
+\newcommand{\IterFour}{20000}
+\newcommand{\IterThree}{30000}
+\newcommand{\LabelSmoothing}{The recipe uses label smoothing of 0.5 on the binary cross entropy, which sets the training targets to 0.25 for background and 0.75 for ink; the ink detection tutorial states it (\TutQuote{}~\cite{tutorialfive}). This is deliberate, and it is why the values of a map occupy a compressed band.}
+\newcommand{\MethodsGpu}{The maps of every model were produced on graphics processors in rented pods, and the scores were computed on CPU from those maps; no read of any model on CPU enters a table.}
+\newcommand{\MethodsReaders}{During this work comparisons were run against other published readers. This article reports the comparison of Rectina m1 with Reader v2, the earlier published reader, and with Reader v3, the published reader of the project, and that of Rectina m2 with Reader v3.}
+\newcommand{\OrgQuoteOne}{``detecting or segmenting the ink signal on, or near, the recovered writing surface''}
+\newcommand{\OrgQuoteTwo}{``The subtle differences that distinguish ink from papyrus must be teased out of data like this''}
+\newcommand{\OursDifferences}{, and, as differences from Reader v3, a start from random weights (the first training step was continued in place from iteration 79001 of an earlier run of the same recipe) and a per patch depth warp with its normalisation guard in stage 1 in place of the flat random shift of the depth window that the configuration of Reader v3 names.}
+\newcommand{\ParityGpu}{As a check of the pods, 3 GPU maps of Reader v2, on 2 distinct units (some units were read more than once), were compared with the stored CPU maps of the same units against the limits declared before any number (largest absolute difference 0.05, largest mean absolute difference 0.005, smallest Pearson correlation 0.995); the largest absolute difference observed is 0.00156, the largest mean absolute difference 6.74e-05, the smallest Pearson correlation 0.9999998, and 3 of the 3 maps are within the limits. Likewise 3 GPU maps of Reader v3, on 2 distinct units (some units were read more than once), were compared with the stored CPU maps of the same units against the limits declared before any number (largest absolute difference 0.05, largest mean absolute difference 0.005, smallest Pearson correlation 0.995); the largest absolute difference observed is 0.00277, the largest mean absolute difference 6.97e-05, the smallest Pearson correlation 0.9999977, and 3 of the 3 maps are within the limits. No stored CPU map exists for Rectina m1 and Rectina m2, which were read only on graphics processors, so no parity claim is made for them.}
+\newcommand{\RdrQuoteOne}{``Reader V3 is Reader v2 trained further on larger tiles, 30k iterations at 256 px and then 20k at 384 px''}
+\newcommand{\RdrQuoteTwo}{``The architecture, the training data and the labels stayed the same''}
+\newcommand{\ReviewPubid}{}
+\newcommand{\RuleCounts}{Of the six variants scored on the fourteen units, four meet this rule against Reader v3 and six against Reader v2, so the rule is descriptive, like the rest.}
+\newcommand{\RuleCountsShort}{four of the six variants scored meet it against Reader v3 and six against Reader v2, so the rule is descriptive, like the rest.}
+\newcommand{\RuleCountsV}{six meet the rule against Reader v2 and four against Reader v3.}
+\newcommand{\RuleMetV}{four}
+\newcommand{\ScrollWord}{eight}
+\newcommand{\SetIdTex}{\path{43965c9d120c}}
+\newcommand{\StageOneClause}{the stage was set for 131000 iterations and stopped at the step 130001}
+\newcommand{\TileFour}{384}
+\newcommand{\TileThree}{256}
+\newcommand{\TutQuote}{``the training targets are 0.25 for background and 0.75 for ink''}
+\newcommand{\UsageArch}{vesuvius\_unet\_3d\_stem\_2d}
+\newcommand{\UsageAucOne}{0.8395}
+\newcommand{\UsageAucOneFull}{0.8394838188166195}
+\newcommand{\UsageAucTwo}{0.8466}
+\newcommand{\UsageAucTwoFull}{0.8466005527037327}
+\newcommand{\UsageBandOne}{0.23 to 0.84}
+\newcommand{\UsageBandTwo}{0.00 to 0.85}
+\newcommand{\UsageCalibration}{the reader of Reader v3 says of its own values that ``they are a relative ink score, not a calibrated probability'' (README of its repository, line 144), and the same holds for the maps of Rectina, which come from a model trained with label smoothing.}
+\newcommand{\UsageDeviceTwo}{4090}
+\newcommand{\UsageDirConvert}{\path{results/db27c806-rectina/src/convert}}
+\newcommand{\UsageDirRead}{\path{results/db27c806-rectina/src/read}}
+\newcommand{\UsageDirRender}{\path{results/db27c806-rectina/src/render}}
+\newcommand{\UsageNameOne}{Rectina m1}
+\newcommand{\UsageNameTwo}{Rectina m2}
+\newcommand{\UsagePatchOne}{128}
+\newcommand{\UsagePatchTwo}{384}
+\newcommand{\UsagePeakOne}{967}
+\newcommand{\UsagePeakTwo}{7631}
+\newcommand{\UsageSecPerMpxOne}{80}
+\newcommand{\UsageSecPerMpxTwo}{102}
+\newcommand{\UsageShaOne}{\path{fc4d29c34cebd2694d53297271ad329cf3072d4588329c6ae6bd29ec827edfb5}}
+\newcommand{\UsageShaTwo}{\path{55e2252f660fcd4ed8551fd97cebb7d6ed56847eaebe6c7ca652ebd4e1783e55}}
+\newcommand{\UsageShapeOne}{2048 x 2560}
+\newcommand{\UsageTensors}{508}
+\newcommand{\UsageTolAbs}{0.05}
+\newcommand{\UsageTolMean}{0.005}
+\newcommand{\UsageTolPearson}{0.995}
+\newcommand{\VariantsSentence}{Besides the two checkpoints reported here, four other variants of the procedure were scored on the same fourteen units (the pinned file of scores holds them); the checkpoints reported were chosen on those units, so the paired tests describe these checkpoints and are exploratory, not confirmatory.}

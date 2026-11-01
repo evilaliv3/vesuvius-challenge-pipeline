@@ -1,0 +1,18 @@
+name,value,kind,note
+villa_commit,a4979b99004934955784ea19b30da66cfe5f9ead,git commit,"upstream villa main, the base of the patch"
+villa_pr_1818_merge,13e2c993d14aa47620ff48772d6713f198633cc6,git commit,"bicubic interpolation for vc_render_tifxyz (#1818), contained in the base per the build script check of 2026-10-15"
+patch_file,pas-p1bcpp.patch,file,sha256 6138aebd6b794a6f40710a562d10b148dd6c52cc20c23316300abd1db615c9db
+binary_original,15252e5b61e64938e2ee4b51a3742883e27fe18f4421bfd8343872ebdb796920,sha256,"built 2026-10-15T12:59:23Z, removed from disk 2026-10-27; hash from two agreeing records"
+binary_rebuilt,8a4ca38c1c162d343639316a532b42665078dc3fe40bc4004981472b642b9fde,sha256,"rebuilt 2026-10-28T19:27:20Z from the same commit, patch and flags; reproduced a stored render shard"
+dependency_vc_delta3d,eedd0e62d988bcf97fbaee4ebb7af026f52ca49a,git commit,fetched source of the cmake dependency
+dependency_libigl,ae8f959ea26d7059abad4c698aba8d6b7c3205e8,git commit,fetched source of the cmake dependency
+build_recipe,build-recipe.sh,file,sha256 197e16ca87e09da7dcffc9e97eb254786fa75cf3569f4375b5e9262050b8ea1a
+stack_divisor,65280,number,"255 * 256; stack = rint(clip(v,0,255)*256) as uint16"
+stack_planes,23,number,"step 1, plane 11 on the surface"
+public_component_binary,8401cea2...,sha256 prefix,src/components/render; NOT the binary of the Rectina stacks
+rebuilt_bin/vc_render_tifxyz,8a4ca38c1c162d343639316a532b42665078dc3fe40bc4004981472b642b9fde,sha256,"rebuilt build record, runpath $ORIGIN/../core:$ORIGIN/../utils:$ORIGIN/../libs/c3d:$ORIGIN/../libs/volcomp:"
+rebuilt_core/libvc_core.so,c50dbeae82c3de023f5a202020015fba8b68914017a3b10c5ed591f61ce9de52,sha256,"rebuilt build record, runpath $ORIGIN/../utils:$ORIGIN/../libs/c3d:$ORIGIN/../libs/volcomp:"
+rebuilt_core/libvc_flattening.so,158584770ac269b1d5372d7bf6a86cdc2744381c98365dc09182f3862499e9e6,sha256,"rebuilt build record, runpath $ORIGIN:$ORIGIN/../utils:$ORIGIN/../libs/c3d:$ORIGIN/../libs/volcomp:"
+rebuilt_utils/libutils.so,766a2fc6093342c3c3f92fc62882a83d5cbe88aade05da3d02f8d2b7ee0b935e,sha256,"rebuilt build record, runpath ::::::::::::::"
+rebuilt_utils/libutils_c3d_codec.so,82280c815a6f60b691e245bbf4df2218e41d3b4a42a9517ca20474a77e78206c,sha256,"rebuilt build record, runpath $ORIGIN/../libs/c3d:"
+rebuilt_libs/c3d/libc3d.so,13b2685ed83ca00cf5a515cb0eb1b411c3db16d963ac577f820137b4010371aa,sha256,"rebuilt build record, runpath ::::::::::::::"

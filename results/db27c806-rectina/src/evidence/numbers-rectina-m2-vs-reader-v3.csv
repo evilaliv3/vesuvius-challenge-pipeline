@@ -1,0 +1,35 @@
+# written by a build tool of this article from the pinned score files; key,value,source; every numeric macro of the article is read from here
+key,value,source
+mean_reader_v3_all_8,0.8547,"mean over 8 units, _all_8"
+median_reader_v3_all_8,0.8503,"median over 8 units, _all_8"
+mean_rectina_m2_all_8,0.8704,"mean over 8 units, _all_8"
+median_rectina_m2_all_8,0.8754,"median over 8 units, _all_8"
+a3_rectina_m2_all_8,6,count of 8 units above Reader v3
+mean_reader_v3_116_keV,0.8587,"mean over 6 units, _116_keV"
+median_reader_v3_116_keV,0.8503,"median over 6 units, _116_keV"
+mean_rectina_m2_116_keV,0.8764,"mean over 6 units, _116_keV"
+median_rectina_m2_116_keV,0.8754,"median over 6 units, _116_keV"
+a3_rectina_m2_116_keV,5,count of 6 units above Reader v3
+mean_reader_v3_113_keV,0.8426,"mean over 2 units, _113_keV"
+median_reader_v3_113_keV,0.8426,"median over 2 units, _113_keV"
+mean_rectina_m2_113_keV,0.8523,"mean over 2 units, _113_keV"
+median_rectina_m2_113_keV,0.8523,"median over 2 units, _113_keV"
+a3_rectina_m2_113_keV,1,count of 2 units above Reader v3
+n_units,8,design count
+n_116,6,units of the 116 keV block
+n_113,2,units of the 113 keV block
+rule_median_gain,+0.0137,median over 8 units of the model minus Reader v3
+rule_units_above_reader_v3,6,units where the model is above Reader v3
+median_diff_8,+0.0137,median over the 8 units of the model minus Reader v3
+mean_diff_8,+0.0157,mean over the 8 units of the model minus Reader v3
+cmedian_diff,+0.0063,median over the clean organiser-label controls of the model minus Reader v3
+cmean_diff,+0.0042,mean over the clean organiser-label controls of the model minus Reader v3
+n_above_14,11,units of the 14 where the model auc is above the Reader v3 auc
+mean_diff_14,+0.0104,mean over the 14 units of the model minus Reader v3
+fa80_k,5,units of the 8 where the model fa80 is below the Reader v3 fa80
+cmean_reader_v3,0.8736,"mean over 4 units, controls"
+cmedian_reader_v3,0.8784,"median over 4 units, controls"
+cmean_rectina_m2,0.8778,"mean over 4 units, controls"
+cmedian_rectina_m2,0.8801,"median over 4 units, controls"
+ca3_rectina_m2,3,count of 4 units above Reader v3
+n_cclean,4,organiser-label controls not left out by the overlap file

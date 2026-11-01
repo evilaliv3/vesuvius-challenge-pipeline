@@ -1,7 +1,6 @@
 # vesuvius-challenge-pipeline
 
-Work on the Vesuvius Challenge by Giovanni Pellerano ([`evilaliv3`](https://github.com/evilaliv3)),
-on a machine with sixteen cores, no GPU and the published data.
+Work on the Vesuvius Challenge by Giovanni Pellerano ([`evilaliv3`](https://github.com/evilaliv3)).
 
 Published work only, one piece per folder under [`results/`](results), frozen. A folder is named
 `<uuid4 prefix>-<slug>`: the prefix is assigned once and never reused, so a piece of work can be

@@ -1,0 +1,7 @@
+\begin{quote}
+\begin{Verbatim}[fontsize=\scriptsize,breaklines=true,breakanywhere=true,breakautoindent=false]
+python3 rectina_read.py info    --checkpoint m2/ckpt_020000.pth
+python3 rectina_read.py read    --stack unit.npy --checkpoint m2/ckpt_020000.pth --villa-src villa/vesuvius/src --device cuda --out out/unit
+python3 rectina_read.py compare out/unit/map.npy reference_map.npy
+\end{Verbatim}
+\end{quote}

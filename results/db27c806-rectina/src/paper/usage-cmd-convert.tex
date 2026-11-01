@@ -1,0 +1,12 @@
+\begin{quote}
+\begin{Verbatim}[fontsize=\scriptsize,breaklines=true,breakanywhere=true,breakautoindent=false]
+python3 rectina_map_convert.py tif map.npy map_float32.tif
+python3 rectina_map_convert.py tif map.npy map_uint16.tif --dtype uint16
+python3 rectina_map_convert.py zarr map.npy map_v3.zarr
+python3 rectina_map_convert.py zarr map.npy map_v2.zarr --zarr-format 2 --pixel-size-um 9.36
+python3 rectina_map_convert.py check map.npy map_float32.tif
+python3 rectina_map_convert.py check map.npy map_uint16.tif
+python3 rectina_map_convert.py check map.npy map_v3.zarr
+python3 rectina_map_convert.py check map.npy map_v2.zarr
+\end{Verbatim}
+\end{quote}

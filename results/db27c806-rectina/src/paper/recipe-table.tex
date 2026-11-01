@@ -1,0 +1,62 @@
+\clearpage\onecolumn
+{\small\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}p{2.2cm}p{4.6cm}p{5.2cm}p{4.4cm}@{}}
+step & setting & value & source \\ \hline \endhead
+1 s1 & stage base & villa\_\allowbreak{}hybrid & training job record \\
+1 s1 & iterations (to the fixed step) & 131000 & training job record \\
+1 s1 & batch (patches per step,\allowbreak{} sum of the quotas) & 64 & training job record \\
+1 s1 & per-\allowbreak{}scroll quotas of the batch & \{"0139":\allowbreak{} 12,\allowbreak{} "1667":\allowbreak{} 8,\allowbreak{} "Paris4":\allowbreak{} 6,\allowbreak{} "0814":\allowbreak{} 7,\allowbreak{} "0009B":\allowbreak{} 8,\allowbreak{} "0343P":\allowbreak{} 5,\allowbreak{} "0500P2":\allowbreak{} 7,\allowbreak{} "0172":\allowbreak{} 11\} & training job record \\
+1 s1 & mixed precision & fp16 & stage configuration \\
+1 s1 & patch size (z,\allowbreak{} y,\allowbreak{} x) & [17,\allowbreak{} 128,\allowbreak{} 128] & stage configuration \\
+1 s1 & learning rate & 0.\allowbreak{}01 & stage configuration \\
+1 s1 & optimizer & sgd & stage configuration \\
+1 s1 & warmup steps & 1000 & stage configuration \\
+1 s1 & validation every & 1000 & training job record \\
+1 s1 & depth warp augmentation max offset & 3 & training job record \\
+1 s1 & checkpoint taken at the end of the step & ckpt\_\allowbreak{}130001.\allowbreak{}pth & training job record \\
+2 s3 & iterations & 30000 & training job record \\
+2 s3 & batch size & 10 & training job record \\
+2 s3 & crop and patch size (z,\allowbreak{} y,\allowbreak{} x) & [17,\allowbreak{} 256,\allowbreak{} 256] & training job record \\
+2 s3 & learning rate & 0.\allowbreak{}003 & stage configuration \\
+2 s3 & keep rule & last\_\allowbreak{}step (ckpt\_\allowbreak{}030000.\allowbreak{}pth) & training job record \\
+2 s3 & validation every & 2000 & training job record \\
+3 s4 & iterations & 20000 & training job record \\
+3 s4 & batch size & 10 & training job record \\
+3 s4 & crop and patch size (z,\allowbreak{} y,\allowbreak{} x) & [17,\allowbreak{} 384,\allowbreak{} 384] & training job record \\
+3 s4 & learning rate & 0.\allowbreak{}003 & stage configuration \\
+3 s4 & checkpoint released & ckpt\_\allowbreak{}020000.\allowbreak{}pth (last step) & training job record \\
+3 s4 & keep rule & last\_\allowbreak{}step & training job record \\
+all steps & scheduler & \{"name":\allowbreak{} "diffusers\_\allowbreak{}cosine\_\allowbreak{}warmup"\} & stage configuration \\
+all steps & weight\_\allowbreak{}decay & 3e-\allowbreak{}05 & stage configuration \\
+all steps & seed & 42 & stage configuration \\
+all steps & val\_\allowbreak{}steps & 32 & stage configuration \\
+all steps & label smoothing of the BCE loss & 0.\allowbreak{}5 & stage configuration \\
+all steps & validation split:\allowbreak{} tile px & 512 & training job record \\
+all steps & validation split:\allowbreak{} fraction of supervised pixels & 0.\allowbreak{}05 & training job record \\
+all steps & validation split:\allowbreak{} seed & 20261017 & training job record \\
+all steps & label set id & 43965c9d120c & run register \\
+1 s1 & villa base config:\allowbreak{} optimizer & sgd & villa@3ea17f54a9b3:\allowbreak{}ink-\allowbreak{}detection/\allowbreak{}configs/\allowbreak{}aligned21\_\allowbreak{}hybrid\_\allowbreak{}3d2d.\allowbreak{}json,\allowbreak{} line 41 \\
+1 s1 & villa base config:\allowbreak{} learning rate & 0.\allowbreak{}01 & villa@3ea17f54a9b3:\allowbreak{}ink-\allowbreak{}detection/\allowbreak{}configs/\allowbreak{}aligned21\_\allowbreak{}hybrid\_\allowbreak{}3d2d.\allowbreak{}json,\allowbreak{} line 42 \\
+1 s1 & villa base config:\allowbreak{} batch size & 64 & villa@3ea17f54a9b3:\allowbreak{}ink-\allowbreak{}detection/\allowbreak{}configs/\allowbreak{}aligned21\_\allowbreak{}hybrid\_\allowbreak{}3d2d.\allowbreak{}json,\allowbreak{} line 48 \\
+1 s1 & villa base config:\allowbreak{} patch size (z,\allowbreak{} y,\allowbreak{} x) & [17,\allowbreak{} 128,\allowbreak{} 128] & villa@3ea17f54a9b3:\allowbreak{}ink-\allowbreak{}detection/\allowbreak{}configs/\allowbreak{}aligned21\_\allowbreak{}hybrid\_\allowbreak{}3d2d.\allowbreak{}json,\allowbreak{} line 20 \\
+1 s1 & villa base config:\allowbreak{} mixed precision & fp16 & villa@3ea17f54a9b3:\allowbreak{}ink-\allowbreak{}detection/\allowbreak{}configs/\allowbreak{}aligned21\_\allowbreak{}hybrid\_\allowbreak{}3d2d.\allowbreak{}json,\allowbreak{} line 47 \\
+1 s1 & resume source version (training record) & an earlier run & training job record \\
+1 s1 & resume stage & s1 & training job record \\
+1 s1 & iteration the resume starts at & 79001 & training job record \\
+depth warp & s1 stage block:\allowbreak{} enabled & true & training job record \\
+depth warp & s1 stage block:\allowbreak{} max\_\allowbreak{}offset & 3 & training job record \\
+depth warp & s1 stage block:\allowbreak{} g\_\allowbreak{}range & 1 & training job record \\
+depth warp & s1 stage block:\allowbreak{} amp\_\allowbreak{}max & 2 & training job record \\
+depth warp & s1 stage block:\allowbreak{} sigmas\_\allowbreak{}px & [8,\allowbreak{} 16,\allowbreak{} 32,\allowbreak{} 64] & training job record \\
+depth warp & s1 stage block:\allowbreak{} void\_\allowbreak{}probability & 0.\allowbreak{}05 & training job record \\
+depth warp & s1 stage block:\allowbreak{} void\_\allowbreak{}px & 32 & training job record \\
+depth warp & s1 registration keys (registration record of the training chain) & warp\_\allowbreak{}max\_\allowbreak{}offset=3; warp\_\allowbreak{}g\_\allowbreak{}range=2; warp\_\allowbreak{}amp\_\allowbreak{}max=2 & run register \\
+depth warp & s3 registration keys (registration record of the training chain),\allowbreak{} registered but not applied:\allowbreak{} this stage has no warp block & warp\_\allowbreak{}max\_\allowbreak{}offset=3; warp\_\allowbreak{}g\_\allowbreak{}range=2; warp\_\allowbreak{}amp\_\allowbreak{}max=2 & run register \\
+depth warp & s4 registration keys (registration record of the training chain),\allowbreak{} registered but not applied:\allowbreak{} this stage has no warp block & warp\_\allowbreak{}max\_\allowbreak{}offset=3; warp\_\allowbreak{}g\_\allowbreak{}range=2; warp\_\allowbreak{}amp\_\allowbreak{}max=2 & run register \\
+depth warp & s3 stage override carries no flat\_\allowbreak{}z\_\allowbreak{}depth\_\allowbreak{}warp block & absent & training job record \\
+depth warp & s4 stage override carries no flat\_\allowbreak{}z\_\allowbreak{}depth\_\allowbreak{}warp block & absent & training job record \\
+mad guard & relative threshold MAD\_\allowbreak{}REL (scaled MAD under this fraction of the 1.\allowbreak{}.\allowbreak{}99 percentile span) & 0.\allowbreak{}01 & training hook code \\
+mad guard & lower bound of the scaled MAD (below it villa's own fallback already applies) & 1e-\allowbreak{}6 & training hook code \\
+mad guard & UPSTREAM pull request proposal,\allowbreak{} NOT our hook:\allowbreak{} fallback whenever the scaled MAD is under this fraction of the value span & 1e-\allowbreak{}2 & upstream pull request proposal text \\
+\end{longtable}}
+\twocolumn

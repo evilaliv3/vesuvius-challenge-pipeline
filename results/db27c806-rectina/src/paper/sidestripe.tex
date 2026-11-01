@@ -1,0 +1,61 @@
+
+\newif\ifSeriesDraft
+\SeriesDraftfalse
+
+\usepackage{eso-pic}
+\usepackage{xcolor}
+
+\ifdefined\BuildDateLong\else
+  \PackageError{sidestripe}{The command BuildDateLong is not defined: input build-date first}
+    {The build writes build-date.tex from SOURCE_DATE_EPOCH. Run the paper's build script.}
+\fi
+
+\newlength{\SideStripeX}\setlength{\SideStripeX}{0.42in}
+\newlength{\SideStripeY}\setlength{\SideStripeY}{1.05in}
+\newcommand{\SideStripeSep}{\,\textperiodcentered\,}
+\newcommand{\SideStripeRepo}{evilaliv3/vesuvius-challenge-pipeline}
+
+\ifSeriesDraft
+  \usepackage{transparent}
+  \newcommand{\SeriesDraftWord}{DRAFT}
+  \newcommand{\SeriesDraftOpacity}{0.10}
+  \AddToShipoutPictureFG{%
+    \AtPageCenter{%
+      \makebox(0,0){%
+        \rotatebox{45}{%
+          \transparent{\SeriesDraftOpacity}%
+          \resizebox{0.68\paperwidth}{!}{%
+            \color{black}\sffamily\bfseries\SeriesDraftWord}}}}}
+\fi
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@makecaption}{\scshape}{}{}{%
+  \PackageError{sidestripe}{Cannot take the small capitals out of the table captions}
+    {IEEEtran's \string\@makecaption no longer contains \string\scshape where it did at line
+     2778. Read the class and fix the patch rather than removing it.}}
+\patchcmd{\section}{\scshape}{}{}{%
+  \PackageError{sidestripe}{Cannot take the small capitals out of the section headings}
+    {IEEEtran's \string\section no longer contains \string\scshape where it did at line 5473.
+     Read the class and fix the patch rather than removing it.}}
+\makeatother
+
+\ifdefined\PublishedStripe\else
+  \errmessage{sidestripe.tex: this paper inputs the stripe but defines no \string\PublishedStripe.
+  Add a published-date.tex beside the paper and \string\input{published-date}. It holds the day
+  the folder entered the PUBLIC repository, written by hand and never from the clock; a folder not
+  yet published defines \string\PublishedStripe as: not yet published. See REVISION.md,
+  2026-09-22}
+\fi
+
+\newcommand{\sidestripe}[1]{%
+  \AddToShipoutPictureBG*{%
+    \AtPageLowerLeft{%
+      \put(\LenToUnit{\SideStripeX},\LenToUnit{\SideStripeY}){%
+        \rotatebox{90}{%
+          \color[gray]{0.55}%
+          \fontsize{7}{8}\selectfont\ttfamily
+          \ifSeriesDraft\SeriesDraftWord\SideStripeSep\fi%
+          \SideStripeRepo\SideStripeSep results/#1\SideStripeSep
+          \PublishedStripe\SideStripeSep last updated \BuildDateLong}}}}}
+

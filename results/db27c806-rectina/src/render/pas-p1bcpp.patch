@@ -1,0 +1,444 @@
+diff --git a/volume-cartographer/apps/src/vc_render_tifxyz.cpp b/volume-cartographer/apps/src/vc_render_tifxyz.cpp
+index 356950cad..75059f83e 100644
+--- a/volume-cartographer/apps/src/vc_render_tifxyz.cpp
++++ b/volume-cartographer/apps/src/vc_render_tifxyz.cpp
+@@ -49,6 +49,7 @@ using Json = utils::Json;
+ 
+ static FILE* g_logFile = nullptr;       // non-null when --log-path active
+ static std::string g_logPrefix;         // e.g. "[part 2/8] " — prepended when logging to file
++static bool g_p1bcppTricubic = false;   // pipeline-as-system p1b-cpp (ScrollAgent): --interp tricubic (float32 tiles only)
+ static bool g_flipNormals = false;      // negate surface normals (--flip-normals); reverses slice ordering along the normal
+ static bool g_logRunning = false;      // protected by g_logFlushMutex
+ static std::mutex g_logFlushMutex;
+@@ -759,6 +760,13 @@ static void writeTifBand(std::vector<TiffWriter>& writers,
+ // Tile-based rendering (OMP-parallel over output zarr chunks)
+ // ============================================================
+ 
++// pipeline-as-system P1b-fast v2 (ScrollAgent): float tiles never build a pyramid (refused at option parsing); this overload only completes renderTiles<float>
++static void downsampleTileIntoPreserveZ(const float*, size_t, size_t, size_t, float*, size_t, size_t, size_t,
++                                        size_t, size_t, size_t, size_t, size_t)
++{
++    throw std::logic_error("p1bf: no pyramid for float32 output");
++}
++
+ template <typename T>
+ static void renderTiles(
+     QuadSurface* surf, vc::render::IChunkedArray* ds,
+@@ -917,6 +925,10 @@ static void renderTiles(
+                         raw[0] = compOut;
+                     }
+                 } else {
++                    if constexpr (std::is_same_v<T, float>) {  // pipeline-as-system p1b-cpp (ScrollAgent)
++                        if (g_p1bcppTricubic) sampleTileSlicesTricubic(raw, cache, level, base, dirs, allOffsets);
++                        else sampleTileSlices(raw, cache, level, base, dirs, allOffsets);
++                    } else
+                     sampleTileSlices(raw, cache, level, base, dirs, allOffsets);
+                 }
+ 
+@@ -1291,6 +1303,10 @@ int main(int argc, char *argv[])
+         // left-handed frame. So --flip-normals is usually what we want: it negates N so the
+         // slice stack grows in front of the sheet rather than behind it.
+         ("flip-normals", po::bool_switch()->default_value(false), "Negate surface normals (reverses slice ordering along the normal)")
++        ("p1bf-float32", po::bool_switch()->default_value(false), "pipeline-as-system P1b-fast v2 (ScrollAgent): float32 zarr output, no cast (uint8 source, zarr only, no tif, pyramid or composite)")
++        ("interp", po::value<std::string>()->default_value("trilinear"), "pipeline-as-system p1b-cpp (ScrollAgent): volume sampling, trilinear or tricubic (Catmull-Rom; needs --p1bf-float32)")
++        ("p1bcpp-bilinear-normals", po::bool_switch()->default_value(false), "pipeline-as-system p1b-cpp (ScrollAgent): normal bilinear between the 4 node normals (linear surface interpolation only)")
++        ("p1bf-global-origin", po::bool_switch()->default_value(false), "pipeline-as-system P1b-fast v2 (ScrollAgent): surface coordinates from the global canvas pixel index (no crop or tile dependence)")
+         // How the surface itself is resampled, as opposed to how the volume is
+         // sampled along the normal (which is always trilinear here).
+         ("surface-interpolation", po::value<std::string>()->default_value("linear"),
+@@ -1533,6 +1549,8 @@ int main(int argc, char *argv[])
+     int flip_axis = parsed["flip"].as<int>();
+     g_flipNormals = parsed["flip-normals"].as<bool>();
+     const bool quickTif = parsed["quick-tif"].as<bool>();
++    const bool p1bfFloat32 = parsed["p1bf-float32"].as<bool>();             // pipeline-as-system P1b-fast v2 (ScrollAgent)
++    const bool p1bfGlobalOrigin = parsed["p1bf-global-origin"].as<bool>();  // pipeline-as-system P1b-fast v2 (ScrollAgent)
+ 
+     // --- Load affines ---
+     AffineTransform affineTransform;
+@@ -1641,6 +1659,17 @@ int main(int argc, char *argv[])
+         logPrintf(stderr, "Error: composite/alpha rendering requires a uint8 volume (source is uint16)\n");
+         return EXIT_FAILURE;
+     }
++    if (p1bfFloat32 && (output_is_u16 || isCompositeMode || !wantZarr || wantTif || wantPyramid)) {  // pipeline-as-system P1b-fast v2 (ScrollAgent)
++        logPrintf(stderr, "Error: --p1bf-float32 needs a uint8 source, zarr output only, --pyramid 0, no composite\n");
++        return EXIT_FAILURE;
++    }
++    const std::string p1bcppInterp = parsed["interp"].as<std::string>();  // pipeline-as-system p1b-cpp (ScrollAgent)
++    const bool p1bcppBilinearNormals = parsed["p1bcpp-bilinear-normals"].as<bool>();
++    g_p1bcppTricubic = (p1bcppInterp == "tricubic");
++    if ((p1bcppInterp != "trilinear" && !g_p1bcppTricubic) || (g_p1bcppTricubic && !p1bfFloat32) || (p1bcppBilinearNormals && genInterp != GenInterpolation::Linear)) {
++        logPrintf(stderr, "Error: --interp is trilinear or tricubic (tricubic needs --p1bf-float32); --p1bcpp-bilinear-normals needs --surface-interpolation linear\n");
++        return EXIT_FAILURE;
++    }
+     if (output_is_u16 && isCompositeMode)
+         logPrintf(stderr, "Warning: composite forces 8-bit output (source is 16-bit)\n");
+     {
+@@ -1813,6 +1842,13 @@ int main(int argc, char *argv[])
+         // that are.
+         surf->setGenInterpolation(genInterp);
+ 
++        surf->setP1bcppBilinearNormals(p1bcppBilinearNormals);  // pipeline-as-system p1b-cpp (ScrollAgent)
++        if (g_p1bcppTricubic || p1bcppBilinearNormals)
++            logPrintf(stdout, "p1bcpp flags: tricubic %d bilinear-normals %d\n", int(g_p1bcppTricubic), int(p1bcppBilinearNormals));
++        surf->setP1bfGlobalOrigin(p1bfGlobalOrigin);  // pipeline-as-system P1b-fast v2 (ScrollAgent)
++        if (p1bfFloat32 || p1bfGlobalOrigin)
++            logPrintf(stdout, "p1bf flags: float32 %d global-origin %d\n", int(p1bfFloat32), int(p1bfGlobalOrigin));
++
+         // Replace sentinel -1 with NaN
+         auto* raw_points = surf->rawPointsPtr();
+         for (int j = 0; j < raw_points->rows; j++)
+@@ -1881,7 +1917,7 @@ int main(int argc, char *argv[])
+ 
+         // Determine output dtype
+         const bool useU16 = output_is_u16 && !isCompositeMode;
+-        const int cvType = useU16 ? CV_16UC1 : CV_8UC1;
++        const int cvType = p1bfFloat32 ? CV_32FC1 : (useU16 ? CV_16UC1 : CV_8UC1);  // pipeline-as-system P1b-fast v2 (ScrollAgent)
+ 
+         // ---- Zarr setup (if requested) ----
+         const size_t CH = 128, CW = 128;
+@@ -1899,7 +1935,7 @@ int main(int argc, char *argv[])
+             outFilePath = zarrOutputArg;
+             std::vector<size_t> shape0 = {baseZ, baseY, baseX};
+             chunks0 = {shape0[0], std::min(CH, shape0[1]), std::min(CW, shape0[2])};
+-            auto vcDtype = useU16 ? vc::VcDtype::uint16 : vc::VcDtype::uint8;
++            auto vcDtype = p1bfFloat32 ? vc::VcDtype::float32 : (useU16 ? vc::VcDtype::uint16 : vc::VcDtype::uint8);  // pipeline-as-system P1b-fast v2 (ScrollAgent)
+ 
+             if (pre_flag) {
+                 logPrintf(stdout, "[pre] creating zarr + all levels...\n");
+@@ -2060,7 +2096,17 @@ int main(int argc, char *argv[])
+                 ? static_cast<vc::render::IChunkedArray*>(&prefetchedView) : chunk_cache;
+             if (wantZarr) {
+                 // Tile-based: OMP-parallel over output zarr chunks
+-                if (useU16)
++                if (p1bfFloat32)  // pipeline-as-system P1b-fast v2 (ScrollAgent)
++                    renderTiles<float>(surf.get(), chunk_cache, renderingCache, cacheLevel,
++                        full_size, crop, tgt_size, float(render_scale), scale_seg, ds_scale,
++                        hasAffine, affineTransform, num_slices, slice_step,
++                        accumOffsets, accumType, isCompositeMode, compositeStart, compositeEnd,
++                        compositeParams, rotQuad, flip_axis, numParts, partId, cvType,
++                        dsOut.get(), chunks0, tilesXSrc, tilesYSrc,
++                        pyramidDs,
++                        tifWriters.empty() ? nullptr : &tifWriters, tiffTileH, quickTif,
++                        resumeFlag);
++                else if (useU16)
+                     renderTiles<uint16_t>(surf.get(), chunk_cache, renderingCache, cacheLevel,
+                         full_size, crop, tgt_size, float(render_scale), scale_seg, ds_scale,
+                         hasAffine, affineTransform, num_slices, slice_step,
+diff --git a/volume-cartographer/core/include/vc/core/types/VcDataset.hpp b/volume-cartographer/core/include/vc/core/types/VcDataset.hpp
+index 644304c9b..1742502cc 100644
+--- a/volume-cartographer/core/include/vc/core/types/VcDataset.hpp
++++ b/volume-cartographer/core/include/vc/core/types/VcDataset.hpp
+@@ -12,7 +12,7 @@
+ 
+ namespace vc {
+ 
+-enum class VcDtype { uint8, uint16 };
++enum class VcDtype { uint8, uint16, float32 };  // float32: pipeline-as-system P1b-fast v2 (ScrollAgent)
+ 
+ class VcDataset {
+ public:
+diff --git a/volume-cartographer/core/include/vc/core/util/QuadSurface.hpp b/volume-cartographer/core/include/vc/core/util/QuadSurface.hpp
+index 5f0ca9672..6698ffa18 100644
+--- a/volume-cartographer/core/include/vc/core/util/QuadSurface.hpp
++++ b/volume-cartographer/core/include/vc/core/util/QuadSurface.hpp
+@@ -367,6 +367,8 @@ public:
+     // the volume toward the origin.
+     void setStrictQuadRenderValidity(bool enabled) { _strictQuadRenderValidity = enabled; }
+     [[nodiscard]] bool strictQuadRenderValidity() const { return _strictQuadRenderValidity; }
++    void setP1bfGlobalOrigin(bool enabled) { _p1bfGlobalOrigin = enabled; }  // pipeline-as-system P1b-fast v2 (ScrollAgent), default off
++    void setP1bcppBilinearNormals(bool enabled) { _p1bcppBilinearNormals = enabled; }  // pipeline-as-system p1b-cpp (ScrollAgent), default off
+     // Process-wide initial value of strictQuadRenderValidity() for surfaces
+     // constructed afterwards. Applications set it once at startup, before
+     // loading surfaces (VC3D enables it); libraries and tools keep false.
+@@ -568,6 +570,8 @@ protected:
+     // Each pair is [col_start, col_end). Empty = single contiguous surface.
+     std::vector<std::pair<int,int>> _components;
+     bool _strictQuadRenderValidity = strictQuadRenderValidityDefault();
++    bool _p1bcppBilinearNormals = false;  // pipeline-as-system p1b-cpp (ScrollAgent)
++    bool _p1bfGlobalOrigin = false;  // pipeline-as-system P1b-fast v2 (ScrollAgent)
+     GenInterpolation _genInterpolation = GenInterpolation::Linear;
+     float dpi_ = 0.f;
+ 
+diff --git a/volume-cartographer/core/include/vc/core/util/Slicing.hpp b/volume-cartographer/core/include/vc/core/util/Slicing.hpp
+index 3cf417fe4..188b7ac31 100644
+--- a/volume-cartographer/core/include/vc/core/util/Slicing.hpp
++++ b/volume-cartographer/core/include/vc/core/util/Slicing.hpp
+@@ -67,6 +67,21 @@ void sampleTileSlices(
+     const std::vector<float>& offsets
+ );
+ 
++// pipeline-as-system P1b-fast v2 (ScrollAgent): float32 tiles from a uint8 volume (no cast)
++void sampleTileSlices(
++    std::vector<cv::Mat_<float>>& out,
++    vc::render::IChunkedArray* cache,
++    int level,
++    const cv::Mat_<cv::Vec3f>& basePoints,
++    const cv::Mat_<cv::Vec3f>& stepDirs,
++    const std::vector<float>& offsets
++);
++
++// pipeline-as-system p1b-cpp (ScrollAgent): the float32 overload above, sampled tricubic (Catmull-Rom)
++void sampleTileSlicesTricubic(std::vector<cv::Mat_<float>>& out, vc::render::IChunkedArray* cache, int level,
++                              const cv::Mat_<cv::Vec3f>& basePoints, const cv::Mat_<cv::Vec3f>& stepDirs,
++                              const std::vector<float>& offsets);
++
+ // Fused plane coordinate generation + sampling (eliminates intermediate coords Mat).
+ // origin, vx_step, vy_step define the affine plane in level-scaled coordinates.
+ // coord(i,j) = origin + vx_step * i + vy_step * j
+diff --git a/volume-cartographer/core/src/QuadSurface.cpp b/volume-cartographer/core/src/QuadSurface.cpp
+index a67302e66..e6839287a 100644
+--- a/volume-cartographer/core/src/QuadSurface.cpp
++++ b/volume-cartographer/core/src/QuadSurface.cpp
+@@ -556,10 +556,18 @@ inline cv::Vec3f bilerpVec3f(const cv::Vec3f& p00, const cv::Vec3f& p01,
+          + (p10 * iwx + p11 * wx) * wy;
+ }
+ 
++// pipeline-as-system P1b-fast v2 (ScrollAgent): the global-origin grid. Column d of a gen() buffer is canvas pixel offset + d - 4; its source coordinate is computed in
++// double from that integer index and cast to float once, so it does not depend on the tile or crop it is rendered in.
++struct P1bfGrid {
++    double offx, offy, scale, cx, cy, sx, sy, px, py;
++    float x(int d) const { return float(px + ((offx + double(d) - 4.0) / scale + cx) * sx); }
++    float y(int d) const { return float(py + ((offy + double(d) - 4.0) / scale + cy) * sy); }
++};
++
+ void warpBilinearReplicateVec3f(const cv::Mat_<cv::Vec3f>& src,
+                                 cv::Mat_<cv::Vec3f>& dst,
+                                 double ox, double oy,
+-                                double sx, double sy)
++                                double sx, double sy, const P1bfGrid* g = nullptr)
+ {
+     const int sc = src.cols, sr = src.rows;
+     if (sc <= 0 || sr <= 0) return;
+@@ -578,7 +586,7 @@ void warpBilinearReplicateVec3f(const cv::Mat_<cv::Vec3f>& src,
+     std::vector<int> x0v(dw), x1v(dw);
+     std::vector<float> wxv(dw);
+     for (int dx = 0; dx < dw; ++dx) {
+-        float fx = fox + float(dx) * fsx;
++        float fx = (g ? g->x(dx) : fox + float(dx) * fsx);
+         fx = fx < 0.0f ? 0.0f : (fx > sxmax ? sxmax : fx);
+         int x0 = int(fx);
+         int x1 = x0 + 1; if (x1 > sc - 1) x1 = sc - 1;
+@@ -586,7 +594,7 @@ void warpBilinearReplicateVec3f(const cv::Mat_<cv::Vec3f>& src,
+     }
+     #pragma omp parallel for schedule(dynamic, 8)
+     for (int dy = 0; dy < dh; ++dy) {
+-        float fy = foy + float(dy) * fsy;
++        float fy = (g ? g->y(dy) : foy + float(dy) * fsy);
+         fy = fy < 0.0f ? 0.0f : (fy > symax ? symax : fy);
+         int y0 = int(fy);                  // floor since fy >= 0
+         int y1 = y0 + 1; if (y1 > sr - 1) y1 = sr - 1;
+@@ -606,7 +614,7 @@ void warpNearestConstU8(const cv::Mat_<uint8_t>& src,
+                         cv::Mat_<uint8_t>& dst,
+                         double ox, double oy,
+                         double sx, double sy,
+-                        uint8_t border)
++                        uint8_t border, const P1bfGrid* g = nullptr)
+ {
+     const int sc = src.cols, sr = src.rows;
+     const int dw = dst.cols, dh = dst.rows;
+@@ -616,10 +624,10 @@ void warpNearestConstU8(const cv::Mat_<uint8_t>& src,
+     // of an std::lround per pixel (dw lrounds vs dw*dh). Bit-identical.
+     std::vector<int> sxv(dw);
+     for (int dx = 0; dx < dw; ++dx)
+-        sxv[dx] = int(std::lround(fox + float(dx) * fsx));
++        sxv[dx] = int(std::lround((g ? g->x(dx) : fox + float(dx) * fsx)));
+     #pragma omp parallel for schedule(dynamic, 8)
+     for (int dy = 0; dy < dh; ++dy) {
+-        const int sy_i = int(std::lround(foy + float(dy) * fsy));
++        const int sy_i = int(std::lround((g ? g->y(dy) : foy + float(dy) * fsy)));
+         uint8_t* orow = dst[dy];
+         if (sy_i < 0 || sy_i >= sr) {
+             std::memset(orow, border, size_t(dw));
+@@ -680,7 +688,7 @@ void warpNearestConstVec3f(const cv::Mat_<cv::Vec3f>& src,
+                            cv::Mat_<cv::Vec3f>& dst,
+                            double ox, double oy,
+                            double sx, double sy,
+-                           const cv::Vec3f& border)
++                           const cv::Vec3f& border, const P1bfGrid* g = nullptr)
+ {
+     const int sc = src.cols, sr = src.rows;
+     const int dw = dst.cols, dh = dst.rows;
+@@ -690,10 +698,10 @@ void warpNearestConstVec3f(const cv::Mat_<cv::Vec3f>& src,
+     // lrounds vs dw*dh per-pixel). Bit-identical.
+     std::vector<int> sxv(dw);
+     for (int dx = 0; dx < dw; ++dx)
+-        sxv[dx] = int(std::lround(fox + float(dx) * fsx));
++        sxv[dx] = int(std::lround((g ? g->x(dx) : fox + float(dx) * fsx)));
+     #pragma omp parallel for schedule(dynamic, 8)
+     for (int dy = 0; dy < dh; ++dy) {
+-        const int sy_i = int(std::lround(foy + float(dy) * fsy));
++        const int sy_i = int(std::lround((g ? g->y(dy) : foy + float(dy) * fsy)));
+         cv::Vec3f* orow = dst[dy];
+         if (sy_i < 0 || sy_i >= sr) {
+             for (int dx = 0; dx < dw; ++dx) orow[dx] = border;
+@@ -811,7 +819,7 @@ void warpHermiteVec3fImpl(const cv::Mat_<cv::Vec3f>& src,
+                           cv::Mat_<cv::Vec3f>& dstCoords,
+                           cv::Mat_<cv::Vec3f>* dstNormals,
+                           double ox, double oy, double sx, double sy,
+-                          const cv::Vec3f& border)
++                          const cv::Vec3f& border, const P1bfGrid* g = nullptr)
+ {
+     const int sc = src.cols, sr = src.rows;
+     if (sc <= 0 || sr <= 0) {
+@@ -833,7 +841,7 @@ void warpHermiteVec3fImpl(const cv::Mat_<cv::Vec3f>& src,
+     std::vector<float> wxv(dw);
+     std::vector<HermiteBasis> bxv(dw);
+     for (int dx = 0; dx < dw; ++dx) {
+-        const float fxRaw = fox + float(dx) * fsx;
++        const float fxRaw = (g ? g->x(dx) : fox + float(dx) * fsx);
+         float fx = fxRaw;
+         if (kConstBorder) {
+             if (fx < 0.0f || fx > sxmax) { x0v[dx] = -1; continue; }
+@@ -851,7 +859,7 @@ void warpHermiteVec3fImpl(const cv::Mat_<cv::Vec3f>& src,
+ 
+     #pragma omp parallel for schedule(dynamic, 8)
+     for (int dy = 0; dy < dh; ++dy) {
+-        const float fyRaw = foy + float(dy) * fsy;
++        const float fyRaw = (g ? g->y(dy) : foy + float(dy) * fsy);
+         cv::Vec3f* crow = dstCoords[dy];
+         cv::Vec3f* nrow = wantNormals ? (*dstNormals)[dy] : nullptr;
+ 
+@@ -951,10 +959,10 @@ void warpHermiteReplicateVec3f(const cv::Mat_<cv::Vec3f>& src,
+                                cv::Mat_<cv::Vec3f>& dstCoords,
+                                cv::Mat_<cv::Vec3f>* dstNormals,
+                                double ox, double oy, double sx, double sy,
+-                               const cv::Vec3f& normalBorder)
++                               const cv::Vec3f& normalBorder, const P1bfGrid* g = nullptr)
+ {
+     warpHermiteVec3fImpl<false>(src, valid, du, dv, duv, dstCoords, dstNormals,
+-                                ox, oy, sx, sy, normalBorder);
++                                ox, oy, sx, sy, normalBorder, g);
+ }
+ 
+ void warpHermiteConstVec3f(const cv::Mat_<cv::Vec3f>& src,
+@@ -1657,6 +1665,12 @@ void QuadSurface::gen(cv::Mat_<cv::Vec3f>* coords,
+     const double sy = static_cast<double>(_scale[1]) / static_cast<double>(scale);
+     const double ox = static_cast<double>(ul[0]) - 4.0 * sx;
+     const double oy = static_cast<double>(ul[1]) - 4.0 * sy;
++    // pipeline-as-system P1b-fast v2 (ScrollAgent): the global-origin grid (null, so stock, unless the flag is set)
++    if (_p1bfGlobalOrigin && (!_components.empty() || _strictQuadRenderValidity))
++        throw std::runtime_error("p1bf global origin: single component, non-strict surfaces only");
++    const P1bfGrid p1bfG{double(offset[0]), double(offset[1]), double(scale), double(_center[0]), double(_center[1]),
++                         double(_scale[0]), double(_scale[1]), double(ptr[0]), double(ptr[1])};
++    const P1bfGrid* p1bfGp = _p1bfGlobalOrigin ? &p1bfG : nullptr;
+ 
+     // --- build a source validity mask (255 if point is valid) -------------
+     // Retain the mask and its matching fast-path flag before cache eviction.
+@@ -1815,15 +1829,15 @@ void QuadSurface::gen(cv::Mat_<cv::Vec3f>* coords,
+             warpHermiteReplicateVec3f(*_points, valid_src,
+                                       smooth_du, smooth_dv, smooth_duv,
+                                       coords_big, normals_out,
+-                                      ox, oy, sx, sy, qnVec);
++                                      ox, oy, sx, sy, qnVec, p1bfGp);
+         } else {
+-            warpBilinearReplicateVec3f(*_points, coords_big, ox, oy, sx, sy);
++            warpBilinearReplicateVec3f(*_points, coords_big, ox, oy, sx, sy, p1bfGp);
+         }
+         valid_big.create(h + 8, w + 8);
+         if (_strictQuadRenderValidity) {
+             warpQuadValidityConstU8(valid_src, valid_big, ox, oy, sx, sy, 0);
+         } else {
+-            warpNearestConstU8(valid_src, valid_big, ox, oy, sx, sy, 0);
++            warpNearestConstU8(valid_src, valid_big, ox, oy, sx, sy, 0, p1bfGp);
+         }
+         skipValidity = false;  // force invalidation pass below
+     }
+@@ -1832,7 +1846,16 @@ void QuadSurface::gen(cv::Mat_<cv::Vec3f>* coords,
+     // mode already produced them above, differentiated from the same cubic
+     // basis as the positions, so there is nothing to warp here.
+     if (need_normals && !smooth) {
+-        warpNearestConstVec3f(normal_src, normals_big, ox, oy, sx, sy, qnVec);
++        warpNearestConstVec3f(normal_src, normals_big, ox, oy, sx, sy, qnVec, p1bfGp);
++        if (_p1bcppBilinearNormals) {  // pipeline-as-system p1b-cpp (ScrollAgent): the 4 node normals blended with the position weights where all are finite
++            cv::Mat_<cv::Vec3f> nb(h + 8, w + 8);
++            warpBilinearReplicateVec3f(normal_src, nb, ox, oy, sx, sy, p1bfGp);
++            for (int j = 0; j < nb.rows; ++j)
++                for (int i = 0; i < nb.cols; ++i) {
++                    const cv::Vec3f &b = nb(j, i), &n = normals_big(j, i);
++                    if (std::isfinite(n[0] + n[1] + n[2]) && std::isfinite(b[0] + b[1] + b[2])) normals_big(j, i) = b;
++                }
++        }
+     }
+ 
+ 
+diff --git a/volume-cartographer/core/src/Slicing.cpp b/volume-cartographer/core/src/Slicing.cpp
+index 446121135..120f763b9 100644
+--- a/volume-cartographer/core/src/Slicing.cpp
++++ b/volume-cartographer/core/src/Slicing.cpp
+@@ -828,7 +828,7 @@ void readMultiSliceImpl(
+     failure.rethrow();
+ }
+ 
+-template<typename T>
++template<typename T, typename S = T, bool Cubic = false>  // Cubic: pipeline-as-system p1b-cpp (ScrollAgent) --interp tricubic; S: volume dtype (pipeline-as-system P1b-fast v2 (ScrollAgent): float tiles from a uint8 volume)
+ void sampleTileSlicesImpl(
+     std::vector<cv::Mat_<T>>& out,
+     IChunkedArray* cache,
+@@ -842,7 +842,7 @@ void sampleTileSlicesImpl(
+     out.resize(nSlices);
+     for (int i = 0; i < nSlices; i++) out[i].create(h, w);
+ 
+-    ChunkSampler<T> s(*cache, level);
++    ChunkSampler<S> s(*cache, level);
+     for (int y = 0; y < h; y++) {
+         const cv::Vec3f* bRow = basePoints.ptr<cv::Vec3f>(y);
+         const cv::Vec3f* sRow = stepDirs.ptr<cv::Vec3f>(y);
+@@ -856,7 +856,7 @@ void sampleTileSlicesImpl(
+                 float vz = b[2] + d[2] * off;
+                 T val = 0;
+                 if (s.inBounds(vz, vy, vx)) {
+-                    float v = s.sampleTrilinear(vz, vy, vx);
++                    float v = Cubic ? s.sampleTricubic(vz, vy, vx) : s.sampleTrilinear(vz, vy, vx);
+                     if (v < 0.f) v = 0.f;
+                     float maxV = float(std::numeric_limits<T>::max());
+                     if (v > maxV) v = maxV;
+@@ -893,3 +893,17 @@ void sampleTileSlices(std::vector<cv::Mat_<uint16_t>>& out, IChunkedArray* cache
+                       const std::vector<float>& offsets) {
+     sampleTileSlicesImpl(out, cache, level, basePoints, stepDirs, offsets);
+ }
++
++// pipeline-as-system P1b-fast v2 (ScrollAgent): float32 output from a uint8 volume, the trilinear value with no cast
++void sampleTileSlices(std::vector<cv::Mat_<float>>& out, IChunkedArray* cache, int level,
++                      const cv::Mat_<cv::Vec3f>& basePoints, const cv::Mat_<cv::Vec3f>& stepDirs,
++                      const std::vector<float>& offsets) {
++    sampleTileSlicesImpl<float, uint8_t>(out, cache, level, basePoints, stepDirs, offsets);
++}
++
++// pipeline-as-system p1b-cpp (ScrollAgent): as above, sampled with upstream's ChunkSampler::sampleTricubic (Catmull-Rom)
++void sampleTileSlicesTricubic(std::vector<cv::Mat_<float>>& out, IChunkedArray* cache, int level,
++                              const cv::Mat_<cv::Vec3f>& basePoints, const cv::Mat_<cv::Vec3f>& stepDirs,
++                              const std::vector<float>& offsets) {
++    sampleTileSlicesImpl<float, uint8_t, true>(out, cache, level, basePoints, stepDirs, offsets);
++}
+diff --git a/volume-cartographer/core/src/VcDataset.cpp b/volume-cartographer/core/src/VcDataset.cpp
+index 0d94ec04c..2a9f991be 100644
+--- a/volume-cartographer/core/src/VcDataset.cpp
++++ b/volume-cartographer/core/src/VcDataset.cpp
+@@ -614,6 +614,9 @@ struct VcDataset::Impl {
+         } else if (meta.dtype == utils::ZarrDtype::uint16) {
+             dtype_ = VcDtype::uint16;
+             dtypeSize_ = 2;
++        } else if (meta.dtype == utils::ZarrDtype::float32) {  // pipeline-as-system P1b-fast v2 (ScrollAgent)
++            dtype_ = VcDtype::float32;
++            dtypeSize_ = 4;
+         } else {
+             throw std::runtime_error("Unsupported zarr dtype");
+         }
+@@ -628,6 +631,9 @@ struct VcDataset::Impl {
+                 if (raw > std::numeric_limits<uint8_t>::max())
+                     raw = std::numeric_limits<uint8_t>::max();
+                 fillValueBytes_[0] = static_cast<uint8_t>(raw);
++            } else if (dtype_ == VcDtype::float32) {  // pipeline-as-system P1b-fast v2 (ScrollAgent)
++                const float f = static_cast<float>(*meta.fill_value);
++                std::memcpy(fillValueBytes_.data(), &f, sizeof(f));
+             } else {
+                 if (raw < 0) raw = 0;
+                 if (raw > std::numeric_limits<uint16_t>::max())
+@@ -1139,6 +1145,7 @@ std::unique_ptr<VcDataset> createZarrDataset(
+     meta.shape.assign(shape.begin(), shape.end());
+     meta.chunks.assign(chunks.begin(), chunks.end());
+     meta.dtype = (dtype == VcDtype::uint8) ? utils::ZarrDtype::uint8
++               : (dtype == VcDtype::float32) ? utils::ZarrDtype::float32  // pipeline-as-system P1b-fast v2 (ScrollAgent)
+                                            : utils::ZarrDtype::uint16;
+     meta.fill_value = static_cast<double>(fillValue);
+     meta.dimension_separator = dimensionSeparator;
