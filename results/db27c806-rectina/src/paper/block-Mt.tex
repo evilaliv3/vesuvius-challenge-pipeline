@@ -1,0 +1,52 @@
+\section{Results for \MtName{} against Reader v2 and Reader v3}\label{sec:results-Mt}
+
+\MtName{} is the checkpoint at the end of stage s2 of the chain (stages s1, ft116k and s2). Table~\ref{tab:cmp-Mt-Three} gives for all fourteen units, in three blocks, three measures of Reader v3 and \MtName{} (the AUC, the AUC on thin strokes and false ink at 80 per cent recall) and, under the units, the mean and the median of each measure over the fourteen units; Table~\ref{tab:cmp-Mt-Two} gives the same for Reader v2 and \MtName{}. The text below gives, for the eight held-out units, the mean, the median and the number of units on which \MtName{} scores above each reader in AUC.
+
+\begin{table*}[!t]
+\caption{Three measures of \MtName{} against Reader v3 on the fourteen units: the AUC, the AUC on thin
+strokes and false ink at 80 per cent recall. The cell of \MtName{} gives in parentheses the signed difference
+against Reader v3. The rows Mean and Median are taken over all fourteen units; the
+block of the community labels is information only.}\label{tab:cmp-Mt-Three}
+\centering
+\input{table-Mt-Three}
+\par\smallskip
+{\footnotesize\raggedright\input{table-legend-Mt}\par}
+\end{table*}
+
+\begin{table*}[!t]
+\caption{Three measures of \MtName{} against Reader v2 on the fourteen units, in the format of Table~\ref{tab:cmp-Mt-Three}. The cell of \MtName{} gives in parentheses the signed difference
+against Reader v2. The rows Mean and Median are taken over all fourteen units; the
+block of the community labels is information only.}\label{tab:cmp-Mt-Two}
+\centering
+\input{table-Mt-Two}
+\par\smallskip
+{\footnotesize\raggedright\input{table-legend-Mt}\par}
+\end{table*}
+
+Over the eight held-out units the mean score is \MtHeldMeanRThreeAuc{} for Reader v3, \MtHeldMeanRTwoAuc{} for Reader v2 and \MtHeldMeanOwnAuc{} for \MtName{}, and the medians are \MtHeldMedianRThreeAuc{}, \MtHeldMedianRTwoAuc{} and \MtHeldMedianOwnAuc{}. \MtName{} scores above Reader v3 on \MtHeldKTextThree{} units, the median difference is \MtHeldMedianDiffThreeAuc{} and the mean difference is \MtHeldMeanDiffThreeAuc{}; against Reader v2 it scores above on \MtHeldKTextTwo{} units, with a median difference of \MtHeldMedianDiffTwoAuc{} and a mean difference of \MtHeldMeanDiffTwoAuc{}. In the 116 keV block (\BlockLongN{} units) the count above Reader v3 is \MtBlockLongAboveThree{} and above Reader v2 it is \MtBlockLongAboveTwo{}, and in the 113 keV block (\BlockShortN{} units) the counts are \MtBlockShortAboveThree{} and \MtBlockShortAboveTwo{}.
+
+Over all fourteen units \MtName{} is above Reader v3 on \MtAllKTextThree{}, the mean difference is \MtAllMeanDiffThreeAuc{} and the median difference is \MtAllMedianDiffThreeAuc{}; the units where it is below Reader v3 are \MtBelowListAllThree{}. Against Reader v2 it is above on \MtAllKTextTwo{}, the mean difference is \MtAllMeanDiffTwoAuc{} and the median difference is \MtAllMedianDiffTwoAuc{}; the units where it is below Reader v2 are \MtBelowListAllTwo{}.
+
+On the thin strokes the mean AUC over the fourteen units is \MtAllMeanRTwoThin{} for Reader v2, \MtAllMeanRThreeThin{} for Reader v3 and \MtAllMeanOwnThin{} for \MtName{}. At the threshold that marks 80 per cent of the ink pixels of each unit, \MtName{} marks less blank papyrus as ink than Reader v3 on \MtAllFaLessThree{} units (mean share \MtAllMeanOwnFaEighty{} against \MtAllMeanRThreeFaEighty{}, median \MtAllMedianOwnFaEighty{} against \MtAllMedianRThreeFaEighty{}) and less than Reader v2 on \MtAllFaLessTwo{} (mean share of Reader v2 \MtAllMeanRTwoFaEighty{}). The false ink at 90 per cent recall and the share of blank pixels lit are in Table~\ref{tab:extra} of appendix~B.
+
+\MtName{} was trained once, with seed \Seed{}, and no repeat of the training exists, so that the spread between two runs of the same configuration is not measured here. The comparison is between single runs, and the differences above concern these checkpoints and not the recipe.
+
+\subsection{The controls}\label{sec:controls-Mt}
+
+The control units were scored on the whole box of the unit, against the raw organiser labels, with the same
+scorer.\footnote{Control windows: the windows table of the bench, rows of kind control, scorer
+thmb7 on the raw organiser labels, whole box.} The overlap check of the eight held-out units, which compares their identifiers with the names of the \TrainSegN{} training segments, finds \OverlapHeld{} of them there; the six controls were not checked again for this work, and the check of the earlier Rectina article, which compares the keys of the segments and not neighbouring areas of one volume, was not repeated. Four of the controls carry the
+labels of the organisers: ag1, ag2 and w00, drawn by hand by the organisers, and 0343, whose labels are the mask of the
+approved letters, which we know through the image of the announcement. The other two, w058 and w060, carry
+labels made by members of the community; the header of their block in Table~\ref{tab:cmp-Mt-Three} says that they are
+information only, which means that their labels are not those of the organisers and that they stay out of the
+sentence below, while they are counted in the Mean and Median rows of the tables. The eight held-out units are
+different in kind: they are segments of scrolls that were used in training, and the header of their block calls them
+held-out segments of training scrolls with our validation labels. The six control volumes were rendered again with the current binary for the reads of the new checkpoints, while the controls of Reader v2 and Reader v3 were read on earlier renders, so the two sides of the control comparison do not share the same input.
+
+On the six control units \MtName{} scores above Reader v3 on \MtCtrlKTextThree{} with a median difference of \MtCtrlMedianDiffThreeAuc{}, and above Reader v2 on \MtCtrlKTextTwo{} with a median difference of \MtCtrlMedianDiffTwoAuc{}. On the four controls with organisers' labels (ag1, ag2, w00, 0343), a subset of the six, the split following from who made the labels of each unit, a fact about the data and not a choice made on the scores (both counts are given because the split was not fixed before the scores), the mean score is \MtOrgMeanRThreeAuc{} for Reader v3, \MtOrgMeanRTwoAuc{} for Reader v2 and \MtOrgMeanOwnAuc{} for
+\MtName{}, and the medians are \MtOrgMedianRThreeAuc{}, \MtOrgMedianRTwoAuc{} and \MtOrgMedianOwnAuc{}. \MtName{} scores above Reader v3 on
+\MtOrgKTextThree{} of these units, the median difference is \MtOrgMedianDiffThreeAuc{} and the mean difference is
+\MtOrgMeanDiffThreeAuc{}; against Reader v2 it scores above on \MtOrgKTextTwo{}, with a median difference of \MtOrgMedianDiffTwoAuc{} and a mean difference of \MtOrgMeanDiffTwoAuc{}.
+
+\input{figures-ctrl-m3}

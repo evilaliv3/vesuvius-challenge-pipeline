@@ -1,100 +1,74 @@
 \maketitle
 
 \begin{abstract}
-Rectina is an ink reader for Herculaneum papyri: the villa hybrid 3D/2D network, trained from random weights on dense composite labels of \ScrollWord{} scrolls, then trained further on larger tiles following the recipe of Reader v3 (\IterThree{} iterations at \TileThree{} px, \IterFour{} at \TileFour{} px). Two checkpoints are released, m1 after the first stage and m2 after the two further stages. \AbstractDiff{} there is one seed per checkpoint and no ablation, so no result is attributed to either. The rule for adopting m2 was fixed in advance: above Reader v3 on at least \MARuleKMin{} of the eight held-out units with a median gain above \MARuleMargin{}. It is \MARuleOutcome{} (\MAStatsHeldKText{}, median \MAStatsHeldMedianDiff{}), but \RuleMetV{} of the six variants scored meet it too, and the held-out units are segments of scrolls used in training, so the rule is descriptive. On the six control units outside the training segments m2 is above Reader v3 on \MAStatsCtrlKText{} (median \MAStatsCtrlMedianDiff{}), and on the four with organisers' labels on \MACtrlAbove{} of \MACtrlN{} (median \MACtrlMedianDiff{}): \FewThousandths{} Against Reader v2, m1 is above on \MCStatsHeldKText{} held-out units (median \MCStatsHeldMedianDiff{}) and on \MCStatsCtrlKText{} controls (median \MCStatsCtrlMedianDiff{}). Weights and model cards \MAPublishVerb{} in the model repository~\cite{hfrepo}; the reader, the render recipe and the evidence files in the article folder~\cite{ownfolder}.
+Rectina m3 and m4 are the second pair of checkpoints of the Rectina ink reader, the villa hybrid 3D/2D network trained from random weights on dense composite labels. They were retrained on villa main with bicubic renders of the \TrainSegN{} training segments, a revisit cap of \RevisitCap{} in the sampler and a masked, clipped gamma augmentation, in one chain: the stages s1 (\IterSOne{} iterations at \PxSOne{} px), ft116k (\IterFT{}) and s2 (\IterSTwo{}) give m3, and the stages s3 (\IterSThree{} iterations at \PxSThree{} px) and s4 (\IterSFour{} at \PxSFour{} px), continued from the weights of m3, give m4. These changes were made together, there is one seed per checkpoint and no ablation, so no result is attributed to any of them. On the fourteen evaluation units m4 scores above Reader v3 in AUC on \MfAllKTextThree{} (mean difference \MfAllMeanDiffThreeAuc{}, median \MfAllMedianDiffThreeAuc{}) and above Reader v2 on \MfAllKTextTwo{} (mean difference \MfAllMeanDiffTwoAuc{}, median \MfAllMedianDiffTwoAuc{}); m3 scores above Reader v2 on \MtAllKTextTwo{} (mean difference \MtAllMeanDiffTwoAuc{}) and above Reader v3 on \MtAllKTextThree{} (mean difference \MtAllMeanDiffThreeAuc{}). On the six control units outside the training segments m4 is above Reader v3 on \MfCtrlKTextThree{} (median \MfCtrlMedianDiffThreeAuc{}) and above Reader v2 on \MfCtrlKTextTwo{} (median \MfCtrlMedianDiffTwoAuc{}). Differences of a few thousandths are below what this work can resolve with one seed. Weights and model cards are published in the model repository~\cite{hfrepo}.
 \end{abstract}
-
-\DraftLabelNote{}
 
 \section{Introduction}
 
-The organisers of the Vesuvius Challenge state the last of the three problems of reading a scroll as \OrgQuoteOne{} and add that \OrgQuoteTwo{}~\cite{openproblems}. A detector that answers this must say, for each point of a segmented surface, whether it carries ink. The readers that exist for the scrolls of the open data~\cite{data} are Reader v2~\cite{readertwo} and Reader v3~\cite{readerthree}.
+The organisers of the Vesuvius Challenge state the last of the three problems of reading a scroll as \OrgQuoteOne{} and add that \OrgQuoteTwo{}~\cite{openproblems}. A detector that answers this must say, for each point of a segmented surface, whether it carries ink. The readers that exist for the scrolls of the open data~\cite{data} are Reader v2~\cite{readertwo} and Reader v3~\cite{readerthree}, and Rectina m1 and m2, described in an earlier article~\cite{rectinaone}, were compared with them.
 
-The engine is not ours: the scan data and the labels of the organisers, the ink detection code of villa with its model, training and render tools~\cite{villa}, and the two readers with which we compare. The training in stages on larger tiles follows Reader v3, which in the words of its README is \RdrQuoteOne{}, and for which \RdrQuoteTwo{}~\cite{readerthree}. What is ours, as the files of this work show: the evaluation on units outside the training segments with its overlap check, the render recipe with its patch, the checks of the comparison and the chain that releases the checkpoints\OursDifferences{} We make no claim that the recipe or any of these differences explains a result: there is one training seed for each checkpoint and no ablation. Rectina is a dense ink reader, a three dimensional network that takes a stack of seventeen depth layers of a scroll volume and returns for every pixel of the stack surface the probability that it carries ink. Rectina is released in two checkpoints, m1 after the first training step and m2 after two more. This article gives the recipe of the training, the measurement, and the comparison of Rectina m1 with Reader v2 and Reader v3 and of Rectina m2 with Reader v3, on eight held-out units and on six control units, with the same scores on the same units.
+The engine is not ours: the scan data and the labels of the organisers, the ink detection code of villa with its model, training and render tools~\cite{villa}, and the two readers with which we compare. The training in stages on larger tiles follows Reader v3, which in the words of its README is \RdrQuoteOne{}, and for which \RdrQuoteTwo{}~\cite{readerthree}. What is ours, as the files of this work show: the evaluation on units outside the training segments, the render recipe with its patch, the checks of the comparison and the chain that releases the checkpoints. Rectina m3 and m4 were trained again from random weights on the current villa main, with the surfaces of all \TrainSegN{} training segments rendered again, so that they differ from Rectina m1 and m2 in several things at once (the renders, a revisit cap in the sampler, a masked and clipped gamma augmentation and the version of the training code, section~\ref{sec:start}). We make no claim that any one of these changes explains a result: there is one training seed for each checkpoint and no ablation. Rectina m3 is the model after the first three stages, Rectina m4 the model after two more. This article gives the recipe of the training, the measurement, and the comparison of each of the two checkpoints with Reader v2 and Reader v3, on eight held-out units and on six control units, with the same scores on the same units.
 
-The rule of the abstract and the controls are the results. Against Reader v2, Rectina m1 scores above on \MCHeldAbove{} of the eight held-out units (median gain \MCHeldMedianDiff{}), on the six controls on \MCStatsCtrlKText{} (median \MCStatsCtrlMedianDiff{}) and on the four with organisers' labels on \MCCtrlAbove{} of \MCCtrlN{} (median \MCCtrlMedianDiff{}); of the six variants scored, \RuleCountsV{} Descriptively, over all fourteen units, Rectina m1 scores above Reader v2 on \MCStatsAllKText{} with a median difference of \MCStatsAllMedianDiff{}, and Rectina m2 scores above Reader v3 on \MAStatsAllKText{} with a median difference of \MAStatsAllMedianDiff{}; against Reader v3 the count of Rectina m1 is \MBStatsAllKText{}, with a median difference of \MBStatsAllMedianDiff{}.
+The tables and the controls are the results. Rectina m4 scores above Reader v3 on \MfHeldKTextThree{} of the held-out units (median gain \MfHeldMedianDiffThreeAuc{}), on the six controls on \MfCtrlKTextThree{} (median \MfCtrlMedianDiffThreeAuc{}) and on the four with organisers' labels on \MfOrgKTextThree{} (median \MfOrgMedianDiffThreeAuc{}). Against Reader v2 the counts of Rectina m4 are \MfHeldKTextTwo{} on the held-out units, \MfCtrlKTextTwo{} on the controls and \MfOrgKTextTwo{} on the four controls with organisers' labels. Descriptively, over all fourteen units, Rectina m4 scores above Reader v3 on \MfAllKTextThree{} with a median difference of \MfAllMedianDiffThreeAuc{}, and Rectina m3 scores above Reader v2 on \MtAllKTextTwo{} with a median difference of \MtAllMedianDiffTwoAuc{}; against Reader v3 the count of Rectina m3 is \MtAllKTextThree{}, with a median difference of \MtAllMedianDiffThreeAuc{}.
 
-Not claimed: a new architecture (the model is the one of villa), a result on any scroll beyond the fourteen units, a calibrated probability, or a difference between two recipes. Each checkpoint comes from one training seed, the paired tests are not corrected for multiple comparisons, and the scores of different readers are not calibrated against each other. No earlier work of this series is cited, because none of its modules appears here.
+Not claimed: a new architecture (the model is the one of villa), a result on any scroll beyond the fourteen units, a calibrated probability, or a difference between two recipes. Each checkpoint comes from one training seed, no test is corrected for multiple comparisons and none is run in this article, and the scores of different readers are not calibrated against each other.
 
-\section{Starting point}
+\section{Starting point}\label{sec:start}
 
-The starting point is the ink detection code of the villa repository, in the aligned21 hybrid 3D/2D configuration
-of villa commit 3ea17f54a9b3, whose base settings are listed in appendix~A beside the settings we changed. The readers
+The starting point is the ink detection code of the villa repository, at the main branch (commit \VillaCommit{}) with one patch of \PatchFiles{} files (\PatchIns{} insertions and \PatchDel{} deletions) that adds the revisit cap to the sampler, a weighted draw of the patches whose power is the key \texttt{physical\_weight\_power} of the fixed scroll prior, and that masks and clips the two gamma calls of the default ink preset. The settings of every stage are listed in appendix~A. The readers
 against which we compare are the published Reader v2 and Reader v3.
 
 \section{Surfaces and renders}
 
-The models read a stack of seventeen depth layers of the scroll volume and return one probability for every pixel
-of the surface of the stack. The units used to score them are cut from the volumes on windows that were fixed from the
-labels before any map existed.\footnote{Windows: the windows table of the bench (\path{five-model-bench/evidence}, listed in appendix~C), fixed before
-any map existed.}
+The models read a stack of \Planes{} depth layers of the scroll volume and return one probability for every pixel
+of the surface of the stack. The surfaces of the \TrainSegN{} training segments were rendered again with the main renderer of villa, with bicubic interpolation: \GroupZeroN{} of them had been rendered with villa already, and \GroupTwoN{} were rendered anew because the earlier binary was about \RampVox{} voxels of level 0 off at level 2. The units used to score the
+models are cut from the volumes on windows that were fixed from the
+labels before any map existed.\footnote{Windows: the windows table of the bench, fixed before
+any map existed; the table of the units is \path{units.csv} of the study.} The eight held-out units are read on the new renders of the training volumes, and the six controls on volumes rendered again with the current binary.
 
 \section{Labels and validation}\label{sec:labels}
 
-The training labels are those of the label set \SetIdTex{}: \MALabelUnits{} units in all, from \ScrollWord{} scrolls (the scrolls of the per-scroll quotas of appendix~A). The set is composite in that its units are of three kinds: \MALabelPlaced{} carry labels moved between scan resolutions and placed with a registered transformation and offset, \MALabelNative{} are native units whose shift was measured, and \MALabelComposite{} are composite units on a canvas of \CompositeCanvas{} um. The fourteen units used to score the
-models here were kept out of every training set of these models.\footnote{The eight held-out units are the
-validation-only units of the val54 group of the windows table of the bench, listed in the file
-\path{held-out-units.csv} of the evidence of this article.} \MAValidationSent{}
+The training labels are the labels of the earlier build, unchanged: \TrainSegN{} segments from \ScrollN{} scrolls. According to the label source column of the manifest of the set, \LabCorrected{} of them carry the shift corrections made in the label shift study of October (\LabExactMain{} by the exact placement on the main scroll, \LabExactNine{} by the exact placement on 0009B, \LabExactG{} by an exact placement with a residual and \LabNative{} by native placement), and \LabPublished{} use the published labels. The fourteen units used to score the
+models here were kept out of every training set of these models and were not realigned: the offset census of their labels classed all of them at low confidence, so none was moved.\footnote{The eight held-out units are the
+validation-only units of the windows table of the bench, listed in the file
+\path{units.csv} of the study.} Validation uses the \ValMasks{} validation masks of the label set, with \ValSteps{} batches per evaluation, and the checkpoint of each stage is its last step, not selected on the validation set.
 
-The offset we found and reported in \href{https://github.com/ScrollPrize/villa/issues/2243}{villa issue 2243} was
-corrected in the labels used here. Labels moved between scan resolutions were placed with that correction
-(\MALabelOffsetLow{} to \MALabelOffsetHigh{} px, registered per segment) on \MALabelPlaced{} of the \MALabelUnits{} units, by
-measured shifts on \MALabelNative{} native units; the remaining \MALabelComposite{} composite units were checked only by a
-search within \MALabelSearchPx{} px.
+A model free measurement on the unit w00, made from the meshes of the organisers, placed its stored label between \WOffLow{} and \WOffHigh{} pixels from the mesh placement, the value depending on the convention. Shifting the label to the mesh placement (\WShiftMeshPx{} pixels in rows and columns) changed the AUC of w00 by \WShiftMeshMf{} for Rectina m4, \WShiftMeshMt{} for Rectina m3 and \WShiftMeshV{} for Reader v3, and shifting it to the offset found by the census of the models (\WShiftCensusRows{} pixels in rows and \WShiftCensusCols{} in columns) changed it by \WShiftCensusMf{}, \WShiftCensusMt{} and \WShiftCensusV{} in the same order. These changes are far below the differences interpreted in this article, and the training labels were left as they were.
+
+The placement of the training labels was checked on a sample of segments. Of the \TrainSegN{} segments, \CheckN{} can be checked at all (\CheckPub{} with published labels and \CheckCor{} with corrected labels), because the organisers publish no raw label raster for the others; the sample held \CheckSample{} segments. The declared strict estimator classed \CheckStrictUnknown{} of the \CheckSample{} as unknown, because the labelled area of the organisers is too sparse for it. A second estimator, a Dice scan inside the organisers' labelled area declared after the first result, found the stored labels of the corrected segments at the placement of the meshes, the largest displacement being \CheckMaxPx{} pixels, and classed \CheckDiceAligned{} of them as aligned. For the segments with published labels the check gives no answer, so that whether those labels are shifted is not established here.
 
 \DataAttribution{}
 
 \section{Training recipe}
 
 The recipe is given as the stages in which the models were trained and the setting of each stage. A setting that is not
-repeated in a stage is the one of the stage before it. Stage 1 gives Rectina m1; stages 3 and 4 follow it and give Rectina m2; the stages carry the numbers of their configuration files (s1, s3, s4). \CkptCounters{} Each value was read by a tool from the configuration file that
-was used, and the table of appendix~A gives the source of each value, with file and line where the source is public code.
+repeated in a stage is the one of the stage before it. Stages s1, ft116k and s2 give Rectina m3; stages s3 and s4 follow it, starting from the weights of the end of s2, and give Rectina m4. Each value was read by a tool from the configuration file that
+was used, and the table of appendix~A gives the source of each value.
 
-\CompositeSentence{}
-
-\input{recipe-prose}
+Stage s1 trains for \IterSOne{} iterations with a batch of \BatchSOne{} patches per step drawn from \QuotaScrolls{} scrolls by the quotas of the fixed scroll prior, patches of \Planes{} planes by \PxSOne{} by \PxSOne{} pixels, a learning rate of \LrSOne{} and a warmup of \WarmSOne{} steps. Stage ft116k continues from the weights of s1 for \IterFT{} iterations, and stage s2 from the weights of ft116k for \IterSTwo{} iterations, with the same patch size and batch. Stage s3 continues for \IterSThree{} iterations on patches of \PxSThree{} pixels with a batch of \BatchSThree{} and a learning rate of \LrSThree{}, and stage s4 for \IterSFour{} iterations on patches of \PxSFour{} pixels with the same batch and learning rate. Settings common to the stages: optimizer SGD, mixed precision, seed \Seed{}, weight decay \WeightDecay{}, label smoothing of the binary cross entropy of \LabelSmooth{}, \ValSteps{} validation batches per evaluation, and a revisit cap of \RevisitCap{} in all stages. The training patches carry a masked, clipped gamma augmentation and the sampler a revisit cap, the two changes of the patch of section~\ref{sec:start}.
 
 \section{Measurement}
 
-\MethodsGpu{}
+The maps of every model were produced on graphics processors of remote machines, and the scores were computed on CPU from those maps; no read of any model on CPU enters a table. Each model reads every unit with \ReadStarts{} starts of \Planes{} consecutive planes of the stack.
 
-\MethodsReaders{}
+During this work comparisons were run against other published readers. This article reports the comparison of Rectina m3 and Rectina m4 with Reader v2, the earlier published reader, and with Reader v3, the published reader of the project.
 
 We score every reader with the area under the ROC curve of its ink probability against the organiser mask of the
 unit, taken on the window of the unit that was fixed from the labels before any map existed. The eight held-out
-units fall in two energy blocks: \MABlockLongN{} units scanned at 116 keV and \MABlockShortN{} units scanned at 113
-keV.\footnote{Energy blocks: the file \path{held-out-units.csv} of the evidence of this article.} Each of the tables in the sections
+units fall in two energy blocks: \BlockLongN{} units scanned at 116 keV and \BlockShortN{} units scanned at 113
+keV.\footnote{Energy blocks: the volume named in the file \path{units.csv} of the study, whose name carries the energy.} Each of the tables in the sections
 that follow gives for all fourteen units, in three blocks, three measures of the two readers it compares (the
 AUC, the AUC on thin strokes and false ink at 80 per cent recall) and, under the units, the mean and the median of
-each measure. For stages 3 and 4 the checkpoint is the last step of the stage, as for Reader v3; for stage 1 it is the checkpoint at its fixed step, where the run was stopped (\StageOneClause{}); no checkpoint of a stage was selected on the validation set; which variant of the procedure is reported was chosen on the fourteen units (section~\ref{sec:results-MA}), so the paired tests of this article are exploratory and descriptive, not confirmatory.
+each measure. For every stage the checkpoint is the last step of the stage (\CkptThree{} for Rectina m3 and \CkptFour{} for Rectina m4, as named in the manifests of the release packages), and no checkpoint was selected on the validation set; the paired differences of this article are descriptive, not confirmatory, and no test is run.
 
-\ParityGpu{}
+\input{block-Mt}
 
-\input{block-MC}
+\input{block-Mf}
 
-\input{block-MA}
+\section{Usage}\label{sec:usage}
 
-\input{block-MB}
-
-\input{usage}
-
-\section{Upstream contributions}
-
-The simpler rule was proposed to villa as pull request \href{https://github.com/ScrollPrize/villa/pull/2396}{2396},
-opened as a draft on 31 October 2026, not part of these models. The pull requests below are those that the models
-used. Each one links to its page, its state was read from the code host at the time this text was built (fetched
-\MAPrFetched{}, \MAPrState{}), and the last two columns say what the change does and what role it has for the models.
-
-\begin{table*}[!t]
-\caption{The pull requests of the project that these models used.}\label{tab:pulls}
-\centering
-\input{table-pull-requests}
-\end{table*}
-
-The label regrid offset we found and reported in villa issue \href{https://github.com/ScrollPrize/villa/issues/2243}{2243}
-was corrected in the labels used here; the code that carried it was later
-removed from villa in pull request \href{https://github.com/ScrollPrize/villa/pull/2358}{2358},
-so the correction needs no pull request. The month's other contributions are listed in a separate submission.
+The checkpoints are released with model cards in the model repository~\cite{hfrepo}, Rectina m3 in the folder m3 and Rectina m4 in the folder m4. They are read with the reader of the earlier Rectina article~\cite{rectinaone}, which reads \Planes{} consecutive planes of the stack of a surface and slides a square patch over rows and columns; the patch is \PxSOne{} pixels for Rectina m3 and \PxSFour{} pixels for Rectina m4, the crop size of the last stage of each. The reads of this article used \ReadStarts{} starts of \Planes{} planes for Rectina m3 and \ReadStartsFour{} for Rectina m4, on graphics processors. Not tested for these checkpoints: the public reader of the earlier article, reads on CPU, other renders of the same surfaces as input, and scales other than the 9 um class of the training data.
 
 \section{Limits}
 
@@ -105,15 +79,24 @@ not be mixed in a reading: human labels of the organisers for ag1, ag2 and w00, 
 0343, which we know only through the announcement image and therefore only as that image shows it, and labels of the
 community for w058 and w060. None of them is a reference of the same standing as the others. The 113 keV block holds
 two units of a single scroll scanned at another energy than the other six, so its counts are small and support no
-statement about energy. Each checkpoint was trained once, and no repeat of the training exists, so that the spread between
-two runs of the same configuration is not measured here and a difference of a few thousandths between two scores must
-not be read as a result. The overlap check of appendix~C finds all \MAOverlapWord{} units outside the training sets; it compares the keys of the segments, not neighbouring areas of one volume. The sources of the label set and the rule that turned them into masks are not recorded in a pinned file of this work; what is recorded is the inventory of its \MALabelUnits{} units by kind, in the inventory of the study.
+statement about energy.
+
+Each checkpoint was trained once, and no repeat of the training exists, so that the spread between
+two runs of the same configuration is not measured here. The noise that was measured is the noise of one validation balanced accuracy evaluation on the earlier chain that used the stages s3 and s4: a standard deviation of \NoiseThree{} at s3 and \NoiseFour{} at s4, about \NoiseAbout{}. It is not an AUC noise, and the AUC noise of the means over the fourteen units was not measured, so differences of a few thousandths in AUC must not be read as a result and no ranking of models is drawn from them.\footnote{Source: the file \path{c-val-noise.csv} of the study, column \texttt{ba\_single\_eval\_sd\_est}, taken on the chain that trained the earlier checkpoints with the same stages.}
+
+The chain of this article differs from the chain of Rectina m1 and m2 in several things at once (the renders, the revisit cap, the masked gamma, the version of the training code and a fresh s1), so no change in the numbers can be attributed to a single cause. The control volumes of the new checkpoints were rendered again with the current binary, while Reader v2 and Reader v3 were read on earlier renders, so the two sides of the control comparison do not share the same input; the unit 0343 differs from its old render for a cause that was not proven.
+
+The training labels were not realigned in this build. The sample check of the placement covers \CheckSample{} of \TrainSegN{} segments, and only \CheckN{} of them can be checked at all; for the \LabPublished{} segments with published labels the check gives no answer, and the corrected labels are confirmed where they can be measured. Nothing is known from this sample about the scrolls whose raw labels the organisers do not publish. The sources of the label set and the rule that turned them into masks are not recorded in a pinned file of this work.
+
+Two further models, M7 and M8, were trained with windows recentred on the surface and are not part of the checkpoints of this article. On the \NegSevenN{} held-out units that the first was read on, its mean AUC is \NegSevenAuc{} against \NegSevenRefAuc{} for Rectina m3, and on the \NegEightN{} units read for the second its mean AUC is \NegEightAuc{} against \NegEightRefAuc{} for Rectina m4: the recentred windows gave no gain.
+
+Combinations of the readers were also scored (appendix~B). They are descriptive: over the \PairRows{} combinations that include Rectina m4, the largest mean AUC gain against Rectina m4 alone is \PairMaxGain{}, and the number of units above Rectina m4 stays between \PairMinWins{} and \PairMaxWins{} of fourteen, so that no combination is claimed to be better than Rectina m4 alone.
 
 \section{Release}
 
-\MAReleaseCkpt{} The models \MAPublishVerb{} in the repository \href{https://huggingface.co/evilaliv3/rectina}{evilaliv3/rectina} on Hugging Face, Rectina m1 in the folder \href{https://huggingface.co/evilaliv3/rectina/tree/main/m1}{m1} and Rectina m2 in the folder \href{https://huggingface.co/evilaliv3/rectina/tree/main/m2}{m2}. The weights and the model cards
+Rectina m3 is the checkpoint of the last step of stage s2 (\CkptThree{}) and Rectina m4 the checkpoint of the last step of stage s4 (\CkptFour{}). The models are published in the repository \href{https://huggingface.co/evilaliv3/rectina}{evilaliv3/rectina} on Hugging Face, Rectina m3 in the folder \href{https://huggingface.co/evilaliv3/rectina/tree/main/m3}{m3} and Rectina m4 in the folder \href{https://huggingface.co/evilaliv3/rectina/tree/main/m4}{m4}, with their model cards; the earlier checkpoints m1 and m2 stay in their folders. The weights and the model cards
 are released under CC BY-NC 4.0 for non-commercial research use with attribution, and the code of the recipe under
-MIT. The panels, the sources and the numbers files of this article are published in its own results folder~\cite{ownfolder}, whose \UsageDirRead{}, \UsageDirRender{} and \UsageDirConvert{} hold the public reader, the recipe of the render and the converters of a map (section~\ref{sec:usage}); the checkpoints are in the model repository~\cite{hfrepo}. Data terms: the data of the Vesuvius Challenge are subject to its data licence (dl.ash2txt.org LICENSE.txt). The figure panels show the CT surface, the human ink labels of the evaluation units and the model maps, with attribution to their authors; they are published on the author's own responsibility as figures of this work. This article and its results folder hold no data volumes and no label files.
+MIT. This article makes no claim beyond the model cards. Data terms: the data of the Vesuvius Challenge are subject to its data licence (dl.ash2txt.org LICENSE.txt). The figure panels show the human ink labels of the evaluation units only through the maps they are compared with, and the model maps, with attribution to their authors; they are published on the author's own responsibility as figures of this work. No panel shows the surface texture of any scroll, and no figure shows PHerc0826; the figures of the unit group 1447 are maps of the same two control units that the earlier Rectina article showed. This article and its folder hold no data volumes and no label files.
 
 \appendices
 
@@ -121,20 +104,35 @@ MIT. The panels, the sources and the numbers files of this article are published
 
 \input{recipe-table}
 
-\section{Graphics processors of the reads}
+\section{Further measures and combinations}
 
-\GpuSentence{}
+Table~\ref{tab:extra} gives the mean over the fourteen units of the five measures of the four models, including the false ink at 90 per cent recall and the share of blank pixels lit that the sections of results leave out.
 
-\input{table-gpu}
+\begin{table*}[!t]
+\caption{Mean over the fourteen units of five measures of Reader v2, Reader v3, Rectina m3 and Rectina m4.}\label{tab:extra}
+\centering
+\input{table-extra}
+\end{table*}
+
+Table~\ref{tab:pairs} gives, for the combinations of Rectina m3 and Rectina m4 with the readers, the mean over the fourteen units of the AUC, of the false ink at 90 per cent recall and of the share lit, the mean paired difference in AUC against Rectina m4 alone and against Reader v3, and the number of units on which the combination scores a higher AUC than that reference. A combination is the weighted mean of the maps of its members, the weights being written in the first column (m3 and m4 are Rectina m3 and Rectina m4, v2 and v3 the readers). The combinations are exploratory, and they were not chosen to be reported.
+
+\begin{table*}[!t]
+\caption{Combinations of Rectina m3, Rectina m4, Reader v2 and Reader v3 on the fourteen units.}\label{tab:pairs}
+\centering
+\input{table-pairs}
+\end{table*}
+
+\section{Triptychs of the held-out units}
+
+Each figure shows one held-out unit as three panels side by side: Reader v3, the model and the red difference of the two maps. The panels are the files of full resolution, shown reduced on the page and enlarged without loss in the file. Figures~\ref{fig:m3-20250510172639} to~\ref{fig:m3-20250905172054-1b2} are Rectina m3 and the figures after them Rectina m4.
+
+\input{figures-held-m3}
+
+\input{figures-held-m4}
 
 \section{Provenance}
 
-Every number of the text is read from a table written by a tool. The scores of Rectina m1 against Reader v2: \MCProvenanceScores{}. The scores of Rectina m2 against Reader v3: \MAProvenanceScores{}. The scores of Rectina m1 against Reader v3: \MBProvenanceScores{}. The units and the
-energy blocks are in \path{held-out-units.csv} of the evidence of this article, the order of the units is that of the
-windows table of the bench in \path{five-model-bench/evidence}, the overlap of the controls with training is read from
-\path{control-overlap.csv}, the values of the recipe from the configuration files named in the table of appendix~A, the
-control panels from the index named in the sections on the controls, and the states of the pull requests from the answer
-of the code host saved with its checksum at the build. The short codes of the held-out units in
-the tables stand for the following unit identifiers. \MAUnitCodes{}
+Every number of the text is read from a table written by a tool. The scores of Rectina m3 and Rectina m4 against Reader v2 and Reader v3 are read from the files of scores of the pairs of the study, \path{control-units.csv} (sha256 beginning \ShaPairsControl{}) and \path{heldout-units.csv} (sha256 beginning \ShaPairsHeld{}), columns \texttt{auc}, \texttt{thin80\_core\_auc}, \texttt{fa80}, \texttt{fa90} and \texttt{lit\_blank}. The settings of the recipe are read from the five stage configuration files (digest of the five beginning \ShaConfigs{}) and the patch from \path{m5m6-training.patch} (sha256 beginning \PatchSha{}); the label sources from the manifest of the set; the check of the placement of the labels from \path{offsets.csv} and \path{inventory.csv} of the sample check; the offset of w00 from the files of the label offset study and its AUC scan; the noise statement from \path{c-val-noise.csv}. In the study the checkpoint of Rectina m3 was called M5 and that of Rectina m4 M6; the names appear only in paths. The short codes of the held-out units in
+the tables stand for the following unit identifiers: 0009B$\cdot$172639 is 20250510172639; 0009B$\cdot$125754 is 20250919125754; 0009B$\cdot$133208 is 20250919133208; 0009B$\cdot$140325 is 20250919140325; 0500P2$\cdot$055229 is 20250716055229; 0500P2$\cdot$055230 is 20250716055230; 0343P$\cdot$233748-0 is 20250904233748-0\_b2; 0343P$\cdot$172054-1 is 20250905172054-1\_b2. A checker recomputes every macro of \path{numbers.tex} from these files and compares it with its value.
 
 \input{references}

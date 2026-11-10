@@ -1,335 +1,520 @@
-\newcommand{\NRmark}{[not yet read]}
-\newcommand{\MAArmLabels}{the dense composite labels of one label set}
-\newcommand{\MAArmOnly}{the dense model only}
-\newcommand{\MAArmReader}{a dense ink reader}
-\newcommand{\MABlockLongAbove}{5}
-\newcommand{\MABlockLongN}{6}
-\newcommand{\MABlockShortAbove}{1}
-\newcommand{\MABlockShortN}{2}
-\newcommand{\MACkptClause}{the checkpoint released under this name is the last step of each stage, as for Reader v3}
-\newcommand{\MACtrlAbove}{3}
-\newcommand{\MACtrlMeanDiff}{+0.0042}
-\newcommand{\MACtrlMeanModel}{0.8778}
-\newcommand{\MACtrlMeanReader}{0.8736}
-\newcommand{\MACtrlMedianDiff}{+0.0063}
-\newcommand{\MACtrlMedianModel}{0.8801}
-\newcommand{\MACtrlMedianReader}{0.8784}
-\newcommand{\MACtrlN}{4}
-\newcommand{\MADraftLabelNote}{}
-\newcommand{\MAFalseInkParagraph}{At the threshold that marks 80 per cent of the ink pixels of each unit, \MAModelName{} marks less blank papyrus as ink than Reader v3 on 5 of 8 units (mean share 0.2267 against 0.2585, median 0.2306 against 0.2917). The units where \MAModelName{} marks more blank papyrus as ink than Reader v3 at that threshold are 20250716055229, 20250904233748-0\_b2 and 20250919140325; the units where its area under the curve is below that of Reader v3 are 20250716055229 and 20250919140325, which is not the same set (only in the first: 20250904233748-0\_b2; only in the second: no unit).}
-\newcommand{\MAFootLabel}{}
-\newcommand{\MAHeldAbove}{6}
-\newcommand{\MAHeldMeanDiff}{+0.0157}
-\newcommand{\MAHeldMeanModel}{0.8704}
-\newcommand{\MAHeldMeanReader}{0.8547}
-\newcommand{\MAHeldMedianDiff}{+0.0137}
-\newcommand{\MAHeldMedianModel}{0.8754}
-\newcommand{\MAHeldMedianReader}{0.8503}
-\newcommand{\MAHfRepo}{evilaliv3/rectina}
-\newcommand{\MAHfRepoUrl}{https://huggingface.co/evilaliv3/rectina}
-\newcommand{\MAHonestSentence}{Over the 8 held-out units \MAModelName{} scores above Reader v3 on 6 of 8 and the median difference is +0.0137, above zero; over the 6 control units it scores above Reader v3 on 5 of 6 and the median difference is +0.0040, so that on the controls the median of \MAModelName{} is above that of Reader v3.}
-\newcommand{\MALabelComposite}{24}
-\newcommand{\MALabelNative}{5}
-\newcommand{\MALabelOffsetHigh}{7.4}
-\newcommand{\MALabelOffsetLow}{7.2}
-\newcommand{\MALabelPlaced}{74}
-\newcommand{\MALabelSearchPx}{4}
-\newcommand{\MALabelUnits}{103}
-\newcommand{\MALowCtrl}{, and the unit that lowers the mean is ag1 (-0.0047)}
-\newcommand{\MALowHeld}{, and the unit that lowers the mean is 20250919140325 (-0.0082)}
-\newcommand{\MAMethodsCkpt}{The checkpoint of each stage is its last step, as for Reader v3.}
-\newcommand{\MAModelName}{Rectina m2}
-\newcommand{\MAOtherClause}{}
-\newcommand{\MAOtherMeanClause}{}
-\newcommand{\MAOverlapWord}{fourteen}
-\newcommand{\MAPrFetched}{2026-11-01T02:06:02Z}
-\newcommand{\MAPrState}{read from the code host API, raw answer sha256 48e0cd2cb963}
-\newcommand{\MAProvenanceScores}{the AUC, the AUC on thin strokes and the false ink shares of both readers are read from one merge of the GPU reads, the cell file with the sha256 \path{2723ada060fe999368565c3cc1c0258f5ae8a7ba1bc28e35e45d72ee704c1bfa}, and the paired tests from the statistics file with the sha256 \path{ae8ffe90e17ac6441f9ac77df57622f68dce07799de6d5da7438f97b712e9591}, both pinned by checksum}
-\newcommand{\MAPublishVerb}{are published}
-\newcommand{\MARegridAbsent}{8}
-\newcommand{\MARegridKept}{1}
-\newcommand{\MAReleaseCkpt}{The checkpoint released under this name is the last step of each stage, as for Reader v3.}
-\newcommand{\MAResultsFolder}{db27c806-rectina-m2}
-\newcommand{\MAReviewPubid}{}
-\newcommand{\MARuleKMin}{6}
-\newcommand{\MARuleMargin}{0.003}
-\newcommand{\MARuleMedianGain}{+0.0137}
-\newcommand{\MARuleOutcome}{met}
-\newcommand{\MARuleSentence}{The rule for adopting the model was fixed in advance: on the 8 held-out units the count of units on which the model scores above Reader v3 must be at least 6 of 8, and the median gain over Reader v3 must be above 0.003. The rule is evaluated on the held-out units only. On the 8 held-out units the count above Reader v3 is 6 of 8 and the median gain is +0.0137, so the stated rule is met. Over all 14 units the count above Reader v3 is 11 of 14.}
-\newcommand{\MASeedParagraph}{Both \MAModelName{} and Reader v3 were trained with a single seed (42 in both training configurations), so the spread between two runs of the same recipe is not measured here. The comparison is therefore between two single runs, and the paired test above concerns these two checkpoints, not the two recipes.\footnote{The seed of Reader v3 is the key \texttt{seed} of \path{reader-v3/train_config.json}, value 42; the seed of \MAModelName{} is the key \texttt{seed} of the job entry of its training chain in the job record of that run, value 42.}}
-\newcommand{\MASelectionSentence}{Other variants of the same procedure were also trained, and the choice was made on the same units; the paired tests describe this checkpoint, not the recipe.}
-\newcommand{\MASentAll}{Over the 14 units, 8 held-out and 6 control, two of which are information units, \MAModelName{} is above Reader v3 on 11 and the mean difference is +0.0104.}
-\newcommand{\MAStatScope}{over all the units of the table that are not left out}
-\newcommand{\MAStatsAllK}{11}
-\newcommand{\MAStatsAllKText}{11 of 14}
-\newcommand{\MAStatsAllMedianDiff}{+0.0067}
-\newcommand{\MAStatsAllN}{14}
-\newcommand{\MAStatsAllSignGreater}{0.0287}
-\newcommand{\MAStatsAllSignTwo}{0.0574}
-\newcommand{\MAStatsAllWilcoxonGreater}{0.0123}
-\newcommand{\MAStatsAllWilcoxonTwo}{0.0245}
-\newcommand{\MAStatsAllZeros}{0}
-\newcommand{\MAStatsCtrlK}{5}
-\newcommand{\MAStatsCtrlKText}{5 of 6}
-\newcommand{\MAStatsCtrlMedianDiff}{+0.0040}
-\newcommand{\MAStatsCtrlN}{6}
-\newcommand{\MAStatsCtrlSignGreater}{0.109}
-\newcommand{\MAStatsCtrlSignTwo}{0.219}
-\newcommand{\MAStatsCtrlWilcoxonGreater}{0.0781}
-\newcommand{\MAStatsCtrlWilcoxonTwo}{0.156}
-\newcommand{\MAStatsCtrlZeros}{0}
-\newcommand{\MAStatsHeldK}{6}
-\newcommand{\MAStatsHeldKText}{6 of 8}
-\newcommand{\MAStatsHeldMedianDiff}{+0.0137}
-\newcommand{\MAStatsHeldN}{8}
-\newcommand{\MAStatsHeldSignGreater}{0.145}
-\newcommand{\MAStatsHeldSignTwo}{0.289}
-\newcommand{\MAStatsHeldWilcoxonGreater}{0.0391}
-\newcommand{\MAStatsHeldWilcoxonTwo}{0.0781}
-\newcommand{\MAStatsHeldZeros}{0}
-\newcommand{\MAStatsParagraph}{Exploratory paired tests of the AUC difference, descriptive and not confirmatory (\MAModelName{} minus Reader v3), the unit being the pair, zero differences dropped before the ranks (zero\_method wilcox of scipy 1.18.1), exact p-values read at build time from the pinned statistics file (sha256 ae8ffe90e17a). Over the 8 held-out units (n = 8 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.0391 one-sided (\MAModelName{} greater than Reader v3) and 0.0781 two-sided, and the sign test on the 6 of 8 non zero differences where \MAModelName{} is above gives 0.145 one-sided and 0.289 two-sided. Over the 6 control units (n = 6 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.0781 one-sided (\MAModelName{} greater than Reader v3) and 0.156 two-sided, and the sign test on the 5 of 6 non zero differences where \MAModelName{} is above gives 0.109 one-sided and 0.219 two-sided. Over all 14 units (n = 14 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.0123 one-sided (\MAModelName{} greater than Reader v3) and 0.0245 two-sided, and the sign test on the 11 of 14 non zero differences where \MAModelName{} is above gives 0.0287 one-sided and 0.0574 two-sided.}
-\newcommand{\MAUnitCodes}{0009B$\cdot$172639 is 20250510172639. 0009B$\cdot$125754 is 20250919125754. 0009B$\cdot$133208 is 20250919133208. 0009B$\cdot$140325 is 20250919140325. 0500P2$\cdot$055229 is 20250716055229. 0500P2$\cdot$055230 is 20250716055230. 0343P$\cdot$233748-0 is 20250904233748-0\_b2. 0343P$\cdot$172054-1 is 20250905172054-1\_b2.}
-\newcommand{\MAValidationNote}{The held-out units were in villa's validation set; no checkpoint was selected on it.}
-\newcommand{\MAValidationSent}{Validation: for each training segment, whole 512 px tiles holding 5 percent of its supervised pixels (selection seed 20261017) are kept out of training.}
-\newcommand{\MBArmLabels}{the dense composite labels of one label set}
-\newcommand{\MBArmOnly}{the dense model only}
-\newcommand{\MBArmReader}{a dense ink reader}
-\newcommand{\MBBlockLongAbove}{5}
-\newcommand{\MBBlockLongN}{6}
-\newcommand{\MBBlockShortAbove}{1}
-\newcommand{\MBBlockShortN}{2}
-\newcommand{\MBCkptClause}{the checkpoint released under this name is the last step of each stage, as for Reader v3}
-\newcommand{\MBCtrlAbove}{2}
-\newcommand{\MBCtrlMeanDiff}{-0.0042}
-\newcommand{\MBCtrlMeanModel}{0.8694}
-\newcommand{\MBCtrlMeanReader}{0.8736}
-\newcommand{\MBCtrlMedianDiff}{-0.0046}
-\newcommand{\MBCtrlMedianModel}{0.8637}
-\newcommand{\MBCtrlMedianReader}{0.8784}
-\newcommand{\MBCtrlN}{4}
-\newcommand{\MBDraftLabelNote}{}
-\newcommand{\MBFalseInkParagraph}{At the threshold that marks 80 per cent of the ink pixels of each unit, \MBModelName{} marks less blank papyrus as ink than Reader v3 on 6 of 8 units (mean share 0.2284 against 0.2585, median 0.2436 against 0.2917). The units where \MBModelName{} marks more blank papyrus as ink than Reader v3 at that threshold are 20250716055229 and 20250919140325, and these are also the units where its area under the curve is below that of Reader v3.}
-\newcommand{\MBFootLabel}{}
-\newcommand{\MBHeldAbove}{6}
-\newcommand{\MBHeldMeanDiff}{+0.0150}
-\newcommand{\MBHeldMeanModel}{0.8696}
-\newcommand{\MBHeldMeanReader}{0.8547}
-\newcommand{\MBHeldMedianDiff}{+0.0162}
-\newcommand{\MBHeldMedianModel}{0.8689}
-\newcommand{\MBHeldMedianReader}{0.8503}
-\newcommand{\MBHfRepo}{evilaliv3/rectina}
-\newcommand{\MBHfRepoUrl}{https://huggingface.co/evilaliv3/rectina}
-\newcommand{\MBHonestSentence}{Over the 8 held-out units \MBModelName{} scores above Reader v3 on 6 of 8 and the median difference is +0.0162, above zero; over the 6 control units it scores above Reader v3 on 3 of 6 and the median difference is -0.0046, so that on the controls the median of \MBModelName{} is below that of Reader v3.}
-\newcommand{\MBLabelComposite}{24}
-\newcommand{\MBLabelNative}{5}
-\newcommand{\MBLabelOffsetHigh}{7.4}
-\newcommand{\MBLabelOffsetLow}{7.2}
-\newcommand{\MBLabelPlaced}{74}
-\newcommand{\MBLabelSearchPx}{4}
-\newcommand{\MBLabelUnits}{103}
-\newcommand{\MBLowCtrl}{, and the unit that lowers the mean is w00 (-0.0229)}
-\newcommand{\MBLowHeld}{, and the unit that lowers the mean is 20250716055229 (-0.0366)}
-\newcommand{\MBMethodsCkpt}{The checkpoint of each stage is its last step, as for Reader v3.}
-\newcommand{\MBModelName}{Rectina m1}
-\newcommand{\MBOtherClause}{}
-\newcommand{\MBOtherMeanClause}{}
-\newcommand{\MBOverlapWord}{fourteen}
-\newcommand{\MBPrFetched}{2026-11-01T02:06:02Z}
-\newcommand{\MBPrState}{read from the code host API, raw answer sha256 48e0cd2cb963}
-\newcommand{\MBProvenanceScores}{the AUC, the AUC on thin strokes and the false ink shares of both readers are read from one merge of the GPU reads, the cell file with the sha256 \path{2723ada060fe999368565c3cc1c0258f5ae8a7ba1bc28e35e45d72ee704c1bfa}, and the paired tests from the statistics file with the sha256 \path{ae8ffe90e17ac6441f9ac77df57622f68dce07799de6d5da7438f97b712e9591}, both pinned by checksum}
-\newcommand{\MBPublishVerb}{are published}
-\newcommand{\MBRegridAbsent}{8}
-\newcommand{\MBRegridKept}{1}
-\newcommand{\MBReleaseCkpt}{The checkpoint released under this name is the last step of each stage, as for Reader v3.}
-\newcommand{\MBResultsFolder}{a37326c1-rectina-m1}
-\newcommand{\MBReviewPubid}{}
-\newcommand{\MBRuleKMin}{6}
-\newcommand{\MBRuleMargin}{0.003}
-\newcommand{\MBRuleMedianGain}{+0.0162}
-\newcommand{\MBRuleOutcome}{met}
-\newcommand{\MBRuleSentence}{The rule for adopting the model was fixed in advance: on the 8 held-out units the count of units on which the model scores above Reader v3 must be at least 6 of 8, and the median gain over Reader v3 must be above 0.003. The rule is evaluated on the held-out units only. On the 8 held-out units the count above Reader v3 is 6 of 8 and the median gain is +0.0162, so the stated rule is met. Over all 14 units the count above Reader v3 is 9 of 14.}
-\newcommand{\MBSeedParagraph}{Both \MBModelName{} and Reader v3 were trained with a single seed (42 in both training configurations), so the spread between two runs of the same recipe is not measured here. The comparison is therefore between two single runs, and the paired test above concerns these two checkpoints, not the two recipes.\footnote{The seed of Reader v3 is the key \texttt{seed} of \path{reader-v3/train_config.json}, value 42; the seed of \MBModelName{} is the key \texttt{seed} of the job entry of its training chain in the job record of that run, value 42.}}
-\newcommand{\MBSelectionSentence}{Other variants of the same procedure were also trained, and the choice was made on the same units; the paired tests describe this checkpoint, not the recipe.}
-\newcommand{\MBSentAll}{Over the 14 units, 8 held-out and 6 control, two of which are information units, \MBModelName{} is above Reader v3 on 9 and the mean difference is +0.0073.}
-\newcommand{\MBStatScope}{over all the units of the table that are not left out}
-\newcommand{\MBStatsAllK}{9}
-\newcommand{\MBStatsAllKText}{9 of 14}
-\newcommand{\MBStatsAllMedianDiff}{+0.0071}
-\newcommand{\MBStatsAllN}{14}
-\newcommand{\MBStatsAllSignGreater}{0.212}
-\newcommand{\MBStatsAllSignTwo}{0.424}
-\newcommand{\MBStatsAllWilcoxonGreater}{0.292}
-\newcommand{\MBStatsAllWilcoxonTwo}{0.583}
-\newcommand{\MBStatsAllZeros}{0}
-\newcommand{\MBStatsCtrlK}{3}
-\newcommand{\MBStatsCtrlKText}{3 of 6}
-\newcommand{\MBStatsCtrlMedianDiff}{-0.0046}
-\newcommand{\MBStatsCtrlN}{6}
-\newcommand{\MBStatsCtrlSignGreater}{0.656}
-\newcommand{\MBStatsCtrlSignTwo}{1}
-\newcommand{\MBStatsCtrlWilcoxonGreater}{0.719}
-\newcommand{\MBStatsCtrlWilcoxonTwo}{0.688}
-\newcommand{\MBStatsCtrlZeros}{0}
-\newcommand{\MBStatsHeldK}{6}
-\newcommand{\MBStatsHeldKText}{6 of 8}
-\newcommand{\MBStatsHeldMedianDiff}{+0.0162}
-\newcommand{\MBStatsHeldN}{8}
-\newcommand{\MBStatsHeldSignGreater}{0.145}
-\newcommand{\MBStatsHeldSignTwo}{0.289}
-\newcommand{\MBStatsHeldWilcoxonGreater}{0.191}
-\newcommand{\MBStatsHeldWilcoxonTwo}{0.383}
-\newcommand{\MBStatsHeldZeros}{0}
-\newcommand{\MBStatsParagraph}{Exploratory paired tests of the AUC difference, descriptive and not confirmatory (\MBModelName{} minus Reader v3), the unit being the pair, zero differences dropped before the ranks (zero\_method wilcox of scipy 1.18.1), exact p-values read at build time from the pinned statistics file (sha256 ae8ffe90e17a). Over the 8 held-out units (n = 8 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.191 one-sided (\MBModelName{} greater than Reader v3) and 0.383 two-sided, and the sign test on the 6 of 8 non zero differences where \MBModelName{} is above gives 0.145 one-sided and 0.289 two-sided. Over the 6 control units (n = 6 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.719 one-sided (\MBModelName{} greater than Reader v3) and 0.688 two-sided, and the sign test on the 3 of 6 non zero differences where \MBModelName{} is above gives 0.656 one-sided and 1 two-sided. Over all 14 units (n = 14 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.292 one-sided (\MBModelName{} greater than Reader v3) and 0.583 two-sided, and the sign test on the 9 of 14 non zero differences where \MBModelName{} is above gives 0.212 one-sided and 0.424 two-sided.}
-\newcommand{\MBUnitCodes}{0009B$\cdot$172639 is 20250510172639. 0009B$\cdot$125754 is 20250919125754. 0009B$\cdot$133208 is 20250919133208. 0009B$\cdot$140325 is 20250919140325. 0500P2$\cdot$055229 is 20250716055229. 0500P2$\cdot$055230 is 20250716055230. 0343P$\cdot$233748-0 is 20250904233748-0\_b2. 0343P$\cdot$172054-1 is 20250905172054-1\_b2.}
-\newcommand{\MBValidationNote}{The held-out units were in villa's validation set; no checkpoint was selected on it.}
-\newcommand{\MBValidationSent}{Validation: for each training segment, whole 512 px tiles holding 5 percent of its supervised pixels (selection seed 20261017) are kept out of training.}
-\newcommand{\MCArmLabels}{the dense composite labels of one label set}
-\newcommand{\MCArmOnly}{the dense model only}
-\newcommand{\MCArmReader}{a dense ink reader}
-\newcommand{\MCBlockLongAbove}{6}
-\newcommand{\MCBlockLongN}{6}
-\newcommand{\MCBlockShortAbove}{2}
-\newcommand{\MCBlockShortN}{2}
-\newcommand{\MCCkptClause}{the checkpoint released under this name is the last step of each stage, as for Reader v2}
-\newcommand{\MCCtrlAbove}{3}
-\newcommand{\MCCtrlMeanDiff}{+0.0098}
-\newcommand{\MCCtrlMeanModel}{0.8694}
-\newcommand{\MCCtrlMeanReader}{0.8596}
-\newcommand{\MCCtrlMedianDiff}{+0.0104}
-\newcommand{\MCCtrlMedianModel}{0.8637}
-\newcommand{\MCCtrlMedianReader}{0.8588}
-\newcommand{\MCCtrlN}{4}
-\newcommand{\MCDraftLabelNote}{}
-\newcommand{\MCFalseInkParagraph}{At the threshold that marks 80 per cent of the ink pixels of each unit, \MCModelName{} marks less blank papyrus as ink than Reader v2 on 8 of 8 units (mean share 0.2284 against 0.2865, median 0.2436 against 0.2768). There is no unit where \MCModelName{} marks more blank papyrus as ink than Reader v2 at that threshold.}
-\newcommand{\MCFootLabel}{}
-\newcommand{\MCHeldAbove}{8}
-\newcommand{\MCHeldMeanDiff}{+0.0275}
-\newcommand{\MCHeldMeanModel}{0.8696}
-\newcommand{\MCHeldMeanReader}{0.8421}
-\newcommand{\MCHeldMedianDiff}{+0.0270}
-\newcommand{\MCHeldMedianModel}{0.8689}
-\newcommand{\MCHeldMedianReader}{0.8435}
-\newcommand{\MCHfRepo}{evilaliv3/rectina}
-\newcommand{\MCHfRepoUrl}{https://huggingface.co/evilaliv3/rectina}
-\newcommand{\MCHonestSentence}{Over the 8 held-out units \MCModelName{} scores above Reader v2 on 8 of 8 and the median difference is +0.0270, above zero; over the 6 control units it scores above Reader v2 on 4 of 6 and the median difference is +0.0104, so that on the controls the median of \MCModelName{} is above that of Reader v2.}
-\newcommand{\MCLabelComposite}{24}
-\newcommand{\MCLabelNative}{5}
-\newcommand{\MCLabelOffsetHigh}{7.4}
-\newcommand{\MCLabelOffsetLow}{7.2}
-\newcommand{\MCLabelPlaced}{74}
-\newcommand{\MCLabelSearchPx}{4}
-\newcommand{\MCLabelUnits}{103}
-\newcommand{\MCLowCtrl}{, and the unit that lowers the mean is ag1 (-0.0015)}
-\newcommand{\MCLowHeld}{}
-\newcommand{\MCMethodsCkpt}{The checkpoint of each stage is its last step, as for Reader v2.}
-\newcommand{\MCModelName}{Rectina m1}
-\newcommand{\MCOtherClause}{}
-\newcommand{\MCOtherMeanClause}{}
-\newcommand{\MCOverlapWord}{fourteen}
-\newcommand{\MCPrFetched}{2026-11-01T02:06:02Z}
-\newcommand{\MCPrState}{read from the code host API, raw answer sha256 48e0cd2cb963}
-\newcommand{\MCProvenanceScores}{the AUC, the AUC on thin strokes and the false ink shares of both readers are read from one merge of the GPU reads, the cell file with the sha256 \path{d8a4fde07374d1d1cbde894efec73dd5b59c5467ecf8985450fd282e31eb9fe7}, and the paired tests from the statistics file with the sha256 \path{278491a321cd717ad85d9482b3b1d78ff1b8c9ae380c0d950285902b6737d953}, both pinned by checksum}
-\newcommand{\MCPublishVerb}{are published}
-\newcommand{\MCRegridAbsent}{8}
-\newcommand{\MCRegridKept}{1}
-\newcommand{\MCReleaseCkpt}{The checkpoint released under this name is the last step of each stage, as for Reader v2.}
-\newcommand{\MCResultsFolder}{a37326c1-rectina-m1}
-\newcommand{\MCReviewPubid}{}
-\newcommand{\MCRuleKMin}{6}
-\newcommand{\MCRuleMargin}{0.003}
-\newcommand{\MCRuleMedianGain}{+0.0270}
-\newcommand{\MCRuleOutcome}{met}
-\newcommand{\MCRuleSentence}{The rule for adopting the model was fixed in advance: on the 8 held-out units the count of units on which the model scores above Reader v2 must be at least 6 of 8, and the median gain over Reader v2 must be above 0.003. The rule is evaluated on the held-out units only. On the 8 held-out units the count above Reader v2 is 8 of 8 and the median gain is +0.0270, so the stated rule is met. Over all 14 units the count above Reader v2 is 12 of 14.}
-\newcommand{\MCSeedParagraph}{\MCModelName{} was trained with a single seed (42), so the spread between two runs of the same recipe is not measured here, and the paired test above concerns this checkpoint, not the recipe.}
-\newcommand{\MCSelectionSentence}{Other variants of the same procedure were also trained, and the choice was made on the same units; the paired tests describe this checkpoint, not the recipe.}
-\newcommand{\MCSentAll}{Over the 14 units, 8 held-out and 6 control, two of which are information units, \MCModelName{} is above Reader v2 on 12 and the mean difference is +0.0192.}
-\newcommand{\MCStatScope}{over all the units of the table that are not left out}
-\newcommand{\MCStatsAllK}{12}
-\newcommand{\MCStatsAllKText}{12 of 14}
-\newcommand{\MCStatsAllMedianDiff}{+0.0200}
-\newcommand{\MCStatsAllN}{14}
-\newcommand{\MCStatsAllSignGreater}{0.00647}
-\newcommand{\MCStatsAllSignTwo}{0.0129}
-\newcommand{\MCStatsAllWilcoxonGreater}{0.00061}
-\newcommand{\MCStatsAllWilcoxonTwo}{0.00122}
-\newcommand{\MCStatsAllZeros}{0}
-\newcommand{\MCStatsCtrlK}{4}
-\newcommand{\MCStatsCtrlKText}{4 of 6}
-\newcommand{\MCStatsCtrlMedianDiff}{+0.0104}
-\newcommand{\MCStatsCtrlN}{6}
-\newcommand{\MCStatsCtrlSignGreater}{0.344}
-\newcommand{\MCStatsCtrlSignTwo}{0.688}
-\newcommand{\MCStatsCtrlWilcoxonGreater}{0.109}
-\newcommand{\MCStatsCtrlWilcoxonTwo}{0.219}
-\newcommand{\MCStatsCtrlZeros}{0}
-\newcommand{\MCStatsHeldK}{8}
-\newcommand{\MCStatsHeldKText}{8 of 8}
-\newcommand{\MCStatsHeldMedianDiff}{+0.0270}
-\newcommand{\MCStatsHeldN}{8}
-\newcommand{\MCStatsHeldSignGreater}{0.00391}
-\newcommand{\MCStatsHeldSignTwo}{0.00781}
-\newcommand{\MCStatsHeldWilcoxonGreater}{0.00391}
-\newcommand{\MCStatsHeldWilcoxonTwo}{0.00781}
-\newcommand{\MCStatsHeldZeros}{0}
-\newcommand{\MCStatsParagraph}{Exploratory paired tests of the AUC difference, descriptive and not confirmatory (\MCModelName{} minus Reader v2), the unit being the pair, zero differences dropped before the ranks (zero\_method wilcox of scipy 1.18.1), exact p-values read at build time from the pinned statistics file (sha256 278491a321cd). Over the 8 held-out units (n = 8 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.00391 one-sided (\MCModelName{} greater than Reader v2) and 0.00781 two-sided, and the sign test on the 8 of 8 non zero differences where \MCModelName{} is above gives 0.00391 one-sided and 0.00781 two-sided. Over the 6 control units (n = 6 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.109 one-sided (\MCModelName{} greater than Reader v2) and 0.219 two-sided, and the sign test on the 4 of 6 non zero differences where \MCModelName{} is above gives 0.344 one-sided and 0.688 two-sided. Over all 14 units (n = 14 after dropping 0 zero differences) the exact Wilcoxon signed-rank p is 0.00061 one-sided (\MCModelName{} greater than Reader v2) and 0.00122 two-sided, and the sign test on the 12 of 14 non zero differences where \MCModelName{} is above gives 0.00647 one-sided and 0.0129 two-sided.}
-\newcommand{\MCUnitCodes}{0009B$\cdot$172639 is 20250510172639. 0009B$\cdot$125754 is 20250919125754. 0009B$\cdot$133208 is 20250919133208. 0009B$\cdot$140325 is 20250919140325. 0500P2$\cdot$055229 is 20250716055229. 0500P2$\cdot$055230 is 20250716055230. 0343P$\cdot$233748-0 is 20250904233748-0\_b2. 0343P$\cdot$172054-1 is 20250905172054-1\_b2.}
-\newcommand{\MCValidationNote}{The held-out units were in villa's validation set; no checkpoint was selected on it.}
-\newcommand{\MCValidationSent}{Validation: for each training segment, whole 512 px tiles holding 5 percent of its supervised pixels (selection seed 20261017) are kept out of training.}
-\newcommand{\AbstractDiff}{The differences from Reader v3 are the start from random weights and a per-patch depth warp with its normalisation guard in the first stage;}
-\newcommand{\CkptCounters}{Rectina m1 is the checkpoint taken at the fixed step 130001 (file ckpt\_130001; embedded step counter 130000), and Rectina m2 is the final step of stage 4 (file ckpt\_020000; embedded step counter 19999).}
-\newcommand{\CompositeCanvas}{9.596}
-\newcommand{\CompositeSentence}{The composite labels are the set defined in section~\ref{sec:labels}; we do not compare them with the labels of Reader v3.}
+\newcommand{\ReviewPubid}{}
+\newcommand{\MtName}{Rectina m3}
+\newcommand{\MfName}{Rectina m4}
 \newcommand{\DataAttribution}{The scan data were obtained from the Vesuvius Challenge data server (dl.ash2txt.org) under the data licence of the Vesuvius Challenge (LICENSE.txt).}
-\newcommand{\DraftLabelNote}{}
-\newcommand{\FewThousandths}{differences of a few thousandths, below what this work can resolve with one seed.}
-\newcommand{\GpuSentence}{The table of this appendix lists, for each model, how many of its fourteen unit reads ran on each type of graphics processor, as recorded by the pod of the read. Different types of graphics processor do not give bit-identical maps, and every comparison in this article is between maps from graphics processors, never between a map from a graphics processor and one from CPU.}
-\newcommand{\IterFour}{20000}
-\newcommand{\IterThree}{30000}
-\newcommand{\LabelSmoothing}{The recipe uses label smoothing of 0.5 on the binary cross entropy, which sets the training targets to 0.25 for background and 0.75 for ink; the ink detection tutorial states it (\TutQuote{}~\cite{tutorialfive}). This is deliberate, and it is why the values of a map occupy a compressed band.}
-\newcommand{\MethodsGpu}{The maps of every model were produced on graphics processors in rented pods, and the scores were computed on CPU from those maps; no read of any model on CPU enters a table.}
-\newcommand{\MethodsReaders}{During this work comparisons were run against other published readers. This article reports the comparison of Rectina m1 with Reader v2, the earlier published reader, and with Reader v3, the published reader of the project, and that of Rectina m2 with Reader v3.}
 \newcommand{\OrgQuoteOne}{``detecting or segmenting the ink signal on, or near, the recovered writing surface''}
 \newcommand{\OrgQuoteTwo}{``The subtle differences that distinguish ink from papyrus must be teased out of data like this''}
-\newcommand{\OursDifferences}{, and, as differences from Reader v3, a start from random weights (the first training step was continued in place from iteration 79001 of an earlier run of the same recipe) and a per patch depth warp with its normalisation guard in stage 1 in place of the flat random shift of the depth window that the configuration of Reader v3 names.}
-\newcommand{\ParityGpu}{As a check of the pods, 3 GPU maps of Reader v2, on 2 distinct units (some units were read more than once), were compared with the stored CPU maps of the same units against the limits declared before any number (largest absolute difference 0.05, largest mean absolute difference 0.005, smallest Pearson correlation 0.995); the largest absolute difference observed is 0.00156, the largest mean absolute difference 6.74e-05, the smallest Pearson correlation 0.9999998, and 3 of the 3 maps are within the limits. Likewise 3 GPU maps of Reader v3, on 2 distinct units (some units were read more than once), were compared with the stored CPU maps of the same units against the limits declared before any number (largest absolute difference 0.05, largest mean absolute difference 0.005, smallest Pearson correlation 0.995); the largest absolute difference observed is 0.00277, the largest mean absolute difference 6.97e-05, the smallest Pearson correlation 0.9999977, and 3 of the 3 maps are within the limits. No stored CPU map exists for Rectina m1 and Rectina m2, which were read only on graphics processors, so no parity claim is made for them.}
 \newcommand{\RdrQuoteOne}{``Reader V3 is Reader v2 trained further on larger tiles, 30k iterations at 256 px and then 20k at 384 px''}
 \newcommand{\RdrQuoteTwo}{``The architecture, the training data and the labels stayed the same''}
-\newcommand{\ReviewPubid}{}
-\newcommand{\RuleCounts}{Of the six variants scored on the fourteen units, four meet this rule against Reader v3 and six against Reader v2, so the rule is descriptive, like the rest.}
-\newcommand{\RuleCountsShort}{four of the six variants scored meet it against Reader v3 and six against Reader v2, so the rule is descriptive, like the rest.}
-\newcommand{\RuleCountsV}{six meet the rule against Reader v2 and four against Reader v3.}
-\newcommand{\RuleMetV}{four}
-\newcommand{\ScrollWord}{eight}
-\newcommand{\SetIdTex}{\path{43965c9d120c}}
-\newcommand{\StageOneClause}{the stage was set for 131000 iterations and stopped at the step 130001}
-\newcommand{\TileFour}{384}
-\newcommand{\TileThree}{256}
-\newcommand{\TutQuote}{``the training targets are 0.25 for background and 0.75 for ink''}
-\newcommand{\UsageArch}{vesuvius\_unet\_3d\_stem\_2d}
-\newcommand{\UsageAucOne}{0.8395}
-\newcommand{\UsageAucOneFull}{0.8394838188166195}
-\newcommand{\UsageAucTwo}{0.8466}
-\newcommand{\UsageAucTwoFull}{0.8466005527037327}
-\newcommand{\UsageBandOne}{0.23 to 0.84}
-\newcommand{\UsageBandTwo}{0.00 to 0.85}
-\newcommand{\UsageCalibration}{the reader of Reader v3 says of its own values that ``they are a relative ink score, not a calibrated probability'' (README of its repository, line 144), and the same holds for the maps of Rectina, which come from a model trained with label smoothing.}
-\newcommand{\UsageDeviceTwo}{4090}
-\newcommand{\UsageDirConvert}{\path{results/db27c806-rectina/src/convert}}
-\newcommand{\UsageDirRead}{\path{results/db27c806-rectina/src/read}}
-\newcommand{\UsageDirRender}{\path{results/db27c806-rectina/src/render}}
-\newcommand{\UsageNameOne}{Rectina m1}
-\newcommand{\UsageNameTwo}{Rectina m2}
-\newcommand{\UsagePatchOne}{128}
-\newcommand{\UsagePatchTwo}{384}
-\newcommand{\UsagePeakOne}{967}
-\newcommand{\UsagePeakTwo}{7631}
-\newcommand{\UsageSecPerMpxOne}{80}
-\newcommand{\UsageSecPerMpxTwo}{102}
-\newcommand{\UsageShaOne}{\path{fc4d29c34cebd2694d53297271ad329cf3072d4588329c6ae6bd29ec827edfb5}}
-\newcommand{\UsageShaTwo}{\path{55e2252f660fcd4ed8551fd97cebb7d6ed56847eaebe6c7ca652ebd4e1783e55}}
-\newcommand{\UsageShapeOne}{2048 x 2560}
-\newcommand{\UsageTensors}{508}
-\newcommand{\UsageTolAbs}{0.05}
-\newcommand{\UsageTolMean}{0.005}
-\newcommand{\UsageTolPearson}{0.995}
-\newcommand{\VariantsSentence}{Besides the two checkpoints reported here, four other variants of the procedure were scored on the same fourteen units (the pinned file of scores holds them); the checkpoints reported were chosen on those units, so the paired tests describe these checkpoints and are exploratory, not confirmatory.}
+\newcommand{\HeldN}{8}
+\newcommand{\MtHeldMeanOwnAuc}{0.8532}
+\newcommand{\MtHeldMeanOwnThin}{0.8625}
+\newcommand{\MtHeldMeanOwnFaEighty}{0.2582}
+\newcommand{\MtHeldMeanOwnFaNinety}{0.4283}
+\newcommand{\MtHeldMeanOwnLit}{0.0065}
+\newcommand{\MtHeldMeanRTwoAuc}{0.8421}
+\newcommand{\MtHeldMeanRTwoThin}{0.8517}
+\newcommand{\MtHeldMeanRTwoFaEighty}{0.2865}
+\newcommand{\MtHeldMeanRTwoFaNinety}{0.4663}
+\newcommand{\MtHeldMeanRTwoLit}{0.0058}
+\newcommand{\MtHeldMeanRThreeAuc}{0.8547}
+\newcommand{\MtHeldMeanRThreeThin}{0.8632}
+\newcommand{\MtHeldMeanRThreeFaEighty}{0.2585}
+\newcommand{\MtHeldMeanRThreeFaNinety}{0.4350}
+\newcommand{\MtHeldMeanRThreeLit}{0.0094}
+\newcommand{\MtHeldMeanDiffTwoAuc}{+0.0111}
+\newcommand{\MtHeldMeanDiffTwoThin}{+0.0107}
+\newcommand{\MtHeldMeanDiffTwoFaEighty}{-0.0283}
+\newcommand{\MtHeldMeanDiffThreeAuc}{-0.0015}
+\newcommand{\MtHeldMeanDiffThreeThin}{-0.0007}
+\newcommand{\MtHeldMeanDiffThreeFaEighty}{-0.0002}
+\newcommand{\MtHeldMedianOwnAuc}{0.8569}
+\newcommand{\MtHeldMedianOwnThin}{0.8694}
+\newcommand{\MtHeldMedianOwnFaEighty}{0.2648}
+\newcommand{\MtHeldMedianOwnFaNinety}{0.4325}
+\newcommand{\MtHeldMedianOwnLit}{0.0033}
+\newcommand{\MtHeldMedianRTwoAuc}{0.8435}
+\newcommand{\MtHeldMedianRTwoThin}{0.8561}
+\newcommand{\MtHeldMedianRTwoFaEighty}{0.2768}
+\newcommand{\MtHeldMedianRTwoFaNinety}{0.4537}
+\newcommand{\MtHeldMedianRTwoLit}{0.0012}
+\newcommand{\MtHeldMedianRThreeAuc}{0.8503}
+\newcommand{\MtHeldMedianRThreeThin}{0.8594}
+\newcommand{\MtHeldMedianRThreeFaEighty}{0.2917}
+\newcommand{\MtHeldMedianRThreeFaNinety}{0.4686}
+\newcommand{\MtHeldMedianRThreeLit}{0.0042}
+\newcommand{\MtHeldMedianDiffTwoAuc}{+0.0115}
+\newcommand{\MtHeldMedianDiffTwoThin}{+0.0095}
+\newcommand{\MtHeldMedianDiffTwoFaEighty}{-0.0314}
+\newcommand{\MtHeldMedianDiffThreeAuc}{-0.0033}
+\newcommand{\MtHeldMedianDiffThreeThin}{-0.0024}
+\newcommand{\MtHeldMedianDiffThreeFaEighty}{-0.0149}
+\newcommand{\MtHeldAboveTwo}{6}
+\newcommand{\MtHeldKTextTwo}{6 of 8}
+\newcommand{\MtBelowListHeldTwo}{0009B$\cdot$140325, 0343P$\cdot$233748-0}
+\newcommand{\MtHeldFaLessTwo}{7 of 8}
+\newcommand{\MtHeldAboveThree}{4}
+\newcommand{\MtHeldKTextThree}{4 of 8}
+\newcommand{\MtBelowListHeldThree}{0009B$\cdot$125754, 0009B$\cdot$140325, 0500P2$\cdot$055229, 0500P2$\cdot$055230}
+\newcommand{\MtHeldFaLessThree}{5 of 8}
+\newcommand{\CtrlN}{6}
+\newcommand{\MtCtrlMeanOwnAuc}{0.8476}
+\newcommand{\MtCtrlMeanOwnThin}{0.8722}
+\newcommand{\MtCtrlMeanOwnFaEighty}{0.2449}
+\newcommand{\MtCtrlMeanOwnFaNinety}{0.4306}
+\newcommand{\MtCtrlMeanOwnLit}{0.0511}
+\newcommand{\MtCtrlMeanRTwoAuc}{0.8456}
+\newcommand{\MtCtrlMeanRTwoThin}{0.8698}
+\newcommand{\MtCtrlMeanRTwoFaEighty}{0.2489}
+\newcommand{\MtCtrlMeanRTwoFaNinety}{0.4315}
+\newcommand{\MtCtrlMeanRTwoLit}{0.0416}
+\newcommand{\MtCtrlMeanRThreeAuc}{0.8566}
+\newcommand{\MtCtrlMeanRThreeThin}{0.8805}
+\newcommand{\MtCtrlMeanRThreeFaEighty}{0.2288}
+\newcommand{\MtCtrlMeanRThreeFaNinety}{0.4082}
+\newcommand{\MtCtrlMeanRThreeLit}{0.0625}
+\newcommand{\MtCtrlMeanDiffTwoAuc}{+0.0020}
+\newcommand{\MtCtrlMeanDiffTwoThin}{+0.0024}
+\newcommand{\MtCtrlMeanDiffTwoFaEighty}{-0.0039}
+\newcommand{\MtCtrlMeanDiffThreeAuc}{-0.0090}
+\newcommand{\MtCtrlMeanDiffThreeThin}{-0.0083}
+\newcommand{\MtCtrlMeanDiffThreeFaEighty}{+0.0161}
+\newcommand{\MtCtrlMedianOwnAuc}{0.8526}
+\newcommand{\MtCtrlMedianOwnThin}{0.8775}
+\newcommand{\MtCtrlMedianOwnFaEighty}{0.2439}
+\newcommand{\MtCtrlMedianOwnFaNinety}{0.4217}
+\newcommand{\MtCtrlMedianOwnLit}{0.0557}
+\newcommand{\MtCtrlMedianRTwoAuc}{0.8492}
+\newcommand{\MtCtrlMedianRTwoThin}{0.8736}
+\newcommand{\MtCtrlMedianRTwoFaEighty}{0.2534}
+\newcommand{\MtCtrlMedianRTwoFaNinety}{0.4275}
+\newcommand{\MtCtrlMedianRTwoLit}{0.0493}
+\newcommand{\MtCtrlMedianRThreeAuc}{0.8561}
+\newcommand{\MtCtrlMedianRThreeThin}{0.8807}
+\newcommand{\MtCtrlMedianRThreeFaEighty}{0.2409}
+\newcommand{\MtCtrlMedianRThreeFaNinety}{0.4083}
+\newcommand{\MtCtrlMedianRThreeLit}{0.0707}
+\newcommand{\MtCtrlMedianDiffTwoAuc}{-0.0022}
+\newcommand{\MtCtrlMedianDiffTwoThin}{-0.0019}
+\newcommand{\MtCtrlMedianDiffTwoFaEighty}{-0.0081}
+\newcommand{\MtCtrlMedianDiffThreeAuc}{-0.0077}
+\newcommand{\MtCtrlMedianDiffThreeThin}{-0.0103}
+\newcommand{\MtCtrlMedianDiffThreeFaEighty}{+0.0075}
+\newcommand{\MtCtrlAboveTwo}{3}
+\newcommand{\MtCtrlKTextTwo}{3 of 6}
+\newcommand{\MtBelowListCtrlTwo}{0343, 0841 w00, 1447 w058}
+\newcommand{\MtCtrlFaLessTwo}{4 of 6}
+\newcommand{\MtCtrlAboveThree}{2}
+\newcommand{\MtCtrlKTextThree}{2 of 6}
+\newcommand{\MtBelowListCtrlThree}{0343, 0841 w00, 1447 w058, 1447 w060}
+\newcommand{\MtCtrlFaLessThree}{1 of 6}
+\newcommand{\OrgN}{4}
+\newcommand{\MtOrgMeanOwnAuc}{0.8639}
+\newcommand{\MtOrgMeanOwnThin}{0.8824}
+\newcommand{\MtOrgMeanOwnFaEighty}{0.1982}
+\newcommand{\MtOrgMeanOwnFaNinety}{0.3724}
+\newcommand{\MtOrgMeanOwnLit}{0.0684}
+\newcommand{\MtOrgMeanRTwoAuc}{0.8596}
+\newcommand{\MtOrgMeanRTwoThin}{0.8767}
+\newcommand{\MtOrgMeanRTwoFaEighty}{0.2000}
+\newcommand{\MtOrgMeanRTwoFaNinety}{0.3740}
+\newcommand{\MtOrgMeanRTwoLit}{0.0569}
+\newcommand{\MtOrgMeanRThreeAuc}{0.8736}
+\newcommand{\MtOrgMeanRThreeThin}{0.8897}
+\newcommand{\MtOrgMeanRThreeFaEighty}{0.1742}
+\newcommand{\MtOrgMeanRThreeFaNinety}{0.3388}
+\newcommand{\MtOrgMeanRThreeLit}{0.0764}
+\newcommand{\MtOrgMeanDiffTwoAuc}{+0.0043}
+\newcommand{\MtOrgMeanDiffTwoThin}{+0.0056}
+\newcommand{\MtOrgMeanDiffTwoFaEighty}{-0.0019}
+\newcommand{\MtOrgMeanDiffThreeAuc}{-0.0097}
+\newcommand{\MtOrgMeanDiffThreeThin}{-0.0073}
+\newcommand{\MtOrgMeanDiffThreeFaEighty}{+0.0240}
+\newcommand{\MtOrgMedianOwnAuc}{0.8628}
+\newcommand{\MtOrgMedianOwnThin}{0.8813}
+\newcommand{\MtOrgMedianOwnFaEighty}{0.2159}
+\newcommand{\MtOrgMedianOwnFaNinety}{0.3774}
+\newcommand{\MtOrgMedianOwnLit}{0.0653}
+\newcommand{\MtOrgMedianRTwoAuc}{0.8588}
+\newcommand{\MtOrgMedianRTwoThin}{0.8751}
+\newcommand{\MtOrgMedianRTwoFaEighty}{0.2145}
+\newcommand{\MtOrgMedianRTwoFaNinety}{0.3630}
+\newcommand{\MtOrgMedianRTwoLit}{0.0535}
+\newcommand{\MtOrgMedianRThreeAuc}{0.8784}
+\newcommand{\MtOrgMedianRThreeThin}{0.8934}
+\newcommand{\MtOrgMedianRThreeFaEighty}{0.1799}
+\newcommand{\MtOrgMedianRThreeFaNinety}{0.2988}
+\newcommand{\MtOrgMedianRThreeLit}{0.0714}
+\newcommand{\MtOrgMedianDiffTwoAuc}{+0.0040}
+\newcommand{\MtOrgMedianDiffTwoThin}{+0.0055}
+\newcommand{\MtOrgMedianDiffTwoFaEighty}{-0.0040}
+\newcommand{\MtOrgMedianDiffThreeAuc}{-0.0074}
+\newcommand{\MtOrgMedianDiffThreeThin}{-0.0052}
+\newcommand{\MtOrgMedianDiffThreeFaEighty}{+0.0131}
+\newcommand{\MtOrgAboveTwo}{2}
+\newcommand{\MtOrgKTextTwo}{2 of 4}
+\newcommand{\MtBelowListOrgTwo}{0343, 0841 w00}
+\newcommand{\MtOrgFaLessTwo}{2 of 4}
+\newcommand{\MtOrgAboveThree}{2}
+\newcommand{\MtOrgKTextThree}{2 of 4}
+\newcommand{\MtBelowListOrgThree}{0343, 0841 w00}
+\newcommand{\MtOrgFaLessThree}{0 of 4}
+\newcommand{\AllN}{14}
+\newcommand{\MtAllMeanOwnAuc}{0.8508}
+\newcommand{\MtAllMeanOwnThin}{0.8666}
+\newcommand{\MtAllMeanOwnFaEighty}{0.2525}
+\newcommand{\MtAllMeanOwnFaNinety}{0.4293}
+\newcommand{\MtAllMeanOwnLit}{0.0256}
+\newcommand{\MtAllMeanRTwoAuc}{0.8436}
+\newcommand{\MtAllMeanRTwoThin}{0.8595}
+\newcommand{\MtAllMeanRTwoFaEighty}{0.2704}
+\newcommand{\MtAllMeanRTwoFaNinety}{0.4514}
+\newcommand{\MtAllMeanRTwoLit}{0.0212}
+\newcommand{\MtAllMeanRThreeAuc}{0.8555}
+\newcommand{\MtAllMeanRThreeThin}{0.8706}
+\newcommand{\MtAllMeanRThreeFaEighty}{0.2458}
+\newcommand{\MtAllMeanRThreeFaNinety}{0.4235}
+\newcommand{\MtAllMeanRThreeLit}{0.0322}
+\newcommand{\MtAllMeanDiffTwoAuc}{+0.0072}
+\newcommand{\MtAllMeanDiffTwoThin}{+0.0071}
+\newcommand{\MtAllMeanDiffTwoFaEighty}{-0.0179}
+\newcommand{\MtAllMeanDiffThreeAuc}{-0.0047}
+\newcommand{\MtAllMeanDiffThreeThin}{-0.0040}
+\newcommand{\MtAllMeanDiffThreeFaEighty}{+0.0068}
+\newcommand{\MtAllMedianOwnAuc}{0.8526}
+\newcommand{\MtAllMedianOwnThin}{0.8730}
+\newcommand{\MtAllMedianOwnFaEighty}{0.2510}
+\newcommand{\MtAllMedianOwnFaNinety}{0.4234}
+\newcommand{\MtAllMedianOwnLit}{0.0118}
+\newcommand{\MtAllMedianRTwoAuc}{0.8441}
+\newcommand{\MtAllMedianRTwoThin}{0.8567}
+\newcommand{\MtAllMedianRTwoFaEighty}{0.2689}
+\newcommand{\MtAllMedianRTwoFaNinety}{0.4391}
+\newcommand{\MtAllMedianRTwoLit}{0.0082}
+\newcommand{\MtAllMedianRThreeAuc}{0.8532}
+\newcommand{\MtAllMedianRThreeThin}{0.8660}
+\newcommand{\MtAllMedianRThreeFaEighty}{0.2673}
+\newcommand{\MtAllMedianRThreeFaNinety}{0.4336}
+\newcommand{\MtAllMedianRThreeLit}{0.0233}
+\newcommand{\MtAllMedianDiffTwoAuc}{+0.0089}
+\newcommand{\MtAllMedianDiffTwoThin}{+0.0082}
+\newcommand{\MtAllMedianDiffTwoFaEighty}{-0.0129}
+\newcommand{\MtAllMedianDiffThreeAuc}{-0.0077}
+\newcommand{\MtAllMedianDiffThreeThin}{-0.0092}
+\newcommand{\MtAllMedianDiffThreeFaEighty}{+0.0049}
+\newcommand{\MtAllAboveTwo}{9}
+\newcommand{\MtAllKTextTwo}{9 of 14}
+\newcommand{\MtBelowListAllTwo}{0343, 0841 w00, 1447 w058, 0009B$\cdot$140325, 0343P$\cdot$233748-0}
+\newcommand{\MtAllFaLessTwo}{11 of 14}
+\newcommand{\MtAllAboveThree}{6}
+\newcommand{\MtAllKTextThree}{6 of 14}
+\newcommand{\MtBelowListAllThree}{0343, 0841 w00, 1447 w058, 1447 w060, 0009B$\cdot$125754, 0009B$\cdot$140325, 0500P2$\cdot$055229, 0500P2$\cdot$055230}
+\newcommand{\MtAllFaLessThree}{6 of 14}
+\newcommand{\MfHeldMeanOwnAuc}{0.8637}
+\newcommand{\MfHeldMeanOwnThin}{0.8722}
+\newcommand{\MfHeldMeanOwnFaEighty}{0.2365}
+\newcommand{\MfHeldMeanOwnFaNinety}{0.4208}
+\newcommand{\MfHeldMeanOwnLit}{0.0096}
+\newcommand{\MfHeldMeanRTwoAuc}{0.8421}
+\newcommand{\MfHeldMeanRTwoThin}{0.8517}
+\newcommand{\MfHeldMeanRTwoFaEighty}{0.2865}
+\newcommand{\MfHeldMeanRTwoFaNinety}{0.4663}
+\newcommand{\MfHeldMeanRTwoLit}{0.0058}
+\newcommand{\MfHeldMeanRThreeAuc}{0.8547}
+\newcommand{\MfHeldMeanRThreeThin}{0.8632}
+\newcommand{\MfHeldMeanRThreeFaEighty}{0.2585}
+\newcommand{\MfHeldMeanRThreeFaNinety}{0.4350}
+\newcommand{\MfHeldMeanRThreeLit}{0.0094}
+\newcommand{\MfHeldMeanDiffTwoAuc}{+0.0216}
+\newcommand{\MfHeldMeanDiffTwoThin}{+0.0204}
+\newcommand{\MfHeldMeanDiffTwoFaEighty}{-0.0500}
+\newcommand{\MfHeldMeanDiffThreeAuc}{+0.0090}
+\newcommand{\MfHeldMeanDiffThreeThin}{+0.0090}
+\newcommand{\MfHeldMeanDiffThreeFaEighty}{-0.0220}
+\newcommand{\MfHeldMedianOwnAuc}{0.8621}
+\newcommand{\MfHeldMedianOwnThin}{0.8709}
+\newcommand{\MfHeldMedianOwnFaEighty}{0.2515}
+\newcommand{\MfHeldMedianOwnFaNinety}{0.4366}
+\newcommand{\MfHeldMedianOwnLit}{0.0024}
+\newcommand{\MfHeldMedianRTwoAuc}{0.8435}
+\newcommand{\MfHeldMedianRTwoThin}{0.8561}
+\newcommand{\MfHeldMedianRTwoFaEighty}{0.2768}
+\newcommand{\MfHeldMedianRTwoFaNinety}{0.4537}
+\newcommand{\MfHeldMedianRTwoLit}{0.0012}
+\newcommand{\MfHeldMedianRThreeAuc}{0.8503}
+\newcommand{\MfHeldMedianRThreeThin}{0.8594}
+\newcommand{\MfHeldMedianRThreeFaEighty}{0.2917}
+\newcommand{\MfHeldMedianRThreeFaNinety}{0.4686}
+\newcommand{\MfHeldMedianRThreeLit}{0.0042}
+\newcommand{\MfHeldMedianDiffTwoAuc}{+0.0249}
+\newcommand{\MfHeldMedianDiffTwoThin}{+0.0224}
+\newcommand{\MfHeldMedianDiffTwoFaEighty}{-0.0338}
+\newcommand{\MfHeldMedianDiffThreeAuc}{+0.0065}
+\newcommand{\MfHeldMedianDiffThreeThin}{+0.0061}
+\newcommand{\MfHeldMedianDiffThreeFaEighty}{-0.0202}
+\newcommand{\MfHeldAboveTwo}{6}
+\newcommand{\MfHeldKTextTwo}{6 of 8}
+\newcommand{\MfBelowListHeldTwo}{0009B$\cdot$172639, 0343P$\cdot$233748-0}
+\newcommand{\MfHeldFaLessTwo}{6 of 8}
+\newcommand{\MfHeldAboveThree}{6}
+\newcommand{\MfHeldKTextThree}{6 of 8}
+\newcommand{\MfBelowListHeldThree}{0009B$\cdot$140325, 0500P2$\cdot$055229}
+\newcommand{\MfHeldFaLessThree}{6 of 8}
+\newcommand{\MfCtrlMeanOwnAuc}{0.8576}
+\newcommand{\MfCtrlMeanOwnThin}{0.8821}
+\newcommand{\MfCtrlMeanOwnFaEighty}{0.2248}
+\newcommand{\MfCtrlMeanOwnFaNinety}{0.4145}
+\newcommand{\MfCtrlMeanOwnLit}{0.0649}
+\newcommand{\MfCtrlMeanRTwoAuc}{0.8456}
+\newcommand{\MfCtrlMeanRTwoThin}{0.8698}
+\newcommand{\MfCtrlMeanRTwoFaEighty}{0.2489}
+\newcommand{\MfCtrlMeanRTwoFaNinety}{0.4315}
+\newcommand{\MfCtrlMeanRTwoLit}{0.0416}
+\newcommand{\MfCtrlMeanRThreeAuc}{0.8566}
+\newcommand{\MfCtrlMeanRThreeThin}{0.8805}
+\newcommand{\MfCtrlMeanRThreeFaEighty}{0.2288}
+\newcommand{\MfCtrlMeanRThreeFaNinety}{0.4082}
+\newcommand{\MfCtrlMeanRThreeLit}{0.0625}
+\newcommand{\MfCtrlMeanDiffTwoAuc}{+0.0120}
+\newcommand{\MfCtrlMeanDiffTwoThin}{+0.0123}
+\newcommand{\MfCtrlMeanDiffTwoFaEighty}{-0.0240}
+\newcommand{\MfCtrlMeanDiffThreeAuc}{+0.0010}
+\newcommand{\MfCtrlMeanDiffThreeThin}{+0.0016}
+\newcommand{\MfCtrlMeanDiffThreeFaEighty}{-0.0040}
+\newcommand{\MfCtrlMedianOwnAuc}{0.8607}
+\newcommand{\MfCtrlMedianOwnThin}{0.8859}
+\newcommand{\MfCtrlMedianOwnFaEighty}{0.2234}
+\newcommand{\MfCtrlMedianOwnFaNinety}{0.4035}
+\newcommand{\MfCtrlMedianOwnLit}{0.0736}
+\newcommand{\MfCtrlMedianRTwoAuc}{0.8492}
+\newcommand{\MfCtrlMedianRTwoThin}{0.8736}
+\newcommand{\MfCtrlMedianRTwoFaEighty}{0.2534}
+\newcommand{\MfCtrlMedianRTwoFaNinety}{0.4275}
+\newcommand{\MfCtrlMedianRTwoLit}{0.0493}
+\newcommand{\MfCtrlMedianRThreeAuc}{0.8561}
+\newcommand{\MfCtrlMedianRThreeThin}{0.8807}
+\newcommand{\MfCtrlMedianRThreeFaEighty}{0.2409}
+\newcommand{\MfCtrlMedianRThreeFaNinety}{0.4083}
+\newcommand{\MfCtrlMedianRThreeLit}{0.0707}
+\newcommand{\MfCtrlMedianDiffTwoAuc}{+0.0115}
+\newcommand{\MfCtrlMedianDiffTwoThin}{+0.0125}
+\newcommand{\MfCtrlMedianDiffTwoFaEighty}{-0.0247}
+\newcommand{\MfCtrlMedianDiffThreeAuc}{+0.0008}
+\newcommand{\MfCtrlMedianDiffThreeThin}{+0.0019}
+\newcommand{\MfCtrlMedianDiffThreeFaEighty}{-0.0085}
+\newcommand{\MfCtrlAboveTwo}{5}
+\newcommand{\MfCtrlKTextTwo}{5 of 6}
+\newcommand{\MfBelowListCtrlTwo}{0841 ag2}
+\newcommand{\MfCtrlFaLessTwo}{5 of 6}
+\newcommand{\MfCtrlAboveThree}{4}
+\newcommand{\MfCtrlKTextThree}{4 of 6}
+\newcommand{\MfBelowListCtrlThree}{0343, 0841 ag2}
+\newcommand{\MfCtrlFaLessThree}{4 of 6}
+\newcommand{\MfOrgMeanOwnAuc}{0.8735}
+\newcommand{\MfOrgMeanOwnThin}{0.8912}
+\newcommand{\MfOrgMeanOwnFaEighty}{0.1764}
+\newcommand{\MfOrgMeanOwnFaNinety}{0.3510}
+\newcommand{\MfOrgMeanOwnLit}{0.0817}
+\newcommand{\MfOrgMeanRTwoAuc}{0.8596}
+\newcommand{\MfOrgMeanRTwoThin}{0.8767}
+\newcommand{\MfOrgMeanRTwoFaEighty}{0.2000}
+\newcommand{\MfOrgMeanRTwoFaNinety}{0.3740}
+\newcommand{\MfOrgMeanRTwoLit}{0.0569}
+\newcommand{\MfOrgMeanRThreeAuc}{0.8736}
+\newcommand{\MfOrgMeanRThreeThin}{0.8897}
+\newcommand{\MfOrgMeanRThreeFaEighty}{0.1742}
+\newcommand{\MfOrgMeanRThreeFaNinety}{0.3388}
+\newcommand{\MfOrgMeanRThreeLit}{0.0764}
+\newcommand{\MfOrgMeanDiffTwoAuc}{+0.0139}
+\newcommand{\MfOrgMeanDiffTwoThin}{+0.0144}
+\newcommand{\MfOrgMeanDiffTwoFaEighty}{-0.0237}
+\newcommand{\MfOrgMeanDiffThreeAuc}{-0.0001}
+\newcommand{\MfOrgMeanDiffThreeThin}{+0.0014}
+\newcommand{\MfOrgMeanDiffThreeFaEighty}{+0.0022}
+\newcommand{\MfOrgMedianOwnAuc}{0.8831}
+\newcommand{\MfOrgMedianOwnThin}{0.9000}
+\newcommand{\MfOrgMedianOwnFaEighty}{0.1700}
+\newcommand{\MfOrgMedianOwnFaNinety}{0.2926}
+\newcommand{\MfOrgMedianOwnLit}{0.0753}
+\newcommand{\MfOrgMedianRTwoAuc}{0.8588}
+\newcommand{\MfOrgMedianRTwoThin}{0.8751}
+\newcommand{\MfOrgMedianRTwoFaEighty}{0.2145}
+\newcommand{\MfOrgMedianRTwoFaNinety}{0.3630}
+\newcommand{\MfOrgMedianRTwoLit}{0.0535}
+\newcommand{\MfOrgMedianRThreeAuc}{0.8784}
+\newcommand{\MfOrgMedianRThreeThin}{0.8934}
+\newcommand{\MfOrgMedianRThreeFaEighty}{0.1799}
+\newcommand{\MfOrgMedianRThreeFaNinety}{0.2988}
+\newcommand{\MfOrgMedianRThreeLit}{0.0714}
+\newcommand{\MfOrgMedianDiffTwoAuc}{+0.0148}
+\newcommand{\MfOrgMedianDiffTwoThin}{+0.0167}
+\newcommand{\MfOrgMedianDiffTwoFaEighty}{-0.0226}
+\newcommand{\MfOrgMedianDiffThreeAuc}{-0.0002}
+\newcommand{\MfOrgMedianDiffThreeThin}{+0.0019}
+\newcommand{\MfOrgMedianDiffThreeFaEighty}{-0.0037}
+\newcommand{\MfOrgAboveTwo}{3}
+\newcommand{\MfOrgKTextTwo}{3 of 4}
+\newcommand{\MfBelowListOrgTwo}{0841 ag2}
+\newcommand{\MfOrgFaLessTwo}{3 of 4}
+\newcommand{\MfOrgAboveThree}{2}
+\newcommand{\MfOrgKTextThree}{2 of 4}
+\newcommand{\MfBelowListOrgThree}{0343, 0841 ag2}
+\newcommand{\MfOrgFaLessThree}{2 of 4}
+\newcommand{\MfAllMeanOwnAuc}{0.8611}
+\newcommand{\MfAllMeanOwnThin}{0.8764}
+\newcommand{\MfAllMeanOwnFaEighty}{0.2315}
+\newcommand{\MfAllMeanOwnFaNinety}{0.4181}
+\newcommand{\MfAllMeanOwnLit}{0.0333}
+\newcommand{\MfAllMeanRTwoAuc}{0.8436}
+\newcommand{\MfAllMeanRTwoThin}{0.8595}
+\newcommand{\MfAllMeanRTwoFaEighty}{0.2704}
+\newcommand{\MfAllMeanRTwoFaNinety}{0.4514}
+\newcommand{\MfAllMeanRTwoLit}{0.0212}
+\newcommand{\MfAllMeanRThreeAuc}{0.8555}
+\newcommand{\MfAllMeanRThreeThin}{0.8706}
+\newcommand{\MfAllMeanRThreeFaEighty}{0.2458}
+\newcommand{\MfAllMeanRThreeFaNinety}{0.4235}
+\newcommand{\MfAllMeanRThreeLit}{0.0322}
+\newcommand{\MfAllMeanDiffTwoAuc}{+0.0175}
+\newcommand{\MfAllMeanDiffTwoThin}{+0.0169}
+\newcommand{\MfAllMeanDiffTwoFaEighty}{-0.0389}
+\newcommand{\MfAllMeanDiffThreeAuc}{+0.0056}
+\newcommand{\MfAllMeanDiffThreeThin}{+0.0058}
+\newcommand{\MfAllMeanDiffThreeFaEighty}{-0.0143}
+\newcommand{\MfAllMedianOwnAuc}{0.8607}
+\newcommand{\MfAllMedianOwnThin}{0.8790}
+\newcommand{\MfAllMedianOwnFaEighty}{0.2425}
+\newcommand{\MfAllMedianOwnFaNinety}{0.4213}
+\newcommand{\MfAllMedianOwnLit}{0.0178}
+\newcommand{\MfAllMedianRTwoAuc}{0.8441}
+\newcommand{\MfAllMedianRTwoThin}{0.8567}
+\newcommand{\MfAllMedianRTwoFaEighty}{0.2689}
+\newcommand{\MfAllMedianRTwoFaNinety}{0.4391}
+\newcommand{\MfAllMedianRTwoLit}{0.0082}
+\newcommand{\MfAllMedianRThreeAuc}{0.8532}
+\newcommand{\MfAllMedianRThreeThin}{0.8660}
+\newcommand{\MfAllMedianRThreeFaEighty}{0.2673}
+\newcommand{\MfAllMedianRThreeFaNinety}{0.4336}
+\newcommand{\MfAllMedianRThreeLit}{0.0233}
+\newcommand{\MfAllMedianDiffTwoAuc}{+0.0159}
+\newcommand{\MfAllMedianDiffTwoThin}{+0.0171}
+\newcommand{\MfAllMedianDiffTwoFaEighty}{-0.0278}
+\newcommand{\MfAllMedianDiffThreeAuc}{+0.0049}
+\newcommand{\MfAllMedianDiffThreeThin}{+0.0039}
+\newcommand{\MfAllMedianDiffThreeFaEighty}{-0.0085}
+\newcommand{\MfAllAboveTwo}{11}
+\newcommand{\MfAllKTextTwo}{11 of 14}
+\newcommand{\MfBelowListAllTwo}{0841 ag2, 0009B$\cdot$172639, 0343P$\cdot$233748-0}
+\newcommand{\MfAllFaLessTwo}{11 of 14}
+\newcommand{\MfAllAboveThree}{10}
+\newcommand{\MfAllKTextThree}{10 of 14}
+\newcommand{\MfBelowListAllThree}{0343, 0841 ag2, 0009B$\cdot$140325, 0500P2$\cdot$055229}
+\newcommand{\MfAllFaLessThree}{10 of 14}
+\newcommand{\MfMtHeldMeanDiffAuc}{+0.0105}
+\newcommand{\MfMtHeldAbove}{7}
+\newcommand{\MfMtCtrlMeanDiffAuc}{+0.0101}
+\newcommand{\MfMtCtrlAbove}{5}
+\newcommand{\MfMtOrgMeanDiffAuc}{+0.0096}
+\newcommand{\MfMtOrgAbove}{3}
+\newcommand{\MfMtAllMeanDiffAuc}{+0.0103}
+\newcommand{\MfMtAllAbove}{12}
+\newcommand{\BlockLongN}{6}
+\newcommand{\BlockShortN}{2}
+\newcommand{\MtBlockLongAboveTwo}{4}
+\newcommand{\MtBlockShortAboveTwo}{2}
+\newcommand{\MtBlockLongAboveThree}{4}
+\newcommand{\MtBlockShortAboveThree}{0}
+\newcommand{\MfBlockLongAboveTwo}{4}
+\newcommand{\MfBlockShortAboveTwo}{2}
+\newcommand{\MfBlockLongAboveThree}{5}
+\newcommand{\MfBlockShortAboveThree}{1}
+\newcommand{\IterSOne}{78125}
+\newcommand{\BatchSOne}{64}
+\newcommand{\LrSOne}{0.01}
+\newcommand{\WarmSOne}{1000}
+\newcommand{\PxSOne}{128}
+\newcommand{\IterFT}{12000}
+\newcommand{\BatchFT}{64}
+\newcommand{\LrFT}{0.01}
+\newcommand{\WarmFT}{300}
+\newcommand{\PxFT}{128}
+\newcommand{\IterSTwo}{40000}
+\newcommand{\BatchSTwo}{64}
+\newcommand{\LrSTwo}{0.01}
+\newcommand{\WarmSTwo}{500}
+\newcommand{\PxSTwo}{128}
+\newcommand{\IterSThree}{30000}
+\newcommand{\BatchSThree}{10}
+\newcommand{\LrSThree}{0.003}
+\newcommand{\WarmSThree}{200}
+\newcommand{\PxSThree}{256}
+\newcommand{\IterSFour}{20000}
+\newcommand{\BatchSFour}{10}
+\newcommand{\LrSFour}{0.003}
+\newcommand{\WarmSFour}{200}
+\newcommand{\PxSFour}{384}
+\newcommand{\Seed}{42}
+\newcommand{\RevisitCap}{0.5}
+\newcommand{\LabelSmooth}{0.5}
+\newcommand{\WeightDecay}{3e-05}
+\newcommand{\ValSteps}{32}
+\newcommand{\Planes}{17}
+\newcommand{\QuotaScrolls}{8}
+\newcommand{\QuotaSum}{64}
+\newcommand{\PatchFiles}{3}
+\newcommand{\PatchIns}{24}
+\newcommand{\PatchDel}{4}
+\newcommand{\PatchSha}{c5622564771a}
+\newcommand{\VillaCommit}{7e6b82164}
+\newcommand{\GroupZeroN}{63}
+\newcommand{\GroupTwoN}{24}
+\newcommand{\TrainSegN}{87}
+\newcommand{\LabCorrected}{59}
+\newcommand{\LabPublished}{28}
+\newcommand{\LabExactMain}{42}
+\newcommand{\LabExactNine}{9}
+\newcommand{\LabExactG}{6}
+\newcommand{\LabNative}{2}
+\newcommand{\ScrollN}{8}
+\newcommand{\CheckN}{13}
+\newcommand{\CheckPub}{8}
+\newcommand{\CheckCor}{5}
+\newcommand{\CheckSample}{11}
+\newcommand{\CheckStrictUnknown}{11}
+\newcommand{\CheckDiceAligned}{2}
+\newcommand{\CheckMaxPx}{0.735}
+\newcommand{\WOffLow}{7.06}
+\newcommand{\WOffHigh}{7.44}
+\newcommand{\WShiftMeshMf}{+0.0022}
+\newcommand{\WShiftMeshMt}{+0.0010}
+\newcommand{\WShiftMeshV}{-0.0006}
+\newcommand{\WShiftCensusMf}{+0.0040}
+\newcommand{\WShiftCensusMt}{+0.0031}
+\newcommand{\WShiftCensusV}{+0.0024}
+\newcommand{\WShiftMeshPx}{7.06}
+\newcommand{\WShiftCensusRows}{2.01}
+\newcommand{\WShiftCensusCols}{8.63}
+\newcommand{\NoiseThree}{0.01346}
+\newcommand{\NoiseFour}{0.01298}
+\newcommand{\NegSevenN}{7}
+\newcommand{\NegSevenAuc}{0.8548}
+\newcommand{\NegSevenRefAuc}{0.8554}
+\newcommand{\NegEightN}{7}
+\newcommand{\NegEightAuc}{0.8513}
+\newcommand{\NegEightRefAuc}{0.8673}
+\newcommand{\PairMaxGain}{+0.0039}
+\newcommand{\PairMinWins}{2}
+\newcommand{\PairMaxWins}{12}
+\newcommand{\PairRows}{19}
+\newcommand{\RecipeRows}{58}
+\newcommand{\OverlapHeld}{0}
+\newcommand{\ReadStarts}{7}
+\newcommand{\ReadStartsFour}{7}
+\newcommand{\ShaPairsControl}{7057d8bf53c2}
+\newcommand{\ShaPairsHeld}{040c511f603e}
+\newcommand{\ShaConfigs}{26b809aa0554}
+\newcommand{\CkptThree}{ckpt\_040000}
+\newcommand{\CkptFour}{ckpt\_020000}
+\newcommand{\ValMasks}{3}
+\newcommand{\NoiseAbout}{0.013}
+\newcommand{\RampVox}{1.5}

@@ -1,0 +1,142 @@
+{
+ "starts": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "subsets": "2v",
+ "depth": 17,
+ "note": "14 units; 8 val windows read from the C2 bicubic renders of scratch/render/C2_bic (uint8, /255), 6 controls from the stored stacks of gpu-read-s4clean (0343 uint8, the others uint16 /65280); 7 starts as the registered GPU read",
+ "units": [
+  {
+   "unit": "20250510172639",
+   "arm": "C2_bic",
+   "stack": "20250510172639.npy",
+   "stack_sha256": "b5df8187a31f4d16fa0689adb9c752e6a5bc437f23232822e5ac0122c2519899",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250510172639.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "20250716055229",
+   "arm": "C2_bic",
+   "stack": "20250716055229.npy",
+   "stack_sha256": "adc93cd3ec27a9132152f194cf6507e9aa0dea1a3090124035ace761531ee939",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250716055229.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "20250716055230",
+   "arm": "C2_bic",
+   "stack": "20250716055230.npy",
+   "stack_sha256": "aa048d89ff9e5177efcbec98402d1a70e55f15bf322441d2dc7c2eb2642ddc86",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250716055230.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "20250904233748-0_b2",
+   "arm": "C2_bic",
+   "stack": "20250904233748-0_b2.npy",
+   "stack_sha256": "f9cc5531d992d9cc5a7f8d2ad16e449edd39f26bda4a6d08dc60efeeba688330",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250904233748-0_b2.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "20250905172054-1_b2",
+   "arm": "C2_bic",
+   "stack": "20250905172054-1_b2.npy",
+   "stack_sha256": "8d3ea36a771bcad03f447a5cdc8e1cca88d618564e45eb0b4d256c609237d188",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250905172054-1_b2.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "20250919125754",
+   "arm": "C2_bic",
+   "stack": "20250919125754.npy",
+   "stack_sha256": "ec8181f14a5351d89b82bb8276eb2a7e16aa2abf6199272b132abb6536a0d32c",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250919125754.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "20250919133208",
+   "arm": "C2_bic",
+   "stack": "20250919133208.npy",
+   "stack_sha256": "11036bece012f062f23290a053076c6d964460254fb0a259b07aa7f45a40f50c",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250919133208.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "20250919140325",
+   "arm": "C2_bic",
+   "stack": "20250919140325.npy",
+   "stack_sha256": "701ce8005cede53269391855bee65a322f149f5f5c2134d3fac5921081891c01",
+   "divisor": 255,
+   "source": "night-render-labels-1107/scratch/render/C2_bic/20250919140325.zarr",
+   "kind": "val"
+  },
+  {
+   "unit": "0343",
+   "arm": "O_stored",
+   "stack": "0343.npy",
+   "stack_sha256": "14f11e064197af75eab93ff0a4ca46f6838e0a15dd6a1c1361c9b79b364b0cdb",
+   "divisor": 255,
+   "source": "gpu-read-s4clean/scratch/stacks/0343.npy",
+   "kind": "control"
+  },
+  {
+   "unit": "ag1",
+   "arm": "O_stored",
+   "stack": "ag1.npy",
+   "stack_sha256": "cb3822e4578f370cd59487d0768698046aaccf765d04b2d7d7f5c85f0c523ae6",
+   "divisor": 65280,
+   "source": "gpu-read-s4clean/scratch/stacks/ag1.npy",
+   "kind": "control"
+  },
+  {
+   "unit": "ag2",
+   "arm": "O_stored",
+   "stack": "ag2.npy",
+   "stack_sha256": "04f01778d06f48919b8f1538dd3492f73328fd8a66bccce21b6626c541a4e0fc",
+   "divisor": 65280,
+   "source": "gpu-read-s4clean/scratch/stacks/ag2.npy",
+   "kind": "control"
+  },
+  {
+   "unit": "w00",
+   "arm": "O_stored",
+   "stack": "w00.npy",
+   "stack_sha256": "949946de2ca954d250576cb84b8b46a5d15eadbe1089265834c69ea0c37d54ee",
+   "divisor": 65280,
+   "source": "gpu-read-s4clean/scratch/stacks/w00.npy",
+   "kind": "control"
+  },
+  {
+   "unit": "w058",
+   "arm": "O_stored",
+   "stack": "w058.npy",
+   "stack_sha256": "db95d6d5f04e00885afbc31bb6fe3089e17a0060d4de082c1b9ab572751ac2b4",
+   "divisor": 65280,
+   "source": "gpu-read-s4clean/scratch/stacks/w058.npy",
+   "kind": "control"
+  },
+  {
+   "unit": "w060",
+   "arm": "O_stored",
+   "stack": "w060.npy",
+   "stack_sha256": "b7e02e9b751a26ef901089fd468ecfd262a27288e4ccf47b87f9185cd1ee7e88",
+   "divisor": 65280,
+   "source": "gpu-read-s4clean/scratch/stacks/w060.npy",
+   "kind": "control"
+  }
+ ]
+}

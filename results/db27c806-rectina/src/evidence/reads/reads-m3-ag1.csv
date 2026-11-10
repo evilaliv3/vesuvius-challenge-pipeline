@@ -1,0 +1,9 @@
+# written by tools/gpr_podread.py on the pod
+start,seconds,patches,device,peak_gpu_mib
+0,59.859,4941,cuda,967
+1,60.855,4941,cuda,967
+2,60.952,4941,cuda,967
+3,60.322,4941,cuda,967
+4,61.1,4941,cuda,967
+5,60.787,4941,cuda,967
+6,60.844,4941,cuda,967

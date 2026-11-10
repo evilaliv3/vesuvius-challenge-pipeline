@@ -1,0 +1,30 @@
+\definecolor{rgreen}{RGB}{46,139,74}\definecolor{rred}{RGB}{192,57,43}
+{\small\setlength{\tabcolsep}{2.2pt}
+\noindent\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedleft\arraybackslash}p{3.0cm}}
+\hline
+unit & \multicolumn{2}{c}{AUC} & \multicolumn{2}{c}{\shortstack{AUC on\\thin strokes}} & \multicolumn{2}{c}{\shortstack{false ink at 80\\per cent recall}} \\
+ & {\footnotesize Reader v3} & {\footnotesize Rectina m4} & {\footnotesize Reader v3} & {\footnotesize Rectina m4} & {\footnotesize Reader v3} & {\footnotesize Rectina m4} \\
+\hline
+\multicolumn{7}{@{}p{\dimexpr 16.5cm+30.8pt\relax}@{}}{\rule{0pt}{2.6ex}\textit{Control units outside the training segments, organisers' labels: 0343 (approved letters, 116 keV); 0841 (113 keV)}} \\
+0343 & \textbf{0.9078} & \textcolor{rred}{$\blacktriangledown$}\,0.9064 {\scriptsize (-0.0014)} & 0.9246 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.9257} {\scriptsize (+0.0011)} & \textbf{0.0690} & \textcolor{rred}{$\blacktriangledown$}\,0.0698 {\scriptsize (+0.0008)} \\
+0841 ag1 & 0.8513 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8598} {\scriptsize (+0.0085)} & 0.8648 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8752} {\scriptsize (+0.0104)} & 0.2153 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.2037} {\scriptsize (-0.0117)} \\
+0841 ag2 & \textbf{0.8297} & \textcolor{rred}{$\blacktriangledown$}\,0.8214 {\scriptsize (-0.0082)} & \textbf{0.8474} & \textcolor{rred}{$\blacktriangledown$}\,0.8389 {\scriptsize (-0.0084)} & \textbf{0.2681} & \textcolor{rred}{$\blacktriangledown$}\,0.2957 {\scriptsize (+0.0276)} \\
+0841 w00 & 0.9055 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.9064} {\scriptsize (+0.0009)} & 0.9221 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.9248} {\scriptsize (+0.0027)} & 0.1444 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.1363} {\scriptsize (-0.0081)} \\
+\multicolumn{7}{@{}p{\dimexpr 16.5cm+30.8pt\relax}@{}}{\rule{0pt}{2.6ex}\textit{Control units outside the training segments, community labels, information only: 1447 (116 keV)}} \\
+1447 w058 & 0.8610 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8616} {\scriptsize (+0.0007)} & 0.8965 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8966} {\scriptsize (+0.0000)} & 0.2665 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.2430} {\scriptsize (-0.0234)} \\
+1447 w060 & 0.7842 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.7900} {\scriptsize (+0.0058)} & 0.8276 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8314} {\scriptsize (+0.0038)} & 0.4095 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.4005} {\scriptsize (-0.0090)} \\
+\multicolumn{7}{@{}p{\dimexpr 16.5cm+30.8pt\relax}@{}}{\rule{0pt}{2.6ex}\textit{Held-out segments of training scrolls, our validation labels: 0009B and 0343P (116 keV), 0500P2 (113 keV)}} \\
+0009B$\cdot$172639 & 0.8456 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8530} {\scriptsize (+0.0075)} & 0.8515 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8589} {\scriptsize (+0.0074)} & 0.3114 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.2611} {\scriptsize (-0.0503)} \\
+0009B$\cdot$125754 & 0.9562 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.9617} {\scriptsize (+0.0056)} & 0.9636 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.9685} {\scriptsize (+0.0049)} & 0.0460 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.0411} {\scriptsize (-0.0049)} \\
+0009B$\cdot$133208 & 0.8551 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8713} {\scriptsize (+0.0161)} & 0.8672 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8829} {\scriptsize (+0.0157)} & 0.2774 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.2420} {\scriptsize (-0.0354)} \\
+0009B$\cdot$140325 & \textbf{0.9040} & \textcolor{rred}{$\blacktriangledown$}\,0.8898 {\scriptsize (-0.0142)} & \textbf{0.9110} & \textcolor{rred}{$\blacktriangledown$}\,0.8981 {\scriptsize (-0.0129)} & \textbf{0.1574} & \textcolor{rred}{$\blacktriangledown$}\,0.1896 {\scriptsize (+0.0321)} \\
+0500P2$\cdot$055229 & \textbf{0.8971} & \textcolor{rred}{$\blacktriangledown$}\,0.8925 {\scriptsize (-0.0046)} & \textbf{0.9074} & \textcolor{rred}{$\blacktriangledown$}\,0.9034 {\scriptsize (-0.0040)} & \textbf{0.1360} & \textcolor{rred}{$\blacktriangledown$}\,0.1757 {\scriptsize (+0.0397)} \\
+0500P2$\cdot$055230 & 0.7881 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8128} {\scriptsize (+0.0247)} & 0.7980 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8228} {\scriptsize (+0.0248)} & 0.3998 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.3214} {\scriptsize (-0.0784)} \\
+0343P$\cdot$233748-0 & 0.8340 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8383} {\scriptsize (+0.0043)} & 0.8398 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8438} {\scriptsize (+0.0040)} & 0.3059 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.3015} {\scriptsize (-0.0044)} \\
+0343P$\cdot$172054-1 & 0.7573 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.7902} {\scriptsize (+0.0328)} & 0.7669 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.7990} {\scriptsize (+0.0321)} & 0.4336 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.3596} {\scriptsize (-0.0740)} \\
+\hline
+Mean & 0.8555 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8611} {\scriptsize (+0.0056)} & 0.8706 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8764} {\scriptsize (+0.0058)} & 0.2458 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.2315} {\scriptsize (-0.0143)} \\
+\hline
+Median & 0.8532 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8607} {\scriptsize (+0.0075)} & 0.8660 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.8790} {\scriptsize (+0.0130)} & 0.2673 & \textcolor{rgreen}{$\blacktriangle$}\,\textbf{0.2425} {\scriptsize (-0.0248)} \\
+\hline
+\end{tabular}}

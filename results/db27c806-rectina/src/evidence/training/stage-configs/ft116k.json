@@ -1,0 +1,341 @@
+{
+ "augmentation_preset": "default",
+ "augmentation_rotation_axes": [
+  0
+ ],
+ "batch_size": 64,
+ "best_checkpoint_metric": "val_balanced_accuracy",
+ "checkpoint": "/workspace/gpu1/jobs96/tri-s42-v2-full/out/s1/@KEPT@",
+ "dataloader_workers": 12,
+ "datasets": [
+  {
+   "sampling_physical_segment_keys": {
+    "pherc0139-w016": "0139:w016",
+    "pherc0139-w035": "0139:w035",
+    "pherc0139-w039": "0139:w039",
+    "pherc0139-w040": "0139:w040",
+    "pherc0139-w041": "0139:w041",
+    "pherc0139-w043": "0139:w043"
+   },
+   "sampling_representation_keys": {
+    "pherc0139-w016": "public_2p4_level2_zmean4:pherc0139-w016",
+    "pherc0139-w035": "public_2p4_level2_zmean4:pherc0139-w035",
+    "pherc0139-w039": "public_2p4_level2_zmean4:pherc0139-w039",
+    "pherc0139-w040": "public_2p4_level2_zmean4:pherc0139-w040",
+    "pherc0139-w041": "public_2p4_level2_zmean4:pherc0139-w041",
+    "pherc0139-w043": "public_2p4_level2_zmean4:pherc0139-w043"
+   },
+   "sampling_scroll": "0139",
+   "segments": [
+    "pherc0139-w016",
+    "pherc0139-w035",
+    "pherc0139-w039",
+    "pherc0139-w040",
+    "pherc0139-w041",
+    "pherc0139-w043"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e00",
+   "source_family": "public_2p4_level2_zmean4",
+   "surface_volume_paths": {
+    "pherc0139-w016": "/root/gpu1local/two-pipelines/render-tri/PHerc0139-rvpbox/pherc0139-w016.zarr",
+    "pherc0139-w035": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w035.zarr",
+    "pherc0139-w039": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w039.zarr",
+    "pherc0139-w040": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w040.zarr",
+    "pherc0139-w041": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w041.zarr",
+    "pherc0139-w043": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w043.zarr"
+   },
+   "volume_scale": 0
+  },
+  {
+   "sampling_physical_segment_keys": {
+    "pherc0139-w017": "0139:w017",
+    "pherc0139-w028": "0139:w028",
+    "pherc0139-w029": "0139:w029"
+   },
+   "sampling_representation_keys": {
+    "pherc0139-w017": "public_2p4_level2_zmean4:pherc0139-w017",
+    "pherc0139-w028": "public_2p4_level2_zmean4:pherc0139-w028",
+    "pherc0139-w029": "public_2p4_level2_zmean4:pherc0139-w029"
+   },
+   "sampling_scroll": "0139",
+   "segments": [
+    "pherc0139-w017",
+    "pherc0139-w028",
+    "pherc0139-w029"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e01",
+   "source_family": "public_2p4_level2_zmean4",
+   "surface_volume_paths": {
+    "pherc0139-w017": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w017.zarr",
+    "pherc0139-w028": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w028.zarr",
+    "pherc0139-w029": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/pherc0139-w029.zarr"
+   },
+   "volume_scale": 0
+  },
+  {
+   "sampling_physical_segment_keys": {
+    "pherc1667-w013": "1667:w013",
+    "pherc1667-w018": "1667:w018",
+    "pherc1667-w023": "1667:w023",
+    "pherc1667-w031": "1667:w031"
+   },
+   "sampling_representation_keys": {
+    "pherc1667-w013": "public_2p4_level2_zmean4:pherc1667-w013",
+    "pherc1667-w018": "public_2p4_level2_zmean4:pherc1667-w018",
+    "pherc1667-w023": "public_2p4_level2_zmean4:pherc1667-w023",
+    "pherc1667-w031": "public_2p4_level2_zmean4:pherc1667-w031"
+   },
+   "sampling_scroll": "1667",
+   "segments": [
+    "pherc1667-w013",
+    "pherc1667-w018",
+    "pherc1667-w023",
+    "pherc1667-w031"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e02",
+   "source_family": "public_2p4_level2_zmean4",
+   "surface_volume_paths": {
+    "pherc1667-w013": "/root/gpu1local/two-pipelines/render-tri/PHerc1667/pherc1667-w013.zarr",
+    "pherc1667-w018": "/root/gpu1local/two-pipelines/render-tri/PHerc1667/pherc1667-w018.zarr",
+    "pherc1667-w023": "/root/gpu1local/two-pipelines/render-tri/PHerc1667/pherc1667-w023.zarr",
+    "pherc1667-w031": "/root/gpu1local/two-pipelines/render-tri/PHerc1667-rvpbox/pherc1667-w031.zarr"
+   },
+   "volume_scale": 0
+  },
+  {
+   "sampling_physical_segment_keys": {
+    "pherc1667-w028": "1667:w028",
+    "pherc1667-w029": "1667:w029"
+   },
+   "sampling_representation_keys": {
+    "pherc1667-w028": "public_2p4_level2_zmean4:pherc1667-w028",
+    "pherc1667-w029": "public_2p4_level2_zmean4:pherc1667-w029"
+   },
+   "sampling_scroll": "1667",
+   "segments": [
+    "pherc1667-w028",
+    "pherc1667-w029"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e03",
+   "source_family": "public_2p4_level2_zmean4",
+   "surface_volume_paths": {
+    "pherc1667-w028": "/root/gpu1local/two-pipelines/render-tri/PHerc1667/pherc1667-w028.zarr",
+    "pherc1667-w029": "/root/gpu1local/two-pipelines/render-tri/PHerc1667/pherc1667-w029.zarr"
+   },
+   "volume_scale": 0
+  },
+  {
+   "sampling_physical_segment_keys": {
+    "phercparis4-w00": "Paris4:w00",
+    "phercparis4-w01": "Paris4:w01",
+    "phercparis4-w02": "Paris4:w02",
+    "phercparis4-w03": "Paris4:w03",
+    "phercparis4-w05": "Paris4:w05",
+    "phercparis4-w06": "Paris4:w06",
+    "phercparis4-w07": "Paris4:w07",
+    "phercparis4-w09": "Paris4:w09"
+   },
+   "sampling_representation_keys": {
+    "phercparis4-w00": "public_2p4_level2_zmean4:phercparis4-w00",
+    "phercparis4-w01": "public_2p4_level2_zmean4:phercparis4-w01",
+    "phercparis4-w02": "public_2p4_level2_zmean4:phercparis4-w02",
+    "phercparis4-w03": "public_2p4_level2_zmean4:phercparis4-w03",
+    "phercparis4-w05": "public_2p4_level2_zmean4:phercparis4-w05",
+    "phercparis4-w06": "public_2p4_level2_zmean4:phercparis4-w06",
+    "phercparis4-w07": "public_2p4_level2_zmean4:phercparis4-w07",
+    "phercparis4-w09": "public_2p4_level2_zmean4:phercparis4-w09"
+   },
+   "sampling_scroll": "Paris4",
+   "segments": [
+    "phercparis4-w00",
+    "phercparis4-w01",
+    "phercparis4-w02",
+    "phercparis4-w03",
+    "phercparis4-w05",
+    "phercparis4-w06",
+    "phercparis4-w07",
+    "phercparis4-w09"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e04",
+   "source_family": "public_2p4_level2_zmean4",
+   "surface_volume_paths": {
+    "phercparis4-w00": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w00.zarr",
+    "phercparis4-w01": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w01.zarr",
+    "phercparis4-w02": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w02.zarr",
+    "phercparis4-w03": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w03.zarr",
+    "phercparis4-w05": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w05.zarr",
+    "phercparis4-w06": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w06.zarr",
+    "phercparis4-w07": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w07.zarr",
+    "phercparis4-w09": "/root/gpu1local/two-pipelines/render-tri/PHercParis4/phercparis4-w09.zarr"
+   },
+   "volume_scale": 0
+  },
+  {
+   "sampling_physical_segment_keys": {
+    "pherc0814-46527": "0814:46527"
+   },
+   "sampling_representation_keys": {
+    "pherc0814-46527": "public_2p4_level2_zmean4:pherc0814-46527"
+   },
+   "sampling_scroll": "0814",
+   "segments": [
+    "pherc0814-46527"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e05",
+   "source_family": "public_2p4_level2_zmean4",
+   "surface_volume_paths": {
+    "pherc0814-46527": "/root/gpu1local/two-pipelines/render-tri/PHerc0814/pherc0814-46527.zarr"
+   },
+   "volume_scale": 0
+  },
+  {
+   "sampling_physical_segment_keys": {
+    "w035": "0139:w035",
+    "w039": "0139:w039"
+   },
+   "sampling_representation_keys": {
+    "w035": "native_9p362_level0:w035",
+    "w039": "native_9p362_level0:w039"
+   },
+   "sampling_scroll": "0139",
+   "segments": [
+    "w035",
+    "w039"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e06",
+   "source_family": "native_9p362_level0",
+   "surface_volume_paths": {
+    "w035": "/root/gpu1local/two-pipelines/render-tri/PHerc0139-rvpbox/w035.zarr",
+    "w039": "/root/gpu1local/two-pipelines/render-tri/PHerc0139/w039.zarr"
+   },
+   "volume_scale": 0
+  },
+  {
+   "sampling_physical_segment_keys": {
+    "20250511200236": "0009B:20250511200236",
+    "20250919064353": "0009B:20250919064353",
+    "20250919123506": "0009B:20250919123506",
+    "20250919124722": "0009B:20250919124722",
+    "20250919124917": "0009B:20250919124917",
+    "20250919125605": "0009B:20250919125605",
+    "20250919131352": "0009B:20250919131352",
+    "20250919135433": "0009B:20250919135433",
+    "20250919135915": "0009B:20250919135915"
+   },
+   "sampling_representation_keys": {
+    "20250511200236": "native_8p64_116kev:20250511200236",
+    "20250919064353": "native_8p64_116kev:20250919064353",
+    "20250919123506": "native_8p64_116kev:20250919123506",
+    "20250919124722": "native_8p64_116kev:20250919124722",
+    "20250919124917": "native_8p64_116kev:20250919124917",
+    "20250919125605": "native_8p64_116kev:20250919125605",
+    "20250919131352": "native_8p64_116kev:20250919131352",
+    "20250919135433": "native_8p64_116kev:20250919135433",
+    "20250919135915": "native_8p64_116kev:20250919135915"
+   },
+   "sampling_scroll": "0009B",
+   "segments": [
+    "20250511200236",
+    "20250919064353",
+    "20250919123506",
+    "20250919124722",
+    "20250919124917",
+    "20250919125605",
+    "20250919131352",
+    "20250919135433",
+    "20250919135915"
+   ],
+   "segments_path": "/root/gpu1local/data/4e9bd18cabac/e07",
+   "source_family": "native_8p64_116kev",
+   "surface_volume_paths": {
+    "20250511200236": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250511200236.zarr",
+    "20250919064353": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919064353.zarr",
+    "20250919123506": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919123506.zarr",
+    "20250919124722": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919124722.zarr",
+    "20250919124917": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919124917.zarr",
+    "20250919125605": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919125605.zarr",
+    "20250919131352": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919131352.zarr",
+    "20250919135433": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919135433.zarr",
+    "20250919135915": "/root/gpu1local/two-pipelines/render-tri/PHerc0009B/20250919135915.zarr"
+   },
+   "volume_scale": 0
+  }
+ ],
+ "description": "Hybrid local-3D-stem / 2D U-Net on the aligned 21-slice corpus: 17-of-21 jittered Z window, fixed scroll-prior batch sampling, robust-MAD normalization, smoothed BCE + Dice. Fill in out_dir and the datasets block for your data layout; the full corpus contract (29 representations across 4 scrolls) is aligned21_fixed_scroll_prior.json.",
+ "fixed_scroll_prior": {
+  "seed": 42,
+  "target_batch_counts": {
+   "0009B": 18,
+   "0139": 20,
+   "0814": 2,
+   "1667": 16,
+   "Paris4": 8
+  },
+  "physical_weight_power": 0.5
+ },
+ "flat_z_window_jitter": {
+  "enabled": true,
+  "max_offset": 2,
+  "padding": "forbidden",
+  "probability": 1.0,
+  "window_depth": 17
+ },
+ "grad_acc_steps": 1,
+ "grad_clip": 1.0,
+ "image_normalization": {
+  "mode": "robust_mad",
+  "percentile_lower": 1.0,
+  "percentile_upper": 99.0
+ },
+ "in_channels": 1,
+ "learning_rate": 0.01,
+ "log_every": 50,
+ "loss": {
+  "bce_label_smoothing": 0.5,
+  "dice_label_smoothing": 0.0
+ },
+ "max_amp_overflow_events": 0,
+ "mixed_precision": "fp16",
+ "mode": "flat",
+ "model_config": {
+  "autoconfigure": true,
+  "basic_decoder_block": "ConvBlock",
+  "basic_encoder_block": "BasicBlockD",
+  "stem_channels": 16,
+  "z_projection_mode": "none"
+ },
+ "model_type": "vesuvius_unet_3d_stem_2d",
+ "num_iterations": 12000,
+ "optimizer": "sgd",
+ "out_dir": "/workspace/gpu1/jobs96/tri-s42-v2-full/out/ft116k",
+ "patch_cache_filename": "/root/gpu1local/patchcache/ft116k-flat_ink_patches_dm-labeled_pf-labeled-default-v6-po-0.25-mlc-0.0-pfs-_ps-17x128x128_labels-auto.json",
+ "patch_min_labeled_coverage": 0.0,
+ "patch_overlap": 0.25,
+ "patch_size": [
+  17,
+  128,
+  128
+ ],
+ "pin_memory": true,
+ "sampling_audit_every": 200,
+ "sampling_strategy": "fixed_scroll_prior_stratified",
+ "save_every": 3000,
+ "scheduler": {
+  "name": "diffusers_cosine_warmup"
+ },
+ "seed": 42,
+ "targets": {
+  "ink": {
+   "activation": "none",
+   "out_channels": 1,
+   "z_projection_mode": "none"
+  }
+ },
+ "val_every": 3000,
+ "val_preview_batches": 1,
+ "val_steps": 32,
+ "verify_finite_gradients_steps": 0,
+ "warmup_steps": 300,
+ "weight_decay": 3e-05,
+ "weights_only": true
+}

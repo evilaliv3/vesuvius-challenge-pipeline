@@ -1,0 +1,4 @@
+# written by tools/c_val_noise.py at 2026-11-07T23:23:48Z; source validation_metrics.jsonl of s3 and s4 of train/tri-s42-m3ft-dense16; val_balanced_accuracy at 32 val steps
+stage,n_evals,ba_min,ba_max,ba_best_step,ba_mean_last3,best_minus_last3,ba_consec_diff_sd,ba_single_eval_sd_est,worst_consec_drop,val_loss_min,val_loss_max,val_loss_range,val_batches,argmin_loss_step
+s3,14,0.76816,0.82842,26000,0.82568,0.00273,0.01904,0.01346,-0.03141,0.52551,0.5467,0.02119,32,26000
+s4,9,0.8019,0.8453,14000,0.83476,0.01054,0.01836,0.01298,-0.03402,0.52201,0.53189,0.00988,28,12000

@@ -1,0 +1,76 @@
+diff --git a/vesuvius/src/vesuvius/ink_detection/config.py b/vesuvius/src/vesuvius/ink_detection/config.py
+index fc7b29e4b..3d13ed46b 100644
+--- a/vesuvius/src/vesuvius/ink_detection/config.py
++++ b/vesuvius/src/vesuvius/ink_detection/config.py
+@@ -599,6 +599,7 @@ class SamplingConfig:
+     fixed_batch_quotas: Mapping[str, int] = field(
+         default_factory=_FrozenMapping
+     )
++    physical_weight_power: float = 0.0
+ 
+     @classmethod
+     def from_mapping(cls, authored: Mapping[str, Any]) -> "SamplingConfig":
+@@ -632,6 +633,7 @@ class SamplingConfig:
+             fixed_batch_quotas=_FrozenMapping(
+                 {str(key): int(value) for key, value in quotas.items()}
+             ),
++            physical_weight_power=float(fixed.get("physical_weight_power", 0.0)),
+         )
+ 
+ 
+diff --git a/vesuvius/src/vesuvius/ink_detection/data/augmentations.py b/vesuvius/src/vesuvius/ink_detection/data/augmentations.py
+index daf38b6bf..3be4cffbf 100644
+--- a/vesuvius/src/vesuvius/ink_detection/data/augmentations.py
++++ b/vesuvius/src/vesuvius/ink_detection/data/augmentations.py
+@@ -113,8 +113,8 @@ def _default(patch_size) -> tuple[list, list]:
+     # Half the gamma draws below 1, half above.
+     for p_invert, p in ((1.0, 0.2), (0.0, 0.4)):
+         photometric.append(A.OneOf(transforms=[
+-            A.Gamma(gamma=A.Uniform(0.7, 1), p_invert=p_invert, p_retain_stats=1),
+-            A.Gamma(gamma=A.Uniform(1, 1.5), p_invert=p_invert, p_retain_stats=1),
++            A.Gamma(gamma=A.Uniform(0.7, 1), p_invert=p_invert, p_retain_stats=1, masked=True, clip=True),
++            A.Gamma(gamma=A.Uniform(1, 1.5), p_invert=p_invert, p_retain_stats=1, masked=True, clip=True),
+         ], p=p))
+     photometric.append(A.OneOf(transforms=[A.Invert(shared=True), A.Invert(p_channel=0.5)], p=0.2))
+     return geometric, photometric
+diff --git a/vesuvius/src/vesuvius/ink_detection/training/samplers.py b/vesuvius/src/vesuvius/ink_detection/training/samplers.py
+index ae0d14f0a..d7efd2cab 100644
+--- a/vesuvius/src/vesuvius/ink_detection/training/samplers.py
++++ b/vesuvius/src/vesuvius/ink_detection/training/samplers.py
+@@ -48,6 +48,18 @@ class _RecyclingQueue:
+         return value
+ 
+ 
++class _WeightedQueue:
++    """Draw with replacement, weight proportional to patch count ** power (power 0 is uniform)."""
++
++    def __init__(self, values: Sequence, weights: Sequence[float], *, seed: int) -> None:
++        self._values, self._weights = list(values), list(weights)
++        self._rng = random.Random(int(seed))
++        self.recycles = 0
++
++    def pop(self):
++        return self._rng.choices(self._values, self._weights)[0]
++
++
+ class FixedScrollPriorStratifiedBatchSampler(Sampler[list[int]]):
+     """Draw exact scroll quotas and balance physical segments hierarchically.
+ 
+@@ -150,9 +162,15 @@ class FixedScrollPriorStratifiedBatchSampler(Sampler[list[int]]):
+             raise ValueError(
+                 f"fixed-prior sampler has {len(patches)} patches, fewer than one batch"
+             )
++        power = float(config.sampling.physical_weight_power)
++        patches_per_physical = Counter((scroll, physical) for scroll, physical, _ in metadata)
+         self._physical_queues = {
+-            scroll: _RecyclingQueue(
+-                values, seed=_stable_seed(self.seed, f"physical:{scroll}")
++            scroll: _RecyclingQueue(values, seed=_stable_seed(self.seed, f"physical:{scroll}"))
++            if power == 0.0
++            else _WeightedQueue(
++                values,
++                [patches_per_physical[(scroll, v)] ** power for v in values],
++                seed=_stable_seed(self.seed, f"physical:{scroll}"),
+             )
+             for scroll, values in self._physicals_by_scroll.items()
+         }

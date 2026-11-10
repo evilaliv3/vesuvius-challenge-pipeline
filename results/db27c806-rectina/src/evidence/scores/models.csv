@@ -1,0 +1,41 @@
+model,kind,equation,components,parents,default_on
+Reader v2,reader,Reader v2,Reader v2,,1
+Reader v3,reader,Reader v3,Reader v3,,1
+(V2+V3)a,w2r,½Reader v2 + ½Reader v3,Reader v2;Reader v3,,
+(V2+V3)b,w2r,⅔Reader v2 + ⅓Reader v3,Reader v2;Reader v3,,
+(V2+V3)c,w2r,⅓Reader v2 + ⅔Reader v3,Reader v2;Reader v3,,
+M1,solo,"M1 (Rectina m1: Ds1, D_s1, r4bis ckpt 130001; GPU read; never combined)",M1,,1
+M2,solo,"M2 (Rectina m2: Ds4, s4clean; GPU read; never combined)",M2,,1
+M3,reader,"M3 (s1 + ft116k + s2, rebuilt on villa main with C2 bicubic renders and the label corrections already in the training set (59 of the 87 segments carry the earlier shift corrections, 28 use the published labels; the evaluation labels were not realigned), seed 42; GPU read; the 6 controls re-rendered with the current binary, 0343 differs from its old stack for an unproven reason)",M3,,1
+M4,reader,"M4 (M3 weights, then s3 and s4, rebuilt on villa main with C2 bicubic renders and the label corrections already in the training set (59 of the 87 segments carry the earlier shift corrections, 28 use the published labels; the evaluation labels were not realigned), seed 42; GPU read; the 6 controls re-rendered with the current binary, 0343 differs from its old stack for an unproven reason)",M4,,1
+(M3+M4)a,pair,½M3 + ½M4,M3;M4,,
+(M3+M4)b,pair,⅔M3 + ⅓M4,M3;M4,,
+(M3+M4)c,pair,⅓M3 + ⅔M4,M3;M4,,
+(M3+V3)a,pair,½M3 + ½Reader v3,M3;Reader v3,,
+(M3+V3)b,pair,⅔M3 + ⅓Reader v3,M3;Reader v3,,
+(M3+V3)c,pair,⅓M3 + ⅔Reader v3,M3;Reader v3,,
+(M3+V2)a,pair,½M3 + ½Reader v2,M3;Reader v2,,
+(M3+V2)b,pair,⅔M3 + ⅓Reader v2,M3;Reader v2,,
+(M3+V2)c,pair,⅓M3 + ⅔Reader v2,M3;Reader v2,,
+(M4+V3)a,pair,½M4 + ½Reader v3,M4;Reader v3,,
+(M4+V3)b,pair,⅔M4 + ⅓Reader v3,M4;Reader v3,,
+(M4+V3)c,pair,⅓M4 + ⅔Reader v3,M4;Reader v3,,
+(M4+V2)a,pair,½M4 + ½Reader v2,M4;Reader v2,,
+(M4+V2)b,pair,⅔M4 + ⅓Reader v2,M4;Reader v2,,
+(M4+V2)c,pair,⅓M4 + ⅔Reader v2,M4;Reader v2,,
+(M3+M4+V3)e,triple,⅓M3 + ⅓M4 + ⅓Reader v3,M3;M4;Reader v3,,
+(M3+M4+V3)d1,triple,½M3 + ¼M4 + ¼Reader v3,M3;M4;Reader v3,,
+(M3+M4+V3)d2,triple,¼M3 + ½M4 + ¼Reader v3,M3;M4;Reader v3,,
+(M3+M4+V3)d3,triple,¼M3 + ¼M4 + ½Reader v3,M3;M4;Reader v3,,
+(M3+M4+V2)e,triple,⅓M3 + ⅓M4 + ⅓Reader v2,M3;M4;Reader v2,,
+(M3+M4+V2)d1,triple,½M3 + ¼M4 + ¼Reader v2,M3;M4;Reader v2,,
+(M3+M4+V2)d2,triple,¼M3 + ½M4 + ¼Reader v2,M3;M4;Reader v2,,
+(M3+M4+V2)d3,triple,¼M3 + ¼M4 + ½Reader v2,M3;M4;Reader v2,,
+(M3+V2+V3)e,triple,⅓M3 + ⅓Reader v2 + ⅓Reader v3,M3;Reader v2;Reader v3,,
+(M3+V2+V3)d1,triple,½M3 + ¼Reader v2 + ¼Reader v3,M3;Reader v2;Reader v3,,
+(M3+V2+V3)d2,triple,¼M3 + ½Reader v2 + ¼Reader v3,M3;Reader v2;Reader v3,,
+(M3+V2+V3)d3,triple,¼M3 + ¼Reader v2 + ½Reader v3,M3;Reader v2;Reader v3,,
+(M4+V2+V3)e,triple,⅓M4 + ⅓Reader v2 + ⅓Reader v3,M4;Reader v2;Reader v3,,
+(M4+V2+V3)d1,triple,½M4 + ¼Reader v2 + ¼Reader v3,M4;Reader v2;Reader v3,,
+(M4+V2+V3)d2,triple,¼M4 + ½Reader v2 + ¼Reader v3,M4;Reader v2;Reader v3,,
+(M4+V2+V3)d3,triple,¼M4 + ¼Reader v2 + ½Reader v3,M4;Reader v2;Reader v3,,
